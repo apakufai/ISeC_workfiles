@@ -1,4 +1,4 @@
-# Individual Self-Exploration Card
+# Individual Self-exploration Card
 
 
 Название:
