@@ -1,2 +1,2 @@
-# Individual-Self-Exploration-Card
+# Individual Self-Exploration Card
 ИКС-файл
