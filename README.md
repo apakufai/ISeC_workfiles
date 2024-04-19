@@ -1,9 +1,9 @@
 # Individual Self-Exploration Card
 
 
-Название:
-Бэк: ISC (Individual Self-exploration Card)
-Фронт: ИКС (Индивидуальная карта самоисследования)
+Название:<br/> 
+Бэк: ISC (Individual Self-exploration Card)<br/> 
+Фронт: ИКС (Индивидуальная карта самоисследования)<br/> 
 
 __________________
 
