@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-04-19T12:29:50.016Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" etag="jKPyAmeQPuWAA_HbCosa" version="24.2.5" type="github">
+<mxfile host="app.diagrams.net" modified="2024-04-19T12:36:27.236Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" etag="U2JOTFcylGpkf2DkKqxA" version="24.2.5" type="github">
   <diagram name="Страница — 1" id="jMd7XnvH8LQQWngnc8pW">
     <mxGraphModel dx="977" dy="887" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -186,19 +186,19 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="8nZUkpjNU0nt2u1MXgrm-51" value="Блок 1.&lt;div&gt;Характеристики стиля&lt;/div&gt;&lt;div&gt;в переговорах&lt;/div&gt;" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=70;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="225" y="990" width="160" height="170" as="geometry" />
+          <mxGeometry x="65" y="860" width="160" height="170" as="geometry" />
         </mxCell>
         <mxCell id="8nZUkpjNU0nt2u1MXgrm-52" value="- Подстраивание&lt;div&gt;- Паритет&lt;/div&gt;&lt;div&gt;- Торги&lt;/div&gt;&lt;div&gt;- Угроза&lt;/div&gt;&lt;div&gt;- Логика&lt;/div&gt;&lt;div&gt;- Эмоции&lt;/div&gt;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;" vertex="1" parent="8nZUkpjNU0nt2u1MXgrm-51">
           <mxGeometry y="70" width="160" height="100" as="geometry" />
         </mxCell>
-        <mxCell id="8nZUkpjNU0nt2u1MXgrm-54" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERoneToMany;rounded=0;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="8nZUkpjNU0nt2u1MXgrm-51" target="8nZUkpjNU0nt2u1MXgrm-55">
+        <mxCell id="8nZUkpjNU0nt2u1MXgrm-54" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERoneToMany;rounded=0;entryX=0;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" target="8nZUkpjNU0nt2u1MXgrm-55">
           <mxGeometry width="100" height="100" relative="1" as="geometry">
-            <mxPoint x="560" y="330" as="sourcePoint" />
+            <mxPoint x="600" y="810" as="sourcePoint" />
             <mxPoint x="590" y="190" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="8nZUkpjNU0nt2u1MXgrm-55" value="Вопрос" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="570" y="950" width="160" height="170" as="geometry" />
+          <mxGeometry x="640" y="920" width="160" height="170" as="geometry" />
         </mxCell>
         <mxCell id="8nZUkpjNU0nt2u1MXgrm-56" value="В зависимости от ответа&lt;div&gt;ко двум из шести значений&lt;/div&gt;&lt;div&gt;прибавляется единица&lt;/div&gt;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;" vertex="1" parent="8nZUkpjNU0nt2u1MXgrm-55">
           <mxGeometry y="30" width="160" height="140" as="geometry" />
@@ -224,7 +224,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="8nZUkpjNU0nt2u1MXgrm-81" value="ИКС-файл" style="shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;html=1;" vertex="1" parent="1">
-          <mxGeometry x="45" y="700" width="315" height="270" as="geometry" />
+          <mxGeometry x="80" y="520" width="315" height="270" as="geometry" />
         </mxCell>
         <mxCell id="8nZUkpjNU0nt2u1MXgrm-82" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=1;" vertex="1" parent="8nZUkpjNU0nt2u1MXgrm-81">
           <mxGeometry y="30" width="315" height="30" as="geometry" />
@@ -234,7 +234,7 @@
             <mxRectangle width="30" height="30" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="8nZUkpjNU0nt2u1MXgrm-84" value="UniqueID" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;fontStyle=5;overflow=hidden;whiteSpace=wrap;html=1;" vertex="1" parent="8nZUkpjNU0nt2u1MXgrm-82">
+        <mxCell id="8nZUkpjNU0nt2u1MXgrm-84" value="ID (ISC...)" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;fontStyle=5;overflow=hidden;whiteSpace=wrap;html=1;" vertex="1" parent="8nZUkpjNU0nt2u1MXgrm-82">
           <mxGeometry x="30" width="285" height="30" as="geometry">
             <mxRectangle width="285" height="30" as="alternateBounds" />
           </mxGeometry>
@@ -329,6 +329,23 @@
           <mxGeometry x="30" width="285" height="30" as="geometry">
             <mxRectangle width="285" height="30" as="alternateBounds" />
           </mxGeometry>
+        </mxCell>
+        <mxCell id="8nZUkpjNU0nt2u1MXgrm-106" value="" style="edgeStyle=orthogonalEdgeStyle;fontSize=12;html=1;endArrow=ERzeroToOne;endFill=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="8nZUkpjNU0nt2u1MXgrm-78" target="8nZUkpjNU0nt2u1MXgrm-82">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="389" y="660" as="sourcePoint" />
+            <mxPoint x="590" y="530" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="300" y="480" />
+              <mxPoint x="40" y="480" />
+              <mxPoint x="40" y="565" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="8nZUkpjNU0nt2u1MXgrm-107" value="Блок 2. Управление противоречиями" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=70;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="270" y="860" width="200" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="8nZUkpjNU0nt2u1MXgrm-108" value="- Берсеркер (соперничество)&lt;div&gt;- Виртуоз (сотрудничество)&lt;/div&gt;&lt;div&gt;-&amp;nbsp;Политик (компромисс)&lt;/div&gt;&lt;div&gt;-&amp;nbsp;Резидент (избегание)&lt;/div&gt;&lt;div&gt;-&amp;nbsp;Душа-человек (приспособление)&lt;/div&gt;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;" vertex="1" parent="8nZUkpjNU0nt2u1MXgrm-107">
+          <mxGeometry y="70" width="200" height="100" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
