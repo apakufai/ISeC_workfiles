@@ -2,7 +2,7 @@
 
 
 Название:
-<br/>  Бэк: ISC (Individual Self-exploration Card)
+<br/>  Бэк: ISeC (Individual Self-exploration Card)
 <br/>  Фронт: ИКС (Индивидуальная Карта Самоисследования)
 
 __________________
