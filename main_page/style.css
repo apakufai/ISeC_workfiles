@@ -174,7 +174,7 @@ main {
 .line_9 {
    top: 175px;
    animation: animHorizontalLines 5s linear infinite;
-   animation-delay: 1250ms;
+   animation-delay: 2500ms;
 }
 .line_10 {
    top: 400px;
@@ -184,7 +184,7 @@ main {
 .line_11 {
    top: 625px;
    animation: animHorizontalLines 5s linear infinite;
-   animation-delay: 2500ms;
+   animation-delay: 1600ms;
 }
 .line_12 {
    top: 850px;
@@ -203,7 +203,6 @@ main {
 .line_14 {
    top: 1300px;
    animation: animHorizontalLines 5s linear infinite;
-   animation-delay: 3750ms;
 }
 .line_15 {
    top: 1525px;
@@ -213,6 +212,7 @@ main {
 .line_16 {
    top: 1750px;
    animation: animHorizontalLines 5s linear infinite;
+   animation-delay: 4100ms;
 }
 .line_17 {
    top: 1975px;
