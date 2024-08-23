@@ -1,0 +1,443 @@
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+body {
+   background-image:  url("./images/background.svg"), linear-gradient(rgba(20,36,64,1) 0%, rgba(52,22,74,1) 50%, rgba(112,0,16,1) 100%);
+   background-repeat: repeat;
+   background-size: 225px;
+   background-position: top;
+   background-attachment: fixed;
+}
+
+/* Выравнивание бегущих линий по высоте */
+main {
+   display: flex;
+   flex-direction: column;
+}
+
+/* Логотип ИКС-файла */
+.logo {
+   display: flex;
+   justify-content: center;
+   height: 100%;
+   width: 760px;
+   margin: 50px auto 30px auto;
+   animation: animLogo 0.75s ease;
+   background-color: rgba(255, 255, 255, 0.7);
+   box-shadow: 0px 0px 20px 20px rgba(255, 255, 255, 0.7);
+   border: 1px solid #ffffff;
+   border-radius: 30px;
+}
+
+/* Нижняя секция с кнопками и кодом */
+.low_section {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   gap: 30px;
+   margin-top: 30px;
+   justify-content: center;
+}
+
+/* Модели влияния */
+.models_1,
+.models_2 {
+   text-align: center;
+   font-family: "Bahnschrift", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+   font-size: 16pt;
+   animation: animBlock_main_text 1s ease;
+}
+.models_1 *,
+.models_2 * {
+   padding: 10px 20px;
+}
+.models_2 {
+   margin-top: 10px;
+}
+
+/* Табуляция текста */
+p,
+.models_1,
+.models_2 {
+   text-indent: 20px;
+}
+
+/* Окно с описанием блока */
+.descr {
+   position: static;
+   top: -620px;
+   z-index: 0;
+   margin: 20px auto 0 auto;
+   width: 760px;
+   height: 490px;
+   background-color: rgba(255, 255, 255, 0.7);
+   border: 1px solid #ffffff;
+   border-radius: 30px;
+   box-shadow: 0px 0px 20px 20px rgba(255, 255, 255, 0.7);
+   text-align: justify;
+   animation: animBlock_main 1s ease;
+}
+
+/* Текст окна с описанием блока */
+.descr_text {
+   width: 720px;
+   align-self: center;
+   margin: 10px 20px;
+   font-family: "Bahnschrift", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+   font-size: 16pt;
+   animation: animBlock_main_text 1s ease;
+}
+
+/* "Знаете ли вы, что есть пять моделей влияния в коммуникациях:" */
+.descr_models {
+   text-indent: 0px;
+   text-align: center;
+   margin: 10px 20px;
+   padding: auto;
+   font-family: "Bahnschrift", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+   font-size: 16pt;
+   animation: animBlock_main_text 1s ease;
+}
+
+/* Ссылка на сайт "smart-skills" */
+.linkSmartSkills {
+   text-decoration: none;
+   color: #5b7ead;
+}
+
+/* Кнопки на главной странице */
+.btn_startpage {
+   display: flex;
+   border: 1px solid #a6afb1;
+   border-radius: 15px;
+   background-color: white;
+   box-shadow: 0px 0px 20px 20px rgba(255, 255, 255, 0.7);
+   transition:
+      background-color 0.2s,
+      box-shadow 0.2s,
+      transform 0.2s,
+      border-color 0.2s,
+      color 0.2s;
+   font-size: 16pt;
+   font-family: "Bahnschrift", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+   color: #a6afb1;
+   justify-content: center;
+   align-items: center;
+   animation: animButtons_main;
+   animation-duration: 1s;
+   height: 80px;
+   width: 240px;
+}
+.btn_startpage:hover {
+   border: 5px solid #5b7ead;
+   color: #5b7ead;
+   background-color: #ffffff;
+}
+.btn_startpage:active {
+   border: 5px solid #5b7ead;
+   color: #5b7ead;
+   background-color: #acbdd6;
+   box-shadow: none;
+}
+
+
+/* Поле ввода кода на главной странице */
+.inp_startpage {
+   display: flex;
+   border: 1px solid #a6afb1;
+   border-radius: 15px;
+   background-color: white;
+   font-size: 16pt;
+   font-family: "Bahnschrift", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+   color: #5b7ead;
+   animation: animButtons_main;
+   animation-duration: 1s;
+   height: 50px;
+   width: 220px;
+   padding: 10px;
+}
+.inp_startpage::placeholder {
+   color: #d3d7d8;
+   text-align: center;
+}
+
+
+/* Вертикальные бегущие линии */
+.vertical_lines img {
+   z-index: -1;
+   position: fixed;
+   top: 5000px;
+   width: 2px;
+   height: 100px;
+   margin-top: -100px;
+}
+.line_1 {
+   left: 50%;
+   margin-left: -788.5px;
+   animation: animVerticalLines 8s linear infinite;
+   animation-delay: 3s;
+}
+.line_2 {
+   left: 50%;
+   margin-left: -563.5px;
+   animation: animVerticalLines 8s linear infinite;
+   animation-delay: 6s;
+}
+.line_3 {
+   left: 50%;
+   margin-left: -338.5px;
+   animation: animVerticalLines 8s linear infinite;
+   animation-delay: 2s;
+}
+.line_4 {
+   left: 50%;
+   margin-left: -113.5px;
+   animation: animVerticalLines 8s linear infinite;
+   animation-delay: 8s;
+}
+.line_5 {
+   left: 50%;
+   margin-left: 111.5px;
+   animation: animVerticalLines 8s linear infinite;
+   animation-delay: 4s;
+}
+.line_6 {
+   left: 50%;
+   margin-left: 336.5px;
+   animation: animVerticalLines 8s linear infinite;
+   animation-delay: 1s;
+}
+.line_7 {
+   left: 50%;
+   margin-left: 561.5px;
+   animation: animVerticalLines 8s linear infinite;
+   animation-delay: 5s;
+}
+.line_8 {
+   left: 50%;
+   margin-left: 786.5px;
+   animation: animVerticalLines 8s linear infinite;
+   animation-delay: 7s;
+}
+
+/* Анимация вертикальных бегущих линий */
+@keyframes animVerticalLines {
+   0% {
+      top: 0px;
+   }
+
+   100% {
+      top: 5000px;
+   }
+}
+
+/* Горизонтальные бегущие линии */
+.horizontal_lines img {
+   z-index: -1;
+   position: fixed;
+   left: 5000px;
+   width: 2px;
+   height: 100px;
+   margin-left: -100px;
+   transform: rotate(90deg);
+}
+.line_9 {
+   animation: animHorizontalLines 8s linear infinite;
+   animation-delay: 5s;
+   margin-top: 175px;
+}
+.line_10 {
+   animation: animHorizontalLines 8s linear infinite;
+   animation-delay: 1s;
+   margin-top: 400px;
+}
+.line_11 {
+   animation: animHorizontalLines 8s linear infinite;
+   animation-delay: 3s;
+   margin-top: 625px;
+}
+.line_12 {
+   animation: animHorizontalLines 8s linear infinite;
+   animation-delay: 0s;
+   margin-top: 850px;
+}
+.line_13 {
+   animation: animHorizontalLines 8s linear infinite;
+   animation-delay: 6s;
+   margin-top: 1075px;
+}
+.line_14 {
+   animation: animHorizontalLines 8s linear infinite;
+   animation-delay: 4s;
+   margin-top: 1300px;
+}
+.line_15 {
+   animation: animHorizontalLines 8s linear infinite;
+   animation-delay: 2s;
+   margin-top: 1525px;
+}
+.line_16 {
+   animation: animHorizontalLines 8s linear infinite;
+   animation-delay: 7s;
+   margin-top: 1750px;
+}
+.line_17 {
+   animation: animHorizontalLines 8s linear infinite;
+   animation-delay: 5s;
+   margin-top: 1975px;
+}
+.line_18 {
+   animation: animHorizontalLines 8s linear infinite;
+   animation-delay: 1s;
+   margin-top: 2200px;
+}
+.line_19 {
+   animation: animHorizontalLines 8s linear infinite;
+   animation-delay: 3s;
+   margin-top: 2425px;
+}
+.line_20 {
+   animation: animHorizontalLines 8s linear infinite;
+   animation-delay: 0s;
+   margin-top: 2650px;
+}
+
+/* Анимация горизонтальных бегущих линий */
+@keyframes animHorizontalLines {
+   0% {
+      left: 0px;
+   }
+
+   100% {
+      left: 5000px;
+   }
+}
+
+/* Анимация логотипа */
+@keyframes animLogo {
+   0% {
+      height: 221.97px;
+      width: 640px;
+      opacity: 0;
+   }
+
+   100% {
+      height: 221.97px;
+      width: 760px;
+      opacity: 1;
+   }
+}
+
+/* Анимация блока описания на главной странице */
+@keyframes animBlock_main {
+   0% {
+      scale: 95%;
+      opacity: 0;
+   }
+
+   25% {
+      scale: 95%;
+      opacity: 0;
+   }
+
+   75% {
+      scale: 100%;
+      opacity: 1;
+   }
+
+   100% {
+      scale: 100%;
+      opacity: 1;
+   }
+}
+
+/* Анимация текста блока описания на главной странице */
+@keyframes animBlock_main_text {
+   0% {
+      opacity: 0;
+   }
+
+   66.6666% {
+      opacity: 0;
+   }
+
+   100% {
+      opacity: 1;
+   }
+}
+
+/* Анимация кнопок на главной странице */
+@keyframes animButtons_main {
+   0% {
+      opacity: 0;
+   }
+
+   66.6666% {
+      opacity: 0;
+   }
+
+   100% {
+      opacity: 1;
+   }
+}
+
+/* ------------------------------------------------ */
+/* -------------------- ТЕСТ 1 -------------------- */
+/* ------------------------------------------------ */
+
+/* Верхняя плашка */
+.title {
+   z-index: 1;
+   position: fixed;
+   width: 100%;
+   height: 50px;
+   background-color: white;
+   border-width: 0 0 5px 0;
+   border-style: solid;
+   border-color: #a6afb1;
+   text-align: center;
+   animation: animTitle 0.75s ease;
+}
+
+.title_text {
+   margin-top: 5px;
+   font-family: "Bahnschrift", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+   font-size: 25pt;
+   
+}
+
+@keyframes animTitle {
+   0% {
+      top: -50px;
+   }
+
+   100% {
+      top: 0px;
+   }
+}
+
+.quest_1 {
+   position: static;
+   top: -620px;
+   z-index: 0;
+   margin: 20px auto 0 auto;
+   width: 760px;
+   background-color: white;
+   border-width: 5px 5px 5px 5px;
+   border-style: solid;
+   border-color: #a6afb1 #d3d7d8;
+   text-align: justify;
+   animation: animBlocks 1s ease;
+}
+
+.quest_1_text {
+   width: 720px;
+   align-self: center;
+   margin: 10px 20px;
+   font-family: "Bahnschrift", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+   font-size: 16pt;
+   animation: animBlocks_text 1s ease;
+}
