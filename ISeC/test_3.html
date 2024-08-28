@@ -41,7 +41,9 @@
         <div class="descr_test">
             <p class="descr_test_title">Блок 3. Выбор хода<br>
             </p>
-            <p class="descr_test_text">В каждом из пунктов этой анкеты Вам будут предложены высказывания о стиле поведения в переговорах. Для каждого высказывания расположите варианты ответов в порядке значимости <i>для ВАС:</i> от наиболее выраженного (3 балла) к наименее используемому варианту (1 балл):<br>
+            <p class="descr_test_text">В каждом из пунктов этой анкеты Вам будут предложены высказывания о стиле
+                поведения в переговорах. Для каждого высказывания расположите варианты ответов в порядке значимости
+                <i>для ВАС:</i> от наиболее выраженного (3 балла) к наименее используемому варианту (1 балл):<br>
             </p>
 
             <button id="test_3_start" class="btn_test" type="button">Приступить к выполнению блока</button>
@@ -53,14 +55,16 @@
         <div class="quest_3">
             <p class="quest_3_title">Вопрос 1</p>
             <p class="quest_3_text">
-                <span class="affirm">Утверждение 1. </span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magnam,
+                <span class="affirm_3">Утверждение 1. </span>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Magnam,
                 consequatur, dolorem voluptatum cum aut unde consectetur obcaecati nam tenetur pariatur ratione
                 doloremque. Iste facere, in similique dolore, cupiditate nam corporis doloremque ab amet provident
                 necessitatibus voluptatem. Aspernatur delectus vel, ipsam rem aut repellat iusto odio magni, laudantium
                 voluptates qui cupiditate? <br>
             </p>
             <p class="quest_3_text">
-                <span class="affirm">Утверждение 2. </span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magnam,
+                <span class="affirm_3">Утверждение 2. </span>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Magnam,
                 consequatur, dolorem voluptatum cum aut unde consectetur obcaecati nam tenetur pariatur ratione
                 doloremque. Iste facere, in similique dolore, cupiditate nam corporis doloremque ab amet provident
                 necessitatibus voluptatem. Aspernatur delectus vel, ipsam rem aut repellat iusto odio magni, laudantium
@@ -73,48 +77,42 @@
 
                 <div class="inpRadBlock">
 
-                    <div class="inp_3_top">
-                        <div class="inp_3_left">
-                            <p>Вариант 1</p>
-                        </div>
-                        <div class="inp_3_right">
-                            <div class="var_3_inputs">
-                                <input type="radio" id="1_1_top_0" class="inpRadio" name="1_1_top"> 0
+                        <div class="inp_count">
+                            <span>Вариант 1</span>
+                            <input type="range" class="slider" value="0" min="0" max="2" list="input-list">
+                            <div class="range-output">
+                                <span>0</span>
+                                <span>1</span>
+                                <span>2</span>
                             </div>
-                            <div class="var_3_inputs">
-                                <input type="radio" id="1_1_top_1" class="inpRadio" name="1_1_top"> 1
-                            </div>
-                            <div class="var_3_inputs">
-                                <input type="radio" id="1_1_top_2" class="inpRadio" name="1_1_top"> 2
-                            </div>
-                            <div class="var_3_inputs">
-                                <input type="radio" id="1_1_top_3" class="inpRadio" name="1_1_top"> 3
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div class="inp_3_bottom">
-                        <div class="inp_3_left">
-                            <p>Вариант 2</p>
                         </div>
 
-                        <div class="inp_3_right">
-                            <div class="var_3_inputs">
-                                <input type="radio" id="1_1_bottom_0" class="inpRadio" name="1_1_bottom"> 0
+                        <div class="inp_count">
+                            <span>Вариант 2</span>
+                            <input type="range" class="slider" value="0" min="0" max="2" list="input-list">
+                            <div class="range-output">
+                                <span>0</span>
+                                <span>1</span>
+                                <span>2</span>
                             </div>
-                            <div class="var_3_inputs">
-                                <input type="radio" id="1_1_bottom_1" class="inpRadio" name="1_1_bottom"> 1
-                            </div>
-                            <div class="var_3_inputs">
-                                <input type="radio" id="1_1_bottom_2" class="inpRadio" name="1_1_bottom"> 2
-                            </div>
-                            <div class="var_3_inputs">
-                                <input type="radio" id="1_1_bottom_3" class="inpRadio" name="1_1_bottom"> 3
-                            </div>
-
                         </div>
-                    </div>
+
+                        <div class="inp_count">
+                            <span>Вариант 3</span>
+                            <input type="range" class="slider" value="0" min="0" max="2" list="input-list">
+                            <div class="range-output">
+                                <span>0</span>
+                                <span>1</span>
+                                <span>2</span>
+                            </div>
+                        </div>
+
+                        <datalist id="input-list">
+                            <option value="0"  label="0"></option>
+                            <option value="1"  label="1"></option>
+                            <option value="2"  label="2"></option>
+                        </datalist>
+
 
                 </div>
 
