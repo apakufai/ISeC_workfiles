@@ -912,6 +912,7 @@ p,
    display: flex;
    flex-direction: column;
    width: 120px;
+   margin: 0 10px;
 }
 
 .inp_count_3 input {
@@ -1081,6 +1082,7 @@ p,
    display: flex;
    flex-direction: column;
    width: 120px;
+   margin: 0 10px;
 }
 
 .inp_count_5 input {
