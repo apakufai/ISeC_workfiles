@@ -14,86 +14,79 @@
    height: 10px;
    background: #ffffff;
    border: 1px solid #5b7ead;
-   /* Цвет дорожки ползунка */
    border-radius: 14px;
    cursor: pointer;
 
 }
 
-
-
 /* Стилизация бегунка ползунка для WebKit-браузеров */
 .slider::-webkit-slider-thumb {
+   -webkit-appearance: none;
    width: 14px;
    height: 14px;
    background: #5b7ead;
-   /* Цвет бегунка */
    border: none;
    border-radius: 20%;
    rotate: 45deg;
    cursor: pointer;
-   -webkit-appearance: none;
-   /* Убирает стандартный стиль для WebKit-браузеров */
    margin-top: -3px;
-   /* Сдвигает бегунок по оси Y для выравнивания */
 }
 
 /* Стилизация дорожки ползунка для Firefox */
 .slider::-moz-range-track {
    width: 100%;
-   height: 8px;
-   background: #ddd;
-   /* Цвет дорожки ползунка */
-   border-radius: 5px;
+   height: 10px;
+   background: #ffffff;
+   border: 1px solid #5b7ead;
+   border-radius: 14px;
    cursor: pointer;
 }
 
 /* Стилизация бегунка ползунка для Firefox */
 .slider::-moz-range-thumb {
-   width: 20px;
-   height: 20px;
-   background: red;
-   /* Цвет бегунка */
+   -webkit-appearance: none;
+   width: 14px;
+   height: 14px;
+   background: #5b7ead;
    border: none;
-   border-radius: 50%;
+   border-radius: 20%;
+   rotate: 45deg;
    cursor: pointer;
+   margin-top: -3px;
 }
 
 /* Стилизация дорожки ползунка для Microsoft Edge и IE */
 .slider::-ms-track {
    width: 100%;
-   height: 8px;
-   background: transparent;
-   /* Убирает фон дорожки для IE */
-   border-color: transparent;
-   /* Убирает границы для IE */
-   color: transparent;
-   /* Убирает цвет для IE */
+   height: 10px;
+   background: #ffffff;
+   border: 1px solid #5b7ead;
+   border-radius: 14px;
    cursor: pointer;
 }
 
 /* Стилизация заполненной части дорожки ползунка для Microsoft Edge и IE */
 .slider::-ms-fill-lower {
-   background: #ddd;
-   /* Цвет дорожки ползунка */
+   background: #ffffff;
    border-radius: 5px;
 }
 
+/* Стилизация незаполненной части дорожки ползунка для Microsoft Edge и IE */
 .slider::-ms-fill-upper {
-   background: #ddd;
-   /* Цвет дорожки ползунка */
+   background: #ffffff;
    border-radius: 5px;
 }
 
 /* Стилизация бегунка ползунка для Microsoft Edge и IE */
 .slider::-ms-thumb {
-   width: 20px;
-   height: 20px;
-   background: red;
-   /* Цвет бегунка */
+   width: 14px;
+   height: 14px;
+   background: #5b7ead;
    border: none;
-   border-radius: 50%;
+   border-radius: 20%;
+   rotate: 45deg;
    cursor: pointer;
+   margin-top: -3px;
 }
 
 .range-output {
