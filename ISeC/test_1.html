@@ -10,7 +10,6 @@
 
 <body>
 
-
     <section class="vertical_lines">
         <img class="line_1" src="./images/line.svg"></img>
         <img class="line_2" src="./images/line.svg"></img>
@@ -38,6 +37,8 @@
 
     <main>
 
+        <!-- ОПИСАНИЕ БЛОКА -->
+
         <div class="descr_test" name="descr_test_1">
             <p class="descr_test_title">Блок 1. Определение стиля переговоров<br>
             </p>
@@ -53,6 +54,30 @@
             </p>
             <button id="test_1_start" class="btn_test" type="button">Приступить к выполнению блока</button>
         </div>
+        <script>
+            document.getElementById('test_1_start').addEventListener('click', function () {
+                var from = document.querySelector('[name="descr_test_1"]');
+                var to = document.querySelector('[name="quest_1_1"]');
+
+                from.classList.add('animBlockDisappear_next');
+                from.addEventListener('animationend', function handler() {
+                    from.style.display = 'none';
+                    from.classList.remove('animBlockDisappear_next'); // Удаляем класс анимации
+
+                    to.style.display = 'block';
+                    to.classList.add('animBlockAppear_next');
+
+                    to.addEventListener('animationend', function appearHandler() {
+                        to.classList.remove('animBlockAppear_next'); // Удаляем класс анимации
+                        to.removeEventListener('animationend', appearHandler);
+                    });
+
+                    from.removeEventListener('animationend', handler);
+                });
+            });
+        </script>
+
+        <!-- ВОПРОС 1 -->
 
         <div class="quest_1" name="quest_1_1">
             <p class="quest_1_title">Вопрос 1</p>
@@ -73,7 +98,7 @@
                 voluptates qui cupiditate? <br>
             </p>
             <section class="quest_1_sect">
-                <button class="btn_nextprev">Назад</button>
+                <button id="btn_1_1_prev" class="btn_nextprev">Назад</button>
                 <div class="inpBlock_1">
                     <div class="inp_top_1">
                         <div class="inp_left_1">
@@ -81,16 +106,16 @@
                         </div>
                         <div class="inp_right_1">
                             <div class="var_inputs">
-                                <input type="radio" id="1_1_top_1" class="inpRadio" name="1_1_top"> 0
+                                <input type="radio" id="1_1_top_0" class="inpRadio" name="1_1_top"> 0
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_1_top_2" class="inpRadio" name="1_1_top"> 1
+                                <input type="radio" id="1_1_top_1" class="inpRadio" name="1_1_top"> 1
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_1_top_3" class="inpRadio" name="1_1_top"> 2
+                                <input type="radio" id="1_1_top_2" class="inpRadio" name="1_1_top"> 2
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_1_top_4" class="inpRadio" name="1_1_top"> 3
+                                <input type="radio" id="1_1_top_3" class="inpRadio" name="1_1_top"> 3
                             </div>
                         </div>
                     </div>
@@ -98,70 +123,120 @@
                         <div class="inp_left_1">
                             <span>Вариант 2</span>
                         </div>
-
                         <div class="inp_right_1">
                             <div class="var_inputs">
-                                <input type="radio" id="1_1_bottom_1" class="inpRadio" name="1_1_bottom"> 0
+                                <input type="radio" id="1_1_bottom_0" class="inpRadio" name="1_1_bottom"> 0
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_1_bottom_2" class="inpRadio" name="1_1_bottom"> 1
+                                <input type="radio" id="1_1_bottom_1" class="inpRadio" name="1_1_bottom"> 1
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_1_bottom_3" class="inpRadio" name="1_1_bottom"> 2
+                                <input type="radio" id="1_1_bottom_2" class="inpRadio" name="1_1_bottom"> 2
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_1_bottom_4" class="inpRadio" name="1_1_bottom"> 3
+                                <input type="radio" id="1_1_bottom_3" class="inpRadio" name="1_1_bottom"> 3
                             </div>
                         </div>
                     </div>
                 </div>
-                <button class="btn_nextprev">Далее</button>
+                <button id="btn_1_1_next" class="btn_nextprev">Далее</button>
             </section>
-
             <script>
-                document.getElementById('1_1_top_0').addEventListener('change', function() {
+                // Сокрытие блока
+                window.addEventListener('load', function () {
+                    const quest = document.querySelector('[name="quest_1_1"]');
+                    quest.classList.add('hidden');
+                });
+                // Работа с кнопками выбора
+                document.getElementById('1_1_top_0').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_1_bottom_3').checked = true;
                     }
                 });
-                document.getElementById('1_1_top_1').addEventListener('change', function() {
+                document.getElementById('1_1_top_1').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_1_bottom_2').checked = true;
                     }
                 });
-                document.getElementById('1_1_top_2').addEventListener('change', function() {
+                document.getElementById('1_1_top_2').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_1_bottom_1').checked = true;
                     }
                 });
-                document.getElementById('1_1_top_3').addEventListener('change', function() {
+                document.getElementById('1_1_top_3').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_1_bottom_0').checked = true;
                     }
                 });
-                document.getElementById('1_1_bottom_3').addEventListener('change', function() {
+                document.getElementById('1_1_bottom_3').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_1_top_0').checked = true;
                     }
                 });
-                document.getElementById('1_1_bottom_2').addEventListener('change', function() {
+                document.getElementById('1_1_bottom_2').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_1_top_1').checked = true;
                     }
                 });
-                document.getElementById('1_1_bottom_1').addEventListener('change', function() {
+                document.getElementById('1_1_bottom_1').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_1_top_2').checked = true;
                     }
                 });
-                document.getElementById('1_1_bottom_0').addEventListener('change', function() {
+                document.getElementById('1_1_bottom_0').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_1_top_3').checked = true;
                     }
                 });
             </script>
+            <!-- Перелистываание назад -->
+            <script>
+                document.getElementById('btn_1_1_prev').addEventListener('click', function () {
+                    var from = document.querySelector('[name="quest_1_1"]');
+                    var to = document.querySelector('[name="descr_test_1"]');
+
+                    from.classList.add('animBlockDisappear_prev');
+                    from.addEventListener('animationend', function handler() {
+                        from.style.display = 'none';
+                        from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
+
+                        to.style.display = 'block';
+
+                        to.addEventListener('animationend', function appearHandler() {
+                            to.removeEventListener('animationend', appearHandler);
+                        });
+
+                        from.removeEventListener('animationend', handler);
+                    });
+                });
+            </script>
+            <!-- Перелистываание вперёд -->
+            <script>
+                document.getElementById('btn_1_1_next').addEventListener('click', function () {
+                    var from = document.querySelector('[name="quest_1_1"]');
+                    var to = document.querySelector('[name="quest_1_2"]');
+
+                    from.classList.add('animBlockDisappear_next');
+                    from.addEventListener('animationend', function handler() {
+                        from.style.display = 'none';
+                        from.classList.remove('animBlockDisappear_next'); // Удаляем класс анимации
+
+                        to.style.display = 'block';
+                        to.classList.add('animBlockAppear_next');
+
+                        to.addEventListener('animationend', function appearHandler() {
+                            to.classList.remove('animBlockAppear_next'); // Удаляем класс анимации
+                            to.removeEventListener('animationend', appearHandler);
+                        });
+
+                        from.removeEventListener('animationend', handler);
+                    });
+                });
+            </script>
 
         </div>
+
+        <!-- ВОПРОС 2 -->
 
         <div class="quest_1" name="quest_1_2">
             <p class="quest_1_title">Вопрос 2</p>
@@ -182,7 +257,7 @@
                 voluptates qui cupiditate? <br>
             </p>
             <section class="quest_1_sect">
-                <button class="btn_nextprev">Назад</button>
+                <button class="btn_nextprev" id="btn_1_2_prev">Назад</button>
                 <div class="inpBlock_1">
                     <div class="inp_top_1">
                         <div class="inp_left_1">
@@ -190,16 +265,16 @@
                         </div>
                         <div class="inp_right_1">
                             <div class="var_inputs">
-                                <input type="radio" id="1_2_top_1" class="inpRadio" name="1_2_top"> 0
+                                <input type="radio" id="1_2_top_0" class="inpRadio" name="1_2_top"> 0
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_2_top_2" class="inpRadio" name="1_2_top"> 1
+                                <input type="radio" id="1_2_top_1" class="inpRadio" name="1_2_top"> 1
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_2_top_3" class="inpRadio" name="1_2_top"> 2
+                                <input type="radio" id="1_2_top_2" class="inpRadio" name="1_2_top"> 2
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_2_top_4" class="inpRadio" name="1_2_top"> 3
+                                <input type="radio" id="1_2_top_3" class="inpRadio" name="1_2_top"> 3
                             </div>
                         </div>
                     </div>
@@ -207,71 +282,122 @@
                         <div class="inp_left_1">
                             <span>Вариант 2</span>
                         </div>
-
                         <div class="inp_right_1">
                             <div class="var_inputs">
-                                <input type="radio" id="1_2_bottom_1" class="inpRadio" name="1_2_bottom"> 0
+                                <input type="radio" id="1_2_bottom_0" class="inpRadio" name="1_2_bottom"> 0
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_2_bottom_2" class="inpRadio" name="1_2_bottom"> 1
+                                <input type="radio" id="1_2_bottom_1" class="inpRadio" name="1_2_bottom"> 1
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_2_bottom_3" class="inpRadio" name="1_2_bottom"> 2
+                                <input type="radio" id="1_2_bottom_2" class="inpRadio" name="1_2_bottom"> 2
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_2_bottom_4" class="inpRadio" name="1_2_bottom"> 3
+                                <input type="radio" id="1_2_bottom_3" class="inpRadio" name="1_2_bottom"> 3
                             </div>
                         </div>
                     </div>
                 </div>
-                <button class="btn_nextprev">Далее</button>
+                <button class="btn_nextprev" id="btn_1_2_next">Далее</button>
             </section>
-            
             <script>
-                document.getElementById('1_2_top_0').addEventListener('change', function() {
+                // Сокрытие блока
+                window.addEventListener('load', function () {
+                    const quest = document.querySelector('[name="quest_1_2"]');
+                    quest.classList.add('hidden');
+                });
+                // Работа с кнопками выбора
+                document.getElementById('1_2_top_0').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_2_bottom_3').checked = true;
                     }
                 });
-                document.getElementById('1_2_top_1').addEventListener('change', function() {
+                document.getElementById('1_2_top_1').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_2_bottom_2').checked = true;
                     }
                 });
-                document.getElementById('1_2_top_2').addEventListener('change', function() {
+                document.getElementById('1_2_top_2').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_2_bottom_1').checked = true;
                     }
                 });
-                document.getElementById('1_2_top_3').addEventListener('change', function() {
+                document.getElementById('1_2_top_3').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_2_bottom_0').checked = true;
                     }
                 });
 
-                document.getElementById('1_2_bottom_3').addEventListener('change', function() {
+                document.getElementById('1_2_bottom_3').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_2_top_0').checked = true;
                     }
                 });
-                document.getElementById('1_2_bottom_2').addEventListener('change', function() {
+                document.getElementById('1_2_bottom_2').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_2_top_1').checked = true;
                     }
                 });
-                document.getElementById('1_2_bottom_1').addEventListener('change', function() {
+                document.getElementById('1_2_bottom_1').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_2_top_2').checked = true;
                     }
                 });
-                document.getElementById('1_2_bottom_0').addEventListener('change', function() {
+                document.getElementById('1_2_bottom_0').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_2_top_3').checked = true;
                     }
                 });
             </script>
+            <!-- Перелистываание назад -->
+            <script>
+                document.getElementById('btn_1_2_prev').addEventListener('click', function () {
+                    var from = document.querySelector('[name="quest_1_2"]');
+                    var to = document.querySelector('[name="quest_1_1"]');
 
+                    from.classList.add('animBlockDisappear_prev');
+                    from.addEventListener('animationend', function handler() {
+                        from.style.display = 'none';
+                        from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
+
+                        to.style.display = 'block';
+                        to.classList.add('animBlockAppear_prev');
+
+                        to.addEventListener('animationend', function appearHandler() {
+                            to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
+                            to.removeEventListener('animationend', appearHandler);
+                        });
+
+                        from.removeEventListener('animationend', handler);
+                    });
+                });
+            </script>
+            <!-- Перелистываание вперёд -->
+            <script>
+                document.getElementById('btn_1_2_next').addEventListener('click', function () {
+                    var from = document.querySelector('[name="quest_1_2"]');
+                    var to = document.querySelector('[name="quest_1_3"]');
+
+                    from.classList.add('animBlockDisappear_next');
+                    from.addEventListener('animationend', function handler() {
+                        from.style.display = 'none';
+                        from.classList.remove('animBlockDisappear_next'); // Удаляем класс анимации
+
+                        to.style.display = 'block';
+                        to.classList.add('animBlockAppear_next');
+
+                        to.addEventListener('animationend', function appearHandler() {
+                            to.classList.remove('animBlockAppear_next'); // Удаляем класс анимации
+                            to.removeEventListener('animationend', appearHandler);
+                        });
+
+                        from.removeEventListener('animationend', handler);
+                    });
+                });
+            </script>
         </div>
+
+        <!-- ВОПРОС 3 -->
 
         <div class="quest_1" name="quest_1_3">
             <p class="quest_1_title">Вопрос 3</p>
@@ -292,7 +418,7 @@
                 voluptates qui cupiditate? <br>
             </p>
             <section class="quest_1_sect">
-                <button class="btn_nextprev">Назад</button>
+                <button class="btn_nextprev" id="btn_1_3_prev">Назад</button>
                 <div class="inpBlock_1">
                     <div class="inp_top_1">
                         <div class="inp_left_1">
@@ -300,16 +426,16 @@
                         </div>
                         <div class="inp_right_1">
                             <div class="var_inputs">
-                                <input type="radio" id="1_3_top_1" class="inpRadio" name="1_3_top"> 0
+                                <input type="radio" id="1_3_top_0" class="inpRadio" name="1_3_top"> 0
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_3_top_2" class="inpRadio" name="1_3_top"> 1
+                                <input type="radio" id="1_3_top_1" class="inpRadio" name="1_3_top"> 1
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_3_top_3" class="inpRadio" name="1_3_top"> 2
+                                <input type="radio" id="1_3_top_2" class="inpRadio" name="1_3_top"> 2
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_3_top_4" class="inpRadio" name="1_3_top"> 3
+                                <input type="radio" id="1_3_top_3" class="inpRadio" name="1_3_top"> 3
                             </div>
                         </div>
                     </div>
@@ -320,68 +446,120 @@
 
                         <div class="inp_right_1">
                             <div class="var_inputs">
-                                <input type="radio" id="1_3_bottom_1" class="inpRadio" name="1_3_bottom"> 0
+                                <input type="radio" id="1_3_bottom_0" class="inpRadio" name="1_3_bottom"> 0
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_3_bottom_2" class="inpRadio" name="1_3_bottom"> 1
+                                <input type="radio" id="1_3_bottom_1" class="inpRadio" name="1_3_bottom"> 1
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_3_bottom_3" class="inpRadio" name="1_3_bottom"> 2
+                                <input type="radio" id="1_3_bottom_2" class="inpRadio" name="1_3_bottom"> 2
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_3_bottom_4" class="inpRadio" name="1_3_bottom"> 3
+                                <input type="radio" id="1_3_bottom_3" class="inpRadio" name="1_3_bottom"> 3
                             </div>
                         </div>
                     </div>
                 </div>
-                <button class="btn_nextprev">Далее</button>
+                <button class="btn_nextprev" id="btn_1_3_next">Далее</button>
             </section>
-            
             <script>
-                document.getElementById('1_3_top_0').addEventListener('change', function() {
+                // Сокрытие блока
+                window.addEventListener('load', function () {
+                    const quest = document.querySelector('[name="quest_1_3"]');
+                    quest.classList.add('hidden');
+                });
+                // Работа с кнопками выбора
+                document.getElementById('1_3_top_0').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_3_bottom_3').checked = true;
                     }
                 });
-                document.getElementById('1_3_top_1').addEventListener('change', function() {
+                document.getElementById('1_3_top_1').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_3_bottom_2').checked = true;
                     }
                 });
-                document.getElementById('1_3_top_2').addEventListener('change', function() {
+                document.getElementById('1_3_top_2').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_3_bottom_1').checked = true;
                     }
                 });
-                document.getElementById('1_3_top_3').addEventListener('change', function() {
+                document.getElementById('1_3_top_3').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_3_bottom_0').checked = true;
                     }
                 });
 
-                document.getElementById('1_3_bottom_3').addEventListener('change', function() {
+                document.getElementById('1_3_bottom_3').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_3_top_0').checked = true;
                     }
                 });
-                document.getElementById('1_3_bottom_2').addEventListener('change', function() {
+                document.getElementById('1_3_bottom_2').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_3_top_1').checked = true;
                     }
                 });
-                document.getElementById('1_3_bottom_1').addEventListener('change', function() {
+                document.getElementById('1_3_bottom_1').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_3_top_2').checked = true;
                     }
                 });
-                document.getElementById('1_3_bottom_0').addEventListener('change', function() {
+                document.getElementById('1_3_bottom_0').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_3_top_3').checked = true;
                     }
                 });
             </script>
+            <!-- Перелистываание назад -->
+            <script>
+                document.getElementById('btn_1_3_prev').addEventListener('click', function () {
+                    var from = document.querySelector('[name="quest_1_3"]');
+                    var to = document.querySelector('[name="quest_1_2"]');
 
+                    from.classList.add('animBlockDisappear_prev');
+                    from.addEventListener('animationend', function handler() {
+                        from.style.display = 'none';
+                        from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
+
+                        to.style.display = 'block';
+                        to.classList.add('animBlockAppear_prev');
+
+                        to.addEventListener('animationend', function appearHandler() {
+                            to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
+                            to.removeEventListener('animationend', appearHandler);
+                        });
+
+                        from.removeEventListener('animationend', handler);
+                    });
+                });
+            </script>
+            <!-- Перелистываание вперёд -->
+            <script>
+                document.getElementById('btn_1_3_next').addEventListener('click', function () {
+                    var from = document.querySelector('[name="quest_1_3"]');
+                    var to = document.querySelector('[name="quest_1_4"]');
+
+                    from.classList.add('animBlockDisappear_next');
+                    from.addEventListener('animationend', function handler() {
+                        from.style.display = 'none';
+                        from.classList.remove('animBlockDisappear_next'); // Удаляем класс анимации
+
+                        to.style.display = 'block';
+                        to.classList.add('animBlockAppear_next');
+
+                        to.addEventListener('animationend', function appearHandler() {
+                            to.classList.remove('animBlockAppear_next'); // Удаляем класс анимации
+                            to.removeEventListener('animationend', appearHandler);
+                        });
+
+                        from.removeEventListener('animationend', handler);
+                    });
+                });
+            </script>
         </div>
+
+        <!-- ВОПРОС 4 -->
 
         <div class="quest_1" name="quest_1_4">
             <p class="quest_1_title">Вопрос 4</p>
@@ -402,7 +580,7 @@
                 voluptates qui cupiditate? <br>
             </p>
             <section class="quest_1_sect">
-                <button class="btn_nextprev">Назад</button>
+                <button class="btn_nextprev" id="btn_1_4_prev">Назад</button>
                 <div class="inpBlock_1">
                     <div class="inp_top_1">
                         <div class="inp_left_1">
@@ -410,16 +588,16 @@
                         </div>
                         <div class="inp_right_1">
                             <div class="var_inputs">
-                                <input type="radio" id="1_4_top_1" class="inpRadio" name="1_4_top"> 0
+                                <input type="radio" id="1_4_top_0" class="inpRadio" name="1_4_top"> 0
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_4_top_2" class="inpRadio" name="1_4_top"> 1
+                                <input type="radio" id="1_4_top_1" class="inpRadio" name="1_4_top"> 1
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_4_top_3" class="inpRadio" name="1_4_top"> 2
+                                <input type="radio" id="1_4_top_2" class="inpRadio" name="1_4_top"> 2
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_4_top_4" class="inpRadio" name="1_4_top"> 3
+                                <input type="radio" id="1_4_top_3" class="inpRadio" name="1_4_top"> 3
                             </div>
                         </div>
                     </div>
@@ -430,68 +608,120 @@
 
                         <div class="inp_right_1">
                             <div class="var_inputs">
-                                <input type="radio" id="1_4_bottom_1" class="inpRadio" name="1_4_bottom"> 0
+                                <input type="radio" id="1_4_bottom_0" class="inpRadio" name="1_4_bottom"> 0
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_4_bottom_2" class="inpRadio" name="1_4_bottom"> 1
+                                <input type="radio" id="1_4_bottom_1" class="inpRadio" name="1_4_bottom"> 1
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_4_bottom_3" class="inpRadio" name="1_4_bottom"> 2
+                                <input type="radio" id="1_4_bottom_2" class="inpRadio" name="1_4_bottom"> 2
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_4_bottom_4" class="inpRadio" name="1_4_bottom"> 3
+                                <input type="radio" id="1_4_bottom_3" class="inpRadio" name="1_4_bottom"> 3
                             </div>
                         </div>
                     </div>
                 </div>
-                <button class="btn_nextprev">Далее</button>
+                <button class="btn_nextprev" id="btn_1_4_next">Далее</button>
             </section>
-
             <script>
-                document.getElementById('1_4_top_0').addEventListener('change', function() {
+                // Сокрытие блока
+                window.addEventListener('load', function () {
+                    const quest = document.querySelector('[name="quest_1_4"]');
+                    quest.classList.add('hidden');
+                });
+                // Работа с кнопками выбора
+                document.getElementById('1_4_top_0').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_4_bottom_3').checked = true;
                     }
                 });
-                document.getElementById('1_4_top_1').addEventListener('change', function() {
+                document.getElementById('1_4_top_1').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_4_bottom_2').checked = true;
                     }
                 });
-                document.getElementById('1_4_top_2').addEventListener('change', function() {
+                document.getElementById('1_4_top_2').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_4_bottom_1').checked = true;
                     }
                 });
-                document.getElementById('1_4_top_3').addEventListener('change', function() {
+                document.getElementById('1_4_top_3').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_4_bottom_0').checked = true;
                     }
                 });
 
-                document.getElementById('1_4_bottom_3').addEventListener('change', function() {
+                document.getElementById('1_4_bottom_3').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_4_top_0').checked = true;
                     }
                 });
-                document.getElementById('1_4_bottom_2').addEventListener('change', function() {
+                document.getElementById('1_4_bottom_2').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_4_top_1').checked = true;
                     }
                 });
-                document.getElementById('1_4_bottom_1').addEventListener('change', function() {
+                document.getElementById('1_4_bottom_1').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_4_top_2').checked = true;
                     }
                 });
-                document.getElementById('1_4_bottom_0').addEventListener('change', function() {
+                document.getElementById('1_4_bottom_0').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_4_top_3').checked = true;
                     }
                 });
             </script>
+            <!-- Перелистываание назад -->
+            <script>
+                document.getElementById('btn_1_4_prev').addEventListener('click', function () {
+                    var from = document.querySelector('[name="quest_1_4"]');
+                    var to = document.querySelector('[name="quest_1_3"]');
 
+                    from.classList.add('animBlockDisappear_prev');
+                    from.addEventListener('animationend', function handler() {
+                        from.style.display = 'none';
+                        from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
+
+                        to.style.display = 'block';
+                        to.classList.add('animBlockAppear_prev');
+
+                        to.addEventListener('animationend', function appearHandler() {
+                            to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
+                            to.removeEventListener('animationend', appearHandler);
+                        });
+
+                        from.removeEventListener('animationend', handler);
+                    });
+                });
+            </script>
+            <!-- Перелистываание вперёд -->
+            <script>
+                document.getElementById('btn_1_4_next').addEventListener('click', function () {
+                    var from = document.querySelector('[name="quest_1_4"]');
+                    var to = document.querySelector('[name="quest_1_5"]');
+
+                    from.classList.add('animBlockDisappear_next');
+                    from.addEventListener('animationend', function handler() {
+                        from.style.display = 'none';
+                        from.classList.remove('animBlockDisappear_next'); // Удаляем класс анимации
+
+                        to.style.display = 'block';
+                        to.classList.add('animBlockAppear_next');
+
+                        to.addEventListener('animationend', function appearHandler() {
+                            to.classList.remove('animBlockAppear_next'); // Удаляем класс анимации
+                            to.removeEventListener('animationend', appearHandler);
+                        });
+
+                        from.removeEventListener('animationend', handler);
+                    });
+                });
+            </script>
         </div>
+
+        <!-- ВОПРОС 5 -->
 
         <div class="quest_1" name="quest_1_5">
             <p class="quest_1_title">Вопрос 5</p>
@@ -512,7 +742,7 @@
                 voluptates qui cupiditate? <br>
             </p>
             <section class="quest_1_sect">
-                <button class="btn_nextprev">Назад</button>
+                <button class="btn_nextprev" id="btn_1_5_prev">Назад</button>
                 <div class="inpBlock_1">
                     <div class="inp_top_1">
                         <div class="inp_left_1">
@@ -520,16 +750,16 @@
                         </div>
                         <div class="inp_right_1">
                             <div class="var_inputs">
-                                <input type="radio" id="1_5_top_1" class="inpRadio" name="1_5_top"> 0
+                                <input type="radio" id="1_5_top_0" class="inpRadio" name="1_5_top"> 0
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_5_top_2" class="inpRadio" name="1_5_top"> 1
+                                <input type="radio" id="1_5_top_1" class="inpRadio" name="1_5_top"> 1
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_5_top_3" class="inpRadio" name="1_5_top"> 2
+                                <input type="radio" id="1_5_top_2" class="inpRadio" name="1_5_top"> 2
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_5_top_4" class="inpRadio" name="1_5_top"> 3
+                                <input type="radio" id="1_5_top_3" class="inpRadio" name="1_5_top"> 3
                             </div>
                         </div>
                     </div>
@@ -537,71 +767,121 @@
                         <div class="inp_left_1">
                             <span>Вариант 2</span>
                         </div>
-
                         <div class="inp_right_1">
                             <div class="var_inputs">
-                                <input type="radio" id="1_5_bottom_1" class="inpRadio" name="1_5_bottom"> 0
+                                <input type="radio" id="1_5_bottom_0" class="inpRadio" name="1_5_bottom"> 0
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_5_bottom_2" class="inpRadio" name="1_5_bottom"> 1
+                                <input type="radio" id="1_5_bottom_1" class="inpRadio" name="1_5_bottom"> 1
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_5_bottom_3" class="inpRadio" name="1_5_bottom"> 2
+                                <input type="radio" id="1_5_bottom_2" class="inpRadio" name="1_5_bottom"> 2
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_5_bottom_4" class="inpRadio" name="1_5_bottom"> 3
+                                <input type="radio" id="1_5_bottom_3" class="inpRadio" name="1_5_bottom"> 3
                             </div>
                         </div>
                     </div>
                 </div>
-                <button class="btn_nextprev">Далее</button>
+                <button class="btn_nextprev" id="btn_1_5_next">Далее</button>
             </section>
-
             <script>
-                document.getElementById('1_5_top_0').addEventListener('change', function() {
+                // Сокрытие блока
+                window.addEventListener('load', function () {
+                    const quest = document.querySelector('[name="quest_1_5"]');
+                    quest.classList.add('hidden');
+                });
+                // Работа с кнопками выбора
+                document.getElementById('1_5_top_0').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_5_bottom_3').checked = true;
                     }
                 });
-                document.getElementById('1_5_top_1').addEventListener('change', function() {
+                document.getElementById('1_5_top_1').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_5_bottom_2').checked = true;
                     }
                 });
-                document.getElementById('1_5_top_2').addEventListener('change', function() {
+                document.getElementById('1_5_top_2').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_5_bottom_1').checked = true;
                     }
                 });
-                document.getElementById('1_5_top_3').addEventListener('change', function() {
+                document.getElementById('1_5_top_3').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_5_bottom_0').checked = true;
                     }
                 });
-
-                document.getElementById('1_5_bottom_3').addEventListener('change', function() {
+                document.getElementById('1_5_bottom_3').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_5_top_0').checked = true;
                     }
                 });
-                document.getElementById('1_5_bottom_2').addEventListener('change', function() {
+                document.getElementById('1_5_bottom_2').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_5_top_1').checked = true;
                     }
                 });
-                document.getElementById('1_5_bottom_1').addEventListener('change', function() {
+                document.getElementById('1_5_bottom_1').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_5_top_2').checked = true;
                     }
                 });
-                document.getElementById('1_5_bottom_0').addEventListener('change', function() {
+                document.getElementById('1_5_bottom_0').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_5_top_3').checked = true;
                     }
                 });
             </script>
+            <!-- Перелистываание назад -->
+            <script>
+                document.getElementById('btn_1_5_prev').addEventListener('click', function () {
+                    var from = document.querySelector('[name="quest_1_5"]');
+                    var to = document.querySelector('[name="quest_1_4"]');
 
+                    from.classList.add('animBlockDisappear_prev');
+                    from.addEventListener('animationend', function handler() {
+                        from.style.display = 'none';
+                        from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
+
+                        to.style.display = 'block';
+                        to.classList.add('animBlockAppear_prev');
+
+                        to.addEventListener('animationend', function appearHandler() {
+                            to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
+                            to.removeEventListener('animationend', appearHandler);
+                        });
+
+                        from.removeEventListener('animationend', handler);
+                    });
+                });
+            </script>
+            <!-- Перелистываание вперёд -->
+            <script>
+                document.getElementById('btn_1_5_next').addEventListener('click', function () {
+                    var from = document.querySelector('[name="quest_1_5"]');
+                    var to = document.querySelector('[name="quest_1_6"]');
+
+                    from.classList.add('animBlockDisappear_next');
+                    from.addEventListener('animationend', function handler() {
+                        from.style.display = 'none';
+                        from.classList.remove('animBlockDisappear_next'); // Удаляем класс анимации
+
+                        to.style.display = 'block';
+                        to.classList.add('animBlockAppear_next');
+
+                        to.addEventListener('animationend', function appearHandler() {
+                            to.classList.remove('animBlockAppear_next'); // Удаляем класс анимации
+                            to.removeEventListener('animationend', appearHandler);
+                        });
+
+                        from.removeEventListener('animationend', handler);
+                    });
+                });
+            </script>
         </div>
+
+        <!-- ВОПРОС 6 -->
 
         <div class="quest_1" name="quest_1_6">
             <p class="quest_1_title">Вопрос 6</p>
@@ -622,7 +902,7 @@
                 voluptates qui cupiditate? <br>
             </p>
             <section class="quest_1_sect">
-                <button class="btn_nextprev">Назад</button>
+                <button class="btn_nextprev" id="btn_1_6_prev">Назад</button>
                 <div class="inpBlock_1">
                     <div class="inp_top_1">
                         <div class="inp_left_1">
@@ -630,16 +910,16 @@
                         </div>
                         <div class="inp_right_1">
                             <div class="var_inputs">
-                                <input type="radio" id="1_6_top_1" class="inpRadio" name="1_6_top"> 0
+                                <input type="radio" id="1_6_top_0" class="inpRadio" name="1_6_top"> 0
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_6_top_2" class="inpRadio" name="1_6_top"> 1
+                                <input type="radio" id="1_6_top_1" class="inpRadio" name="1_6_top"> 1
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_6_top_3" class="inpRadio" name="1_6_top"> 2
+                                <input type="radio" id="1_6_top_2" class="inpRadio" name="1_6_top"> 2
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_6_top_4" class="inpRadio" name="1_6_top"> 3
+                                <input type="radio" id="1_6_top_3" class="inpRadio" name="1_6_top"> 3
                             </div>
                         </div>
                     </div>
@@ -650,68 +930,119 @@
 
                         <div class="inp_right_1">
                             <div class="var_inputs">
-                                <input type="radio" id="1_6_bottom_1" class="inpRadio" name="1_6_bottom"> 0
+                                <input type="radio" id="1_6_bottom_0" class="inpRadio" name="1_6_bottom"> 0
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_6_bottom_2" class="inpRadio" name="1_6_bottom"> 1
+                                <input type="radio" id="1_6_bottom_1" class="inpRadio" name="1_6_bottom"> 1
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_6_bottom_3" class="inpRadio" name="1_6_bottom"> 2
+                                <input type="radio" id="1_6_bottom_2" class="inpRadio" name="1_6_bottom"> 2
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_6_bottom_4" class="inpRadio" name="1_6_bottom"> 3
+                                <input type="radio" id="1_6_bottom_3" class="inpRadio" name="1_6_bottom"> 3
                             </div>
                         </div>
                     </div>
                 </div>
-                <button class="btn_nextprev">Далее</button>
+                <button class="btn_nextprev" id="btn_1_6_next">Далее</button>
             </section>
-
             <script>
-                document.getElementById('1_6_top_0').addEventListener('change', function() {
+                // Сокрытие блока
+                window.addEventListener('load', function () {
+                    const quest = document.querySelector('[name="quest_1_6"]');
+                    quest.classList.add('hidden');
+                });
+                // Работа с кнопками выбора
+                document.getElementById('1_6_top_0').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_6_bottom_3').checked = true;
                     }
                 });
-                document.getElementById('1_6_top_1').addEventListener('change', function() {
+                document.getElementById('1_6_top_1').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_6_bottom_2').checked = true;
                     }
                 });
-                document.getElementById('1_6_top_2').addEventListener('change', function() {
+                document.getElementById('1_6_top_2').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_6_bottom_1').checked = true;
                     }
                 });
-                document.getElementById('1_6_top_3').addEventListener('change', function() {
+                document.getElementById('1_6_top_3').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_6_bottom_0').checked = true;
                     }
                 });
-
-                document.getElementById('1_6_bottom_3').addEventListener('change', function() {
+                document.getElementById('1_6_bottom_3').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_6_top_0').checked = true;
                     }
                 });
-                document.getElementById('1_6_bottom_2').addEventListener('change', function() {
+                document.getElementById('1_6_bottom_2').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_6_top_1').checked = true;
                     }
                 });
-                document.getElementById('1_6_bottom_1').addEventListener('change', function() {
+                document.getElementById('1_6_bottom_1').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_6_top_2').checked = true;
                     }
                 });
-                document.getElementById('1_6_bottom_0').addEventListener('change', function() {
+                document.getElementById('1_6_bottom_0').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_6_top_3').checked = true;
                     }
                 });
             </script>
+            <!-- Перелистываание назад -->
+            <script>
+                document.getElementById('btn_1_6_prev').addEventListener('click', function () {
+                    var from = document.querySelector('[name="quest_1_6"]');
+                    var to = document.querySelector('[name="quest_1_5"]');
 
+                    from.classList.add('animBlockDisappear_prev');
+                    from.addEventListener('animationend', function handler() {
+                        from.style.display = 'none';
+                        from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
+
+                        to.style.display = 'block';
+                        to.classList.add('animBlockAppear_prev');
+
+                        to.addEventListener('animationend', function appearHandler() {
+                            to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
+                            to.removeEventListener('animationend', appearHandler);
+                        });
+
+                        from.removeEventListener('animationend', handler);
+                    });
+                });
+            </script>
+            <!-- Перелистываание вперёд -->
+            <script>
+                document.getElementById('btn_1_6_next').addEventListener('click', function () {
+                    var from = document.querySelector('[name="quest_1_6"]');
+                    var to = document.querySelector('[name="quest_1_7"]');
+
+                    from.classList.add('animBlockDisappear_next');
+                    from.addEventListener('animationend', function handler() {
+                        from.style.display = 'none';
+                        from.classList.remove('animBlockDisappear_next'); // Удаляем класс анимации
+
+                        to.style.display = 'block';
+                        to.classList.add('animBlockAppear_next');
+
+                        to.addEventListener('animationend', function appearHandler() {
+                            to.classList.remove('animBlockAppear_next'); // Удаляем класс анимации
+                            to.removeEventListener('animationend', appearHandler);
+                        });
+
+                        from.removeEventListener('animationend', handler);
+                    });
+                });
+            </script>
         </div>
+
+        <!-- ВОПРОС 7 -->
 
         <div class="quest_1" name="quest_1_7">
             <p class="quest_1_title">Вопрос 7</p>
@@ -732,7 +1063,7 @@
                 voluptates qui cupiditate? <br>
             </p>
             <section class="quest_1_sect">
-                <button class="btn_nextprev">Назад</button>
+                <button class="btn_nextprev" id="btn_1_7_prev">Назад</button>
                 <div class="inpBlock_1">
                     <div class="inp_top_1">
                         <div class="inp_left_1">
@@ -740,16 +1071,16 @@
                         </div>
                         <div class="inp_right_1">
                             <div class="var_inputs">
-                                <input type="radio" id="1_7_top_1" class="inpRadio" name="1_7_top"> 0
+                                <input type="radio" id="1_7_top_0" class="inpRadio" name="1_7_top"> 0
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_7_top_2" class="inpRadio" name="1_7_top"> 1
+                                <input type="radio" id="1_7_top_1" class="inpRadio" name="1_7_top"> 1
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_7_top_3" class="inpRadio" name="1_7_top"> 2
+                                <input type="radio" id="1_7_top_2" class="inpRadio" name="1_7_top"> 2
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_7_top_4" class="inpRadio" name="1_7_top"> 3
+                                <input type="radio" id="1_7_top_3" class="inpRadio" name="1_7_top"> 3
                             </div>
                         </div>
                     </div>
@@ -757,71 +1088,121 @@
                         <div class="inp_left_1">
                             <span>Вариант 2</span>
                         </div>
-
                         <div class="inp_right_1">
                             <div class="var_inputs">
-                                <input type="radio" id="1_7_bottom_1" class="inpRadio" name="1_7_bottom"> 0
+                                <input type="radio" id="1_7_bottom_0" class="inpRadio" name="1_7_bottom"> 0
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_7_bottom_2" class="inpRadio" name="1_7_bottom"> 1
+                                <input type="radio" id="1_7_bottom_1" class="inpRadio" name="1_7_bottom"> 1
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_7_bottom_3" class="inpRadio" name="1_7_bottom"> 2
+                                <input type="radio" id="1_7_bottom_2" class="inpRadio" name="1_7_bottom"> 2
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_7_bottom_4" class="inpRadio" name="1_7_bottom"> 3
+                                <input type="radio" id="1_7_bottom_3" class="inpRadio" name="1_7_bottom"> 3
                             </div>
                         </div>
                     </div>
                 </div>
-                <button class="btn_nextprev">Далее</button>
+                <button class="btn_nextprev" id="btn_1_7_next">Далее</button>
             </section>
-
             <script>
-                document.getElementById('1_7_top_0').addEventListener('change', function() {
+                // Сокрытие блока
+                window.addEventListener('load', function () {
+                    const quest = document.querySelector('[name="quest_1_7"]');
+                    quest.classList.add('hidden');
+                });
+                // Работа с кнопками выбора
+                document.getElementById('1_7_top_0').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_7_bottom_3').checked = true;
                     }
                 });
-                document.getElementById('1_7_top_1').addEventListener('change', function() {
+                document.getElementById('1_7_top_1').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_7_bottom_2').checked = true;
                     }
                 });
-                document.getElementById('1_7_top_2').addEventListener('change', function() {
+                document.getElementById('1_7_top_2').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_7_bottom_1').checked = true;
                     }
                 });
-                document.getElementById('1_7_top_3').addEventListener('change', function() {
+                document.getElementById('1_7_top_3').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_7_bottom_0').checked = true;
                     }
                 });
-
-                document.getElementById('1_7_bottom_3').addEventListener('change', function() {
+                document.getElementById('1_7_bottom_3').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_7_top_0').checked = true;
                     }
                 });
-                document.getElementById('1_7_bottom_2').addEventListener('change', function() {
+                document.getElementById('1_7_bottom_2').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_7_top_1').checked = true;
                     }
                 });
-                document.getElementById('1_7_bottom_1').addEventListener('change', function() {
+                document.getElementById('1_7_bottom_1').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_7_top_2').checked = true;
                     }
                 });
-                document.getElementById('1_7_bottom_0').addEventListener('change', function() {
+                document.getElementById('1_7_bottom_0').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_7_top_3').checked = true;
                     }
                 });
             </script>
+            <!-- Перелистываание назад -->
+            <script>
+                document.getElementById('btn_1_7_prev').addEventListener('click', function () {
+                    var from = document.querySelector('[name="quest_1_7"]');
+                    var to = document.querySelector('[name="quest_1_6"]');
 
+                    from.classList.add('animBlockDisappear_prev');
+                    from.addEventListener('animationend', function handler() {
+                        from.style.display = 'none';
+                        from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
+
+                        to.style.display = 'block';
+                        to.classList.add('animBlockAppear_prev');
+
+                        to.addEventListener('animationend', function appearHandler() {
+                            to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
+                            to.removeEventListener('animationend', appearHandler);
+                        });
+
+                        from.removeEventListener('animationend', handler);
+                    });
+                });
+            </script>
+            <!-- Перелистываание вперёд -->
+            <script>
+                document.getElementById('btn_1_7_next').addEventListener('click', function () {
+                    var from = document.querySelector('[name="quest_1_7"]');
+                    var to = document.querySelector('[name="quest_1_8"]');
+
+                    from.classList.add('animBlockDisappear_next');
+                    from.addEventListener('animationend', function handler() {
+                        from.style.display = 'none';
+                        from.classList.remove('animBlockDisappear_next'); // Удаляем класс анимации
+
+                        to.style.display = 'block';
+                        to.classList.add('animBlockAppear_next');
+
+                        to.addEventListener('animationend', function appearHandler() {
+                            to.classList.remove('animBlockAppear_next'); // Удаляем класс анимации
+                            to.removeEventListener('animationend', appearHandler);
+                        });
+
+                        from.removeEventListener('animationend', handler);
+                    });
+                });
+            </script>
         </div>
+
+        <!-- ВОПРОС 8 -->
 
         <div class="quest_1" name="quest_1_8">
             <p class="quest_1_title">Вопрос 8</p>
@@ -842,7 +1223,7 @@
                 voluptates qui cupiditate? <br>
             </p>
             <section class="quest_1_sect">
-                <button class="btn_nextprev">Назад</button>
+                <button class="btn_nextprev" id="btn_1_8_prev">Назад</button>
                 <div class="inpBlock_1">
                     <div class="inp_top_1">
                         <div class="inp_left_1">
@@ -850,16 +1231,16 @@
                         </div>
                         <div class="inp_right_1">
                             <div class="var_inputs">
-                                <input type="radio" id="1_8_top_1" class="inpRadio" name="1_8_top"> 0
+                                <input type="radio" id="1_8_top_0" class="inpRadio" name="1_8_top"> 0
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_8_top_2" class="inpRadio" name="1_8_top"> 1
+                                <input type="radio" id="1_8_top_1" class="inpRadio" name="1_8_top"> 1
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_8_top_3" class="inpRadio" name="1_8_top"> 2
+                                <input type="radio" id="1_8_top_2" class="inpRadio" name="1_8_top"> 2
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_8_top_4" class="inpRadio" name="1_8_top"> 3
+                                <input type="radio" id="1_8_top_3" class="inpRadio" name="1_8_top"> 3
                             </div>
                         </div>
                     </div>
@@ -870,68 +1251,119 @@
 
                         <div class="inp_right_1">
                             <div class="var_inputs">
-                                <input type="radio" id="1_8_bottom_1" class="inpRadio" name="1_8_bottom"> 0
+                                <input type="radio" id="1_8_bottom_0" class="inpRadio" name="1_8_bottom"> 0
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_8_bottom_2" class="inpRadio" name="1_8_bottom"> 1
+                                <input type="radio" id="1_8_bottom_1" class="inpRadio" name="1_8_bottom"> 1
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_8_bottom_3" class="inpRadio" name="1_8_bottom"> 2
+                                <input type="radio" id="1_8_bottom_2" class="inpRadio" name="1_8_bottom"> 2
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_8_bottom_4" class="inpRadio" name="1_8_bottom"> 3
+                                <input type="radio" id="1_8_bottom_3" class="inpRadio" name="1_8_bottom"> 3
                             </div>
                         </div>
                     </div>
                 </div>
-                <button class="btn_nextprev">Далее</button>
+                <button class="btn_nextprev" id="btn_1_8_next">Далее</button>
             </section>
-
             <script>
-                document.getElementById('1_8_top_0').addEventListener('change', function() {
+                // Сокрытие блока
+                window.addEventListener('load', function () {
+                    const quest = document.querySelector('[name="quest_1_8"]');
+                    quest.classList.add('hidden');
+                });
+                // Работа с кнопками выбора
+                document.getElementById('1_8_top_0').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_8_bottom_3').checked = true;
                     }
                 });
-                document.getElementById('1_8_top_1').addEventListener('change', function() {
+                document.getElementById('1_8_top_1').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_8_bottom_2').checked = true;
                     }
                 });
-                document.getElementById('1_8_top_2').addEventListener('change', function() {
+                document.getElementById('1_8_top_2').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_8_bottom_1').checked = true;
                     }
                 });
-                document.getElementById('1_8_top_3').addEventListener('change', function() {
+                document.getElementById('1_8_top_3').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_8_bottom_0').checked = true;
                     }
                 });
-
-                document.getElementById('1_8_bottom_3').addEventListener('change', function() {
+                document.getElementById('1_8_bottom_3').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_8_top_0').checked = true;
                     }
                 });
-                document.getElementById('1_8_bottom_2').addEventListener('change', function() {
+                document.getElementById('1_8_bottom_2').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_8_top_1').checked = true;
                     }
                 });
-                document.getElementById('1_8_bottom_1').addEventListener('change', function() {
+                document.getElementById('1_8_bottom_1').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_8_top_2').checked = true;
                     }
                 });
-                document.getElementById('1_8_bottom_0').addEventListener('change', function() {
+                document.getElementById('1_8_bottom_0').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_8_top_3').checked = true;
                     }
                 });
             </script>
+            <!-- Перелистываание назад -->
+            <script>
+                document.getElementById('btn_1_8_prev').addEventListener('click', function () {
+                    var from = document.querySelector('[name="quest_1_8"]');
+                    var to = document.querySelector('[name="quest_1_7"]');
 
+                    from.classList.add('animBlockDisappear_prev');
+                    from.addEventListener('animationend', function handler() {
+                        from.style.display = 'none';
+                        from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
+
+                        to.style.display = 'block';
+                        to.classList.add('animBlockAppear_prev');
+
+                        to.addEventListener('animationend', function appearHandler() {
+                            to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
+                            to.removeEventListener('animationend', appearHandler);
+                        });
+
+                        from.removeEventListener('animationend', handler);
+                    });
+                });
+            </script>
+            <!-- Перелистываание вперёд -->
+            <script>
+                document.getElementById('btn_1_8_next').addEventListener('click', function () {
+                    var from = document.querySelector('[name="quest_1_8"]');
+                    var to = document.querySelector('[name="quest_1_9"]');
+
+                    from.classList.add('animBlockDisappear_next');
+                    from.addEventListener('animationend', function handler() {
+                        from.style.display = 'none';
+                        from.classList.remove('animBlockDisappear_next'); // Удаляем класс анимации
+
+                        to.style.display = 'block';
+                        to.classList.add('animBlockAppear_next');
+
+                        to.addEventListener('animationend', function appearHandler() {
+                            to.classList.remove('animBlockAppear_next'); // Удаляем класс анимации
+                            to.removeEventListener('animationend', appearHandler);
+                        });
+
+                        from.removeEventListener('animationend', handler);
+                    });
+                });
+            </script>
         </div>
+
+        <!-- ВОПРОС 9 -->
 
         <div class="quest_1" name="quest_1_9">
             <p class="quest_1_title">Вопрос 9</p>
@@ -952,7 +1384,7 @@
                 voluptates qui cupiditate? <br>
             </p>
             <section class="quest_1_sect">
-                <button class="btn_nextprev">Назад</button>
+                <button class="btn_nextprev" id="btn_1_9_prev">Назад</button>
                 <div class="inpBlock_1">
                     <div class="inp_top_1">
                         <div class="inp_left_1">
@@ -960,16 +1392,16 @@
                         </div>
                         <div class="inp_right_1">
                             <div class="var_inputs">
-                                <input type="radio" id="1_9_top_1" class="inpRadio" name="1_9_top"> 0
+                                <input type="radio" id="1_9_top_0" class="inpRadio" name="1_9_top"> 0
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_9_top_2" class="inpRadio" name="1_9_top"> 1
+                                <input type="radio" id="1_9_top_1" class="inpRadio" name="1_9_top"> 1
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_9_top_3" class="inpRadio" name="1_9_top"> 2
+                                <input type="radio" id="1_9_top_2" class="inpRadio" name="1_9_top"> 2
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_9_top_4" class="inpRadio" name="1_9_top"> 3
+                                <input type="radio" id="1_9_top_3" class="inpRadio" name="1_9_top"> 3
                             </div>
                         </div>
                     </div>
@@ -977,71 +1409,121 @@
                         <div class="inp_left_1">
                             <span>Вариант 2</span>
                         </div>
-
                         <div class="inp_right_1">
                             <div class="var_inputs">
-                                <input type="radio" id="1_9_bottom_1" class="inpRadio" name="1_9_bottom"> 0
+                                <input type="radio" id="1_9_bottom_0" class="inpRadio" name="1_9_bottom"> 0
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_9_bottom_2" class="inpRadio" name="1_9_bottom"> 1
+                                <input type="radio" id="1_9_bottom_1" class="inpRadio" name="1_9_bottom"> 1
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_9_bottom_3" class="inpRadio" name="1_9_bottom"> 2
+                                <input type="radio" id="1_9_bottom_2" class="inpRadio" name="1_9_bottom"> 2
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_9_bottom_4" class="inpRadio" name="1_9_bottom"> 3
+                                <input type="radio" id="1_9_bottom_3" class="inpRadio" name="1_9_bottom"> 3
                             </div>
                         </div>
                     </div>
                 </div>
-                <button class="btn_nextprev">Далее</button>
+                <button class="btn_nextprev" id="btn_1_9_next">Далее</button>
             </section>
-
             <script>
-                document.getElementById('1_9_top_0').addEventListener('change', function() {
+                // Сокрытие блока
+                window.addEventListener('load', function () {
+                    const quest = document.querySelector('[name="quest_1_9"]');
+                    quest.classList.add('hidden');
+                });
+                // Работа с кнопками выбора
+                document.getElementById('1_9_top_0').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_9_bottom_3').checked = true;
                     }
                 });
-                document.getElementById('1_9_top_1').addEventListener('change', function() {
+                document.getElementById('1_9_top_1').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_9_bottom_2').checked = true;
                     }
                 });
-                document.getElementById('1_9_top_2').addEventListener('change', function() {
+                document.getElementById('1_9_top_2').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_9_bottom_1').checked = true;
                     }
                 });
-                document.getElementById('1_9_top_3').addEventListener('change', function() {
+                document.getElementById('1_9_top_3').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_9_bottom_0').checked = true;
                     }
                 });
-
-                document.getElementById('1_9_bottom_3').addEventListener('change', function() {
+                document.getElementById('1_9_bottom_3').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_9_top_0').checked = true;
                     }
                 });
-                document.getElementById('1_9_bottom_2').addEventListener('change', function() {
+                document.getElementById('1_9_bottom_2').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_9_top_1').checked = true;
                     }
                 });
-                document.getElementById('1_9_bottom_1').addEventListener('change', function() {
+                document.getElementById('1_9_bottom_1').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_9_top_2').checked = true;
                     }
                 });
-                document.getElementById('1_9_bottom_0').addEventListener('change', function() {
+                document.getElementById('1_9_bottom_0').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_9_top_3').checked = true;
                     }
                 });
             </script>
+            <!-- Перелистываание назад -->
+            <script>
+                document.getElementById('btn_1_9_prev').addEventListener('click', function () {
+                    var from = document.querySelector('[name="quest_1_9"]');
+                    var to = document.querySelector('[name="quest_1_8"]');
 
+                    from.classList.add('animBlockDisappear_prev');
+                    from.addEventListener('animationend', function handler() {
+                        from.style.display = 'none';
+                        from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
+
+                        to.style.display = 'block';
+                        to.classList.add('animBlockAppear_prev');
+
+                        to.addEventListener('animationend', function appearHandler() {
+                            to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
+                            to.removeEventListener('animationend', appearHandler);
+                        });
+
+                        from.removeEventListener('animationend', handler);
+                    });
+                });
+            </script>
+            <!-- Перелистываание вперёд -->
+            <script>
+                document.getElementById('btn_1_9_next').addEventListener('click', function () {
+                    var from = document.querySelector('[name="quest_1_9"]');
+                    var to = document.querySelector('[name="quest_1_10"]');
+
+                    from.classList.add('animBlockDisappear_next');
+                    from.addEventListener('animationend', function handler() {
+                        from.style.display = 'none';
+                        from.classList.remove('animBlockDisappear_next'); // Удаляем класс анимации
+
+                        to.style.display = 'block';
+                        to.classList.add('animBlockAppear_next');
+
+                        to.addEventListener('animationend', function appearHandler() {
+                            to.classList.remove('animBlockAppear_next'); // Удаляем класс анимации
+                            to.removeEventListener('animationend', appearHandler);
+                        });
+
+                        from.removeEventListener('animationend', handler);
+                    });
+                });
+            </script>
         </div>
+
+        <!-- ВОПРОС 10 -->
 
         <div class="quest_1" name="quest_1_10">
             <p class="quest_1_title">Вопрос 10</p>
@@ -1062,7 +1544,7 @@
                 voluptates qui cupiditate? <br>
             </p>
             <section class="quest_1_sect">
-                <button class="btn_nextprev">Назад</button>
+                <button class="btn_nextprev" id="btn_1_10_prev">Назад</button>
                 <div class="inpBlock_1">
                     <div class="inp_top_1">
                         <div class="inp_left_1">
@@ -1070,16 +1552,16 @@
                         </div>
                         <div class="inp_right_1">
                             <div class="var_inputs">
-                                <input type="radio" id="1_10_top_1" class="inpRadio" name="1_10_top"> 0
+                                <input type="radio" id="1_10_top_0" class="inpRadio" name="1_10_top"> 0
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_10_top_2" class="inpRadio" name="1_10_top"> 1
+                                <input type="radio" id="1_10_top_1" class="inpRadio" name="1_10_top"> 1
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_10_top_3" class="inpRadio" name="1_10_top"> 2
+                                <input type="radio" id="1_10_top_2" class="inpRadio" name="1_10_top"> 2
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_10_top_4" class="inpRadio" name="1_10_top"> 3
+                                <input type="radio" id="1_10_top_3" class="inpRadio" name="1_10_top"> 3
                             </div>
                         </div>
                     </div>
@@ -1090,68 +1572,119 @@
 
                         <div class="inp_right_1">
                             <div class="var_inputs">
-                                <input type="radio" id="1_10_bottom_1" class="inpRadio" name="1_10_bottom"> 0
+                                <input type="radio" id="1_10_bottom_0" class="inpRadio" name="1_10_bottom"> 0
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_10_bottom_2" class="inpRadio" name="1_10_bottom"> 1
+                                <input type="radio" id="1_10_bottom_1" class="inpRadio" name="1_10_bottom"> 1
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_10_bottom_3" class="inpRadio" name="1_10_bottom"> 2
+                                <input type="radio" id="1_10_bottom_2" class="inpRadio" name="1_10_bottom"> 2
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_10_bottom_4" class="inpRadio" name="1_10_bottom"> 3
+                                <input type="radio" id="1_10_bottom_3" class="inpRadio" name="1_10_bottom"> 3
                             </div>
                         </div>
                     </div>
                 </div>
-                <button class="btn_nextprev">Далее</button>
+                <button class="btn_nextprev" id="btn_1_10_next">Далее</button>
             </section>
-
             <script>
-                document.getElementById('1_10_top_0').addEventListener('change', function() {
+                // Сокрытие блока
+                window.addEventListener('load', function () {
+                    const quest = document.querySelector('[name="quest_1_10"]');
+                    quest.classList.add('hidden');
+                });
+                // Работа с кнопками выбора
+                document.getElementById('1_10_top_0').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_10_bottom_3').checked = true;
                     }
                 });
-                document.getElementById('1_10_top_1').addEventListener('change', function() {
+                document.getElementById('1_10_top_1').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_10_bottom_2').checked = true;
                     }
                 });
-                document.getElementById('1_10_top_2').addEventListener('change', function() {
+                document.getElementById('1_10_top_2').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_10_bottom_1').checked = true;
                     }
                 });
-                document.getElementById('1_10_top_3').addEventListener('change', function() {
+                document.getElementById('1_10_top_3').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_10_bottom_0').checked = true;
                     }
                 });
-
-                document.getElementById('1_10_bottom_3').addEventListener('change', function() {
+                document.getElementById('1_10_bottom_3').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_10_top_0').checked = true;
                     }
                 });
-                document.getElementById('1_10_bottom_2').addEventListener('change', function() {
+                document.getElementById('1_10_bottom_2').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_10_top_1').checked = true;
                     }
                 });
-                document.getElementById('1_10_bottom_1').addEventListener('change', function() {
+                document.getElementById('1_10_bottom_1').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_10_top_2').checked = true;
                     }
                 });
-                document.getElementById('1_10_bottom_0').addEventListener('change', function() {
+                document.getElementById('1_10_bottom_0').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_10_top_3').checked = true;
                     }
                 });
             </script>
+            <!-- Перелистываание назад -->
+            <script>
+                document.getElementById('btn_1_10_prev').addEventListener('click', function () {
+                    var from = document.querySelector('[name="quest_1_10"]');
+                    var to = document.querySelector('[name="quest_1_9"]');
 
+                    from.classList.add('animBlockDisappear_prev');
+                    from.addEventListener('animationend', function handler() {
+                        from.style.display = 'none';
+                        from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
+
+                        to.style.display = 'block';
+                        to.classList.add('animBlockAppear_prev');
+
+                        to.addEventListener('animationend', function appearHandler() {
+                            to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
+                            to.removeEventListener('animationend', appearHandler);
+                        });
+
+                        from.removeEventListener('animationend', handler);
+                    });
+                });
+            </script>
+            <!-- Перелистываание вперёд -->
+            <script>
+                document.getElementById('btn_1_10_next').addEventListener('click', function () {
+                    var from = document.querySelector('[name="quest_1_10"]');
+                    var to = document.querySelector('[name="quest_1_11"]');
+
+                    from.classList.add('animBlockDisappear_next');
+                    from.addEventListener('animationend', function handler() {
+                        from.style.display = 'none';
+                        from.classList.remove('animBlockDisappear_next'); // Удаляем класс анимации
+
+                        to.style.display = 'block';
+                        to.classList.add('animBlockAppear_next');
+
+                        to.addEventListener('animationend', function appearHandler() {
+                            to.classList.remove('animBlockAppear_next'); // Удаляем класс анимации
+                            to.removeEventListener('animationend', appearHandler);
+                        });
+
+                        from.removeEventListener('animationend', handler);
+                    });
+                });
+            </script>
         </div>
+
+        <!-- ВОПРОС 11 -->
 
         <div class="quest_1" name="quest_1_11">
             <p class="quest_1_title">Вопрос 11</p>
@@ -1172,7 +1705,7 @@
                 voluptates qui cupiditate? <br>
             </p>
             <section class="quest_1_sect">
-                <button class="btn_nextprev">Назад</button>
+                <button class="btn_nextprev" id="btn_1_11_prev">Назад</button>
                 <div class="inpBlock_1">
                     <div class="inp_top_1">
                         <div class="inp_left_1">
@@ -1180,16 +1713,16 @@
                         </div>
                         <div class="inp_right_1">
                             <div class="var_inputs">
-                                <input type="radio" id="1_11_top_1" class="inpRadio" name="1_11_top"> 0
+                                <input type="radio" id="1_11_top_0" class="inpRadio" name="1_11_top"> 0
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_11_top_2" class="inpRadio" name="1_11_top"> 1
+                                <input type="radio" id="1_11_top_1" class="inpRadio" name="1_11_top"> 1
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_11_top_3" class="inpRadio" name="1_11_top"> 2
+                                <input type="radio" id="1_11_top_2" class="inpRadio" name="1_11_top"> 2
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_11_top_4" class="inpRadio" name="1_11_top"> 3
+                                <input type="radio" id="1_11_top_3" class="inpRadio" name="1_11_top"> 3
                             </div>
                         </div>
                     </div>
@@ -1200,68 +1733,119 @@
 
                         <div class="inp_right_1">
                             <div class="var_inputs">
-                                <input type="radio" id="1_11_bottom_1" class="inpRadio" name="1_11_bottom"> 0
+                                <input type="radio" id="1_11_bottom_0" class="inpRadio" name="1_11_bottom"> 0
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_11_bottom_2" class="inpRadio" name="1_11_bottom"> 1
+                                <input type="radio" id="1_11_bottom_1" class="inpRadio" name="1_11_bottom"> 1
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_11_bottom_3" class="inpRadio" name="1_11_bottom"> 2
+                                <input type="radio" id="1_11_bottom_2" class="inpRadio" name="1_11_bottom"> 2
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_11_bottom_4" class="inpRadio" name="1_11_bottom"> 3
+                                <input type="radio" id="1_11_bottom_3" class="inpRadio" name="1_11_bottom"> 3
                             </div>
                         </div>
                     </div>
                 </div>
-                <button class="btn_nextprev">Далее</button>
+                <button class="btn_nextprev" id="btn_1_11_next">Далее</button>
             </section>
-
             <script>
-                document.getElementById('1_11_top_0').addEventListener('change', function() {
+                // Сокрытие блока
+                window.addEventListener('load', function () {
+                    const quest = document.querySelector('[name="quest_1_11"]');
+                    quest.classList.add('hidden');
+                });
+                // Работа с кнопками выбора
+                document.getElementById('1_11_top_0').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_11_bottom_3').checked = true;
                     }
                 });
-                document.getElementById('1_11_top_1').addEventListener('change', function() {
+                document.getElementById('1_11_top_1').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_11_bottom_2').checked = true;
                     }
                 });
-                document.getElementById('1_11_top_2').addEventListener('change', function() {
+                document.getElementById('1_11_top_2').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_11_bottom_1').checked = true;
                     }
                 });
-                document.getElementById('1_11_top_3').addEventListener('change', function() {
+                document.getElementById('1_11_top_3').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_11_bottom_0').checked = true;
                     }
                 });
-
-                document.getElementById('1_11_bottom_3').addEventListener('change', function() {
+                document.getElementById('1_11_bottom_3').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_11_top_0').checked = true;
                     }
                 });
-                document.getElementById('1_11_bottom_2').addEventListener('change', function() {
+                document.getElementById('1_11_bottom_2').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_11_top_1').checked = true;
                     }
                 });
-                document.getElementById('1_11_bottom_1').addEventListener('change', function() {
+                document.getElementById('1_11_bottom_1').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_11_top_2').checked = true;
                     }
                 });
-                document.getElementById('1_11_bottom_0').addEventListener('change', function() {
+                document.getElementById('1_11_bottom_0').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_11_top_3').checked = true;
                     }
                 });
             </script>
+            <!-- Перелистываание назад -->
+            <script>
+                document.getElementById('btn_1_11_prev').addEventListener('click', function () {
+                    var from = document.querySelector('[name="quest_1_11"]');
+                    var to = document.querySelector('[name="quest_1_10"]');
 
+                    from.classList.add('animBlockDisappear_prev');
+                    from.addEventListener('animationend', function handler() {
+                        from.style.display = 'none';
+                        from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
+
+                        to.style.display = 'block';
+                        to.classList.add('animBlockAppear_prev');
+
+                        to.addEventListener('animationend', function appearHandler() {
+                            to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
+                            to.removeEventListener('animationend', appearHandler);
+                        });
+
+                        from.removeEventListener('animationend', handler);
+                    });
+                });
+            </script>
+            <!-- Перелистываание вперёд -->
+            <script>
+                document.getElementById('btn_1_11_next').addEventListener('click', function () {
+                    var from = document.querySelector('[name="quest_1_11"]');
+                    var to = document.querySelector('[name="quest_1_12"]');
+
+                    from.classList.add('animBlockDisappear_next');
+                    from.addEventListener('animationend', function handler() {
+                        from.style.display = 'none';
+                        from.classList.remove('animBlockDisappear_next'); // Удаляем класс анимации
+
+                        to.style.display = 'block';
+                        to.classList.add('animBlockAppear_next');
+
+                        to.addEventListener('animationend', function appearHandler() {
+                            to.classList.remove('animBlockAppear_next'); // Удаляем класс анимации
+                            to.removeEventListener('animationend', appearHandler);
+                        });
+
+                        from.removeEventListener('animationend', handler);
+                    });
+                });
+            </script>
         </div>
+
+        <!-- ВОПРОС 12 -->
 
         <div class="quest_1" name="quest_1_12">
             <p class="quest_1_title">Вопрос 12</p>
@@ -1282,7 +1866,7 @@
                 voluptates qui cupiditate? <br>
             </p>
             <section class="quest_1_sect">
-                <button class="btn_nextprev">Назад</button>
+                <button class="btn_nextprev" id="btn_1_12_prev">Назад</button>
                 <div class="inpBlock_1">
                     <div class="inp_top_1">
                         <div class="inp_left_1">
@@ -1290,16 +1874,16 @@
                         </div>
                         <div class="inp_right_1">
                             <div class="var_inputs">
-                                <input type="radio" id="1_12_top_1" class="inpRadio" name="1_12_top"> 0
+                                <input type="radio" id="1_12_top_0" class="inpRadio" name="1_12_top"> 0
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_12_top_2" class="inpRadio" name="1_12_top"> 1
+                                <input type="radio" id="1_12_top_1" class="inpRadio" name="1_12_top"> 1
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_12_top_3" class="inpRadio" name="1_12_top"> 2
+                                <input type="radio" id="1_12_top_2" class="inpRadio" name="1_12_top"> 2
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_12_top_4" class="inpRadio" name="1_12_top"> 3
+                                <input type="radio" id="1_12_top_3" class="inpRadio" name="1_12_top"> 3
                             </div>
                         </div>
                     </div>
@@ -1307,71 +1891,121 @@
                         <div class="inp_left_1">
                             <span>Вариант 2</span>
                         </div>
-
                         <div class="inp_right_1">
                             <div class="var_inputs">
-                                <input type="radio" id="1_12_bottom_1" class="inpRadio" name="1_12_bottom"> 0
+                                <input type="radio" id="1_12_bottom_0" class="inpRadio" name="1_12_bottom"> 0
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_12_bottom_2" class="inpRadio" name="1_12_bottom"> 1
+                                <input type="radio" id="1_12_bottom_1" class="inpRadio" name="1_12_bottom"> 1
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_12_bottom_3" class="inpRadio" name="1_12_bottom"> 2
+                                <input type="radio" id="1_12_bottom_2" class="inpRadio" name="1_12_bottom"> 2
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_12_bottom_4" class="inpRadio" name="1_12_bottom"> 3
+                                <input type="radio" id="1_12_bottom_3" class="inpRadio" name="1_12_bottom"> 3
                             </div>
                         </div>
                     </div>
                 </div>
-                <button class="btn_nextprev">Далее</button>
+                <button class="btn_nextprev" id="btn_1_12_next">Далее</button>
             </section>
-
             <script>
-                document.getElementById('1_12_top_0').addEventListener('change', function() {
+                // Сокрытие блока
+                window.addEventListener('load', function () {
+                    const quest = document.querySelector('[name="quest_1_12"]');
+                    quest.classList.add('hidden');
+                });
+                // Работа с кнопками выбора
+                document.getElementById('1_12_top_0').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_12_bottom_3').checked = true;
                     }
                 });
-                document.getElementById('1_12_top_1').addEventListener('change', function() {
+                document.getElementById('1_12_top_1').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_12_bottom_2').checked = true;
                     }
                 });
-                document.getElementById('1_12_top_2').addEventListener('change', function() {
+                document.getElementById('1_12_top_2').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_12_bottom_1').checked = true;
                     }
                 });
-                document.getElementById('1_12_top_3').addEventListener('change', function() {
+                document.getElementById('1_12_top_3').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_12_bottom_0').checked = true;
                     }
                 });
-
-                document.getElementById('1_12_bottom_3').addEventListener('change', function() {
+                document.getElementById('1_12_bottom_3').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_12_top_0').checked = true;
                     }
                 });
-                document.getElementById('1_12_bottom_2').addEventListener('change', function() {
+                document.getElementById('1_12_bottom_2').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_12_top_1').checked = true;
                     }
                 });
-                document.getElementById('1_12_bottom_1').addEventListener('change', function() {
+                document.getElementById('1_12_bottom_1').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_12_top_2').checked = true;
                     }
                 });
-                document.getElementById('1_12_bottom_0').addEventListener('change', function() {
+                document.getElementById('1_12_bottom_0').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_12_top_3').checked = true;
                     }
                 });
             </script>
+            <!-- Перелистываание назад -->
+            <script>
+                document.getElementById('btn_1_12_prev').addEventListener('click', function () {
+                    var from = document.querySelector('[name="quest_1_12"]');
+                    var to = document.querySelector('[name="quest_1_11"]');
 
+                    from.classList.add('animBlockDisappear_prev');
+                    from.addEventListener('animationend', function handler() {
+                        from.style.display = 'none';
+                        from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
+
+                        to.style.display = 'block';
+                        to.classList.add('animBlockAppear_prev');
+
+                        to.addEventListener('animationend', function appearHandler() {
+                            to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
+                            to.removeEventListener('animationend', appearHandler);
+                        });
+
+                        from.removeEventListener('animationend', handler);
+                    });
+                });
+            </script>
+            <!-- Перелистываание вперёд -->
+            <script>
+                document.getElementById('btn_1_12_next').addEventListener('click', function () {
+                    var from = document.querySelector('[name="quest_1_12"]');
+                    var to = document.querySelector('[name="quest_1_13"]');
+
+                    from.classList.add('animBlockDisappear_next');
+                    from.addEventListener('animationend', function handler() {
+                        from.style.display = 'none';
+                        from.classList.remove('animBlockDisappear_next'); // Удаляем класс анимации
+
+                        to.style.display = 'block';
+                        to.classList.add('animBlockAppear_next');
+
+                        to.addEventListener('animationend', function appearHandler() {
+                            to.classList.remove('animBlockAppear_next'); // Удаляем класс анимации
+                            to.removeEventListener('animationend', appearHandler);
+                        });
+
+                        from.removeEventListener('animationend', handler);
+                    });
+                });
+            </script>
         </div>
+
+        <!-- ВОПРОС 13 -->
 
         <div class="quest_1" name="quest_1_13">
             <p class="quest_1_title">Вопрос 13</p>
@@ -1392,7 +2026,7 @@
                 voluptates qui cupiditate? <br>
             </p>
             <section class="quest_1_sect">
-                <button class="btn_nextprev">Назад</button>
+                <button class="btn_nextprev" id="btn_1_13_prev">Назад</button>
                 <div class="inpBlock_1">
                     <div class="inp_top_1">
                         <div class="inp_left_1">
@@ -1400,16 +2034,16 @@
                         </div>
                         <div class="inp_right_1">
                             <div class="var_inputs">
-                                <input type="radio" id="1_13_top_1" class="inpRadio" name="1_13_top"> 0
+                                <input type="radio" id="1_13_top_0" class="inpRadio" name="1_13_top"> 0
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_13_top_2" class="inpRadio" name="1_13_top"> 1
+                                <input type="radio" id="1_13_top_1" class="inpRadio" name="1_13_top"> 1
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_13_top_3" class="inpRadio" name="1_13_top"> 2
+                                <input type="radio" id="1_13_top_2" class="inpRadio" name="1_13_top"> 2
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_13_top_4" class="inpRadio" name="1_13_top"> 3
+                                <input type="radio" id="1_13_top_3" class="inpRadio" name="1_13_top"> 3
                             </div>
                         </div>
                     </div>
@@ -1417,71 +2051,122 @@
                         <div class="inp_left_1">
                             <span>Вариант 2</span>
                         </div>
-
                         <div class="inp_right_1">
                             <div class="var_inputs">
-                                <input type="radio" id="1_13_bottom_1" class="inpRadio" name="1_13_bottom"> 0
+                                <input type="radio" id="1_13_bottom_0" class="inpRadio" name="1_13_bottom"> 0
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_13_bottom_2" class="inpRadio" name="1_13_bottom"> 1
+                                <input type="radio" id="1_13_bottom_1" class="inpRadio" name="1_13_bottom"> 1
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_13_bottom_3" class="inpRadio" name="1_13_bottom"> 2
+                                <input type="radio" id="1_13_bottom_2" class="inpRadio" name="1_13_bottom"> 2
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_13_bottom_4" class="inpRadio" name="1_13_bottom"> 3
+                                <input type="radio" id="1_13_bottom_3" class="inpRadio" name="1_13_bottom"> 3
                             </div>
                         </div>
                     </div>
                 </div>
-                <button class="btn_nextprev">Далее</button>
+                <button class="btn_nextprev" id="btn_1_13_next">Далее</button>
             </section>
-
             <script>
-                document.getElementById('1_13_top_0').addEventListener('change', function() {
+                // Сокрытие блока
+                window.addEventListener('load', function () {
+                    const quest = document.querySelector('[name="quest_1_13"]');
+                    quest.classList.add('hidden');
+                });
+                // Работа с кнопками выбора
+                document.getElementById('1_13_top_0').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_13_bottom_3').checked = true;
                     }
                 });
-                document.getElementById('1_13_top_1').addEventListener('change', function() {
+                document.getElementById('1_13_top_1').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_13_bottom_2').checked = true;
                     }
                 });
-                document.getElementById('1_13_top_2').addEventListener('change', function() {
+                document.getElementById('1_13_top_2').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_13_bottom_1').checked = true;
                     }
                 });
-                document.getElementById('1_13_top_3').addEventListener('change', function() {
+                document.getElementById('1_13_top_3').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_13_bottom_0').checked = true;
                     }
                 });
 
-                document.getElementById('1_13_bottom_3').addEventListener('change', function() {
+                document.getElementById('1_13_bottom_3').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_13_top_0').checked = true;
                     }
                 });
-                document.getElementById('1_13_bottom_2').addEventListener('change', function() {
+                document.getElementById('1_13_bottom_2').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_13_top_1').checked = true;
                     }
                 });
-                document.getElementById('1_13_bottom_1').addEventListener('change', function() {
+                document.getElementById('1_13_bottom_1').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_13_top_2').checked = true;
                     }
                 });
-                document.getElementById('1_13_bottom_0').addEventListener('change', function() {
+                document.getElementById('1_13_bottom_0').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_13_top_3').checked = true;
                     }
                 });
             </script>
-            
+            <!-- Перелистываание назад -->
+            <script>
+                document.getElementById('btn_1_13_prev').addEventListener('click', function () {
+                    var from = document.querySelector('[name="quest_1_13"]');
+                    var to = document.querySelector('[name="quest_1_12"]');
+
+                    from.classList.add('animBlockDisappear_prev');
+                    from.addEventListener('animationend', function handler() {
+                        from.style.display = 'none';
+                        from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
+
+                        to.style.display = 'block';
+                        to.classList.add('animBlockAppear_prev');
+
+                        to.addEventListener('animationend', function appearHandler() {
+                            to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
+                            to.removeEventListener('animationend', appearHandler);
+                        });
+
+                        from.removeEventListener('animationend', handler);
+                    });
+                });
+            </script>
+            <!-- Перелистываание вперёд -->
+            <script>
+                document.getElementById('btn_1_13_next').addEventListener('click', function () {
+                    var from = document.querySelector('[name="quest_1_13"]');
+                    var to = document.querySelector('[name="quest_1_14"]');
+
+                    from.classList.add('animBlockDisappear_next');
+                    from.addEventListener('animationend', function handler() {
+                        from.style.display = 'none';
+                        from.classList.remove('animBlockDisappear_next'); // Удаляем класс анимации
+
+                        to.style.display = 'block';
+                        to.classList.add('animBlockAppear_next');
+
+                        to.addEventListener('animationend', function appearHandler() {
+                            to.classList.remove('animBlockAppear_next'); // Удаляем класс анимации
+                            to.removeEventListener('animationend', appearHandler);
+                        });
+
+                        from.removeEventListener('animationend', handler);
+                    });
+                });
+            </script>
         </div>
+
+        <!-- ВОПРОС 14 -->
 
         <div class="quest_1" name="quest_1_14">
             <p class="quest_1_title">Вопрос 14</p>
@@ -1502,7 +2187,7 @@
                 voluptates qui cupiditate? <br>
             </p>
             <section class="quest_1_sect">
-                <button class="btn_nextprev">Назад</button>
+                <button class="btn_nextprev" id="btn_1_14_prev">Назад</button>
                 <div class="inpBlock_1">
                     <div class="inp_top_1">
                         <div class="inp_left_1">
@@ -1510,16 +2195,16 @@
                         </div>
                         <div class="inp_right_1">
                             <div class="var_inputs">
-                                <input type="radio" id="1_14_top_1" class="inpRadio" name="1_14_top"> 0
+                                <input type="radio" id="1_14_top_0" class="inpRadio" name="1_14_top"> 0
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_14_top_2" class="inpRadio" name="1_14_top"> 1
+                                <input type="radio" id="1_14_top_1" class="inpRadio" name="1_14_top"> 1
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_14_top_3" class="inpRadio" name="1_14_top"> 2
+                                <input type="radio" id="1_14_top_2" class="inpRadio" name="1_14_top"> 2
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_14_top_4" class="inpRadio" name="1_14_top"> 3
+                                <input type="radio" id="1_14_top_3" class="inpRadio" name="1_14_top"> 3
                             </div>
                         </div>
                     </div>
@@ -1530,68 +2215,119 @@
 
                         <div class="inp_right_1">
                             <div class="var_inputs">
-                                <input type="radio" id="1_14_bottom_1" class="inpRadio" name="1_14_bottom"> 0
+                                <input type="radio" id="1_14_bottom_0" class="inpRadio" name="1_14_bottom"> 0
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_14_bottom_2" class="inpRadio" name="1_14_bottom"> 1
+                                <input type="radio" id="1_14_bottom_1" class="inpRadio" name="1_14_bottom"> 1
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_14_bottom_3" class="inpRadio" name="1_14_bottom"> 2
+                                <input type="radio" id="1_14_bottom_2" class="inpRadio" name="1_14_bottom"> 2
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_14_bottom_4" class="inpRadio" name="1_14_bottom"> 3
+                                <input type="radio" id="1_14_bottom_3" class="inpRadio" name="1_14_bottom"> 3
                             </div>
                         </div>
                     </div>
                 </div>
-                <button class="btn_nextprev">Далее</button>
+                <button class="btn_nextprev" id="btn_1_14_next">Далее</button>
             </section>
-
             <script>
-                document.getElementById('1_14_top_0').addEventListener('change', function() {
+                // Сокрытие блока
+                window.addEventListener('load', function () {
+                    const quest = document.querySelector('[name="quest_1_14"]');
+                    quest.classList.add('hidden');
+                });
+                // Работа с кнопками выбора
+                document.getElementById('1_14_top_0').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_14_bottom_3').checked = true;
                     }
                 });
-                document.getElementById('1_14_top_1').addEventListener('change', function() {
+                document.getElementById('1_14_top_1').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_14_bottom_2').checked = true;
                     }
                 });
-                document.getElementById('1_14_top_2').addEventListener('change', function() {
+                document.getElementById('1_14_top_2').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_14_bottom_1').checked = true;
                     }
                 });
-                document.getElementById('1_14_top_3').addEventListener('change', function() {
+                document.getElementById('1_14_top_3').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_14_bottom_0').checked = true;
                     }
                 });
-
-                document.getElementById('1_14_bottom_3').addEventListener('change', function() {
+                document.getElementById('1_14_bottom_3').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_14_top_0').checked = true;
                     }
                 });
-                document.getElementById('1_14_bottom_2').addEventListener('change', function() {
+                document.getElementById('1_14_bottom_2').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_14_top_1').checked = true;
                     }
                 });
-                document.getElementById('1_14_bottom_1').addEventListener('change', function() {
+                document.getElementById('1_14_bottom_1').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_14_top_2').checked = true;
                     }
                 });
-                document.getElementById('1_14_bottom_0').addEventListener('change', function() {
+                document.getElementById('1_14_bottom_0').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_14_top_3').checked = true;
                     }
                 });
             </script>
+            <!-- Перелистываание назад -->
+            <script>
+                document.getElementById('btn_1_14_prev').addEventListener('click', function () {
+                    var from = document.querySelector('[name="quest_1_14"]');
+                    var to = document.querySelector('[name="quest_1_13"]');
 
+                    from.classList.add('animBlockDisappear_prev');
+                    from.addEventListener('animationend', function handler() {
+                        from.style.display = 'none';
+                        from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
+
+                        to.style.display = 'block';
+                        to.classList.add('animBlockAppear_prev');
+
+                        to.addEventListener('animationend', function appearHandler() {
+                            to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
+                            to.removeEventListener('animationend', appearHandler);
+                        });
+
+                        from.removeEventListener('animationend', handler);
+                    });
+                });
+            </script>
+            <!-- Перелистываание вперёд -->
+            <script>
+                document.getElementById('btn_1_14_next').addEventListener('click', function () {
+                    var from = document.querySelector('[name="quest_1_14"]');
+                    var to = document.querySelector('[name="quest_1_15"]');
+
+                    from.classList.add('animBlockDisappear_next');
+                    from.addEventListener('animationend', function handler() {
+                        from.style.display = 'none';
+                        from.classList.remove('animBlockDisappear_next'); // Удаляем класс анимации
+
+                        to.style.display = 'block';
+                        to.classList.add('animBlockAppear_next');
+
+                        to.addEventListener('animationend', function appearHandler() {
+                            to.classList.remove('animBlockAppear_next'); // Удаляем класс анимации
+                            to.removeEventListener('animationend', appearHandler);
+                        });
+
+                        from.removeEventListener('animationend', handler);
+                    });
+                });
+            </script>
         </div>
+
+        <!-- ВОПРОС 15 -->
 
         <div class="quest_1" name="quest_1_15">
             <p class="quest_1_title">Вопрос 15</p>
@@ -1612,7 +2348,7 @@
                 voluptates qui cupiditate? <br>
             </p>
             <section class="quest_1_sect">
-                <button class="btn_nextprev">Назад</button>
+                <button class="btn_nextprev" id="btn_1_15_prev">Назад</button>
                 <div class="inpBlock_1">
                     <div class="inp_top_1">
                         <div class="inp_left_1">
@@ -1620,16 +2356,16 @@
                         </div>
                         <div class="inp_right_1">
                             <div class="var_inputs">
-                                <input type="radio" id="1_15_top_1" class="inpRadio" name="1_15_top"> 0
+                                <input type="radio" id="1_15_top_0" class="inpRadio" name="1_15_top"> 0
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_15_top_2" class="inpRadio" name="1_15_top"> 1
+                                <input type="radio" id="1_15_top_1" class="inpRadio" name="1_15_top"> 1
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_15_top_3" class="inpRadio" name="1_15_top"> 2
+                                <input type="radio" id="1_15_top_2" class="inpRadio" name="1_15_top"> 2
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_15_top_4" class="inpRadio" name="1_15_top"> 3
+                                <input type="radio" id="1_15_top_3" class="inpRadio" name="1_15_top"> 3
                             </div>
                         </div>
                     </div>
@@ -1637,71 +2373,147 @@
                         <div class="inp_left_1">
                             <span>Вариант 2</span>
                         </div>
-
                         <div class="inp_right_1">
                             <div class="var_inputs">
-                                <input type="radio" id="1_15_bottom_1" class="inpRadio" name="1_15_bottom"> 0
+                                <input type="radio" id="1_15_bottom_0" class="inpRadio" name="1_15_bottom"> 0
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_15_bottom_2" class="inpRadio" name="1_15_bottom"> 1
+                                <input type="radio" id="1_15_bottom_1" class="inpRadio" name="1_15_bottom"> 1
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_15_bottom_3" class="inpRadio" name="1_15_bottom"> 2
+                                <input type="radio" id="1_15_bottom_2" class="inpRadio" name="1_15_bottom"> 2
                             </div>
                             <div class="var_inputs">
-                                <input type="radio" id="1_15_bottom_4" class="inpRadio" name="1_15_bottom"> 3
+                                <input type="radio" id="1_15_bottom_3" class="inpRadio" name="1_15_bottom"> 3
                             </div>
                         </div>
                     </div>
                 </div>
-                <button class="btn_nextprev">Далее</button>
+                <button class="btn_nextprev" id="btn_1_15_next">Далее</button>
             </section>
-
             <script>
-                document.getElementById('1_15_top_0').addEventListener('change', function() {
+                // Сокрытие блока
+                window.addEventListener('load', function () {
+                    const quest = document.querySelector('[name="quest_1_15"]');
+                    quest.classList.add('hidden');
+                });
+                // Работа с кнопками выбора
+                document.getElementById('1_15_top_0').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_15_bottom_3').checked = true;
                     }
                 });
-                document.getElementById('1_15_top_1').addEventListener('change', function() {
+                document.getElementById('1_15_top_1').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_15_bottom_2').checked = true;
                     }
                 });
-                document.getElementById('1_15_top_2').addEventListener('change', function() {
+                document.getElementById('1_15_top_2').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_15_bottom_1').checked = true;
                     }
                 });
-                document.getElementById('1_15_top_3').addEventListener('change', function() {
+                document.getElementById('1_15_top_3').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_15_bottom_0').checked = true;
                     }
                 });
-
-                document.getElementById('1_15_bottom_3').addEventListener('change', function() {
+                document.getElementById('1_15_bottom_3').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_15_top_0').checked = true;
                     }
                 });
-                document.getElementById('1_15_bottom_2').addEventListener('change', function() {
+                document.getElementById('1_15_bottom_2').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_15_top_1').checked = true;
                     }
                 });
-                document.getElementById('1_15_bottom_1').addEventListener('change', function() {
+                document.getElementById('1_15_bottom_1').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_15_top_2').checked = true;
                     }
                 });
-                document.getElementById('1_15_bottom_0').addEventListener('change', function() {
+                document.getElementById('1_15_bottom_0').addEventListener('change', function () {
                     if (this.checked) {
                         document.getElementById('1_15_top_3').checked = true;
                     }
                 });
             </script>
+            <!-- Перелистываание назад -->
+            <script>
+                document.getElementById('btn_1_15_prev').addEventListener('click', function () {
+                    var from = document.querySelector('[name="quest_1_15"]');
+                    var to = document.querySelector('[name="quest_1_14"]');
 
+                    from.classList.add('animBlockDisappear_prev');
+                    from.addEventListener('animationend', function handler() {
+                        from.style.display = 'none';
+                        from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
+
+                        to.style.display = 'block';
+                        to.classList.add('animBlockAppear_prev');
+
+                        to.addEventListener('animationend', function appearHandler() {
+                            to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
+                            to.removeEventListener('animationend', appearHandler);
+                        });
+
+                        from.removeEventListener('animationend', handler);
+                    });
+                });
+            </script>
+            <!-- Перелистываание вперёд -->
+            <script>
+                document.getElementById('btn_1_15_next').addEventListener('click', function () {
+                    var from = document.querySelector('[name="quest_1_15"]');
+                    var to = document.querySelector('[name="end_test_1"]');
+
+                    from.classList.add('animBlockDisappear_next');
+                    from.addEventListener('animationend', function handler() {
+                        from.style.display = 'none';
+                        from.classList.remove('animBlockDisappear_next'); // Удаляем класс анимации
+
+                        to.style.display = 'block';
+                        to.classList.add('animBlockAppear_next');
+
+                        to.addEventListener('animationend', function appearHandler() {
+                            to.classList.remove('animBlockAppear_next'); // Удаляем класс анимации
+                            to.removeEventListener('animationend', appearHandler);
+                        });
+
+                        from.removeEventListener('animationend', handler);
+                    });
+                });
+            </script>
         </div>
+
+        <!-- КОНЕЦ БЛОКА -->
+
+        <div class="end_test" name="end_test_1">
+            <p class="end_test_title">Блок 1 пройден<br>
+            </p>
+            <p class="end_test_text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio porro, veniam,
+                debitis unde eveniet magni soluta asperiores laborum molestias sapiente rerum nobis officia qui dicta
+                dolore deserunt possimus deleniti ipsam eum aliquid reiciendis corrupti neque temporibus! Perferendis
+                debitis fuga ratione facere ad, laboriosam ea consequuntur accusantium. Debitis accusamus neque
+                ratione?<br>
+            </p>
+            <button id="to_test_2" class="to_block" type="button">Перейти к блоку 2</button>
+        </div>
+        <script>
+            // Сокрытие блока
+            window.addEventListener('load', function () {
+                const quest = document.querySelector('[name="end_test_1"]');
+                quest.classList.add('hidden');
+            });
+        </script>
+        <script>
+            // Переход на другую страницу при нажатии на кнопку
+            const button = document.getElementById('to_test_2');
+            button.addEventListener('click', function () {
+                window.location.href = 'test_2.html';
+            });
+        </script>
 
     </main>
 
