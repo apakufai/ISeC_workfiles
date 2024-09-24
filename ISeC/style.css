@@ -1089,6 +1089,7 @@ p,
 /* ---------------- ФИНАЛЬНЫЕ ОКНА ---------------- */
 /* ------------------------------------------------ */
 
+/* Окно завершения блока */
 .end_test {
    position: static;
    top: -620px;
@@ -1103,6 +1104,7 @@ p,
    margin-bottom: 30px;
 }
 
+/* Заголовок окна завершения блока */
 .end_test_title {
    width: 720px;
    align-self: center;
@@ -1114,6 +1116,7 @@ p,
    animation: animBlocks_text 1s ease;
 }
 
+/* Текст окна завершения блока */
 .end_test_text {
    width: 720px;
    align-self: center;
@@ -1124,7 +1127,30 @@ p,
    animation: animBlocks_text 1s ease;
 }
 
-.to_block {
+/* Нижняя часть окна завершения блока */
+.end_sect {
+   display: flex;
+   flex-direction: row;
+}
+
+/* Кнопка "назад" */
+.end_sect :nth-child(1) {
+   margin-right: auto;
+   margin-left: 50px;
+}
+
+/* Подтверждение */
+.end_sect :nth-child(2) {
+   align-self: center;
+}
+
+/* Кнопка "продолжить" */
+.end_sect :nth-child(3) {
+   margin-left: auto;
+   margin-right: 50px;
+}
+
+.btn_continue {
    display: flex;
    border: 5px solid #ffffff;
    border-radius: 30px;
@@ -1141,18 +1167,18 @@ p,
    justify-content: center;
    align-items: center;
    height: 60px;
-   width: 240px;
+   width: 180px;
    margin: 15px auto;
    outline: none;
 }
 
-.to_block:hover {
+.btn_continue:hover {
    border: 5px solid #5b7ead;
    color: #5b7ead;
    background-color: rgba(255, 255, 255, 0);
 }
 
-.to_block:active {
+.btn_continue:active {
    border: 5px solid #5b7ead;
    color: #5b7ead;
    background-color: rgba(172, 189, 214, 0.85);

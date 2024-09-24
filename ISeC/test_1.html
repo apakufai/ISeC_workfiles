@@ -2492,14 +2492,15 @@
         <div class="end_test" name="end_test_1">
             <p class="end_test_title">Блок 1 пройден<br>
             </p>
-            <p class="end_test_text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio porro, veniam,
-                debitis unde eveniet magni soluta asperiores laborum molestias sapiente rerum nobis officia qui dicta
-                dolore deserunt possimus deleniti ipsam eum aliquid reiciendis corrupti neque temporibus! Perferendis
-                debitis fuga ratione facere ad, laboriosam ea consequuntur accusantium. Debitis accusamus neque
-                ratione?<br>
+            <p class="end_test_text">Вы завершаете прохождение блока 1. Если у Вас остались сомнения в выборе вариантов ответа, перепроверьте их перед тем, как продолжить тест. После нажатия на кнопку "Продолжить" изменить ответы уже не получится.<br>
             </p>
-            <button id="to_test_2" class="to_block" type="button">Перейти к блоку 2</button>
+            <section class="end_sect">
+                <button class="btn_nextprev" id="end_test_prev">Назад</button>
+                <input type="radio" id="1_end" class="inpRadio">
+                <button class="btn_continue" id="end_test_next" type="button">Продолжить</button>
+            </section>
         </div>
+
         <script>
             // Сокрытие блока
             window.addEventListener('load', function () {
