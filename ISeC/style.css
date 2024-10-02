@@ -163,6 +163,7 @@ p,
    height: 50px;
    width: 220px;
    padding: 10px;
+   outline: none;
 }
 
 .inp_startpage::placeholder {
@@ -1133,15 +1134,26 @@ p,
    flex-direction: row;
 }
 
+.confirm_answers {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 30px;
+   font-family: "Bahnschrift", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+   font-size: 16pt;
+   font-weight: lighter;
+   margin: auto;
+}
+
+.confirm_answers span {
+padding-right: 10px;
+}
+
+
 /* Кнопка "назад" */
 .end_sect :nth-child(1) {
    margin-right: auto;
    margin-left: 50px;
-}
-
-/* Подтверждение */
-.end_sect :nth-child(2) {
-   align-self: center;
 }
 
 /* Кнопка "продолжить" */
