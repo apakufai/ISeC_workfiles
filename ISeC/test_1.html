@@ -54,6 +54,7 @@
             </p>
             <button id="test_1_start" class="btn_test" type="button">Приступить к выполнению блока</button>
         </div>
+
         <script>
             document.getElementById('test_1_start').addEventListener('click', function () {
                 var from = document.querySelector('[name="descr_test_1"]');
@@ -76,6 +77,16 @@
                 });
             });
         </script>
+
+        <!-- ВСПЛЫВАЮЩЕЕ ОКНО -->
+        <div class="popup" id="popup_1">
+            <div class="popup-content">
+                <h2>Ошибка</h2>
+                <p>Выберите один из вариантов ответа!</p>
+                <button class="close-btn" id="closeBtn_1">Закрыть</button>
+            </div>
+        </div>
+
 
         <!-- ВОПРОС 1 -->
 
@@ -142,51 +153,68 @@
                 <button id="btn_1_1_next" class="btn_nextprev">Далее</button>
             </section>
 
-
-
             <script>
                 // Сокрытие блока
                 window.addEventListener('load', function () {
                     const quest = document.querySelector('[name="quest_1_1"]');
                     quest.classList.add('hidden');
                 });
-                // Работа с кнопками выбора
-                const radioTop = document.getElementsByName("1_1_top");
-                const radioBottom = document.getElementsByName("1_1_bottom");
-                for (let i = 0; i < radioTop.length; i++) {
-                    radioTop[i].addEventListener('change', function () {
+        
+        // Работа с кнопками выбора
+        document.getElementById('1_1_top_0').addEventListener('change', function () {
                         if (this.checked) {
-                            radioBottom[3 - i].checked = true; // Переключаем соответствующий радиобаттон
+                            document.getElementById('1_1_bottom_3').checked = true;
                         }
                     });
-                }
-                for (let i = 0; i < radioBottom.length; i++) {
-                    radioBottom[i].addEventListener('change', function () {
+                    document.getElementById('1_1_top_1').addEventListener('change', function () {
                         if (this.checked) {
-                            radioTop[3 - i].checked = true; // Переключаем соответствующий радиобаттон
+                            document.getElementById('1_1_bottom_2').checked = true;
                         }
                     });
-                }
-                // Перелистывание назад
-                document.getElementById('btn_1_1_prev').addEventListener('click', function () {
-                    var from = document.querySelector('[name="quest_1_1"]');
-                    var to = document.querySelector('[name="descr_test_1"]');
-                    from.classList.add('animBlockDisappear_prev');
-                    from.addEventListener('animationend', function handler() {
-                        from.style.display = 'none';
-                        from.classList.remove('animBlockDisappear_prev');
-                        to.style.display = 'block';
-                        to.addEventListener('animationend', function appearHandler() {
-                            to.removeEventListener('animationend', appearHandler);
-                        });
-                        from.removeEventListener('animationend', handler);
+                    document.getElementById('1_1_top_2').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_1_bottom_1').checked = true;
+                        }
                     });
-                });
+                    document.getElementById('1_1_top_3').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_1_bottom_0').checked = true;
+                        }
+                    });
+
+                    document.getElementById('1_1_bottom_3').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_1_top_0').checked = true;
+                        }
+                    });
+                    document.getElementById('1_1_bottom_2').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_1_top_1').checked = true;
+                        }
+                    });
+                    document.getElementById('1_1_bottom_1').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_1_top_2').checked = true;
+                        }
+                    });
+                    document.getElementById('1_1_bottom_0').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_1_top_3').checked = true;
+                        }
+                    });
+        
+         // Переменные всплывающего окна
+                const popup = document.getElementById('popup_1');
+                const closeBtn = document.getElementById('closeBtn_1');
+        
+        
                 // Перелистывание вперед
+                const radioTop = document.getElementsByName("1_1_top");
+                const nextButton = document.getElementById("btn_1_1_next");
                 document.addEventListener("DOMContentLoaded", function () {
-                    const nextButton = document.getElementById("btn_1_1_next");
                     nextButton.addEventListener("click", function () {
                         let isChecked = false;
+        
                         // Проверяем состояние радиокнопок
                         for (let radio of radioTop) {
                             if (radio.checked) {
@@ -194,22 +222,15 @@
                                 break;
                             }
                         }
-                        if (!isChecked) {
-                            for (let radio of radioBottom) {
-                                if (radio.checked) {
-                                    isChecked = true;
-                                    break;
-                                }
-                            }
-                        }
+        
                         // Если ни один переключатель не выбран
                         if (!isChecked) {
-                            alert("Выберите один из вариантов ответа!");
+                            popup.style.display = 'flex'; // Показываем всплывающее окно
                         } else {
-                            // Перелистывание вперед
+                            // Логика перелистывания вперед
                             const from = document.querySelector('[name="quest_1_1"]');
-                            const to = document.querySelector('[name="quest_1_2"]');
-
+                            const to = document.querySelector('[name="quest_1_2"]'); // Предполагается, что этот элемент существует
+        
                             from.classList.add('animBlockDisappear_next');
                             from.addEventListener('animationend', function handler() {
                                 from.style.display = 'none';
@@ -224,8 +245,22 @@
                             });
                         }
                     });
+        
+                    // Закрытие всплывающего окна
+                    closeBtn.addEventListener('click', function() {
+                        popup.style.display = 'none'; // Скрываем всплывающее окно
+                    });
+        
+                    // Инициализируем стиль обводки кнопки при загрузке страницы
+                    updateButtonBorder();
                 });
+        
+                // Добавляем обработчики событий для радиокнопок
+                for (let radio of radioTop) {
+                    radio.addEventListener('change', updateButtonBorder); // Обновляем стиль обводки кнопки
+                }
             </script>
+
 
         </div>
 
@@ -294,99 +329,99 @@
                 <button class="btn_nextprev" id="btn_1_2_next">Далее</button>
             </section>
             <script>
-                // Сокрытие блока
-                window.addEventListener('load', function () {
-                    const quest = document.querySelector('[name="quest_1_2"]');
-                    quest.classList.add('hidden');
-                });
-                // Работа с кнопками выбора
-                document.getElementById('1_2_top_0').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_2_bottom_3').checked = true;
-                    }
-                });
-                document.getElementById('1_2_top_1').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_2_bottom_2').checked = true;
-                    }
-                });
-                document.getElementById('1_2_top_2').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_2_bottom_1').checked = true;
-                    }
-                });
-                document.getElementById('1_2_top_3').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_2_bottom_0').checked = true;
-                    }
-                });
+                    // Сокрытие блока
+                    window.addEventListener('load', function () {
+                        const quest = document.querySelector('[name="quest_1_2"]');
+                        quest.classList.add('hidden');
+                    });
+                    // Работа с кнопками выбора
+                    document.getElementById('1_2_top_0').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_2_bottom_3').checked = true;
+                        }
+                    });
+                    document.getElementById('1_2_top_1').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_2_bottom_2').checked = true;
+                        }
+                    });
+                    document.getElementById('1_2_top_2').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_2_bottom_1').checked = true;
+                        }
+                    });
+                    document.getElementById('1_2_top_3').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_2_bottom_0').checked = true;
+                        }
+                    });
 
-                document.getElementById('1_2_bottom_3').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_2_top_0').checked = true;
-                    }
-                });
-                document.getElementById('1_2_bottom_2').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_2_top_1').checked = true;
-                    }
-                });
-                document.getElementById('1_2_bottom_1').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_2_top_2').checked = true;
-                    }
-                });
-                document.getElementById('1_2_bottom_0').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_2_top_3').checked = true;
-                    }
-                });
+                    document.getElementById('1_2_bottom_3').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_2_top_0').checked = true;
+                        }
+                    });
+                    document.getElementById('1_2_bottom_2').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_2_top_1').checked = true;
+                        }
+                    });
+                    document.getElementById('1_2_bottom_1').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_2_top_2').checked = true;
+                        }
+                    });
+                    document.getElementById('1_2_bottom_0').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_2_top_3').checked = true;
+                        }
+                    });
             </script>
             <!-- Перелистываание назад -->
             <script>
-                document.getElementById('btn_1_2_prev').addEventListener('click', function () {
-                    var from = document.querySelector('[name="quest_1_2"]');
-                    var to = document.querySelector('[name="quest_1_1"]');
+                    document.getElementById('btn_1_2_prev').addEventListener('click', function () {
+                        var from = document.querySelector('[name="quest_1_2"]');
+                        var to = document.querySelector('[name="quest_1_1"]');
 
-                    from.classList.add('animBlockDisappear_prev');
-                    from.addEventListener('animationend', function handler() {
-                        from.style.display = 'none';
-                        from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
+                        from.classList.add('animBlockDisappear_prev');
+                        from.addEventListener('animationend', function handler() {
+                            from.style.display = 'none';
+                            from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
 
-                        to.style.display = 'block';
-                        to.classList.add('animBlockAppear_prev');
+                            to.style.display = 'block';
+                            to.classList.add('animBlockAppear_prev');
 
-                        to.addEventListener('animationend', function appearHandler() {
-                            to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
-                            to.removeEventListener('animationend', appearHandler);
+                            to.addEventListener('animationend', function appearHandler() {
+                                to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
+                                to.removeEventListener('animationend', appearHandler);
+                            });
+
+                            from.removeEventListener('animationend', handler);
                         });
-
-                        from.removeEventListener('animationend', handler);
                     });
-                });
             </script>
             <!-- Перелистываание вперёд -->
             <script>
-                document.getElementById('btn_1_2_next').addEventListener('click', function () {
-                    var from = document.querySelector('[name="quest_1_2"]');
-                    var to = document.querySelector('[name="quest_1_3"]');
+                    document.getElementById('btn_1_2_next').addEventListener('click', function () {
+                        var from = document.querySelector('[name="quest_1_2"]');
+                        var to = document.querySelector('[name="quest_1_3"]');
 
-                    from.classList.add('animBlockDisappear_next');
-                    from.addEventListener('animationend', function handler() {
-                        from.style.display = 'none';
-                        from.classList.remove('animBlockDisappear_next'); // Удаляем класс анимации
+                        from.classList.add('animBlockDisappear_next');
+                        from.addEventListener('animationend', function handler() {
+                            from.style.display = 'none';
+                            from.classList.remove('animBlockDisappear_next'); // Удаляем класс анимации
 
-                        to.style.display = 'block';
-                        to.classList.add('animBlockAppear_next');
+                            to.style.display = 'block';
+                            to.classList.add('animBlockAppear_next');
 
-                        to.addEventListener('animationend', function appearHandler() {
-                            to.classList.remove('animBlockAppear_next'); // Удаляем класс анимации
-                            to.removeEventListener('animationend', appearHandler);
+                            to.addEventListener('animationend', function appearHandler() {
+                                to.classList.remove('animBlockAppear_next'); // Удаляем класс анимации
+                                to.removeEventListener('animationend', appearHandler);
+                            });
+
+                            from.removeEventListener('animationend', handler);
                         });
-
-                        from.removeEventListener('animationend', handler);
                     });
-                });
             </script>
         </div>
 
@@ -456,99 +491,99 @@
                 <button class="btn_nextprev" id="btn_1_3_next">Далее</button>
             </section>
             <script>
-                // Сокрытие блока
-                window.addEventListener('load', function () {
-                    const quest = document.querySelector('[name="quest_1_3"]');
-                    quest.classList.add('hidden');
-                });
-                // Работа с кнопками выбора
-                document.getElementById('1_3_top_0').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_3_bottom_3').checked = true;
-                    }
-                });
-                document.getElementById('1_3_top_1').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_3_bottom_2').checked = true;
-                    }
-                });
-                document.getElementById('1_3_top_2').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_3_bottom_1').checked = true;
-                    }
-                });
-                document.getElementById('1_3_top_3').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_3_bottom_0').checked = true;
-                    }
-                });
+                    // Сокрытие блока
+                    window.addEventListener('load', function () {
+                        const quest = document.querySelector('[name="quest_1_3"]');
+                        quest.classList.add('hidden');
+                    });
+                    // Работа с кнопками выбора
+                    document.getElementById('1_3_top_0').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_3_bottom_3').checked = true;
+                        }
+                    });
+                    document.getElementById('1_3_top_1').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_3_bottom_2').checked = true;
+                        }
+                    });
+                    document.getElementById('1_3_top_2').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_3_bottom_1').checked = true;
+                        }
+                    });
+                    document.getElementById('1_3_top_3').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_3_bottom_0').checked = true;
+                        }
+                    });
 
-                document.getElementById('1_3_bottom_3').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_3_top_0').checked = true;
-                    }
-                });
-                document.getElementById('1_3_bottom_2').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_3_top_1').checked = true;
-                    }
-                });
-                document.getElementById('1_3_bottom_1').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_3_top_2').checked = true;
-                    }
-                });
-                document.getElementById('1_3_bottom_0').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_3_top_3').checked = true;
-                    }
-                });
+                    document.getElementById('1_3_bottom_3').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_3_top_0').checked = true;
+                        }
+                    });
+                    document.getElementById('1_3_bottom_2').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_3_top_1').checked = true;
+                        }
+                    });
+                    document.getElementById('1_3_bottom_1').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_3_top_2').checked = true;
+                        }
+                    });
+                    document.getElementById('1_3_bottom_0').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_3_top_3').checked = true;
+                        }
+                    });
             </script>
             <!-- Перелистываание назад -->
             <script>
-                document.getElementById('btn_1_3_prev').addEventListener('click', function () {
-                    var from = document.querySelector('[name="quest_1_3"]');
-                    var to = document.querySelector('[name="quest_1_2"]');
+                    document.getElementById('btn_1_3_prev').addEventListener('click', function () {
+                        var from = document.querySelector('[name="quest_1_3"]');
+                        var to = document.querySelector('[name="quest_1_2"]');
 
-                    from.classList.add('animBlockDisappear_prev');
-                    from.addEventListener('animationend', function handler() {
-                        from.style.display = 'none';
-                        from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
+                        from.classList.add('animBlockDisappear_prev');
+                        from.addEventListener('animationend', function handler() {
+                            from.style.display = 'none';
+                            from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
 
-                        to.style.display = 'block';
-                        to.classList.add('animBlockAppear_prev');
+                            to.style.display = 'block';
+                            to.classList.add('animBlockAppear_prev');
 
-                        to.addEventListener('animationend', function appearHandler() {
-                            to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
-                            to.removeEventListener('animationend', appearHandler);
+                            to.addEventListener('animationend', function appearHandler() {
+                                to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
+                                to.removeEventListener('animationend', appearHandler);
+                            });
+
+                            from.removeEventListener('animationend', handler);
                         });
-
-                        from.removeEventListener('animationend', handler);
                     });
-                });
             </script>
             <!-- Перелистываание вперёд -->
             <script>
-                document.getElementById('btn_1_3_next').addEventListener('click', function () {
-                    var from = document.querySelector('[name="quest_1_3"]');
-                    var to = document.querySelector('[name="quest_1_4"]');
+                    document.getElementById('btn_1_3_next').addEventListener('click', function () {
+                        var from = document.querySelector('[name="quest_1_3"]');
+                        var to = document.querySelector('[name="quest_1_4"]');
 
-                    from.classList.add('animBlockDisappear_next');
-                    from.addEventListener('animationend', function handler() {
-                        from.style.display = 'none';
-                        from.classList.remove('animBlockDisappear_next'); // Удаляем класс анимации
+                        from.classList.add('animBlockDisappear_next');
+                        from.addEventListener('animationend', function handler() {
+                            from.style.display = 'none';
+                            from.classList.remove('animBlockDisappear_next'); // Удаляем класс анимации
 
-                        to.style.display = 'block';
-                        to.classList.add('animBlockAppear_next');
+                            to.style.display = 'block';
+                            to.classList.add('animBlockAppear_next');
 
-                        to.addEventListener('animationend', function appearHandler() {
-                            to.classList.remove('animBlockAppear_next'); // Удаляем класс анимации
-                            to.removeEventListener('animationend', appearHandler);
+                            to.addEventListener('animationend', function appearHandler() {
+                                to.classList.remove('animBlockAppear_next'); // Удаляем класс анимации
+                                to.removeEventListener('animationend', appearHandler);
+                            });
+
+                            from.removeEventListener('animationend', handler);
                         });
-
-                        from.removeEventListener('animationend', handler);
                     });
-                });
             </script>
         </div>
 
@@ -618,99 +653,99 @@
                 <button class="btn_nextprev" id="btn_1_4_next">Далее</button>
             </section>
             <script>
-                // Сокрытие блока
-                window.addEventListener('load', function () {
-                    const quest = document.querySelector('[name="quest_1_4"]');
-                    quest.classList.add('hidden');
-                });
-                // Работа с кнопками выбора
-                document.getElementById('1_4_top_0').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_4_bottom_3').checked = true;
-                    }
-                });
-                document.getElementById('1_4_top_1').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_4_bottom_2').checked = true;
-                    }
-                });
-                document.getElementById('1_4_top_2').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_4_bottom_1').checked = true;
-                    }
-                });
-                document.getElementById('1_4_top_3').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_4_bottom_0').checked = true;
-                    }
-                });
+                    // Сокрытие блока
+                    window.addEventListener('load', function () {
+                        const quest = document.querySelector('[name="quest_1_4"]');
+                        quest.classList.add('hidden');
+                    });
+                    // Работа с кнопками выбора
+                    document.getElementById('1_4_top_0').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_4_bottom_3').checked = true;
+                        }
+                    });
+                    document.getElementById('1_4_top_1').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_4_bottom_2').checked = true;
+                        }
+                    });
+                    document.getElementById('1_4_top_2').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_4_bottom_1').checked = true;
+                        }
+                    });
+                    document.getElementById('1_4_top_3').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_4_bottom_0').checked = true;
+                        }
+                    });
 
-                document.getElementById('1_4_bottom_3').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_4_top_0').checked = true;
-                    }
-                });
-                document.getElementById('1_4_bottom_2').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_4_top_1').checked = true;
-                    }
-                });
-                document.getElementById('1_4_bottom_1').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_4_top_2').checked = true;
-                    }
-                });
-                document.getElementById('1_4_bottom_0').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_4_top_3').checked = true;
-                    }
-                });
+                    document.getElementById('1_4_bottom_3').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_4_top_0').checked = true;
+                        }
+                    });
+                    document.getElementById('1_4_bottom_2').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_4_top_1').checked = true;
+                        }
+                    });
+                    document.getElementById('1_4_bottom_1').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_4_top_2').checked = true;
+                        }
+                    });
+                    document.getElementById('1_4_bottom_0').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_4_top_3').checked = true;
+                        }
+                    });
             </script>
             <!-- Перелистываание назад -->
             <script>
-                document.getElementById('btn_1_4_prev').addEventListener('click', function () {
-                    var from = document.querySelector('[name="quest_1_4"]');
-                    var to = document.querySelector('[name="quest_1_3"]');
+                    document.getElementById('btn_1_4_prev').addEventListener('click', function () {
+                        var from = document.querySelector('[name="quest_1_4"]');
+                        var to = document.querySelector('[name="quest_1_3"]');
 
-                    from.classList.add('animBlockDisappear_prev');
-                    from.addEventListener('animationend', function handler() {
-                        from.style.display = 'none';
-                        from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
+                        from.classList.add('animBlockDisappear_prev');
+                        from.addEventListener('animationend', function handler() {
+                            from.style.display = 'none';
+                            from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
 
-                        to.style.display = 'block';
-                        to.classList.add('animBlockAppear_prev');
+                            to.style.display = 'block';
+                            to.classList.add('animBlockAppear_prev');
 
-                        to.addEventListener('animationend', function appearHandler() {
-                            to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
-                            to.removeEventListener('animationend', appearHandler);
+                            to.addEventListener('animationend', function appearHandler() {
+                                to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
+                                to.removeEventListener('animationend', appearHandler);
+                            });
+
+                            from.removeEventListener('animationend', handler);
                         });
-
-                        from.removeEventListener('animationend', handler);
                     });
-                });
             </script>
             <!-- Перелистываание вперёд -->
             <script>
-                document.getElementById('btn_1_4_next').addEventListener('click', function () {
-                    var from = document.querySelector('[name="quest_1_4"]');
-                    var to = document.querySelector('[name="quest_1_5"]');
+                    document.getElementById('btn_1_4_next').addEventListener('click', function () {
+                        var from = document.querySelector('[name="quest_1_4"]');
+                        var to = document.querySelector('[name="quest_1_5"]');
 
-                    from.classList.add('animBlockDisappear_next');
-                    from.addEventListener('animationend', function handler() {
-                        from.style.display = 'none';
-                        from.classList.remove('animBlockDisappear_next'); // Удаляем класс анимации
+                        from.classList.add('animBlockDisappear_next');
+                        from.addEventListener('animationend', function handler() {
+                            from.style.display = 'none';
+                            from.classList.remove('animBlockDisappear_next'); // Удаляем класс анимации
 
-                        to.style.display = 'block';
-                        to.classList.add('animBlockAppear_next');
+                            to.style.display = 'block';
+                            to.classList.add('animBlockAppear_next');
 
-                        to.addEventListener('animationend', function appearHandler() {
-                            to.classList.remove('animBlockAppear_next'); // Удаляем класс анимации
-                            to.removeEventListener('animationend', appearHandler);
+                            to.addEventListener('animationend', function appearHandler() {
+                                to.classList.remove('animBlockAppear_next'); // Удаляем класс анимации
+                                to.removeEventListener('animationend', appearHandler);
+                            });
+
+                            from.removeEventListener('animationend', handler);
                         });
-
-                        from.removeEventListener('animationend', handler);
                     });
-                });
             </script>
         </div>
 
@@ -779,98 +814,98 @@
                 <button class="btn_nextprev" id="btn_1_5_next">Далее</button>
             </section>
             <script>
-                // Сокрытие блока
-                window.addEventListener('load', function () {
-                    const quest = document.querySelector('[name="quest_1_5"]');
-                    quest.classList.add('hidden');
-                });
-                // Работа с кнопками выбора
-                document.getElementById('1_5_top_0').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_5_bottom_3').checked = true;
-                    }
-                });
-                document.getElementById('1_5_top_1').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_5_bottom_2').checked = true;
-                    }
-                });
-                document.getElementById('1_5_top_2').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_5_bottom_1').checked = true;
-                    }
-                });
-                document.getElementById('1_5_top_3').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_5_bottom_0').checked = true;
-                    }
-                });
-                document.getElementById('1_5_bottom_3').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_5_top_0').checked = true;
-                    }
-                });
-                document.getElementById('1_5_bottom_2').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_5_top_1').checked = true;
-                    }
-                });
-                document.getElementById('1_5_bottom_1').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_5_top_2').checked = true;
-                    }
-                });
-                document.getElementById('1_5_bottom_0').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_5_top_3').checked = true;
-                    }
-                });
+                    // Сокрытие блока
+                    window.addEventListener('load', function () {
+                        const quest = document.querySelector('[name="quest_1_5"]');
+                        quest.classList.add('hidden');
+                    });
+                    // Работа с кнопками выбора
+                    document.getElementById('1_5_top_0').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_5_bottom_3').checked = true;
+                        }
+                    });
+                    document.getElementById('1_5_top_1').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_5_bottom_2').checked = true;
+                        }
+                    });
+                    document.getElementById('1_5_top_2').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_5_bottom_1').checked = true;
+                        }
+                    });
+                    document.getElementById('1_5_top_3').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_5_bottom_0').checked = true;
+                        }
+                    });
+                    document.getElementById('1_5_bottom_3').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_5_top_0').checked = true;
+                        }
+                    });
+                    document.getElementById('1_5_bottom_2').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_5_top_1').checked = true;
+                        }
+                    });
+                    document.getElementById('1_5_bottom_1').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_5_top_2').checked = true;
+                        }
+                    });
+                    document.getElementById('1_5_bottom_0').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_5_top_3').checked = true;
+                        }
+                    });
             </script>
             <!-- Перелистываание назад -->
             <script>
-                document.getElementById('btn_1_5_prev').addEventListener('click', function () {
-                    var from = document.querySelector('[name="quest_1_5"]');
-                    var to = document.querySelector('[name="quest_1_4"]');
+                    document.getElementById('btn_1_5_prev').addEventListener('click', function () {
+                        var from = document.querySelector('[name="quest_1_5"]');
+                        var to = document.querySelector('[name="quest_1_4"]');
 
-                    from.classList.add('animBlockDisappear_prev');
-                    from.addEventListener('animationend', function handler() {
-                        from.style.display = 'none';
-                        from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
+                        from.classList.add('animBlockDisappear_prev');
+                        from.addEventListener('animationend', function handler() {
+                            from.style.display = 'none';
+                            from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
 
-                        to.style.display = 'block';
-                        to.classList.add('animBlockAppear_prev');
+                            to.style.display = 'block';
+                            to.classList.add('animBlockAppear_prev');
 
-                        to.addEventListener('animationend', function appearHandler() {
-                            to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
-                            to.removeEventListener('animationend', appearHandler);
+                            to.addEventListener('animationend', function appearHandler() {
+                                to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
+                                to.removeEventListener('animationend', appearHandler);
+                            });
+
+                            from.removeEventListener('animationend', handler);
                         });
-
-                        from.removeEventListener('animationend', handler);
                     });
-                });
             </script>
             <!-- Перелистываание вперёд -->
             <script>
-                document.getElementById('btn_1_5_next').addEventListener('click', function () {
-                    var from = document.querySelector('[name="quest_1_5"]');
-                    var to = document.querySelector('[name="quest_1_6"]');
+                    document.getElementById('btn_1_5_next').addEventListener('click', function () {
+                        var from = document.querySelector('[name="quest_1_5"]');
+                        var to = document.querySelector('[name="quest_1_6"]');
 
-                    from.classList.add('animBlockDisappear_next');
-                    from.addEventListener('animationend', function handler() {
-                        from.style.display = 'none';
-                        from.classList.remove('animBlockDisappear_next'); // Удаляем класс анимации
+                        from.classList.add('animBlockDisappear_next');
+                        from.addEventListener('animationend', function handler() {
+                            from.style.display = 'none';
+                            from.classList.remove('animBlockDisappear_next'); // Удаляем класс анимации
 
-                        to.style.display = 'block';
-                        to.classList.add('animBlockAppear_next');
+                            to.style.display = 'block';
+                            to.classList.add('animBlockAppear_next');
 
-                        to.addEventListener('animationend', function appearHandler() {
-                            to.classList.remove('animBlockAppear_next'); // Удаляем класс анимации
-                            to.removeEventListener('animationend', appearHandler);
+                            to.addEventListener('animationend', function appearHandler() {
+                                to.classList.remove('animBlockAppear_next'); // Удаляем класс анимации
+                                to.removeEventListener('animationend', appearHandler);
+                            });
+
+                            from.removeEventListener('animationend', handler);
                         });
-
-                        from.removeEventListener('animationend', handler);
                     });
-                });
             </script>
         </div>
 
@@ -940,98 +975,98 @@
                 <button class="btn_nextprev" id="btn_1_6_next">Далее</button>
             </section>
             <script>
-                // Сокрытие блока
-                window.addEventListener('load', function () {
-                    const quest = document.querySelector('[name="quest_1_6"]');
-                    quest.classList.add('hidden');
-                });
-                // Работа с кнопками выбора
-                document.getElementById('1_6_top_0').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_6_bottom_3').checked = true;
-                    }
-                });
-                document.getElementById('1_6_top_1').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_6_bottom_2').checked = true;
-                    }
-                });
-                document.getElementById('1_6_top_2').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_6_bottom_1').checked = true;
-                    }
-                });
-                document.getElementById('1_6_top_3').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_6_bottom_0').checked = true;
-                    }
-                });
-                document.getElementById('1_6_bottom_3').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_6_top_0').checked = true;
-                    }
-                });
-                document.getElementById('1_6_bottom_2').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_6_top_1').checked = true;
-                    }
-                });
-                document.getElementById('1_6_bottom_1').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_6_top_2').checked = true;
-                    }
-                });
-                document.getElementById('1_6_bottom_0').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_6_top_3').checked = true;
-                    }
-                });
+                    // Сокрытие блока
+                    window.addEventListener('load', function () {
+                        const quest = document.querySelector('[name="quest_1_6"]');
+                        quest.classList.add('hidden');
+                    });
+                    // Работа с кнопками выбора
+                    document.getElementById('1_6_top_0').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_6_bottom_3').checked = true;
+                        }
+                    });
+                    document.getElementById('1_6_top_1').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_6_bottom_2').checked = true;
+                        }
+                    });
+                    document.getElementById('1_6_top_2').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_6_bottom_1').checked = true;
+                        }
+                    });
+                    document.getElementById('1_6_top_3').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_6_bottom_0').checked = true;
+                        }
+                    });
+                    document.getElementById('1_6_bottom_3').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_6_top_0').checked = true;
+                        }
+                    });
+                    document.getElementById('1_6_bottom_2').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_6_top_1').checked = true;
+                        }
+                    });
+                    document.getElementById('1_6_bottom_1').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_6_top_2').checked = true;
+                        }
+                    });
+                    document.getElementById('1_6_bottom_0').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_6_top_3').checked = true;
+                        }
+                    });
             </script>
             <!-- Перелистываание назад -->
             <script>
-                document.getElementById('btn_1_6_prev').addEventListener('click', function () {
-                    var from = document.querySelector('[name="quest_1_6"]');
-                    var to = document.querySelector('[name="quest_1_5"]');
+                    document.getElementById('btn_1_6_prev').addEventListener('click', function () {
+                        var from = document.querySelector('[name="quest_1_6"]');
+                        var to = document.querySelector('[name="quest_1_5"]');
 
-                    from.classList.add('animBlockDisappear_prev');
-                    from.addEventListener('animationend', function handler() {
-                        from.style.display = 'none';
-                        from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
+                        from.classList.add('animBlockDisappear_prev');
+                        from.addEventListener('animationend', function handler() {
+                            from.style.display = 'none';
+                            from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
 
-                        to.style.display = 'block';
-                        to.classList.add('animBlockAppear_prev');
+                            to.style.display = 'block';
+                            to.classList.add('animBlockAppear_prev');
 
-                        to.addEventListener('animationend', function appearHandler() {
-                            to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
-                            to.removeEventListener('animationend', appearHandler);
+                            to.addEventListener('animationend', function appearHandler() {
+                                to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
+                                to.removeEventListener('animationend', appearHandler);
+                            });
+
+                            from.removeEventListener('animationend', handler);
                         });
-
-                        from.removeEventListener('animationend', handler);
                     });
-                });
             </script>
             <!-- Перелистываание вперёд -->
             <script>
-                document.getElementById('btn_1_6_next').addEventListener('click', function () {
-                    var from = document.querySelector('[name="quest_1_6"]');
-                    var to = document.querySelector('[name="quest_1_7"]');
+                    document.getElementById('btn_1_6_next').addEventListener('click', function () {
+                        var from = document.querySelector('[name="quest_1_6"]');
+                        var to = document.querySelector('[name="quest_1_7"]');
 
-                    from.classList.add('animBlockDisappear_next');
-                    from.addEventListener('animationend', function handler() {
-                        from.style.display = 'none';
-                        from.classList.remove('animBlockDisappear_next'); // Удаляем класс анимации
+                        from.classList.add('animBlockDisappear_next');
+                        from.addEventListener('animationend', function handler() {
+                            from.style.display = 'none';
+                            from.classList.remove('animBlockDisappear_next'); // Удаляем класс анимации
 
-                        to.style.display = 'block';
-                        to.classList.add('animBlockAppear_next');
+                            to.style.display = 'block';
+                            to.classList.add('animBlockAppear_next');
 
-                        to.addEventListener('animationend', function appearHandler() {
-                            to.classList.remove('animBlockAppear_next'); // Удаляем класс анимации
-                            to.removeEventListener('animationend', appearHandler);
+                            to.addEventListener('animationend', function appearHandler() {
+                                to.classList.remove('animBlockAppear_next'); // Удаляем класс анимации
+                                to.removeEventListener('animationend', appearHandler);
+                            });
+
+                            from.removeEventListener('animationend', handler);
                         });
-
-                        from.removeEventListener('animationend', handler);
                     });
-                });
             </script>
         </div>
 
@@ -1100,98 +1135,98 @@
                 <button class="btn_nextprev" id="btn_1_7_next">Далее</button>
             </section>
             <script>
-                // Сокрытие блока
-                window.addEventListener('load', function () {
-                    const quest = document.querySelector('[name="quest_1_7"]');
-                    quest.classList.add('hidden');
-                });
-                // Работа с кнопками выбора
-                document.getElementById('1_7_top_0').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_7_bottom_3').checked = true;
-                    }
-                });
-                document.getElementById('1_7_top_1').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_7_bottom_2').checked = true;
-                    }
-                });
-                document.getElementById('1_7_top_2').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_7_bottom_1').checked = true;
-                    }
-                });
-                document.getElementById('1_7_top_3').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_7_bottom_0').checked = true;
-                    }
-                });
-                document.getElementById('1_7_bottom_3').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_7_top_0').checked = true;
-                    }
-                });
-                document.getElementById('1_7_bottom_2').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_7_top_1').checked = true;
-                    }
-                });
-                document.getElementById('1_7_bottom_1').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_7_top_2').checked = true;
-                    }
-                });
-                document.getElementById('1_7_bottom_0').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_7_top_3').checked = true;
-                    }
-                });
+                    // Сокрытие блока
+                    window.addEventListener('load', function () {
+                        const quest = document.querySelector('[name="quest_1_7"]');
+                        quest.classList.add('hidden');
+                    });
+                    // Работа с кнопками выбора
+                    document.getElementById('1_7_top_0').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_7_bottom_3').checked = true;
+                        }
+                    });
+                    document.getElementById('1_7_top_1').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_7_bottom_2').checked = true;
+                        }
+                    });
+                    document.getElementById('1_7_top_2').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_7_bottom_1').checked = true;
+                        }
+                    });
+                    document.getElementById('1_7_top_3').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_7_bottom_0').checked = true;
+                        }
+                    });
+                    document.getElementById('1_7_bottom_3').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_7_top_0').checked = true;
+                        }
+                    });
+                    document.getElementById('1_7_bottom_2').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_7_top_1').checked = true;
+                        }
+                    });
+                    document.getElementById('1_7_bottom_1').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_7_top_2').checked = true;
+                        }
+                    });
+                    document.getElementById('1_7_bottom_0').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_7_top_3').checked = true;
+                        }
+                    });
             </script>
             <!-- Перелистываание назад -->
             <script>
-                document.getElementById('btn_1_7_prev').addEventListener('click', function () {
-                    var from = document.querySelector('[name="quest_1_7"]');
-                    var to = document.querySelector('[name="quest_1_6"]');
+                    document.getElementById('btn_1_7_prev').addEventListener('click', function () {
+                        var from = document.querySelector('[name="quest_1_7"]');
+                        var to = document.querySelector('[name="quest_1_6"]');
 
-                    from.classList.add('animBlockDisappear_prev');
-                    from.addEventListener('animationend', function handler() {
-                        from.style.display = 'none';
-                        from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
+                        from.classList.add('animBlockDisappear_prev');
+                        from.addEventListener('animationend', function handler() {
+                            from.style.display = 'none';
+                            from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
 
-                        to.style.display = 'block';
-                        to.classList.add('animBlockAppear_prev');
+                            to.style.display = 'block';
+                            to.classList.add('animBlockAppear_prev');
 
-                        to.addEventListener('animationend', function appearHandler() {
-                            to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
-                            to.removeEventListener('animationend', appearHandler);
+                            to.addEventListener('animationend', function appearHandler() {
+                                to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
+                                to.removeEventListener('animationend', appearHandler);
+                            });
+
+                            from.removeEventListener('animationend', handler);
                         });
-
-                        from.removeEventListener('animationend', handler);
                     });
-                });
             </script>
             <!-- Перелистываание вперёд -->
             <script>
-                document.getElementById('btn_1_7_next').addEventListener('click', function () {
-                    var from = document.querySelector('[name="quest_1_7"]');
-                    var to = document.querySelector('[name="quest_1_8"]');
+                    document.getElementById('btn_1_7_next').addEventListener('click', function () {
+                        var from = document.querySelector('[name="quest_1_7"]');
+                        var to = document.querySelector('[name="quest_1_8"]');
 
-                    from.classList.add('animBlockDisappear_next');
-                    from.addEventListener('animationend', function handler() {
-                        from.style.display = 'none';
-                        from.classList.remove('animBlockDisappear_next'); // Удаляем класс анимации
+                        from.classList.add('animBlockDisappear_next');
+                        from.addEventListener('animationend', function handler() {
+                            from.style.display = 'none';
+                            from.classList.remove('animBlockDisappear_next'); // Удаляем класс анимации
 
-                        to.style.display = 'block';
-                        to.classList.add('animBlockAppear_next');
+                            to.style.display = 'block';
+                            to.classList.add('animBlockAppear_next');
 
-                        to.addEventListener('animationend', function appearHandler() {
-                            to.classList.remove('animBlockAppear_next'); // Удаляем класс анимации
-                            to.removeEventListener('animationend', appearHandler);
+                            to.addEventListener('animationend', function appearHandler() {
+                                to.classList.remove('animBlockAppear_next'); // Удаляем класс анимации
+                                to.removeEventListener('animationend', appearHandler);
+                            });
+
+                            from.removeEventListener('animationend', handler);
                         });
-
-                        from.removeEventListener('animationend', handler);
                     });
-                });
             </script>
         </div>
 
@@ -1261,98 +1296,98 @@
                 <button class="btn_nextprev" id="btn_1_8_next">Далее</button>
             </section>
             <script>
-                // Сокрытие блока
-                window.addEventListener('load', function () {
-                    const quest = document.querySelector('[name="quest_1_8"]');
-                    quest.classList.add('hidden');
-                });
-                // Работа с кнопками выбора
-                document.getElementById('1_8_top_0').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_8_bottom_3').checked = true;
-                    }
-                });
-                document.getElementById('1_8_top_1').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_8_bottom_2').checked = true;
-                    }
-                });
-                document.getElementById('1_8_top_2').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_8_bottom_1').checked = true;
-                    }
-                });
-                document.getElementById('1_8_top_3').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_8_bottom_0').checked = true;
-                    }
-                });
-                document.getElementById('1_8_bottom_3').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_8_top_0').checked = true;
-                    }
-                });
-                document.getElementById('1_8_bottom_2').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_8_top_1').checked = true;
-                    }
-                });
-                document.getElementById('1_8_bottom_1').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_8_top_2').checked = true;
-                    }
-                });
-                document.getElementById('1_8_bottom_0').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_8_top_3').checked = true;
-                    }
-                });
+                    // Сокрытие блока
+                    window.addEventListener('load', function () {
+                        const quest = document.querySelector('[name="quest_1_8"]');
+                        quest.classList.add('hidden');
+                    });
+                    // Работа с кнопками выбора
+                    document.getElementById('1_8_top_0').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_8_bottom_3').checked = true;
+                        }
+                    });
+                    document.getElementById('1_8_top_1').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_8_bottom_2').checked = true;
+                        }
+                    });
+                    document.getElementById('1_8_top_2').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_8_bottom_1').checked = true;
+                        }
+                    });
+                    document.getElementById('1_8_top_3').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_8_bottom_0').checked = true;
+                        }
+                    });
+                    document.getElementById('1_8_bottom_3').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_8_top_0').checked = true;
+                        }
+                    });
+                    document.getElementById('1_8_bottom_2').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_8_top_1').checked = true;
+                        }
+                    });
+                    document.getElementById('1_8_bottom_1').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_8_top_2').checked = true;
+                        }
+                    });
+                    document.getElementById('1_8_bottom_0').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_8_top_3').checked = true;
+                        }
+                    });
             </script>
             <!-- Перелистываание назад -->
             <script>
-                document.getElementById('btn_1_8_prev').addEventListener('click', function () {
-                    var from = document.querySelector('[name="quest_1_8"]');
-                    var to = document.querySelector('[name="quest_1_7"]');
+                    document.getElementById('btn_1_8_prev').addEventListener('click', function () {
+                        var from = document.querySelector('[name="quest_1_8"]');
+                        var to = document.querySelector('[name="quest_1_7"]');
 
-                    from.classList.add('animBlockDisappear_prev');
-                    from.addEventListener('animationend', function handler() {
-                        from.style.display = 'none';
-                        from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
+                        from.classList.add('animBlockDisappear_prev');
+                        from.addEventListener('animationend', function handler() {
+                            from.style.display = 'none';
+                            from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
 
-                        to.style.display = 'block';
-                        to.classList.add('animBlockAppear_prev');
+                            to.style.display = 'block';
+                            to.classList.add('animBlockAppear_prev');
 
-                        to.addEventListener('animationend', function appearHandler() {
-                            to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
-                            to.removeEventListener('animationend', appearHandler);
+                            to.addEventListener('animationend', function appearHandler() {
+                                to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
+                                to.removeEventListener('animationend', appearHandler);
+                            });
+
+                            from.removeEventListener('animationend', handler);
                         });
-
-                        from.removeEventListener('animationend', handler);
                     });
-                });
             </script>
             <!-- Перелистываание вперёд -->
             <script>
-                document.getElementById('btn_1_8_next').addEventListener('click', function () {
-                    var from = document.querySelector('[name="quest_1_8"]');
-                    var to = document.querySelector('[name="quest_1_9"]');
+                    document.getElementById('btn_1_8_next').addEventListener('click', function () {
+                        var from = document.querySelector('[name="quest_1_8"]');
+                        var to = document.querySelector('[name="quest_1_9"]');
 
-                    from.classList.add('animBlockDisappear_next');
-                    from.addEventListener('animationend', function handler() {
-                        from.style.display = 'none';
-                        from.classList.remove('animBlockDisappear_next'); // Удаляем класс анимации
+                        from.classList.add('animBlockDisappear_next');
+                        from.addEventListener('animationend', function handler() {
+                            from.style.display = 'none';
+                            from.classList.remove('animBlockDisappear_next'); // Удаляем класс анимации
 
-                        to.style.display = 'block';
-                        to.classList.add('animBlockAppear_next');
+                            to.style.display = 'block';
+                            to.classList.add('animBlockAppear_next');
 
-                        to.addEventListener('animationend', function appearHandler() {
-                            to.classList.remove('animBlockAppear_next'); // Удаляем класс анимации
-                            to.removeEventListener('animationend', appearHandler);
+                            to.addEventListener('animationend', function appearHandler() {
+                                to.classList.remove('animBlockAppear_next'); // Удаляем класс анимации
+                                to.removeEventListener('animationend', appearHandler);
+                            });
+
+                            from.removeEventListener('animationend', handler);
                         });
-
-                        from.removeEventListener('animationend', handler);
                     });
-                });
             </script>
         </div>
 
@@ -1421,98 +1456,98 @@
                 <button class="btn_nextprev" id="btn_1_9_next">Далее</button>
             </section>
             <script>
-                // Сокрытие блока
-                window.addEventListener('load', function () {
-                    const quest = document.querySelector('[name="quest_1_9"]');
-                    quest.classList.add('hidden');
-                });
-                // Работа с кнопками выбора
-                document.getElementById('1_9_top_0').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_9_bottom_3').checked = true;
-                    }
-                });
-                document.getElementById('1_9_top_1').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_9_bottom_2').checked = true;
-                    }
-                });
-                document.getElementById('1_9_top_2').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_9_bottom_1').checked = true;
-                    }
-                });
-                document.getElementById('1_9_top_3').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_9_bottom_0').checked = true;
-                    }
-                });
-                document.getElementById('1_9_bottom_3').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_9_top_0').checked = true;
-                    }
-                });
-                document.getElementById('1_9_bottom_2').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_9_top_1').checked = true;
-                    }
-                });
-                document.getElementById('1_9_bottom_1').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_9_top_2').checked = true;
-                    }
-                });
-                document.getElementById('1_9_bottom_0').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_9_top_3').checked = true;
-                    }
-                });
+                    // Сокрытие блока
+                    window.addEventListener('load', function () {
+                        const quest = document.querySelector('[name="quest_1_9"]');
+                        quest.classList.add('hidden');
+                    });
+                    // Работа с кнопками выбора
+                    document.getElementById('1_9_top_0').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_9_bottom_3').checked = true;
+                        }
+                    });
+                    document.getElementById('1_9_top_1').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_9_bottom_2').checked = true;
+                        }
+                    });
+                    document.getElementById('1_9_top_2').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_9_bottom_1').checked = true;
+                        }
+                    });
+                    document.getElementById('1_9_top_3').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_9_bottom_0').checked = true;
+                        }
+                    });
+                    document.getElementById('1_9_bottom_3').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_9_top_0').checked = true;
+                        }
+                    });
+                    document.getElementById('1_9_bottom_2').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_9_top_1').checked = true;
+                        }
+                    });
+                    document.getElementById('1_9_bottom_1').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_9_top_2').checked = true;
+                        }
+                    });
+                    document.getElementById('1_9_bottom_0').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_9_top_3').checked = true;
+                        }
+                    });
             </script>
             <!-- Перелистываание назад -->
             <script>
-                document.getElementById('btn_1_9_prev').addEventListener('click', function () {
-                    var from = document.querySelector('[name="quest_1_9"]');
-                    var to = document.querySelector('[name="quest_1_8"]');
+                    document.getElementById('btn_1_9_prev').addEventListener('click', function () {
+                        var from = document.querySelector('[name="quest_1_9"]');
+                        var to = document.querySelector('[name="quest_1_8"]');
 
-                    from.classList.add('animBlockDisappear_prev');
-                    from.addEventListener('animationend', function handler() {
-                        from.style.display = 'none';
-                        from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
+                        from.classList.add('animBlockDisappear_prev');
+                        from.addEventListener('animationend', function handler() {
+                            from.style.display = 'none';
+                            from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
 
-                        to.style.display = 'block';
-                        to.classList.add('animBlockAppear_prev');
+                            to.style.display = 'block';
+                            to.classList.add('animBlockAppear_prev');
 
-                        to.addEventListener('animationend', function appearHandler() {
-                            to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
-                            to.removeEventListener('animationend', appearHandler);
+                            to.addEventListener('animationend', function appearHandler() {
+                                to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
+                                to.removeEventListener('animationend', appearHandler);
+                            });
+
+                            from.removeEventListener('animationend', handler);
                         });
-
-                        from.removeEventListener('animationend', handler);
                     });
-                });
             </script>
             <!-- Перелистываание вперёд -->
             <script>
-                document.getElementById('btn_1_9_next').addEventListener('click', function () {
-                    var from = document.querySelector('[name="quest_1_9"]');
-                    var to = document.querySelector('[name="quest_1_10"]');
+                    document.getElementById('btn_1_9_next').addEventListener('click', function () {
+                        var from = document.querySelector('[name="quest_1_9"]');
+                        var to = document.querySelector('[name="quest_1_10"]');
 
-                    from.classList.add('animBlockDisappear_next');
-                    from.addEventListener('animationend', function handler() {
-                        from.style.display = 'none';
-                        from.classList.remove('animBlockDisappear_next'); // Удаляем класс анимации
+                        from.classList.add('animBlockDisappear_next');
+                        from.addEventListener('animationend', function handler() {
+                            from.style.display = 'none';
+                            from.classList.remove('animBlockDisappear_next'); // Удаляем класс анимации
 
-                        to.style.display = 'block';
-                        to.classList.add('animBlockAppear_next');
+                            to.style.display = 'block';
+                            to.classList.add('animBlockAppear_next');
 
-                        to.addEventListener('animationend', function appearHandler() {
-                            to.classList.remove('animBlockAppear_next'); // Удаляем класс анимации
-                            to.removeEventListener('animationend', appearHandler);
+                            to.addEventListener('animationend', function appearHandler() {
+                                to.classList.remove('animBlockAppear_next'); // Удаляем класс анимации
+                                to.removeEventListener('animationend', appearHandler);
+                            });
+
+                            from.removeEventListener('animationend', handler);
                         });
-
-                        from.removeEventListener('animationend', handler);
                     });
-                });
             </script>
         </div>
 
@@ -1582,98 +1617,98 @@
                 <button class="btn_nextprev" id="btn_1_10_next">Далее</button>
             </section>
             <script>
-                // Сокрытие блока
-                window.addEventListener('load', function () {
-                    const quest = document.querySelector('[name="quest_1_10"]');
-                    quest.classList.add('hidden');
-                });
-                // Работа с кнопками выбора
-                document.getElementById('1_10_top_0').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_10_bottom_3').checked = true;
-                    }
-                });
-                document.getElementById('1_10_top_1').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_10_bottom_2').checked = true;
-                    }
-                });
-                document.getElementById('1_10_top_2').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_10_bottom_1').checked = true;
-                    }
-                });
-                document.getElementById('1_10_top_3').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_10_bottom_0').checked = true;
-                    }
-                });
-                document.getElementById('1_10_bottom_3').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_10_top_0').checked = true;
-                    }
-                });
-                document.getElementById('1_10_bottom_2').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_10_top_1').checked = true;
-                    }
-                });
-                document.getElementById('1_10_bottom_1').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_10_top_2').checked = true;
-                    }
-                });
-                document.getElementById('1_10_bottom_0').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_10_top_3').checked = true;
-                    }
-                });
+                    // Сокрытие блока
+                    window.addEventListener('load', function () {
+                        const quest = document.querySelector('[name="quest_1_10"]');
+                        quest.classList.add('hidden');
+                    });
+                    // Работа с кнопками выбора
+                    document.getElementById('1_10_top_0').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_10_bottom_3').checked = true;
+                        }
+                    });
+                    document.getElementById('1_10_top_1').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_10_bottom_2').checked = true;
+                        }
+                    });
+                    document.getElementById('1_10_top_2').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_10_bottom_1').checked = true;
+                        }
+                    });
+                    document.getElementById('1_10_top_3').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_10_bottom_0').checked = true;
+                        }
+                    });
+                    document.getElementById('1_10_bottom_3').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_10_top_0').checked = true;
+                        }
+                    });
+                    document.getElementById('1_10_bottom_2').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_10_top_1').checked = true;
+                        }
+                    });
+                    document.getElementById('1_10_bottom_1').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_10_top_2').checked = true;
+                        }
+                    });
+                    document.getElementById('1_10_bottom_0').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_10_top_3').checked = true;
+                        }
+                    });
             </script>
             <!-- Перелистываание назад -->
             <script>
-                document.getElementById('btn_1_10_prev').addEventListener('click', function () {
-                    var from = document.querySelector('[name="quest_1_10"]');
-                    var to = document.querySelector('[name="quest_1_9"]');
+                    document.getElementById('btn_1_10_prev').addEventListener('click', function () {
+                        var from = document.querySelector('[name="quest_1_10"]');
+                        var to = document.querySelector('[name="quest_1_9"]');
 
-                    from.classList.add('animBlockDisappear_prev');
-                    from.addEventListener('animationend', function handler() {
-                        from.style.display = 'none';
-                        from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
+                        from.classList.add('animBlockDisappear_prev');
+                        from.addEventListener('animationend', function handler() {
+                            from.style.display = 'none';
+                            from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
 
-                        to.style.display = 'block';
-                        to.classList.add('animBlockAppear_prev');
+                            to.style.display = 'block';
+                            to.classList.add('animBlockAppear_prev');
 
-                        to.addEventListener('animationend', function appearHandler() {
-                            to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
-                            to.removeEventListener('animationend', appearHandler);
+                            to.addEventListener('animationend', function appearHandler() {
+                                to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
+                                to.removeEventListener('animationend', appearHandler);
+                            });
+
+                            from.removeEventListener('animationend', handler);
                         });
-
-                        from.removeEventListener('animationend', handler);
                     });
-                });
             </script>
             <!-- Перелистываание вперёд -->
             <script>
-                document.getElementById('btn_1_10_next').addEventListener('click', function () {
-                    var from = document.querySelector('[name="quest_1_10"]');
-                    var to = document.querySelector('[name="quest_1_11"]');
+                    document.getElementById('btn_1_10_next').addEventListener('click', function () {
+                        var from = document.querySelector('[name="quest_1_10"]');
+                        var to = document.querySelector('[name="quest_1_11"]');
 
-                    from.classList.add('animBlockDisappear_next');
-                    from.addEventListener('animationend', function handler() {
-                        from.style.display = 'none';
-                        from.classList.remove('animBlockDisappear_next'); // Удаляем класс анимации
+                        from.classList.add('animBlockDisappear_next');
+                        from.addEventListener('animationend', function handler() {
+                            from.style.display = 'none';
+                            from.classList.remove('animBlockDisappear_next'); // Удаляем класс анимации
 
-                        to.style.display = 'block';
-                        to.classList.add('animBlockAppear_next');
+                            to.style.display = 'block';
+                            to.classList.add('animBlockAppear_next');
 
-                        to.addEventListener('animationend', function appearHandler() {
-                            to.classList.remove('animBlockAppear_next'); // Удаляем класс анимации
-                            to.removeEventListener('animationend', appearHandler);
+                            to.addEventListener('animationend', function appearHandler() {
+                                to.classList.remove('animBlockAppear_next'); // Удаляем класс анимации
+                                to.removeEventListener('animationend', appearHandler);
+                            });
+
+                            from.removeEventListener('animationend', handler);
                         });
-
-                        from.removeEventListener('animationend', handler);
                     });
-                });
             </script>
         </div>
 
@@ -1743,98 +1778,98 @@
                 <button class="btn_nextprev" id="btn_1_11_next">Далее</button>
             </section>
             <script>
-                // Сокрытие блока
-                window.addEventListener('load', function () {
-                    const quest = document.querySelector('[name="quest_1_11"]');
-                    quest.classList.add('hidden');
-                });
-                // Работа с кнопками выбора
-                document.getElementById('1_11_top_0').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_11_bottom_3').checked = true;
-                    }
-                });
-                document.getElementById('1_11_top_1').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_11_bottom_2').checked = true;
-                    }
-                });
-                document.getElementById('1_11_top_2').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_11_bottom_1').checked = true;
-                    }
-                });
-                document.getElementById('1_11_top_3').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_11_bottom_0').checked = true;
-                    }
-                });
-                document.getElementById('1_11_bottom_3').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_11_top_0').checked = true;
-                    }
-                });
-                document.getElementById('1_11_bottom_2').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_11_top_1').checked = true;
-                    }
-                });
-                document.getElementById('1_11_bottom_1').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_11_top_2').checked = true;
-                    }
-                });
-                document.getElementById('1_11_bottom_0').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_11_top_3').checked = true;
-                    }
-                });
+                    // Сокрытие блока
+                    window.addEventListener('load', function () {
+                        const quest = document.querySelector('[name="quest_1_11"]');
+                        quest.classList.add('hidden');
+                    });
+                    // Работа с кнопками выбора
+                    document.getElementById('1_11_top_0').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_11_bottom_3').checked = true;
+                        }
+                    });
+                    document.getElementById('1_11_top_1').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_11_bottom_2').checked = true;
+                        }
+                    });
+                    document.getElementById('1_11_top_2').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_11_bottom_1').checked = true;
+                        }
+                    });
+                    document.getElementById('1_11_top_3').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_11_bottom_0').checked = true;
+                        }
+                    });
+                    document.getElementById('1_11_bottom_3').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_11_top_0').checked = true;
+                        }
+                    });
+                    document.getElementById('1_11_bottom_2').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_11_top_1').checked = true;
+                        }
+                    });
+                    document.getElementById('1_11_bottom_1').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_11_top_2').checked = true;
+                        }
+                    });
+                    document.getElementById('1_11_bottom_0').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_11_top_3').checked = true;
+                        }
+                    });
             </script>
             <!-- Перелистываание назад -->
             <script>
-                document.getElementById('btn_1_11_prev').addEventListener('click', function () {
-                    var from = document.querySelector('[name="quest_1_11"]');
-                    var to = document.querySelector('[name="quest_1_10"]');
+                    document.getElementById('btn_1_11_prev').addEventListener('click', function () {
+                        var from = document.querySelector('[name="quest_1_11"]');
+                        var to = document.querySelector('[name="quest_1_10"]');
 
-                    from.classList.add('animBlockDisappear_prev');
-                    from.addEventListener('animationend', function handler() {
-                        from.style.display = 'none';
-                        from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
+                        from.classList.add('animBlockDisappear_prev');
+                        from.addEventListener('animationend', function handler() {
+                            from.style.display = 'none';
+                            from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
 
-                        to.style.display = 'block';
-                        to.classList.add('animBlockAppear_prev');
+                            to.style.display = 'block';
+                            to.classList.add('animBlockAppear_prev');
 
-                        to.addEventListener('animationend', function appearHandler() {
-                            to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
-                            to.removeEventListener('animationend', appearHandler);
+                            to.addEventListener('animationend', function appearHandler() {
+                                to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
+                                to.removeEventListener('animationend', appearHandler);
+                            });
+
+                            from.removeEventListener('animationend', handler);
                         });
-
-                        from.removeEventListener('animationend', handler);
                     });
-                });
             </script>
             <!-- Перелистываание вперёд -->
             <script>
-                document.getElementById('btn_1_11_next').addEventListener('click', function () {
-                    var from = document.querySelector('[name="quest_1_11"]');
-                    var to = document.querySelector('[name="quest_1_12"]');
+                    document.getElementById('btn_1_11_next').addEventListener('click', function () {
+                        var from = document.querySelector('[name="quest_1_11"]');
+                        var to = document.querySelector('[name="quest_1_12"]');
 
-                    from.classList.add('animBlockDisappear_next');
-                    from.addEventListener('animationend', function handler() {
-                        from.style.display = 'none';
-                        from.classList.remove('animBlockDisappear_next'); // Удаляем класс анимации
+                        from.classList.add('animBlockDisappear_next');
+                        from.addEventListener('animationend', function handler() {
+                            from.style.display = 'none';
+                            from.classList.remove('animBlockDisappear_next'); // Удаляем класс анимации
 
-                        to.style.display = 'block';
-                        to.classList.add('animBlockAppear_next');
+                            to.style.display = 'block';
+                            to.classList.add('animBlockAppear_next');
 
-                        to.addEventListener('animationend', function appearHandler() {
-                            to.classList.remove('animBlockAppear_next'); // Удаляем класс анимации
-                            to.removeEventListener('animationend', appearHandler);
+                            to.addEventListener('animationend', function appearHandler() {
+                                to.classList.remove('animBlockAppear_next'); // Удаляем класс анимации
+                                to.removeEventListener('animationend', appearHandler);
+                            });
+
+                            from.removeEventListener('animationend', handler);
                         });
-
-                        from.removeEventListener('animationend', handler);
                     });
-                });
             </script>
         </div>
 
@@ -1903,98 +1938,98 @@
                 <button class="btn_nextprev" id="btn_1_12_next">Далее</button>
             </section>
             <script>
-                // Сокрытие блока
-                window.addEventListener('load', function () {
-                    const quest = document.querySelector('[name="quest_1_12"]');
-                    quest.classList.add('hidden');
-                });
-                // Работа с кнопками выбора
-                document.getElementById('1_12_top_0').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_12_bottom_3').checked = true;
-                    }
-                });
-                document.getElementById('1_12_top_1').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_12_bottom_2').checked = true;
-                    }
-                });
-                document.getElementById('1_12_top_2').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_12_bottom_1').checked = true;
-                    }
-                });
-                document.getElementById('1_12_top_3').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_12_bottom_0').checked = true;
-                    }
-                });
-                document.getElementById('1_12_bottom_3').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_12_top_0').checked = true;
-                    }
-                });
-                document.getElementById('1_12_bottom_2').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_12_top_1').checked = true;
-                    }
-                });
-                document.getElementById('1_12_bottom_1').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_12_top_2').checked = true;
-                    }
-                });
-                document.getElementById('1_12_bottom_0').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_12_top_3').checked = true;
-                    }
-                });
+                    // Сокрытие блока
+                    window.addEventListener('load', function () {
+                        const quest = document.querySelector('[name="quest_1_12"]');
+                        quest.classList.add('hidden');
+                    });
+                    // Работа с кнопками выбора
+                    document.getElementById('1_12_top_0').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_12_bottom_3').checked = true;
+                        }
+                    });
+                    document.getElementById('1_12_top_1').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_12_bottom_2').checked = true;
+                        }
+                    });
+                    document.getElementById('1_12_top_2').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_12_bottom_1').checked = true;
+                        }
+                    });
+                    document.getElementById('1_12_top_3').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_12_bottom_0').checked = true;
+                        }
+                    });
+                    document.getElementById('1_12_bottom_3').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_12_top_0').checked = true;
+                        }
+                    });
+                    document.getElementById('1_12_bottom_2').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_12_top_1').checked = true;
+                        }
+                    });
+                    document.getElementById('1_12_bottom_1').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_12_top_2').checked = true;
+                        }
+                    });
+                    document.getElementById('1_12_bottom_0').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_12_top_3').checked = true;
+                        }
+                    });
             </script>
             <!-- Перелистываание назад -->
             <script>
-                document.getElementById('btn_1_12_prev').addEventListener('click', function () {
-                    var from = document.querySelector('[name="quest_1_12"]');
-                    var to = document.querySelector('[name="quest_1_11"]');
+                    document.getElementById('btn_1_12_prev').addEventListener('click', function () {
+                        var from = document.querySelector('[name="quest_1_12"]');
+                        var to = document.querySelector('[name="quest_1_11"]');
 
-                    from.classList.add('animBlockDisappear_prev');
-                    from.addEventListener('animationend', function handler() {
-                        from.style.display = 'none';
-                        from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
+                        from.classList.add('animBlockDisappear_prev');
+                        from.addEventListener('animationend', function handler() {
+                            from.style.display = 'none';
+                            from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
 
-                        to.style.display = 'block';
-                        to.classList.add('animBlockAppear_prev');
+                            to.style.display = 'block';
+                            to.classList.add('animBlockAppear_prev');
 
-                        to.addEventListener('animationend', function appearHandler() {
-                            to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
-                            to.removeEventListener('animationend', appearHandler);
+                            to.addEventListener('animationend', function appearHandler() {
+                                to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
+                                to.removeEventListener('animationend', appearHandler);
+                            });
+
+                            from.removeEventListener('animationend', handler);
                         });
-
-                        from.removeEventListener('animationend', handler);
                     });
-                });
             </script>
             <!-- Перелистываание вперёд -->
             <script>
-                document.getElementById('btn_1_12_next').addEventListener('click', function () {
-                    var from = document.querySelector('[name="quest_1_12"]');
-                    var to = document.querySelector('[name="quest_1_13"]');
+                    document.getElementById('btn_1_12_next').addEventListener('click', function () {
+                        var from = document.querySelector('[name="quest_1_12"]');
+                        var to = document.querySelector('[name="quest_1_13"]');
 
-                    from.classList.add('animBlockDisappear_next');
-                    from.addEventListener('animationend', function handler() {
-                        from.style.display = 'none';
-                        from.classList.remove('animBlockDisappear_next'); // Удаляем класс анимации
+                        from.classList.add('animBlockDisappear_next');
+                        from.addEventListener('animationend', function handler() {
+                            from.style.display = 'none';
+                            from.classList.remove('animBlockDisappear_next'); // Удаляем класс анимации
 
-                        to.style.display = 'block';
-                        to.classList.add('animBlockAppear_next');
+                            to.style.display = 'block';
+                            to.classList.add('animBlockAppear_next');
 
-                        to.addEventListener('animationend', function appearHandler() {
-                            to.classList.remove('animBlockAppear_next'); // Удаляем класс анимации
-                            to.removeEventListener('animationend', appearHandler);
+                            to.addEventListener('animationend', function appearHandler() {
+                                to.classList.remove('animBlockAppear_next'); // Удаляем класс анимации
+                                to.removeEventListener('animationend', appearHandler);
+                            });
+
+                            from.removeEventListener('animationend', handler);
                         });
-
-                        from.removeEventListener('animationend', handler);
                     });
-                });
             </script>
         </div>
 
@@ -2063,99 +2098,99 @@
                 <button class="btn_nextprev" id="btn_1_13_next">Далее</button>
             </section>
             <script>
-                // Сокрытие блока
-                window.addEventListener('load', function () {
-                    const quest = document.querySelector('[name="quest_1_13"]');
-                    quest.classList.add('hidden');
-                });
-                // Работа с кнопками выбора
-                document.getElementById('1_13_top_0').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_13_bottom_3').checked = true;
-                    }
-                });
-                document.getElementById('1_13_top_1').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_13_bottom_2').checked = true;
-                    }
-                });
-                document.getElementById('1_13_top_2').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_13_bottom_1').checked = true;
-                    }
-                });
-                document.getElementById('1_13_top_3').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_13_bottom_0').checked = true;
-                    }
-                });
+                    // Сокрытие блока
+                    window.addEventListener('load', function () {
+                        const quest = document.querySelector('[name="quest_1_13"]');
+                        quest.classList.add('hidden');
+                    });
+                    // Работа с кнопками выбора
+                    document.getElementById('1_13_top_0').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_13_bottom_3').checked = true;
+                        }
+                    });
+                    document.getElementById('1_13_top_1').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_13_bottom_2').checked = true;
+                        }
+                    });
+                    document.getElementById('1_13_top_2').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_13_bottom_1').checked = true;
+                        }
+                    });
+                    document.getElementById('1_13_top_3').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_13_bottom_0').checked = true;
+                        }
+                    });
 
-                document.getElementById('1_13_bottom_3').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_13_top_0').checked = true;
-                    }
-                });
-                document.getElementById('1_13_bottom_2').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_13_top_1').checked = true;
-                    }
-                });
-                document.getElementById('1_13_bottom_1').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_13_top_2').checked = true;
-                    }
-                });
-                document.getElementById('1_13_bottom_0').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_13_top_3').checked = true;
-                    }
-                });
+                    document.getElementById('1_13_bottom_3').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_13_top_0').checked = true;
+                        }
+                    });
+                    document.getElementById('1_13_bottom_2').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_13_top_1').checked = true;
+                        }
+                    });
+                    document.getElementById('1_13_bottom_1').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_13_top_2').checked = true;
+                        }
+                    });
+                    document.getElementById('1_13_bottom_0').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_13_top_3').checked = true;
+                        }
+                    });
             </script>
             <!-- Перелистываание назад -->
             <script>
-                document.getElementById('btn_1_13_prev').addEventListener('click', function () {
-                    var from = document.querySelector('[name="quest_1_13"]');
-                    var to = document.querySelector('[name="quest_1_12"]');
+                    document.getElementById('btn_1_13_prev').addEventListener('click', function () {
+                        var from = document.querySelector('[name="quest_1_13"]');
+                        var to = document.querySelector('[name="quest_1_12"]');
 
-                    from.classList.add('animBlockDisappear_prev');
-                    from.addEventListener('animationend', function handler() {
-                        from.style.display = 'none';
-                        from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
+                        from.classList.add('animBlockDisappear_prev');
+                        from.addEventListener('animationend', function handler() {
+                            from.style.display = 'none';
+                            from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
 
-                        to.style.display = 'block';
-                        to.classList.add('animBlockAppear_prev');
+                            to.style.display = 'block';
+                            to.classList.add('animBlockAppear_prev');
 
-                        to.addEventListener('animationend', function appearHandler() {
-                            to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
-                            to.removeEventListener('animationend', appearHandler);
+                            to.addEventListener('animationend', function appearHandler() {
+                                to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
+                                to.removeEventListener('animationend', appearHandler);
+                            });
+
+                            from.removeEventListener('animationend', handler);
                         });
-
-                        from.removeEventListener('animationend', handler);
                     });
-                });
             </script>
             <!-- Перелистываание вперёд -->
             <script>
-                document.getElementById('btn_1_13_next').addEventListener('click', function () {
-                    var from = document.querySelector('[name="quest_1_13"]');
-                    var to = document.querySelector('[name="quest_1_14"]');
+                    document.getElementById('btn_1_13_next').addEventListener('click', function () {
+                        var from = document.querySelector('[name="quest_1_13"]');
+                        var to = document.querySelector('[name="quest_1_14"]');
 
-                    from.classList.add('animBlockDisappear_next');
-                    from.addEventListener('animationend', function handler() {
-                        from.style.display = 'none';
-                        from.classList.remove('animBlockDisappear_next'); // Удаляем класс анимации
+                        from.classList.add('animBlockDisappear_next');
+                        from.addEventListener('animationend', function handler() {
+                            from.style.display = 'none';
+                            from.classList.remove('animBlockDisappear_next'); // Удаляем класс анимации
 
-                        to.style.display = 'block';
-                        to.classList.add('animBlockAppear_next');
+                            to.style.display = 'block';
+                            to.classList.add('animBlockAppear_next');
 
-                        to.addEventListener('animationend', function appearHandler() {
-                            to.classList.remove('animBlockAppear_next'); // Удаляем класс анимации
-                            to.removeEventListener('animationend', appearHandler);
+                            to.addEventListener('animationend', function appearHandler() {
+                                to.classList.remove('animBlockAppear_next'); // Удаляем класс анимации
+                                to.removeEventListener('animationend', appearHandler);
+                            });
+
+                            from.removeEventListener('animationend', handler);
                         });
-
-                        from.removeEventListener('animationend', handler);
                     });
-                });
             </script>
         </div>
 
@@ -2225,98 +2260,98 @@
                 <button class="btn_nextprev" id="btn_1_14_next">Далее</button>
             </section>
             <script>
-                // Сокрытие блока
-                window.addEventListener('load', function () {
-                    const quest = document.querySelector('[name="quest_1_14"]');
-                    quest.classList.add('hidden');
-                });
-                // Работа с кнопками выбора
-                document.getElementById('1_14_top_0').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_14_bottom_3').checked = true;
-                    }
-                });
-                document.getElementById('1_14_top_1').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_14_bottom_2').checked = true;
-                    }
-                });
-                document.getElementById('1_14_top_2').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_14_bottom_1').checked = true;
-                    }
-                });
-                document.getElementById('1_14_top_3').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_14_bottom_0').checked = true;
-                    }
-                });
-                document.getElementById('1_14_bottom_3').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_14_top_0').checked = true;
-                    }
-                });
-                document.getElementById('1_14_bottom_2').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_14_top_1').checked = true;
-                    }
-                });
-                document.getElementById('1_14_bottom_1').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_14_top_2').checked = true;
-                    }
-                });
-                document.getElementById('1_14_bottom_0').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_14_top_3').checked = true;
-                    }
-                });
+                    // Сокрытие блока
+                    window.addEventListener('load', function () {
+                        const quest = document.querySelector('[name="quest_1_14"]');
+                        quest.classList.add('hidden');
+                    });
+                    // Работа с кнопками выбора
+                    document.getElementById('1_14_top_0').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_14_bottom_3').checked = true;
+                        }
+                    });
+                    document.getElementById('1_14_top_1').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_14_bottom_2').checked = true;
+                        }
+                    });
+                    document.getElementById('1_14_top_2').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_14_bottom_1').checked = true;
+                        }
+                    });
+                    document.getElementById('1_14_top_3').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_14_bottom_0').checked = true;
+                        }
+                    });
+                    document.getElementById('1_14_bottom_3').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_14_top_0').checked = true;
+                        }
+                    });
+                    document.getElementById('1_14_bottom_2').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_14_top_1').checked = true;
+                        }
+                    });
+                    document.getElementById('1_14_bottom_1').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_14_top_2').checked = true;
+                        }
+                    });
+                    document.getElementById('1_14_bottom_0').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_14_top_3').checked = true;
+                        }
+                    });
             </script>
             <!-- Перелистываание назад -->
             <script>
-                document.getElementById('btn_1_14_prev').addEventListener('click', function () {
-                    var from = document.querySelector('[name="quest_1_14"]');
-                    var to = document.querySelector('[name="quest_1_13"]');
+                    document.getElementById('btn_1_14_prev').addEventListener('click', function () {
+                        var from = document.querySelector('[name="quest_1_14"]');
+                        var to = document.querySelector('[name="quest_1_13"]');
 
-                    from.classList.add('animBlockDisappear_prev');
-                    from.addEventListener('animationend', function handler() {
-                        from.style.display = 'none';
-                        from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
+                        from.classList.add('animBlockDisappear_prev');
+                        from.addEventListener('animationend', function handler() {
+                            from.style.display = 'none';
+                            from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
 
-                        to.style.display = 'block';
-                        to.classList.add('animBlockAppear_prev');
+                            to.style.display = 'block';
+                            to.classList.add('animBlockAppear_prev');
 
-                        to.addEventListener('animationend', function appearHandler() {
-                            to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
-                            to.removeEventListener('animationend', appearHandler);
+                            to.addEventListener('animationend', function appearHandler() {
+                                to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
+                                to.removeEventListener('animationend', appearHandler);
+                            });
+
+                            from.removeEventListener('animationend', handler);
                         });
-
-                        from.removeEventListener('animationend', handler);
                     });
-                });
             </script>
             <!-- Перелистываание вперёд -->
             <script>
-                document.getElementById('btn_1_14_next').addEventListener('click', function () {
-                    var from = document.querySelector('[name="quest_1_14"]');
-                    var to = document.querySelector('[name="quest_1_15"]');
+                    document.getElementById('btn_1_14_next').addEventListener('click', function () {
+                        var from = document.querySelector('[name="quest_1_14"]');
+                        var to = document.querySelector('[name="quest_1_15"]');
 
-                    from.classList.add('animBlockDisappear_next');
-                    from.addEventListener('animationend', function handler() {
-                        from.style.display = 'none';
-                        from.classList.remove('animBlockDisappear_next'); // Удаляем класс анимации
+                        from.classList.add('animBlockDisappear_next');
+                        from.addEventListener('animationend', function handler() {
+                            from.style.display = 'none';
+                            from.classList.remove('animBlockDisappear_next'); // Удаляем класс анимации
 
-                        to.style.display = 'block';
-                        to.classList.add('animBlockAppear_next');
+                            to.style.display = 'block';
+                            to.classList.add('animBlockAppear_next');
 
-                        to.addEventListener('animationend', function appearHandler() {
-                            to.classList.remove('animBlockAppear_next'); // Удаляем класс анимации
-                            to.removeEventListener('animationend', appearHandler);
+                            to.addEventListener('animationend', function appearHandler() {
+                                to.classList.remove('animBlockAppear_next'); // Удаляем класс анимации
+                                to.removeEventListener('animationend', appearHandler);
+                            });
+
+                            from.removeEventListener('animationend', handler);
                         });
-
-                        from.removeEventListener('animationend', handler);
                     });
-                });
             </script>
         </div>
 
@@ -2385,98 +2420,98 @@
                 <button class="btn_nextprev" id="btn_1_15_next">Далее</button>
             </section>
             <script>
-                // Сокрытие блока
-                window.addEventListener('load', function () {
-                    const quest = document.querySelector('[name="quest_1_15"]');
-                    quest.classList.add('hidden');
-                });
-                // Работа с кнопками выбора
-                document.getElementById('1_15_top_0').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_15_bottom_3').checked = true;
-                    }
-                });
-                document.getElementById('1_15_top_1').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_15_bottom_2').checked = true;
-                    }
-                });
-                document.getElementById('1_15_top_2').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_15_bottom_1').checked = true;
-                    }
-                });
-                document.getElementById('1_15_top_3').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_15_bottom_0').checked = true;
-                    }
-                });
-                document.getElementById('1_15_bottom_3').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_15_top_0').checked = true;
-                    }
-                });
-                document.getElementById('1_15_bottom_2').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_15_top_1').checked = true;
-                    }
-                });
-                document.getElementById('1_15_bottom_1').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_15_top_2').checked = true;
-                    }
-                });
-                document.getElementById('1_15_bottom_0').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('1_15_top_3').checked = true;
-                    }
-                });
+                    // Сокрытие блока
+                    window.addEventListener('load', function () {
+                        const quest = document.querySelector('[name="quest_1_15"]');
+                        quest.classList.add('hidden');
+                    });
+                    // Работа с кнопками выбора
+                    document.getElementById('1_15_top_0').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_15_bottom_3').checked = true;
+                        }
+                    });
+                    document.getElementById('1_15_top_1').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_15_bottom_2').checked = true;
+                        }
+                    });
+                    document.getElementById('1_15_top_2').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_15_bottom_1').checked = true;
+                        }
+                    });
+                    document.getElementById('1_15_top_3').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_15_bottom_0').checked = true;
+                        }
+                    });
+                    document.getElementById('1_15_bottom_3').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_15_top_0').checked = true;
+                        }
+                    });
+                    document.getElementById('1_15_bottom_2').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_15_top_1').checked = true;
+                        }
+                    });
+                    document.getElementById('1_15_bottom_1').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_15_top_2').checked = true;
+                        }
+                    });
+                    document.getElementById('1_15_bottom_0').addEventListener('change', function () {
+                        if (this.checked) {
+                            document.getElementById('1_15_top_3').checked = true;
+                        }
+                    });
             </script>
             <!-- Перелистываание назад -->
             <script>
-                document.getElementById('btn_1_15_prev').addEventListener('click', function () {
-                    var from = document.querySelector('[name="quest_1_15"]');
-                    var to = document.querySelector('[name="quest_1_14"]');
+                    document.getElementById('btn_1_15_prev').addEventListener('click', function () {
+                        var from = document.querySelector('[name="quest_1_15"]');
+                        var to = document.querySelector('[name="quest_1_14"]');
 
-                    from.classList.add('animBlockDisappear_prev');
-                    from.addEventListener('animationend', function handler() {
-                        from.style.display = 'none';
-                        from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
+                        from.classList.add('animBlockDisappear_prev');
+                        from.addEventListener('animationend', function handler() {
+                            from.style.display = 'none';
+                            from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
 
-                        to.style.display = 'block';
-                        to.classList.add('animBlockAppear_prev');
+                            to.style.display = 'block';
+                            to.classList.add('animBlockAppear_prev');
 
-                        to.addEventListener('animationend', function appearHandler() {
-                            to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
-                            to.removeEventListener('animationend', appearHandler);
+                            to.addEventListener('animationend', function appearHandler() {
+                                to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
+                                to.removeEventListener('animationend', appearHandler);
+                            });
+
+                            from.removeEventListener('animationend', handler);
                         });
-
-                        from.removeEventListener('animationend', handler);
                     });
-                });
             </script>
             <!-- Перелистываание вперёд -->
             <script>
-                document.getElementById('btn_1_15_next').addEventListener('click', function () {
-                    var from = document.querySelector('[name="quest_1_15"]');
-                    var to = document.querySelector('[name="end_test_1"]');
+                    document.getElementById('btn_1_15_next').addEventListener('click', function () {
+                        var from = document.querySelector('[name="quest_1_15"]');
+                        var to = document.querySelector('[name="end_test_1"]');
 
-                    from.classList.add('animBlockDisappear_next');
-                    from.addEventListener('animationend', function handler() {
-                        from.style.display = 'none';
-                        from.classList.remove('animBlockDisappear_next'); // Удаляем класс анимации
+                        from.classList.add('animBlockDisappear_next');
+                        from.addEventListener('animationend', function handler() {
+                            from.style.display = 'none';
+                            from.classList.remove('animBlockDisappear_next'); // Удаляем класс анимации
 
-                        to.style.display = 'block';
-                        to.classList.add('animBlockAppear_next');
+                            to.style.display = 'block';
+                            to.classList.add('animBlockAppear_next');
 
-                        to.addEventListener('animationend', function appearHandler() {
-                            to.classList.remove('animBlockAppear_next'); // Удаляем класс анимации
-                            to.removeEventListener('animationend', appearHandler);
+                            to.addEventListener('animationend', function appearHandler() {
+                                to.classList.remove('animBlockAppear_next'); // Удаляем класс анимации
+                                to.removeEventListener('animationend', appearHandler);
+                            });
+
+                            from.removeEventListener('animationend', handler);
                         });
-
-                        from.removeEventListener('animationend', handler);
                     });
-                });
             </script>
         </div>
 
@@ -2500,41 +2535,41 @@
                 <button class="btn_continue" id="end_test_next" type="button">Продолжить</button>
             </section>
             <script>
-                // Сокрытие блока
-                window.addEventListener('load', function () {
-                    const quest = document.querySelector('[name="end_test_1"]');
-                    quest.classList.add('hidden');
-                });
+                    // Сокрытие блока
+                    window.addEventListener('load', function () {
+                        const quest = document.querySelector('[name="end_test_1"]');
+                        quest.classList.add('hidden');
+                    });
             </script>
             <!-- Перелистываание назад -->
             <script>
-                document.getElementById('end_test_prev').addEventListener('click', function () {
-                    var from = document.querySelector('[name="end_test_1"]');
-                    var to = document.querySelector('[name="quest_1_15"]');
+                    document.getElementById('end_test_prev').addEventListener('click', function () {
+                        var from = document.querySelector('[name="end_test_1"]');
+                        var to = document.querySelector('[name="quest_1_15"]');
 
-                    from.classList.add('animBlockDisappear_prev');
-                    from.addEventListener('animationend', function handler() {
-                        from.style.display = 'none';
-                        from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
+                        from.classList.add('animBlockDisappear_prev');
+                        from.addEventListener('animationend', function handler() {
+                            from.style.display = 'none';
+                            from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
 
-                        to.style.display = 'block';
-                        to.classList.add('animBlockAppear_prev');
+                            to.style.display = 'block';
+                            to.classList.add('animBlockAppear_prev');
 
-                        to.addEventListener('animationend', function appearHandler() {
-                            to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
-                            to.removeEventListener('animationend', appearHandler);
+                            to.addEventListener('animationend', function appearHandler() {
+                                to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
+                                to.removeEventListener('animationend', appearHandler);
+                            });
+
+                            from.removeEventListener('animationend', handler);
                         });
-
-                        from.removeEventListener('animationend', handler);
                     });
-                });
             </script>
             <script>
-                // Переход на другую страницу при нажатии на кнопку
-                const button = document.getElementById('to_test_2');
-                button.addEventListener('click', function () {
-                    window.location.href = 'test_2.html';
-                });
+                    // Переход на другую страницу при нажатии на кнопку
+                    const button = document.getElementById('to_test_2');
+                    button.addEventListener('click', function () {
+                        window.location.href = 'test_2.html';
+                    });
             </script>
         </div>
 
