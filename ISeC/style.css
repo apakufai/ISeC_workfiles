@@ -20,55 +20,70 @@ main {
 
 /* Всплывающее окно */
 .popup {
-   display: none; /* Скрыто по умолчанию */
+   display: none;
+   /* Скрыто по умолчанию */
    position: fixed;
    left: 0;
    top: 0;
    width: 100%;
    height: 100%;
-   background-color: rgba(255, 255, 255, 0.5); /* Полупрозрачный фон */
+   background-color: rgba(198,64,83, 0.25);
+   /* Полупрозрачный фон */
    justify-content: center;
    align-items: center;
    z-index: 1;
 }
-.popup-content {
 
+.popup-content {
    width: 500px;
    height: 200px;
    background-color: rgba(255, 255, 255, 1);
    padding: 20px;
-   border: 5px solid #ffffff;
+   border: 5px solid #e29fa9;
    border-radius: 30px;
-   box-shadow: 0px 0px 20px 20px rgba(255, 255, 255, 0.7);
    text-align: center;
    z-index: 1;
+   font-size: 16pt;
+   font-weight: lighter;
    font-family: "Bahnschrift", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-
-
-   /* position: static;
-   top: -620px;
-   z-index: 0;
-   margin: 50px auto 0 auto;
-   width: 760px;
-   background-color: rgba(255, 255, 255, 0.85);
-   
-   border-radius: 30px;
-   box-shadow: 0px 0px 20px 20px rgba(255, 255, 255, 0.7);
-   text-align: justify;
-   margin-bottom: 30px; */
 }
+
 .close-btn {
-   margin-top: 10px;
+   height: 60px;
+   width: 180px;
+   margin-top: 20px;
    padding: 10px 15px;
-   background-color: #007BFF;
-   color: white;
-   border: none;
-   border-radius: 5px;
+   background-color: #ffffff;
+   color: #7f7f7f;
+   border: 5px solid #e29fa9;
+   border-radius: 30px;
+   transition:
+      background-color 0.2s,
+      box-shadow 0.2s,
+      transform 0.2s,
+      border-color 0.2s,
+      color 0.2s;
    cursor: pointer;
+   font-size: 16pt;
+   font-family: "Bahnschrift", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
    z-index: 1;
+   outline: none;
+   cursor: pointer;
 }
 .close-btn:hover {
-   background-color: #0056b3;
+   border: 5px solid #c64053;
+   color: #c64053;
+   cursor: pointer;
+}
+.close-btn:active {
+   background-color: #e29fa9;
+   cursor: pointer;
+}
+.error_text {
+   font-size: 24pt;
+   font-weight: normal;
+   margin-bottom: 10px;
+   color: #c64053;
 }
 
 /* Логотип ИКС-файла */
@@ -187,12 +202,14 @@ p,
    animation-duration: 1s;
    height: 80px;
    width: 240px;
+   cursor: pointer;
 }
 
 .btn_startpage:hover {
    border: 5px solid #5b7ead;
    color: #5b7ead;
    background-color: rgba(255, 255, 255, 0.85);
+   cursor: pointer;
 }
 
 .btn_startpage:active {
@@ -200,6 +217,7 @@ p,
    color: #5b7ead;
    background-color: rgba(172, 189, 214, 0.85);
    box-shadow: none;
+   cursor: pointer;
 }
 
 /* Поле ввода кода на главной странице */
@@ -397,12 +415,14 @@ p,
    width: 400px;
    margin: 15px auto;
    outline: none;
+   cursor: pointer;
 }
 
 .btn_test:hover {
    border: 5px solid #5b7ead;
    color: #5b7ead;
    background-color: rgba(255, 255, 255, 0);
+   cursor: pointer;
 }
 
 .btn_test:active {
@@ -410,6 +430,7 @@ p,
    color: #5b7ead;
    background-color: rgba(172, 189, 214, 0.85);
    box-shadow: none;
+   cursor: pointer;
 }
 
 /* Кнопки "далее" и "назад" страницах теста */
@@ -433,12 +454,14 @@ p,
    width: 120px;
    margin: 15px auto;
    outline: none;
+   cursor: pointer;
 }
 
 .btn_nextprev:hover {
    border: 5px solid #5b7ead;
    color: #5b7ead;
    background-color: rgba(255, 255, 255, 0);
+   cursor: pointer;
 }
 
 .btn_nextprev:active {
@@ -446,6 +469,7 @@ p,
    color: #5b7ead;
    background-color: rgba(172, 189, 214, 0.85);
    box-shadow: none;
+   cursor: pointer;
 }
 
 
@@ -1199,7 +1223,7 @@ p,
 }
 
 .confirm_answers span {
-padding-right: 10px;
+   padding-right: 10px;
 }
 
 
@@ -1235,12 +1259,14 @@ padding-right: 10px;
    width: 180px;
    margin: 15px auto;
    outline: none;
+   cursor: pointer;
 }
 
 .btn_continue:hover {
    border: 5px solid #5b7ead;
    color: #5b7ead;
    background-color: rgba(255, 255, 255, 0);
+   cursor: pointer;
 }
 
 .btn_continue:active {
@@ -1248,6 +1274,7 @@ padding-right: 10px;
    color: #5b7ead;
    background-color: rgba(172, 189, 214, 0.85);
    box-shadow: none;
+   cursor: pointer;
 }
 
 
