@@ -230,28 +230,25 @@
                     });
 
          // Переменные всплывающего окна
-                const popup = document.getElementById('popup_1');
-                const closeBtn = document.getElementById('closeBtn_1');
-        
-        
+                const popup_1_1 = document.getElementById('popup_1');
+                const closeBtn_1_1 = document.getElementById('closeBtn_1');
                 // Переменные и функция перелистывания вперед
-                const radioTop = document.getElementsByName("1_1_top");
-                const nextButton = document.getElementById("btn_1_1_next");
+                const radioTop_1_1 = document.getElementsByName("1_1_top");
+                const nextButton_1_1 = document.getElementById("btn_1_1_next");
                 document.addEventListener("DOMContentLoaded", function () {
-                    nextButton.addEventListener("click", function () {
+                    nextButton_1_1.addEventListener("click", function () {
                         let isChecked = false;
         
                         // Проверяем состояние радиокнопок
-                        for (let radio of radioTop) {
+                        for (let radio of radioTop_1_1) {
                             if (radio.checked) {
                                 isChecked = true;
                                 break;
                             }
                         }
-        
                         // Если ни один переключатель не выбран
                         if (!isChecked) {
-                            popup.style.display = 'flex'; // Показываем всплывающее окно
+                            popup_1_1.style.display = 'flex'; // Показываем всплывающее окно
                         } else {
                             // Логика перелистывания вперед
                             const from = document.querySelector('[name="quest_1_1"]');
@@ -271,23 +268,19 @@
                             });
                         }
                     });
-        
                     // Закрытие всплывающего окна
-                    closeBtn.addEventListener('click', function() {
-                        popup.style.display = 'none'; // Скрываем всплывающее окно
+                    closeBtn_1_1.addEventListener('click', function() {
+                        popup_1_1.style.display = 'none'; // Скрываем всплывающее окно
                     });
         
                     // Инициализируем стиль обводки кнопки при загрузке страницы
                     updateButtonBorder();
                 });
-        
                 // Добавляем обработчики событий для радиокнопок
-                for (let radio of radioTop) {
+                for (let radio of radioTop_1_1) {
                     radio.addEventListener('change', updateButtonBorder); // Обновляем стиль обводки кнопки
                 }
             </script>
-
-
         </div>
 
         <!-- ВОПРОС 2 -->
