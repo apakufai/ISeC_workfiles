@@ -485,7 +485,7 @@
                 voluptates qui cupiditate? <br>
             </p>
             <section class="quest_1_sect">
-                <button class="btn_nextprev" id="btn_1_3_prev">Назад</button>
+                <button id="btn_1_3_prev" class="btn_nextprev">Назад</button>
                 <div class="inpBlock_1">
                     <div class="inp_top_1">
                         <div class="inp_left_1">
@@ -510,7 +510,6 @@
                         <div class="inp_left_1">
                             <span>Вариант 2</span>
                         </div>
-
                         <div class="inp_right_1">
                             <div class="var_inputs">
                                 <input type="radio" id="1_3_bottom_0" class="inpRadio" name="1_3_bottom"> 0
@@ -527,14 +526,16 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn_nextprev" id="btn_1_3_next">Далее</button>
+                <button id="btn_1_3_next" class="btn_nextprev">Далее</button>
             </section>
+
             <script>
                 // Сокрытие блока
                 window.addEventListener('load', function () {
                     const quest = document.querySelector('[name="quest_1_3"]');
                     quest.classList.add('hidden');
                 });
+
                 // Работа с кнопками выбора
                 document.getElementById('1_3_top_0').addEventListener('change', function () {
                     if (this.checked) {
@@ -577,52 +578,76 @@
                         document.getElementById('1_3_top_3').checked = true;
                     }
                 });
-            </script>
-            <!-- Перелистываание назад -->
-            <script>
+
+                // Перелистываание назад
                 document.getElementById('btn_1_3_prev').addEventListener('click', function () {
                     var from = document.querySelector('[name="quest_1_3"]');
                     var to = document.querySelector('[name="quest_1_2"]');
-
                     from.classList.add('animBlockDisappear_prev');
                     from.addEventListener('animationend', function handler() {
                         from.style.display = 'none';
                         from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
-
                         to.style.display = 'block';
-                        to.classList.add('animBlockAppear_prev');
-
                         to.addEventListener('animationend', function appearHandler() {
                             to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
                             to.removeEventListener('animationend', appearHandler);
                         });
-
                         from.removeEventListener('animationend', handler);
                     });
+
                 });
-            </script>
-            <!-- Перелистываание вперёд -->
-            <script>
-                document.getElementById('btn_1_3_next').addEventListener('click', function () {
-                    var from = document.querySelector('[name="quest_1_3"]');
-                    var to = document.querySelector('[name="quest_1_4"]');
 
-                    from.classList.add('animBlockDisappear_next');
-                    from.addEventListener('animationend', function handler() {
-                        from.style.display = 'none';
-                        from.classList.remove('animBlockDisappear_next'); // Удаляем класс анимации
+                // Переменные всплывающего окна
+                const popup_1_3 = document.getElementById('popup_1');
+                const closeBtn_1_3 = document.getElementById('closeBtn_1');
+                // Переменные и функция перелистывания вперед
+                const radioTop_1_3 = document.getElementsByName("1_3_top");
+                const nextButton_1_3 = document.getElementById("btn_1_3_next");
+                document.addEventListener("DOMContentLoaded", function () {
+                    nextButton_1_3.addEventListener("click", function () {
+                        let isChecked = false;
 
-                        to.style.display = 'block';
-                        to.classList.add('animBlockAppear_next');
+                        // Проверяем состояние радиокнопок
+                        for (let radio of radioTop_1_3) {
+                            if (radio.checked) {
+                                isChecked = true;
+                                break;
+                            }
+                        }
+                        // Если ни один переключатель не выбран
+                        if (!isChecked) {
+                            popup_1_3.style.display = 'flex'; // Показываем всплывающее окно
+                        } else {
+                            // Логика перелистывания вперед
+                            const from = document.querySelector('[name="quest_1_3"]');
+                            const to = document.querySelector('[name="quest_1_4"]'); // Предполагается, что этот элемент существует
 
-                        to.addEventListener('animationend', function appearHandler() {
-                            to.classList.remove('animBlockAppear_next'); // Удаляем класс анимации
-                            to.removeEventListener('animationend', appearHandler);
-                        });
-
-                        from.removeEventListener('animationend', handler);
+                            from.classList.add('animBlockDisappear_next');
+                            from.addEventListener('animationend', function handler() {
+                                from.style.display = 'none';
+                                from.classList.remove('animBlockDisappear_next');
+                                to.style.display = 'block';
+                                to.classList.add('animBlockAppear_next');
+                                to.addEventListener('animationend', function appearHandler() {
+                                    to.classList.remove('animBlockAppear_next');
+                                    to.removeEventListener('animationend', appearHandler);
+                                });
+                                from.removeEventListener('animationend', handler);
+                            });
+                        }
                     });
+                    // Закрытие всплывающего окна
+                    closeBtn_1_3.addEventListener('click', function () {
+                        popup_1_3.style.display = 'none'; // Скрываем всплывающее окно
+                    });
+
+                    // Инициализируем стиль обводки кнопки при загрузке страницы
+                    updateButtonBorder();
                 });
+                // Добавляем обработчики событий для радиокнопок
+                for (let radio of radioTop_1_3) {
+                    radio.addEventListener('change', updateButtonBorder); // Обновляем стиль обводки кнопки
+                }
             </script>
         </div>
 
