@@ -212,13 +212,13 @@
                         from.style.display = 'none';
                         from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
                         to.style.display = 'block';
+                        to.classList.add('animBlockAppear_prev'); // Добавляем класс анимации для появления
                         to.addEventListener('animationend', function appearHandler() {
                             to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
                             to.removeEventListener('animationend', appearHandler);
                         });
                         from.removeEventListener('animationend', handler);
                     });
-
                 });
 
                 // Переменные всплывающего окна
@@ -400,13 +400,13 @@
                         from.style.display = 'none';
                         from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
                         to.style.display = 'block';
+                        to.classList.add('animBlockAppear_prev'); // Добавляем класс анимации для появления
                         to.addEventListener('animationend', function appearHandler() {
                             to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
                             to.removeEventListener('animationend', appearHandler);
                         });
                         from.removeEventListener('animationend', handler);
                     });
-
                 });
 
                 // Переменные всплывающего окна
@@ -588,14 +588,16 @@
                         from.style.display = 'none';
                         from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
                         to.style.display = 'block';
+                        to.classList.add('animBlockAppear_prev'); // Добавляем класс анимации для появления
                         to.addEventListener('animationend', function appearHandler() {
                             to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
                             to.removeEventListener('animationend', appearHandler);
                         });
                         from.removeEventListener('animationend', handler);
                     });
-
                 });
+
+
 
                 // Переменные всплывающего окна
                 const popup_1_3 = document.getElementById('popup_1');
