@@ -83,7 +83,6 @@
             </div>
         </div>
 
-
         <!-- ВОПРОС 1 -->
 
         <div class="quest_1" name="quest_1_1">
@@ -2815,33 +2814,51 @@
             </section>
 
             <script>
-                // Сокрытие блока
-                window.addEventListener('load', function () {
-                    const quest = document.querySelector('[name="end_test_1"]');
-                    quest.classList.add('hidden');
-                });
-            // Перелистываание назад
-                document.getElementById('end_test_prev').addEventListener('click', function () {
-                    var from = document.querySelector('[name="end_test_1"]');
-                    var to = document.querySelector('[name="quest_1_15"]');
-                    from.classList.add('animBlockDisappear_prev');
-                    from.addEventListener('animationend', function handler() {
-                        from.style.display = 'none';
-                        from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
-                        to.style.display = 'block';
-                        to.classList.add('animBlockAppear_prev');
-                        to.addEventListener('animationend', function appearHandler() {
-                            to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
-                            to.removeEventListener('animationend', appearHandler);
-                        });
-                        from.removeEventListener('animationend', handler);
-                    });
-                });
-                // Переход на другую страницу при нажатии на кнопку
-                const button = document.getElementById('to_test_2');
-                button.addEventListener('click', function () {
-                    window.location.href = 'test_2.html';
-                });
+// Сокрытие блока
+window.addEventListener('load', function () {
+    const quest = document.querySelector('[name="end_test_1"]');
+    quest.classList.add('hidden');
+
+    // Скрываем всплывающее окно при загрузке страницы
+    const popup = document.getElementById('popup_1_end');
+    popup.style.display = 'none';
+});
+
+// Перелистывание назад
+document.getElementById('end_test_prev').addEventListener('click', function () {
+    var from = document.querySelector('[name="end_test_1"]');
+    var to = document.querySelector('[name="quest_1_15"]');
+    from.classList.add('animBlockDisappear_prev');
+    from.addEventListener('animationend', function handler() {
+        from.style.display = 'none';
+        from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
+        to.style.display = 'block';
+        to.classList.add('animBlockAppear_prev');
+        to.addEventListener('animationend', function appearHandler() {
+            to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
+            to.removeEventListener('animationend', appearHandler);
+        });
+        from.removeEventListener('animationend', handler);
+    });
+});
+
+// Проверка состояния checkbox перед продолжением
+document.getElementById('end_test_next').addEventListener('click', function () {
+    const checkbox = document.getElementById('1_end');
+    if (!checkbox.checked) {
+        const popup = document.getElementById('popup_1_end');
+        popup.style.display = 'flex'; // Показываем всплывающее окно
+    } else {
+        // Переход на другую страницу при нажатии на кнопку
+        window.location.href = 'test_2.html';
+    }
+});
+
+// Закрытие всплывающего окна
+document.getElementById('closeBtn_1_end').addEventListener('click', function () {
+    const popup = document.getElementById('popup_1_end');
+    popup.style.display = 'none'; // Скрываем всплывающее окно
+});
             </script>
         </div>
 
@@ -2853,6 +2870,7 @@
                 <button class="close-btn" id="closeBtn_1_end">Закрыть</button>
             </div>
         </div>
+
 
     </main>
 
