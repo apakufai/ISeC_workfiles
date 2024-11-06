@@ -2813,43 +2813,45 @@
                 </div>
                 <button class="btn_continue" id="end_test_next" type="button">Продолжить</button>
             </section>
+
             <script>
                 // Сокрытие блока
                 window.addEventListener('load', function () {
                     const quest = document.querySelector('[name="end_test_1"]');
                     quest.classList.add('hidden');
                 });
-            </script>
-            <!-- Перелистываание назад -->
-            <script>
+            // Перелистываание назад
                 document.getElementById('end_test_prev').addEventListener('click', function () {
                     var from = document.querySelector('[name="end_test_1"]');
                     var to = document.querySelector('[name="quest_1_15"]');
-
                     from.classList.add('animBlockDisappear_prev');
                     from.addEventListener('animationend', function handler() {
                         from.style.display = 'none';
                         from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
-
                         to.style.display = 'block';
                         to.classList.add('animBlockAppear_prev');
-
                         to.addEventListener('animationend', function appearHandler() {
                             to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
                             to.removeEventListener('animationend', appearHandler);
                         });
-
                         from.removeEventListener('animationend', handler);
                     });
                 });
-            </script>
-            <script>
                 // Переход на другую страницу при нажатии на кнопку
                 const button = document.getElementById('to_test_2');
                 button.addEventListener('click', function () {
                     window.location.href = 'test_2.html';
                 });
             </script>
+        </div>
+
+        <!-- ВСПЛЫВАЮЩЕЕ ОКНО В КОНЦЕ БЛОКА -->
+        <div class="popup" id="popup_1_end">
+            <div class="popup-content">
+                <p class="error_text">Ошибка</p>
+                <p>Подтвердите свой выбор вариантов ответа</p>
+                <button class="close-btn" id="closeBtn_1_end">Закрыть</button>
+            </div>
         </div>
 
     </main>
