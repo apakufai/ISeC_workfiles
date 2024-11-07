@@ -756,6 +756,7 @@ p,
 
 /* Окно вопроса из блока 2 */
 .quest_2 {
+   display: none;
    position: static;
    top: -620px;
    z-index: 0;
@@ -811,6 +812,7 @@ p,
 
 /* Окно вопроса из блока 3 */
 .quest_3 {
+   display: none;
    position: static;
    top: -620px;
    z-index: 0;
@@ -925,6 +927,7 @@ p,
 
 /* Окно вопроса из блока 4 */
 .quest_4 {
+   display: none;
    position: static;
    top: -620px;
    z-index: 0;
@@ -981,6 +984,7 @@ p,
 
 /* Окно вопроса из блока 5 */
 .quest_5 {
+   display: none;
    position: static;
    top: -620px;
    z-index: 0;
@@ -1071,6 +1075,7 @@ p,
 
 /* Окно вопроса из блока 6 */
 .quest_6 {
+   display: none;
    position: static;
    top: -620px;
    z-index: 0;
@@ -1190,8 +1195,8 @@ p,
 /* Заголовок окна завершения блока */
 .end_test_title {
    display: flex;
+   justify-content: center;
    width: 720px;
-   align-self: center;
    margin: 15px auto 0 auto;
    font-family: "Bahnschrift", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
    font-size: 18pt;
