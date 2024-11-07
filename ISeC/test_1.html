@@ -2783,7 +2783,15 @@
                             popup_1_end.style.display = 'flex'; // Показываем всплывающее окно
                         } else {
                             // Переход на другую страницу при нажатии на кнопку
-                            window.location.href = 'test_2.html';
+                            const from = document.querySelector('[name="end_test_1"]');
+                            from.classList.add('animBlockDisappear_next');
+                            from.addEventListener('animationend', function handler() {
+                                from.style.display = 'none';
+                                from.classList.remove('animBlockDisappear_next');
+                                // Переход на новую страницу после окончания анимации
+                                window.location.href = 'test_2.html';
+                                from.removeEventListener('animationend', handler);
+                            });
                         }
                     });
                     // Закрытие всплывающего окна
