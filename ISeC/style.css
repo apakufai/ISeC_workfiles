@@ -33,8 +33,6 @@ main {
    /* Полупрозрачный фон */
    z-index: 1;
 }
-
-
 .popup-content {
    width: 500px;
    height: 200px;
@@ -715,8 +713,9 @@ p,
 
 /* Заголовок окна вопроса из блока 1 */
 .quest_1_title {
+   display: flex;
+   justify-content: center;
    width: 720px;
-   align-self: center;
    margin: 15px auto 0 auto;
    font-family: "Bahnschrift", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
    font-size: 18pt;
@@ -727,6 +726,8 @@ p,
 
 /* Текст окна вопроса из блока 1 */
 .quest_1_text {
+   display: flex;
+   flex-direction: column;
    width: 720px;
    align-self: center;
    margin: 10px 15px;
@@ -739,6 +740,7 @@ p,
 /* Утверждения вопроса из блока 1 */
 .affirm_1 {
    font-weight: normal;
+   margin-bottom: 5px;
 }
 
 /* Нижняя часть окон блока 1 */
@@ -1187,6 +1189,7 @@ p,
 
 /* Заголовок окна завершения блока */
 .end_test_title {
+   display: flex;
    width: 720px;
    align-self: center;
    margin: 15px auto 0 auto;
@@ -1199,6 +1202,7 @@ p,
 
 /* Текст окна завершения блока */
 .end_test_text {
+   display: flex;
    width: 720px;
    align-self: center;
    margin: 10px 15px;
