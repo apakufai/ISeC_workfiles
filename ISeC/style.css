@@ -772,6 +772,8 @@ p,
 
 /* Заголовок окна вопроса из блока 2 */
 .quest_2_title {
+   display: flex;
+   justify-content: center;
    width: 720px;
    align-self: center;
    margin: 15px auto 0 auto;
@@ -784,6 +786,8 @@ p,
 
 /* Текст окна вопроса из блока 2 */
 .quest_2_text {
+   display: flex;
+   flex-direction: column;
    width: 720px;
    align-self: center;
    margin: 10px 15px;
@@ -828,6 +832,8 @@ p,
 
 /* Заголовок окна вопроса из блока 3 */
 .quest_3_title {
+   display: flex;
+   justify-content: center;
    width: 720px;
    align-self: center;
    margin: 15px auto 0 auto;
@@ -840,6 +846,8 @@ p,
 
 /* Текст окна вопроса из блока 3 */
 .quest_3_text {
+   display: flex;
+   flex-direction: column;
    width: 720px;
    align-self: center;
    margin: 10px 15px;
@@ -943,6 +951,8 @@ p,
 
 /* Заголовок окна вопроса из блока 4 */
 .quest_4_title {
+   display: flex;
+   justify-content: center;
    width: 720px;
    align-self: center;
    margin: 15px auto 0 auto;
@@ -955,6 +965,8 @@ p,
 
 /* Текст окна вопроса из блока 4 */
 .quest_4_text {
+   display: flex;
+   flex-direction: column;
    width: 720px;
    align-self: center;
    margin: 10px 15px;
@@ -1000,6 +1012,8 @@ p,
 
 /* Заголовок окна вопроса из блока 5 */
 .quest_5_title {
+   display: flex;
+   justify-content: center;
    width: 720px;
    align-self: center;
    margin: 15px auto 0 auto;
@@ -1012,6 +1026,8 @@ p,
 
 /* Текст окна вопроса из блока 5 */
 .quest_5_text {
+   display: flex;
+   flex-direction: column;
    width: 720px;
    align-self: center;
    margin: 10px 15px;
@@ -1091,6 +1107,8 @@ p,
 
 /* Заголовок окна вопроса из блока 6 */
 .quest_6_title {
+   display: flex;
+   justify-content: center;
    width: 720px;
    align-self: center;
    margin: 15px auto 0 auto;
@@ -1103,6 +1121,8 @@ p,
 
 /* Текст окна вопроса из блока 6 */
 .quest_6_text {
+   display: flex;
+   flex-direction: column;
    width: 720px;
    align-self: center;
    margin: 10px 15px;
