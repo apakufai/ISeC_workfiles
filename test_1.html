@@ -1,0 +1,2813 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Блок 1. ИКС-файл</title>
+    <script type="text/javascript"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <section class="vertical_lines">
+        <img class="line_1" src="./images/line.svg"></img>
+        <img class="line_2" src="./images/line.svg"></img>
+        <img class="line_3" src="./images/line.svg"></img>
+        <img class="line_4" src="./images/line.svg"></img>
+        <img class="line_5" src="./images/line.svg"></img>
+        <img class="line_6" src="./images/line.svg"></img>
+        <img class="line_7" src="./images/line.svg"></img>
+        <img class="line_8" src="./images/line.svg"></img>
+    </section>
+    <section class="horizontal_lines">
+        <img class="line_9" src="./images/line.svg"></img>
+        <img class="line_10" src="./images/line.svg"></img>
+        <img class="line_11" src="./images/line.svg"></img>
+        <img class="line_12" src="./images/line.svg"></img>
+        <img class="line_13" src="./images/line.svg"></img>
+        <img class="line_14" src="./images/line.svg"></img>
+        <img class="line_15" src="./images/line.svg"></img>
+        <img class="line_16" src="./images/line.svg"></img>
+        <img class="line_17" src="./images/line.svg"></img>
+        <img class="line_18" src="./images/line.svg"></img>
+        <img class="line_19" src="./images/line.svg"></img>
+        <img class="line_20" src="./images/line.svg"></img>
+    </section>
+
+    <main>
+
+        <!-- ОПИСАНИЕ БЛОКА -->
+
+        <div class="descr_test" name="descr_test_1">
+            <p class="descr_test_title">Блок 1. Определение стиля переговоров<br>
+            </p>
+            <p class="descr_test_text">Вам будут предложены 15 пар утверждений. Распределите три балла в каждой
+                паре:<br>
+            </p>
+            <p class="descr_test_text">&emsp;3 – вариант приемлем в большинстве случаев<br></p>
+            <p class="descr_test_text">&emsp;2 - более приемлем<br></p>
+            <p class="descr_test_text">&emsp;1 – менее приемлем<br></p>
+            <p class="descr_test_text">&emsp;0 – почти не приемлем<br></p>
+            <p class="descr_test_text">Варианты распределения: 3-0, 2-1, 1-2, 0-3.<br>
+            <p class="descr_test_text">Не думайте слишком долго! Важна ваша оперативная реакция.<br>
+            </p>
+            <button id="test_1_start" class="btn_test" type="button">Приступить к выполнению блока</button>
+        </div>
+
+        <script>
+            document.getElementById('test_1_start').addEventListener('click', function () {
+                var from = document.querySelector('[name="descr_test_1"]');
+                var to = document.querySelector('[name="quest_1_1"]');
+                from.classList.add('animBlockDisappear_next');
+                from.addEventListener('animationend', function handler() {
+                    from.style.display = 'none';
+                    from.classList.remove('animBlockDisappear_next'); // Удаляем класс анимации
+                    to.style.display = 'block';
+                    to.classList.add('animBlockAppear_next');
+                    to.addEventListener('animationend', function appearHandler() {
+                        to.classList.remove('animBlockAppear_next'); // Удаляем класс анимации
+                        to.removeEventListener('animationend', appearHandler);
+                    });
+                    from.removeEventListener('animationend', handler);
+                });
+            });
+        </script>
+
+        <!-- ВСПЛЫВАЮЩЕЕ ОКНО -->
+        <div class="popup" id="popup_1">
+            <div class="popup-content">
+                <p class="error_text">Ошибка</p>
+                <p>Выберите один из вариантов ответа</p>
+                <button class="close-btn" id="closeBtn_1">Закрыть</button>
+            </div>
+        </div>
+
+        
+        <!-- ВОПРОС 1 -->
+
+        <div class="quest_1" name="quest_1_1">
+            <p class="quest_1_title">Вопрос 1</p>
+            <p class="quest_1_text">
+                <span class="affirm_1">Утверждение 1</span> Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Magnam,
+                consequatur, dolorem voluptatum cum aut unde consectetur obcaecati nam tenetur pariatur ratione
+                doloremque. Iste facere, in similique dolore, cupiditate nam corporis doloremque ab amet provident
+                necessitatibus voluptatem. Aspernatur delectus vel, ipsam rem aut repellat iusto odio magni, laudantium
+                voluptates qui cupiditate? <br>
+            </p>
+            <p class="quest_1_text">
+                <span class="affirm_1">Утверждение 2</span> Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Magnam,
+                consequatur, dolorem voluptatum cum aut unde consectetur obcaecati nam tenetur pariatur ratione
+                doloremque. Iste facere, in similique dolore, cupiditate nam corporis doloremque ab amet provident
+                necessitatibus voluptatem. Aspernatur delectus vel, ipsam rem aut repellat iusto odio magni, laudantium
+                voluptates qui cupiditate? <br>
+            </p>
+            <section class="quest_1_sect">
+                <button id="btn_1_1_prev" class="btn_nextprev">Назад</button>
+                <div class="inpBlock_1">
+                    <div class="inp_top_1">
+                        <div class="inp_left_1">
+                            <span>Вариант 1</span>
+                        </div>
+                        <div class="inp_right_1">
+                            <div class="var_inputs">
+                                <input type="radio" id="1_1_top_0" class="inpRadio" name="1_1_top"> 0
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_1_top_1" class="inpRadio" name="1_1_top"> 1
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_1_top_2" class="inpRadio" name="1_1_top"> 2
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_1_top_3" class="inpRadio" name="1_1_top"> 3
+                            </div>
+                        </div>
+                    </div>
+                    <div class="inp_bottom_1">
+                        <div class="inp_left_1">
+                            <span>Вариант 2</span>
+                        </div>
+                        <div class="inp_right_1">
+                            <div class="var_inputs">
+                                <input type="radio" id="1_1_bottom_0" class="inpRadio" name="1_1_bottom"> 0
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_1_bottom_1" class="inpRadio" name="1_1_bottom"> 1
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_1_bottom_2" class="inpRadio" name="1_1_bottom"> 2
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_1_bottom_3" class="inpRadio" name="1_1_bottom"> 3
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button id="btn_1_1_next" class="btn_nextprev">Далее</button>
+            </section>
+
+            <script>
+                // Работа с кнопками выбора
+                document.getElementById('1_1_top_0').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_1_bottom_3').checked = true;
+                    }
+                });
+                document.getElementById('1_1_top_1').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_1_bottom_2').checked = true;
+                    }
+                });
+                document.getElementById('1_1_top_2').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_1_bottom_1').checked = true;
+                    }
+                });
+                document.getElementById('1_1_top_3').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_1_bottom_0').checked = true;
+                    }
+                });
+                document.getElementById('1_1_bottom_3').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_1_top_0').checked = true;
+                    }
+                });
+                document.getElementById('1_1_bottom_2').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_1_top_1').checked = true;
+                    }
+                });
+                document.getElementById('1_1_bottom_1').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_1_top_2').checked = true;
+                    }
+                });
+                document.getElementById('1_1_bottom_0').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_1_top_3').checked = true;
+                    }
+                });
+                // Перелистывание назад
+                document.getElementById('btn_1_1_prev').addEventListener('click', function () {
+                    var from = document.querySelector('[name="quest_1_1"]');
+                    var to = document.querySelector('[name="descr_test_1"]');
+                    from.classList.add('animBlockDisappear_prev');
+                    from.addEventListener('animationend', function handler() {
+                        from.style.display = 'none';
+                        from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
+                        to.style.display = 'block'; // Просто показываем элемент без анимации
+                        from.removeEventListener('animationend', handler);
+                    });
+                });
+                // Переменные всплывающего окна
+                const popup_1_1 = document.getElementById('popup_1');
+                const closeBtn_1_1 = document.getElementById('closeBtn_1');
+                // Переменные и функция перелистывания вперед
+                const radioTop_1_1 = document.getElementsByName("1_1_top");
+                const nextButton_1_1 = document.getElementById("btn_1_1_next");
+                document.addEventListener("DOMContentLoaded", function () {
+                    nextButton_1_1.addEventListener("click", function () {
+                        let isChecked = false;
+                        // Проверяем состояние радиокнопок
+                        for (let radio of radioTop_1_1) {
+                            if (radio.checked) {
+                                isChecked = true;
+                                break;
+                            }
+                        }
+                        // Если ни один переключатель не выбран
+                        if (!isChecked) {
+                            popup_1_1.style.display = 'flex'; // Показываем всплывающее окно
+                        } else {
+                            // Логика перелистывания вперед
+                            const from = document.querySelector('[name="quest_1_1"]');
+                            const to = document.querySelector('[name="quest_1_2"]'); // Предполагается, что этот элемент существует
+                            from.classList.add('animBlockDisappear_next');
+                            from.addEventListener('animationend', function handler() {
+                                from.style.display = 'none';
+                                from.classList.remove('animBlockDisappear_next');
+                                to.style.display = 'block';
+                                to.classList.add('animBlockAppear_next');
+                                to.addEventListener('animationend', function appearHandler() {
+                                    to.classList.remove('animBlockAppear_next');
+                                    to.removeEventListener('animationend', appearHandler);
+                                });
+                                from.removeEventListener('animationend', handler);
+                            });
+                        }
+                    });
+                    // Закрытие всплывающего окна
+                    closeBtn_1_1.addEventListener('click', function () {
+                        popup_1_1.style.display = 'none'; // Скрываем всплывающее окно
+                    });
+                    // Инициализируем стиль обводки кнопки при загрузке страницы
+                    updateButtonBorder();
+                });
+                // Добавляем обработчики событий для радиокнопок
+                for (let radio of radioTop_1_1) {
+                    radio.addEventListener('change', updateButtonBorder); // Обновляем стиль обводки кнопки
+                }
+            </script>
+        </div>
+
+
+        <!-- ВОПРОС 2 -->
+
+        <div class="quest_1" name="quest_1_2">
+            <p class="quest_1_title">Вопрос 2</p>
+            <p class="quest_1_text">
+                <span class="affirm_1">Утверждение 1</span> Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Magnam,
+                consequatur, dolorem voluptatum cum aut unde consectetur obcaecati nam tenetur pariatur ratione
+                doloremque. Iste facere, in similique dolore, cupiditate nam corporis doloremque ab amet provident
+                necessitatibus voluptatem. Aspernatur delectus vel, ipsam rem aut repellat iusto odio magni, laudantium
+                voluptates qui cupiditate? <br>
+            </p>
+            <p class="quest_1_text">
+                <span class="affirm_1">Утверждение 2</span> Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Magnam,
+                consequatur, dolorem voluptatum cum aut unde consectetur obcaecati nam tenetur pariatur ratione
+                doloremque. Iste facere, in similique dolore, cupiditate nam corporis doloremque ab amet provident
+                necessitatibus voluptatem. Aspernatur delectus vel, ipsam rem aut repellat iusto odio magni, laudantium
+                voluptates qui cupiditate? <br>
+            </p>
+            <section class="quest_1_sect">
+                <button class="btn_nextprev" id="btn_1_2_prev">Назад</button>
+                <div class="inpBlock_1">
+                    <div class="inp_top_1">
+                        <div class="inp_left_1">
+                            <span>Вариант 1</span>
+                        </div>
+                        <div class="inp_right_1">
+                            <div class="var_inputs">
+                                <input type="radio" id="1_2_top_0" class="inpRadio" name="1_2_top"> 0
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_2_top_1" class="inpRadio" name="1_2_top"> 1
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_2_top_2" class="inpRadio" name="1_2_top"> 2
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_2_top_3" class="inpRadio" name="1_2_top"> 3
+                            </div>
+                        </div>
+                    </div>
+                    <div class="inp_bottom_1">
+                        <div class="inp_left_1">
+                            <span>Вариант 2</span>
+                        </div>
+                        <div class="inp_right_1">
+                            <div class="var_inputs">
+                                <input type="radio" id="1_2_bottom_0" class="inpRadio" name="1_2_bottom"> 0
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_2_bottom_1" class="inpRadio" name="1_2_bottom"> 1
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_2_bottom_2" class="inpRadio" name="1_2_bottom"> 2
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_2_bottom_3" class="inpRadio" name="1_2_bottom"> 3
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn_nextprev" id="btn_1_2_next">Далее</button>
+            </section>
+
+            <script>
+                // Работа с кнопками выбора
+                document.getElementById('1_2_top_0').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_2_bottom_3').checked = true;
+                    }
+                });
+                document.getElementById('1_2_top_1').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_2_bottom_2').checked = true;
+                    }
+                });
+                document.getElementById('1_2_top_2').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_2_bottom_1').checked = true;
+                    }
+                });
+                document.getElementById('1_2_top_3').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_2_bottom_0').checked = true;
+                    }
+                });
+                document.getElementById('1_2_bottom_3').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_2_top_0').checked = true;
+                    }
+                });
+                document.getElementById('1_2_bottom_2').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_2_top_1').checked = true;
+                    }
+                });
+                document.getElementById('1_2_bottom_1').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_2_top_2').checked = true;
+                    }
+                });
+                document.getElementById('1_2_bottom_0').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_2_top_3').checked = true;
+                    }
+                });
+                // Перелистывание назад
+                document.getElementById('btn_1_2_prev').addEventListener('click', function () {
+                    var from = document.querySelector('[name="quest_1_2"]');
+                    var to = document.querySelector('[name="quest_1_1"]');
+                    from.classList.add('animBlockDisappear_prev');
+                    from.addEventListener('animationend', function handler() {
+                        from.style.display = 'none';
+                        from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
+                        to.style.display = 'block';
+                        to.classList.add('animBlockAppear_prev'); // Добавляем класс анимации для появления
+                        to.addEventListener('animationend', function appearHandler() {
+                            to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
+                            to.removeEventListener('animationend', appearHandler);
+                        });
+                        from.removeEventListener('animationend', handler);
+                    });
+                });
+                // Переменные всплывающего окна
+                const popup_1_2 = document.getElementById('popup_1');
+                const closeBtn_1_2 = document.getElementById('closeBtn_1');
+                // Переменные и функция перелистывания вперед
+                const radioTop_1_2 = document.getElementsByName("1_2_top");
+                const nextButton_1_2 = document.getElementById("btn_1_2_next");
+                document.addEventListener("DOMContentLoaded", function () {
+                    nextButton_1_2.addEventListener("click", function () {
+                        let isChecked = false;
+                        // Проверяем состояние радиокнопок
+                        for (let radio of radioTop_1_2) {
+                            if (radio.checked) {
+                                isChecked = true;
+                                break;
+                            }
+                        }
+                        // Если ни один переключатель не выбран
+                        if (!isChecked) {
+                            popup_1_2.style.display = 'flex'; // Показываем всплывающее окно
+                        } else {
+                            // Логика перелистывания вперед
+                            const from = document.querySelector('[name="quest_1_2"]');
+                            const to = document.querySelector('[name="quest_1_3"]'); // Предполагается, что этот элемент существует
+                            from.classList.add('animBlockDisappear_next');
+                            from.addEventListener('animationend', function handler() {
+                                from.style.display = 'none';
+                                from.classList.remove('animBlockDisappear_next');
+                                to.style.display = 'block';
+                                to.classList.add('animBlockAppear_next');
+                                to.addEventListener('animationend', function appearHandler() {
+                                    to.classList.remove('animBlockAppear_next');
+                                    to.removeEventListener('animationend', appearHandler);
+                                });
+                                from.removeEventListener('animationend', handler);
+                            });
+                        }
+                    });
+                    // Закрытие всплывающего окна
+                    closeBtn_1_2.addEventListener('click', function () {
+                        popup_1_2.style.display = 'none'; // Скрываем всплывающее окно
+                    });
+                    // Инициализируем стиль обводки кнопки при загрузке страницы
+                    updateButtonBorder();
+                });
+                // Добавляем обработчики событий для радиокнопок
+                for (let radio of radioTop_1_2) {
+                    radio.addEventListener('change', updateButtonBorder); // Обновляем стиль обводки кнопки
+                }
+            </script>
+        </div>
+
+
+        <!-- ВОПРОС 3 -->
+
+        <div class="quest_1" name="quest_1_3">
+            <p class="quest_1_title">Вопрос 3</p>
+            <p class="quest_1_text">
+                <span class="affirm_1">Утверждение 1</span> Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Magnam,
+                consequatur, dolorem voluptatum cum aut unde consectetur obcaecati nam tenetur pariatur ratione
+                doloremque. Iste facere, in similique dolore, cupiditate nam corporis doloremque ab amet provident
+                necessitatibus voluptatem. Aspernatur delectus vel, ipsam rem aut repellat iusto odio magni, laudantium
+                voluptates qui cupiditate? <br>
+            </p>
+            <p class="quest_1_text">
+                <span class="affirm_1">Утверждение 2</span> Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Magnam,
+                consequatur, dolorem voluptatum cum aut unde consectetur obcaecati nam tenetur pariatur ratione
+                doloremque. Iste facere, in similique dolore, cupiditate nam corporis doloremque ab amet provident
+                necessitatibus voluptatem. Aspernatur delectus vel, ipsam rem aut repellat iusto odio magni, laudantium
+                voluptates qui cupiditate? <br>
+            </p>
+            <section class="quest_1_sect">
+                <button id="btn_1_3_prev" class="btn_nextprev">Назад</button>
+                <div class="inpBlock_1">
+                    <div class="inp_top_1">
+                        <div class="inp_left_1">
+                            <span>Вариант 1</span>
+                        </div>
+                        <div class="inp_right_1">
+                            <div class="var_inputs">
+                                <input type="radio" id="1_3_top_0" class="inpRadio" name="1_3_top"> 0
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_3_top_1" class="inpRadio" name="1_3_top"> 1
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_3_top_2" class="inpRadio" name="1_3_top"> 2
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_3_top_3" class="inpRadio" name="1_3_top"> 3
+                            </div>
+                        </div>
+                    </div>
+                    <div class="inp_bottom_1">
+                        <div class="inp_left_1">
+                            <span>Вариант 2</span>
+                        </div>
+                        <div class="inp_right_1">
+                            <div class="var_inputs">
+                                <input type="radio" id="1_3_bottom_0" class="inpRadio" name="1_3_bottom"> 0
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_3_bottom_1" class="inpRadio" name="1_3_bottom"> 1
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_3_bottom_2" class="inpRadio" name="1_3_bottom"> 2
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_3_bottom_3" class="inpRadio" name="1_3_bottom"> 3
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button id="btn_1_3_next" class="btn_nextprev">Далее</button>
+            </section>
+
+            <script>
+                // Работа с кнопками выбора
+                document.getElementById('1_3_top_0').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_3_bottom_3').checked = true;
+                    }
+                });
+                document.getElementById('1_3_top_1').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_3_bottom_2').checked = true;
+                    }
+                });
+                document.getElementById('1_3_top_2').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_3_bottom_1').checked = true;
+                    }
+                });
+                document.getElementById('1_3_top_3').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_3_bottom_0').checked = true;
+                    }
+                });
+                document.getElementById('1_3_bottom_3').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_3_top_0').checked = true;
+                    }
+                });
+                document.getElementById('1_3_bottom_2').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_3_top_1').checked = true;
+                    }
+                });
+                document.getElementById('1_3_bottom_1').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_3_top_2').checked = true;
+                    }
+                });
+                document.getElementById('1_3_bottom_0').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_3_top_3').checked = true;
+                    }
+                });
+                // Перелистывание назад
+                document.getElementById('btn_1_3_prev').addEventListener('click', function () {
+                    var from = document.querySelector('[name="quest_1_3"]');
+                    var to = document.querySelector('[name="quest_1_2"]');
+                    from.classList.add('animBlockDisappear_prev');
+                    from.addEventListener('animationend', function handler() {
+                        from.style.display = 'none';
+                        from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
+                        to.style.display = 'block';
+                        to.classList.add('animBlockAppear_prev'); // Добавляем класс анимации для появления
+                        to.addEventListener('animationend', function appearHandler() {
+                            to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
+                            to.removeEventListener('animationend', appearHandler);
+                        });
+                        from.removeEventListener('animationend', handler);
+                    });
+                });
+                // Переменные всплывающего окна
+                const popup_1_3 = document.getElementById('popup_1');
+                const closeBtn_1_3 = document.getElementById('closeBtn_1');
+                // Переменные и функция перелистывания вперед
+                const radioTop_1_3 = document.getElementsByName("1_3_top");
+                const nextButton_1_3 = document.getElementById("btn_1_3_next");
+                document.addEventListener("DOMContentLoaded", function () {
+                    nextButton_1_3.addEventListener("click", function () {
+                        let isChecked = false;
+                        // Проверяем состояние радиокнопок
+                        for (let radio of radioTop_1_3) {
+                            if (radio.checked) {
+                                isChecked = true;
+                                break;
+                            }
+                        }
+                        // Если ни один переключатель не выбран
+                        if (!isChecked) {
+                            popup_1_3.style.display = 'flex'; // Показываем всплывающее окно
+                        } else {
+                            // Логика перелистывания вперед
+                            const from = document.querySelector('[name="quest_1_3"]');
+                            const to = document.querySelector('[name="quest_1_4"]'); // Предполагается, что этот элемент существует
+                            from.classList.add('animBlockDisappear_next');
+                            from.addEventListener('animationend', function handler() {
+                                from.style.display = 'none';
+                                from.classList.remove('animBlockDisappear_next');
+                                to.style.display = 'block';
+                                to.classList.add('animBlockAppear_next');
+                                to.addEventListener('animationend', function appearHandler() {
+                                    to.classList.remove('animBlockAppear_next');
+                                    to.removeEventListener('animationend', appearHandler);
+                                });
+                                from.removeEventListener('animationend', handler);
+                            });
+                        }
+                    });
+                    // Закрытие всплывающего окна
+                    closeBtn_1_3.addEventListener('click', function () {
+                        popup_1_3.style.display = 'none'; // Скрываем всплывающее окно
+                    });
+                    // Инициализируем стиль обводки кнопки при загрузке страницы
+                    updateButtonBorder();
+                });
+                // Добавляем обработчики событий для радиокнопок
+                for (let radio of radioTop_1_3) {
+                    radio.addEventListener('change', updateButtonBorder); // Обновляем стиль обводки кнопки
+                }
+            </script>
+        </div>
+
+
+        <!-- ВОПРОС 4 -->
+
+        <div class="quest_1" name="quest_1_4">
+            <p class="quest_1_title">Вопрос 4</p>
+            <p class="quest_1_text">
+                <span class="affirm_1">Утверждение 1</span> Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Magnam,
+                consequatur, dolorem voluptatum cum aut unde consectetur obcaecati nam tenetur pariatur ratione
+                doloremque. Iste facere, in similique dolore, cupiditate nam corporis doloremque ab amet provident
+                necessitatibus voluptatem. Aspernatur delectus vel, ipsam rem aut repellat iusto odio magni, laudantium
+                voluptates qui cupiditate? <br>
+            </p>
+            <p class="quest_1_text">
+                <span class="affirm_1">Утверждение 2</span> Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Magnam,
+                consequatur, dolorem voluptatum cum aut unde consectetur obcaecati nam tenetur pariatur ratione
+                doloremque. Iste facere, in similique dolore, cupiditate nam corporis doloremque ab amet provident
+                necessitatibus voluptatem. Aspernatur delectus vel, ipsam rem aut repellat iusto odio magni, laudantium
+                voluptates qui cupiditate? <br>
+            </p>
+            <section class="quest_1_sect">
+                <button id="btn_1_4_prev" class="btn_nextprev">Назад</button>
+                <div class="inpBlock_1">
+                    <div class="inp_top_1">
+                        <div class="inp_left_1">
+                            <span>Вариант 1</span>
+                        </div>
+                        <div class="inp_right_1">
+                            <div class="var_inputs">
+                                <input type="radio" id="1_4_top_0" class="inpRadio" name="1_4_top"> 0
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_4_top_1" class="inpRadio" name="1_4_top"> 1
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_4_top_2" class="inpRadio" name="1_4_top"> 2
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_4_top_3" class="inpRadio" name="1_4_top"> 3
+                            </div>
+                        </div>
+                    </div>
+                    <div class="inp_bottom_1">
+                        <div class="inp_left_1">
+                            <span>Вариант 2</span>
+                        </div>
+                        <div class="inp_right_1">
+                            <div class="var_inputs">
+                                <input type="radio" id="1_4_bottom_0" class="inpRadio" name="1_4_bottom"> 0
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_4_bottom_1" class="inpRadio" name="1_4_bottom"> 1
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_4_bottom_2" class="inpRadio" name="1_4_bottom"> 2
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_4_bottom_3" class="inpRadio" name="1_4_bottom"> 3
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button id="btn_1_4_next" class="btn_nextprev">Далее</button>
+            </section>
+
+            <script>
+                // Работа с кнопками выбора
+                document.getElementById('1_4_top_0').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_4_bottom_3').checked = true;
+                    }
+                });
+                document.getElementById('1_4_top_1').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_4_bottom_2').checked = true;
+                    }
+                });
+                document.getElementById('1_4_top_2').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_4_bottom_1').checked = true;
+                    }
+                });
+                document.getElementById('1_4_top_3').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_4_bottom_0').checked = true;
+                    }
+                });
+                document.getElementById('1_4_bottom_3').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_4_top_0').checked = true;
+                    }
+                });
+                document.getElementById('1_4_bottom_2').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_4_top_1').checked = true;
+                    }
+                });
+                document.getElementById('1_4_bottom_1').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_4_top_2').checked = true;
+                    }
+                });
+                document.getElementById('1_4_bottom_0').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_4_top_3').checked = true;
+                    }
+                });
+                // Перелистывание назад
+                document.getElementById('btn_1_4_prev').addEventListener('click', function () {
+                    var from = document.querySelector('[name="quest_1_4"]');
+                    var to = document.querySelector('[name="quest_1_3"]');
+                    from.classList.add('animBlockDisappear_prev');
+                    from.addEventListener('animationend', function handler() {
+                        from.style.display = 'none';
+                        from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
+                        to.style.display = 'block';
+                        to.classList.add('animBlockAppear_prev'); // Добавляем класс анимации для появления
+                        to.addEventListener('animationend', function appearHandler() {
+                            to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
+                            to.removeEventListener('animationend', appearHandler);
+                        });
+                        from.removeEventListener('animationend', handler);
+                    });
+                });
+                // Переменные всплывающего окна
+                const popup_1_4 = document.getElementById('popup_1');
+                const closeBtn_1_4 = document.getElementById('closeBtn_1');
+                // Переменные и функция перелистывания вперед
+                const radioTop_1_4 = document.getElementsByName("1_4_top");
+                const nextButton_1_4 = document.getElementById("btn_1_4_next");
+                document.addEventListener("DOMContentLoaded", function () {
+                    nextButton_1_4.addEventListener("click", function () {
+                        let isChecked = false;
+                        // Проверяем состояние радиокнопок
+                        for (let radio of radioTop_1_4) {
+                            if (radio.checked) {
+                                isChecked = true;
+                                break;
+                            }
+                        }
+                        // Если ни один переключатель не выбран
+                        if (!isChecked) {
+                            popup_1_4.style.display = 'flex'; // Показываем всплывающее окно
+                        } else {
+                            // Логика перелистывания вперед
+                            const from = document.querySelector('[name="quest_1_4"]');
+                            const to = document.querySelector('[name="quest_1_5"]'); // Предполагается, что этот элемент существует
+                            from.classList.add('animBlockDisappear_next');
+                            from.addEventListener('animationend', function handler() {
+                                from.style.display = 'none';
+                                from.classList.remove('animBlockDisappear_next');
+                                to.style.display = 'block';
+                                to.classList.add('animBlockAppear_next');
+                                to.addEventListener('animationend', function appearHandler() {
+                                    to.classList.remove('animBlockAppear_next');
+                                    to.removeEventListener('animationend', appearHandler);
+                                });
+                                from.removeEventListener('animationend', handler);
+                            });
+                        }
+                    });
+                    // Закрытие всплывающего окна
+                    closeBtn_1_4.addEventListener('click', function () {
+                        popup_1_4.style.display = 'none'; // Скрываем всплывающее окно
+                    });
+                    // Инициализируем стиль обводки кнопки при загрузке страницы
+                    updateButtonBorder();
+                });
+                // Добавляем обработчики событий для радиокнопок
+                for (let radio of radioTop_1_4) {
+                    radio.addEventListener('change', updateButtonBorder); // Обновляем стиль обводки кнопки
+                }
+            </script>
+        </div>
+
+
+        <!-- ВОПРОС 5 -->
+
+        <div class="quest_1" name="quest_1_5">
+            <p class="quest_1_title">Вопрос 5</p>
+            <p class="quest_1_text">
+                <span class="affirm_1">Утверждение 1</span> Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Magnam,
+                consequatur, dolorem voluptatum cum aut unde consectetur obcaecati nam tenetur pariatur ratione
+                doloremque. Iste facere, in similique dolore, cupiditate nam corporis doloremque ab amet provident
+                necessitatibus voluptatem. Aspernatur delectus vel, ipsam rem aut repellat iusto odio magni, laudantium
+                voluptates qui cupiditate? <br>
+            </p>
+            <p class="quest_1_text">
+                <span class="affirm_1">Утверждение 2</span> Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Magnam,
+                consequatur, dolorem voluptatum cum aut unde consectetur obcaecati nam tenetur pariatur ratione
+                doloremque. Iste facere, in similique dolore, cupiditate nam corporis doloremque ab amet provident
+                necessitatibus voluptatem. Aspernatur delectus vel, ipsam rem aut repellat iusto odio magni, laudantium
+                voluptates qui cupiditate? <br>
+            </p>
+            <section class="quest_1_sect">
+                <button id="btn_1_5_prev" class="btn_nextprev">Назад</button>
+                <div class="inpBlock_1">
+                    <div class="inp_top_1">
+                        <div class="inp_left_1">
+                            <span>Вариант 1</span>
+                        </div>
+                        <div class="inp_right_1">
+                            <div class="var_inputs">
+                                <input type="radio" id="1_5_top_0" class="inpRadio" name="1_5_top"> 0
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_5_top_1" class="inpRadio" name="1_5_top"> 1
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_5_top_2" class="inpRadio" name="1_5_top"> 2
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_5_top_3" class="inpRadio" name="1_5_top"> 3
+                            </div>
+                        </div>
+                    </div>
+                    <div class="inp_bottom_1">
+                        <div class="inp_left_1">
+                            <span>Вариант 2</span>
+                        </div>
+                        <div class="inp_right_1">
+                            <div class="var_inputs">
+                                <input type="radio" id="1_5_bottom_0" class="inpRadio" name="1_5_bottom"> 0
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_5_bottom_1" class="inpRadio" name="1_5_bottom"> 1
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_5_bottom_2" class="inpRadio" name="1_5_bottom"> 2
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_5_bottom_3" class="inpRadio" name="1_5_bottom"> 3
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button id="btn_1_5_next" class="btn_nextprev">Далее</button>
+            </section>
+
+            <script>
+                // Работа с кнопками выбора
+                document.getElementById('1_5_top_0').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_5_bottom_3').checked = true;
+                    }
+                });
+                document.getElementById('1_5_top_1').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_5_bottom_2').checked = true;
+                    }
+                });
+                document.getElementById('1_5_top_2').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_5_bottom_1').checked = true;
+                    }
+                });
+                document.getElementById('1_5_top_3').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_5_bottom_0').checked = true;
+                    }
+                });
+                document.getElementById('1_5_bottom_3').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_5_top_0').checked = true;
+                    }
+                });
+                document.getElementById('1_5_bottom_2').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_5_top_1').checked = true;
+                    }
+                });
+                document.getElementById('1_5_bottom_1').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_5_top_2').checked = true;
+                    }
+                });
+                document.getElementById('1_5_bottom_0').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_5_top_3').checked = true;
+                    }
+                });
+                // Перелистывание назад
+                document.getElementById('btn_1_5_prev').addEventListener('click', function () {
+                    var from = document.querySelector('[name="quest_1_5"]');
+                    var to = document.querySelector('[name="quest_1_4"]');
+                    from.classList.add('animBlockDisappear_prev');
+                    from.addEventListener('animationend', function handler() {
+                        from.style.display = 'none';
+                        from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
+                        to.style.display = 'block';
+                        to.classList.add('animBlockAppear_prev'); // Добавляем класс анимации для появления
+                        to.addEventListener('animationend', function appearHandler() {
+                            to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
+                            to.removeEventListener('animationend', appearHandler);
+                        });
+                        from.removeEventListener('animationend', handler);
+                    });
+                });
+                // Переменные всплывающего окна
+                const popup_1_5 = document.getElementById('popup_1');
+                const closeBtn_1_5 = document.getElementById('closeBtn_1');
+                // Переменные и функция перелистывания вперед
+                const radioTop_1_5 = document.getElementsByName("1_5_top");
+                const nextButton_1_5 = document.getElementById("btn_1_5_next");
+                document.addEventListener("DOMContentLoaded", function () {
+                    nextButton_1_5.addEventListener("click", function () {
+                        let isChecked = false;
+                        // Проверяем состояние радиокнопок
+                        for (let radio of radioTop_1_5) {
+                            if (radio.checked) {
+                                isChecked = true;
+                                break;
+                            }
+                        }
+                        // Если ни один переключатель не выбран
+                        if (!isChecked) {
+                            popup_1_5.style.display = 'flex'; // Показываем всплывающее окно
+                        } else {
+                            // Логика перелистывания вперед
+                            const from = document.querySelector('[name="quest_1_5"]');
+                            const to = document.querySelector('[name="quest_1_6"]'); // Предполагается, что этот элемент существует
+                            from.classList.add('animBlockDisappear_next');
+                            from.addEventListener('animationend', function handler() {
+                                from.style.display = 'none';
+                                from.classList.remove('animBlockDisappear_next');
+                                to.style.display = 'block';
+                                to.classList.add('animBlockAppear_next');
+                                to.addEventListener('animationend', function appearHandler() {
+                                    to.classList.remove('animBlockAppear_next');
+                                    to.removeEventListener('animationend', appearHandler);
+                                });
+                                from.removeEventListener('animationend', handler);
+                            });
+                        }
+                    });
+                    // Закрытие всплывающего окна
+                    closeBtn_1_5.addEventListener('click', function () {
+                        popup_1_5.style.display = 'none'; // Скрываем всплывающее окно
+                    });
+                    // Инициализируем стиль обводки кнопки при загрузке страницы
+                    updateButtonBorder();
+                });
+                // Добавляем обработчики событий для радиокнопок
+                for (let radio of radioTop_1_5) {
+                    radio.addEventListener('change', updateButtonBorder); // Обновляем стиль обводки кнопки
+                }
+            </script>
+        </div>
+
+
+        <!-- ВОПРОС 6 -->
+
+        <div class="quest_1" name="quest_1_6">
+            <p class="quest_1_title">Вопрос 6</p>
+            <p class="quest_1_text">
+                <span class="affirm_1">Утверждение 1</span> Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Magnam,
+                consequatur, dolorem voluptatum cum aut unde consectetur obcaecati nam tenetur pariatur ratione
+                doloremque. Iste facere, in similique dolore, cupiditate nam corporis doloremque ab amet provident
+                necessitatibus voluptatem. Aspernatur delectus vel, ipsam rem aut repellat iusto odio magni, laudantium
+                voluptates qui cupiditate? <br>
+            </p>
+            <p class="quest_1_text">
+                <span class="affirm_1">Утверждение 2</span> Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Magnam,
+                consequatur, dolorem voluptatum cum aut unde consectetur obcaecati nam tenetur pariatur ratione
+                doloremque. Iste facere, in similique dolore, cupiditate nam corporis doloremque ab amet provident
+                necessitatibus voluptatem. Aspernatur delectus vel, ipsam rem aut repellat iusto odio magni, laudantium
+                voluptates qui cupiditate? <br>
+            </p>
+            <section class="quest_1_sect">
+                <button id="btn_1_6_prev" class="btn_nextprev">Назад</button>
+                <div class="inpBlock_1">
+                    <div class="inp_top_1">
+                        <div class="inp_left_1">
+                            <span>Вариант 1</span>
+                        </div>
+                        <div class="inp_right_1">
+                            <div class="var_inputs">
+                                <input type="radio" id="1_6_top_0" class="inpRadio" name="1_6_top"> 0
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_6_top_1" class="inpRadio" name="1_6_top"> 1
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_6_top_2" class="inpRadio" name="1_6_top"> 2
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_6_top_3" class="inpRadio" name="1_6_top"> 3
+                            </div>
+                        </div>
+                    </div>
+                    <div class="inp_bottom_1">
+                        <div class="inp_left_1">
+                            <span>Вариант 2</span>
+                        </div>
+                        <div class="inp_right_1">
+                            <div class="var_inputs">
+                                <input type="radio" id="1_6_bottom_0" class="inpRadio" name="1_6_bottom"> 0
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_6_bottom_1" class="inpRadio" name="1_6_bottom"> 1
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_6_bottom_2" class="inpRadio" name="1_6_bottom"> 2
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_6_bottom_3" class="inpRadio" name="1_6_bottom"> 3
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button id="btn_1_6_next" class="btn_nextprev">Далее</button>
+            </section>
+
+            <script>
+                // Работа с кнопками выбора
+                document.getElementById('1_6_top_0').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_6_bottom_3').checked = true;
+                    }
+                });
+                document.getElementById('1_6_top_1').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_6_bottom_2').checked = true;
+                    }
+                });
+                document.getElementById('1_6_top_2').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_6_bottom_1').checked = true;
+                    }
+                });
+                document.getElementById('1_6_top_3').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_6_bottom_0').checked = true;
+                    }
+                });
+                document.getElementById('1_6_bottom_3').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_6_top_0').checked = true;
+                    }
+                });
+                document.getElementById('1_6_bottom_2').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_6_top_1').checked = true;
+                    }
+                });
+                document.getElementById('1_6_bottom_1').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_6_top_2').checked = true;
+                    }
+                });
+                document.getElementById('1_6_bottom_0').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_6_top_3').checked = true;
+                    }
+                });
+                // Перелистывание назад
+                document.getElementById('btn_1_6_prev').addEventListener('click', function () {
+                    var from = document.querySelector('[name="quest_1_6"]');
+                    var to = document.querySelector('[name="quest_1_5"]');
+                    from.classList.add('animBlockDisappear_prev');
+                    from.addEventListener('animationend', function handler() {
+                        from.style.display = 'none';
+                        from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
+                        to.style.display = 'block';
+                        to.classList.add('animBlockAppear_prev'); // Добавляем класс анимации для появления
+                        to.addEventListener('animationend', function appearHandler() {
+                            to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
+                            to.removeEventListener('animationend', appearHandler);
+                        });
+                        from.removeEventListener('animationend', handler);
+                    });
+                });
+                // Переменные всплывающего окна
+                const popup_1_6 = document.getElementById('popup_1');
+                const closeBtn_1_6 = document.getElementById('closeBtn_1');
+                // Переменные и функция перелистывания вперед
+                const radioTop_1_6 = document.getElementsByName("1_6_top");
+                const nextButton_1_6 = document.getElementById("btn_1_6_next");
+                document.addEventListener("DOMContentLoaded", function () {
+                    nextButton_1_6.addEventListener("click", function () {
+                        let isChecked = false;
+                        // Проверяем состояние радиокнопок
+                        for (let radio of radioTop_1_6) {
+                            if (radio.checked) {
+                                isChecked = true;
+                                break;
+                            }
+                        }
+                        // Если ни один переключатель не выбран
+                        if (!isChecked) {
+                            popup_1_6.style.display = 'flex'; // Показываем всплывающее окно
+                        } else {
+                            // Логика перелистывания вперед
+                            const from = document.querySelector('[name="quest_1_6"]');
+                            const to = document.querySelector('[name="quest_1_7"]'); // Предполагается, что этот элемент существует
+                            from.classList.add('animBlockDisappear_next');
+                            from.addEventListener('animationend', function handler() {
+                                from.style.display = 'none';
+                                from.classList.remove('animBlockDisappear_next');
+                                to.style.display = 'block';
+                                to.classList.add('animBlockAppear_next');
+                                to.addEventListener('animationend', function appearHandler() {
+                                    to.classList.remove('animBlockAppear_next');
+                                    to.removeEventListener('animationend', appearHandler);
+                                });
+                                from.removeEventListener('animationend', handler);
+                            });
+                        }
+                    });
+                    // Закрытие всплывающего окна
+                    closeBtn_1_6.addEventListener('click', function () {
+                        popup_1_6.style.display = 'none'; // Скрываем всплывающее окно
+                    });
+                    // Инициализируем стиль обводки кнопки при загрузке страницы
+                    updateButtonBorder();
+                });
+                // Добавляем обработчики событий для радиокнопок
+                for (let radio of radioTop_1_6) {
+                    radio.addEventListener('change', updateButtonBorder); // Обновляем стиль обводки кнопки
+                }
+            </script>
+        </div>
+
+
+        <!-- ВОПРОС 7 -->
+
+        <div class="quest_1" name="quest_1_7">
+            <p class="quest_1_title">Вопрос 7</p>
+            <p class="quest_1_text">
+                <span class="affirm_1">Утверждение 1</span> Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Magnam,
+                consequatur, dolorem voluptatum cum aut unde consectetur obcaecati nam tenetur pariatur ratione
+                doloremque. Iste facere, in similique dolore, cupiditate nam corporis doloremque ab amet provident
+                necessitatibus voluptatem. Aspernatur delectus vel, ipsam rem aut repellat iusto odio magni, laudantium
+                voluptates qui cupiditate? <br>
+            </p>
+            <p class="quest_1_text">
+                <span class="affirm_1">Утверждение 2</span> Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Magnam,
+                consequatur, dolorem voluptatum cum aut unde consectetur obcaecati nam tenetur pariatur ratione
+                doloremque. Iste facere, in similique dolore, cupiditate nam corporis doloremque ab amet provident
+                necessitatibus voluptatem. Aspernatur delectus vel, ipsam rem aut repellat iusto odio magni, laudantium
+                voluptates qui cupiditate? <br>
+            </p>
+            <section class="quest_1_sect">
+                <button id="btn_1_7_prev" class="btn_nextprev">Назад</button>
+                <div class="inpBlock_1">
+                    <div class="inp_top_1">
+                        <div class="inp_left_1">
+                            <span>Вариант 1</span>
+                        </div>
+                        <div class="inp_right_1">
+                            <div class="var_inputs">
+                                <input type="radio" id="1_7_top_0" class="inpRadio" name="1_7_top"> 0
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_7_top_1" class="inpRadio" name="1_7_top"> 1
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_7_top_2" class="inpRadio" name="1_7_top"> 2
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_7_top_3" class="inpRadio" name="1_7_top"> 3
+                            </div>
+                        </div>
+                    </div>
+                    <div class="inp_bottom_1">
+                        <div class="inp_left_1">
+                            <span>Вариант 2</span>
+                        </div>
+                        <div class="inp_right_1">
+                            <div class="var_inputs">
+                                <input type="radio" id="1_7_bottom_0" class="inpRadio" name="1_7_bottom"> 0
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_7_bottom_1" class="inpRadio" name="1_7_bottom"> 1
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_7_bottom_2" class="inpRadio" name="1_7_bottom"> 2
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_7_bottom_3" class="inpRadio" name="1_7_bottom"> 3
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button id="btn_1_7_next" class="btn_nextprev">Далее</button>
+            </section>
+
+            <script>
+                // Работа с кнопками выбора
+                document.getElementById('1_7_top_0').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_7_bottom_3').checked = true;
+                    }
+                });
+                document.getElementById('1_7_top_1').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_7_bottom_2').checked = true;
+                    }
+                });
+                document.getElementById('1_7_top_2').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_7_bottom_1').checked = true;
+                    }
+                });
+                document.getElementById('1_7_top_3').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_7_bottom_0').checked = true;
+                    }
+                });
+                document.getElementById('1_7_bottom_3').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_7_top_0').checked = true;
+                    }
+                });
+                document.getElementById('1_7_bottom_2').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_7_top_1').checked = true;
+                    }
+                });
+                document.getElementById('1_7_bottom_1').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_7_top_2').checked = true;
+                    }
+                });
+                document.getElementById('1_7_bottom_0').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_7_top_3').checked = true;
+                    }
+                });
+                // Перелистывание назад
+                document.getElementById('btn_1_7_prev').addEventListener('click', function () {
+                    var from = document.querySelector('[name="quest_1_7"]');
+                    var to = document.querySelector('[name="quest_1_6"]');
+                    from.classList.add('animBlockDisappear_prev');
+                    from.addEventListener('animationend', function handler() {
+                        from.style.display = 'none';
+                        from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
+                        to.style.display = 'block';
+                        to.classList.add('animBlockAppear_prev'); // Добавляем класс анимации для появления
+                        to.addEventListener('animationend', function appearHandler() {
+                            to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
+                            to.removeEventListener('animationend', appearHandler);
+                        });
+                        from.removeEventListener('animationend', handler);
+                    });
+                });
+                // Переменные всплывающего окна
+                const popup_1_7 = document.getElementById('popup_1');
+                const closeBtn_1_7 = document.getElementById('closeBtn_1');
+                // Переменные и функция перелистывания вперед
+                const radioTop_1_7 = document.getElementsByName("1_7_top");
+                const nextButton_1_7 = document.getElementById("btn_1_7_next");
+                document.addEventListener("DOMContentLoaded", function () {
+                    nextButton_1_7.addEventListener("click", function () {
+                        let isChecked = false;
+                        // Проверяем состояние радиокнопок
+                        for (let radio of radioTop_1_7) {
+                            if (radio.checked) {
+                                isChecked = true;
+                                break;
+                            }
+                        }
+                        // Если ни один переключатель не выбран
+                        if (!isChecked) {
+                            popup_1_7.style.display = 'flex'; // Показываем всплывающее окно
+                        } else {
+                            // Логика перелистывания вперед
+                            const from = document.querySelector('[name="quest_1_7"]');
+                            const to = document.querySelector('[name="quest_1_8"]'); // Предполагается, что этот элемент существует
+                            from.classList.add('animBlockDisappear_next');
+                            from.addEventListener('animationend', function handler() {
+                                from.style.display = 'none';
+                                from.classList.remove('animBlockDisappear_next');
+                                to.style.display = 'block';
+                                to.classList.add('animBlockAppear_next');
+                                to.addEventListener('animationend', function appearHandler() {
+                                    to.classList.remove('animBlockAppear_next');
+                                    to.removeEventListener('animationend', appearHandler);
+                                });
+                                from.removeEventListener('animationend', handler);
+                            });
+                        }
+                    });
+                    // Закрытие всплывающего окна
+                    closeBtn_1_7.addEventListener('click', function () {
+                        popup_1_7.style.display = 'none'; // Скрываем всплывающее окно
+                    });
+                    // Инициализируем стиль обводки кнопки при загрузке страницы
+                    updateButtonBorder();
+                });
+                // Добавляем обработчики событий для радиокнопок
+                for (let radio of radioTop_1_7) {
+                    radio.addEventListener('change', updateButtonBorder); // Обновляем стиль обводки кнопки
+                }
+            </script>
+        </div>
+
+
+        <!-- ВОПРОС 8 -->
+
+        <div class="quest_1" name="quest_1_8">
+            <p class="quest_1_title">Вопрос 8</p>
+            <p class="quest_1_text">
+                <span class="affirm_1">Утверждение 1</span> Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Magnam,
+                consequatur, dolorem voluptatum cum aut unde consectetur obcaecati nam tenetur pariatur ratione
+                doloremque. Iste facere, in similique dolore, cupiditate nam corporis doloremque ab amet provident
+                necessitatibus voluptatem. Aspernatur delectus vel, ipsam rem aut repellat iusto odio magni, laudantium
+                voluptates qui cupiditate? <br>
+            </p>
+            <p class="quest_1_text">
+                <span class="affirm_1">Утверждение 2</span> Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Magnam,
+                consequatur, dolorem voluptatum cum aut unde consectetur obcaecati nam tenetur pariatur ratione
+                doloremque. Iste facere, in similique dolore, cupiditate nam corporis doloremque ab amet provident
+                necessitatibus voluptatem. Aspernatur delectus vel, ipsam rem aut repellat iusto odio magni, laudantium
+                voluptates qui cupiditate? <br>
+            </p>
+            <section class="quest_1_sect">
+                <button id="btn_1_8_prev" class="btn_nextprev">Назад</button>
+                <div class="inpBlock_1">
+                    <div class="inp_top_1">
+                        <div class="inp_left_1">
+                            <span>Вариант 1</span>
+                        </div>
+                        <div class="inp_right_1">
+                            <div class="var_inputs">
+                                <input type="radio" id="1_8_top_0" class="inpRadio" name="1_8_top"> 0
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_8_top_1" class="inpRadio" name="1_8_top"> 1
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_8_top_2" class="inpRadio" name="1_8_top"> 2
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_8_top_3" class="inpRadio" name="1_8_top"> 3
+                            </div>
+                        </div>
+                    </div>
+                    <div class="inp_bottom_1">
+                        <div class="inp_left_1">
+                            <span>Вариант 2</span>
+                        </div>
+                        <div class="inp_right_1">
+                            <div class="var_inputs">
+                                <input type="radio" id="1_8_bottom_0" class="inpRadio" name="1_8_bottom"> 0
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_8_bottom_1" class="inpRadio" name="1_8_bottom"> 1
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_8_bottom_2" class="inpRadio" name="1_8_bottom"> 2
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_8_bottom_3" class="inpRadio" name="1_8_bottom"> 3
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button id="btn_1_8_next" class="btn_nextprev">Далее</button>
+            </section>
+
+            <script>
+                // Работа с кнопками выбора
+                document.getElementById('1_8_top_0').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_8_bottom_3').checked = true;
+                    }
+                });
+                document.getElementById('1_8_top_1').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_8_bottom_2').checked = true;
+                    }
+                });
+                document.getElementById('1_8_top_2').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_8_bottom_1').checked = true;
+                    }
+                });
+                document.getElementById('1_8_top_3').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_8_bottom_0').checked = true;
+                    }
+                });
+                document.getElementById('1_8_bottom_3').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_8_top_0').checked = true;
+                    }
+                });
+                document.getElementById('1_8_bottom_2').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_8_top_1').checked = true;
+                    }
+                });
+                document.getElementById('1_8_bottom_1').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_8_top_2').checked = true;
+                    }
+                });
+                document.getElementById('1_8_bottom_0').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_8_top_3').checked = true;
+                    }
+                });
+                // Перелистывание назад
+                document.getElementById('btn_1_8_prev').addEventListener('click', function () {
+                    var from = document.querySelector('[name="quest_1_8"]');
+                    var to = document.querySelector('[name="quest_1_7"]');
+                    from.classList.add('animBlockDisappear_prev');
+                    from.addEventListener('animationend', function handler() {
+                        from.style.display = 'none';
+                        from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
+                        to.style.display = 'block';
+                        to.classList.add('animBlockAppear_prev'); // Добавляем класс анимации для появления
+                        to.addEventListener('animationend', function appearHandler() {
+                            to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
+                            to.removeEventListener('animationend', appearHandler);
+                        });
+                        from.removeEventListener('animationend', handler);
+                    });
+                });
+                // Переменные всплывающего окна
+                const popup_1_8 = document.getElementById('popup_1');
+                const closeBtn_1_8 = document.getElementById('closeBtn_1');
+                // Переменные и функция перелистывания вперед
+                const radioTop_1_8 = document.getElementsByName("1_8_top");
+                const nextButton_1_8 = document.getElementById("btn_1_8_next");
+                document.addEventListener("DOMContentLoaded", function () {
+                    nextButton_1_8.addEventListener("click", function () {
+                        let isChecked = false;
+                        // Проверяем состояние радиокнопок
+                        for (let radio of radioTop_1_8) {
+                            if (radio.checked) {
+                                isChecked = true;
+                                break;
+                            }
+                        }
+                        // Если ни один переключатель не выбран
+                        if (!isChecked) {
+                            popup_1_8.style.display = 'flex'; // Показываем всплывающее окно
+                        } else {
+                            // Логика перелистывания вперед
+                            const from = document.querySelector('[name="quest_1_8"]');
+                            const to = document.querySelector('[name="quest_1_9"]'); // Предполагается, что этот элемент существует
+                            from.classList.add('animBlockDisappear_next');
+                            from.addEventListener('animationend', function handler() {
+                                from.style.display = 'none';
+                                from.classList.remove('animBlockDisappear_next');
+                                to.style.display = 'block';
+                                to.classList.add('animBlockAppear_next');
+                                to.addEventListener('animationend', function appearHandler() {
+                                    to.classList.remove('animBlockAppear_next');
+                                    to.removeEventListener('animationend', appearHandler);
+                                });
+                                from.removeEventListener('animationend', handler);
+                            });
+                        }
+                    });
+                    // Закрытие всплывающего окна
+                    closeBtn_1_8.addEventListener('click', function () {
+                        popup_1_8.style.display = 'none'; // Скрываем всплывающее окно
+                    });
+                    // Инициализируем стиль обводки кнопки при загрузке страницы
+                    updateButtonBorder();
+                });
+                // Добавляем обработчики событий для радиокнопок
+                for (let radio of radioTop_1_8) {
+                    radio.addEventListener('change', updateButtonBorder); // Обновляем стиль обводки кнопки
+                }
+            </script>
+        </div>
+
+
+        <!-- ВОПРОС 9 -->
+
+        <div class="quest_1" name="quest_1_9">
+            <p class="quest_1_title">Вопрос 9</p>
+            <p class="quest_1_text">
+                <span class="affirm_1">Утверждение 1</span> Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Magnam,
+                consequatur, dolorem voluptatum cum aut unde consectetur obcaecati nam tenetur pariatur ratione
+                doloremque. Iste facere, in similique dolore, cupiditate nam corporis doloremque ab amet provident
+                necessitatibus voluptatem. Aspernatur delectus vel, ipsam rem aut repellat iusto odio magni, laudantium
+                voluptates qui cupiditate? <br>
+            </p>
+            <p class="quest_1_text">
+                <span class="affirm_1">Утверждение 2</span> Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Magnam,
+                consequatur, dolorem voluptatum cum aut unde consectetur obcaecati nam tenetur pariatur ratione
+                doloremque. Iste facere, in similique dolore, cupiditate nam corporis doloremque ab amet provident
+                necessitatibus voluptatem. Aspernatur delectus vel, ipsam rem aut repellat iusto odio magni, laudantium
+                voluptates qui cupiditate? <br>
+            </p>
+            <section class="quest_1_sect">
+                <button id="btn_1_9_prev" class="btn_nextprev">Назад</button>
+                <div class="inpBlock_1">
+                    <div class="inp_top_1">
+                        <div class="inp_left_1">
+                            <span>Вариант 1</span>
+                        </div>
+                        <div class="inp_right_1">
+                            <div class="var_inputs">
+                                <input type="radio" id="1_9_top_0" class="inpRadio" name="1_9_top"> 0
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_9_top_1" class="inpRadio" name="1_9_top"> 1
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_9_top_2" class="inpRadio" name="1_9_top"> 2
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_9_top_3" class="inpRadio" name="1_9_top"> 3
+                            </div>
+                        </div>
+                    </div>
+                    <div class="inp_bottom_1">
+                        <div class="inp_left_1">
+                            <span>Вариант 2</span>
+                        </div>
+                        <div class="inp_right_1">
+                            <div class="var_inputs">
+                                <input type="radio" id="1_9_bottom_0" class="inpRadio" name="1_9_bottom"> 0
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_9_bottom_1" class="inpRadio" name="1_9_bottom"> 1
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_9_bottom_2" class="inpRadio" name="1_9_bottom"> 2
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_9_bottom_3" class="inpRadio" name="1_9_bottom"> 3
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button id="btn_1_9_next" class="btn_nextprev">Далее</button>
+            </section>
+
+            <script>
+                // Работа с кнопками выбора
+                document.getElementById('1_9_top_0').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_9_bottom_3').checked = true;
+                    }
+                });
+                document.getElementById('1_9_top_1').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_9_bottom_2').checked = true;
+                    }
+                });
+                document.getElementById('1_9_top_2').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_9_bottom_1').checked = true;
+                    }
+                });
+                document.getElementById('1_9_top_3').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_9_bottom_0').checked = true;
+                    }
+                });
+                document.getElementById('1_9_bottom_3').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_9_top_0').checked = true;
+                    }
+                });
+                document.getElementById('1_9_bottom_2').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_9_top_1').checked = true;
+                    }
+                });
+                document.getElementById('1_9_bottom_1').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_9_top_2').checked = true;
+                    }
+                });
+                document.getElementById('1_9_bottom_0').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_9_top_3').checked = true;
+                    }
+                });
+                // Перелистывание назад
+                document.getElementById('btn_1_9_prev').addEventListener('click', function () {
+                    var from = document.querySelector('[name="quest_1_9"]');
+                    var to = document.querySelector('[name="quest_1_8"]');
+                    from.classList.add('animBlockDisappear_prev');
+                    from.addEventListener('animationend', function handler() {
+                        from.style.display = 'none';
+                        from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
+                        to.style.display = 'block';
+                        to.classList.add('animBlockAppear_prev'); // Добавляем класс анимации для появления
+                        to.addEventListener('animationend', function appearHandler() {
+                            to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
+                            to.removeEventListener('animationend', appearHandler);
+                        });
+                        from.removeEventListener('animationend', handler);
+                    });
+                });
+                // Переменные всплывающего окна
+                const popup_1_9 = document.getElementById('popup_1');
+                const closeBtn_1_9 = document.getElementById('closeBtn_1');
+                // Переменные и функция перелистывания вперед
+                const radioTop_1_9 = document.getElementsByName("1_9_top");
+                const nextButton_1_9 = document.getElementById("btn_1_9_next");
+                document.addEventListener("DOMContentLoaded", function () {
+                    nextButton_1_9.addEventListener("click", function () {
+                        let isChecked = false;
+                        // Проверяем состояние радиокнопок
+                        for (let radio of radioTop_1_9) {
+                            if (radio.checked) {
+                                isChecked = true;
+                                break;
+                            }
+                        }
+                        // Если ни один переключатель не выбран
+                        if (!isChecked) {
+                            popup_1_9.style.display = 'flex'; // Показываем всплывающее окно
+                        } else {
+                            // Логика перелистывания вперед
+                            const from = document.querySelector('[name="quest_1_9"]');
+                            const to = document.querySelector('[name="quest_1_10"]'); // Предполагается, что этот элемент существует
+                            from.classList.add('animBlockDisappear_next');
+                            from.addEventListener('animationend', function handler() {
+                                from.style.display = 'none';
+                                from.classList.remove('animBlockDisappear_next');
+                                to.style.display = 'block';
+                                to.classList.add('animBlockAppear_next');
+                                to.addEventListener('animationend', function appearHandler() {
+                                    to.classList.remove('animBlockAppear_next');
+                                    to.removeEventListener('animationend', appearHandler);
+                                });
+                                from.removeEventListener('animationend', handler);
+                            });
+                        }
+                    });
+                    // Закрытие всплывающего окна
+                    closeBtn_1_9.addEventListener('click', function () {
+                        popup_1_9.style.display = 'none'; // Скрываем всплывающее окно
+                    });
+                    // Инициализируем стиль обводки кнопки при загрузке страницы
+                    updateButtonBorder();
+                });
+                // Добавляем обработчики событий для радиокнопок
+                for (let radio of radioTop_1_9) {
+                    radio.addEventListener('change', updateButtonBorder); // Обновляем стиль обводки кнопки
+                }
+            </script>
+        </div>
+
+
+        <!-- ВОПРОС 10 -->
+
+        <div class="quest_1" name="quest_1_10">
+            <p class="quest_1_title">Вопрос 10</p>
+            <p class="quest_1_text">
+                <span class="affirm_1">Утверждение 1</span> Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Magnam,
+                consequatur, dolorem voluptatum cum aut unde consectetur obcaecati nam tenetur pariatur ratione
+                doloremque. Iste facere, in similique dolore, cupiditate nam corporis doloremque ab amet provident
+                necessitatibus voluptatem. Aspernatur delectus vel, ipsam rem aut repellat iusto odio magni, laudantium
+                voluptates qui cupiditate? <br>
+            </p>
+            <p class="quest_1_text">
+                <span class="affirm_1">Утверждение 2</span> Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Magnam,
+                consequatur, dolorem voluptatum cum aut unde consectetur obcaecati nam tenetur pariatur ratione
+                doloremque. Iste facere, in similique dolore, cupiditate nam corporis doloremque ab amet provident
+                necessitatibus voluptatem. Aspernatur delectus vel, ipsam rem aut repellat iusto odio magni, laudantium
+                voluptates qui cupiditate? <br>
+            </p>
+            <section class="quest_1_sect">
+                <button id="btn_1_10_prev" class="btn_nextprev">Назад</button>
+                <div class="inpBlock_1">
+                    <div class="inp_top_1">
+                        <div class="inp_left_1">
+                            <span>Вариант 1</span>
+                        </div>
+                        <div class="inp_right_1">
+                            <div class="var_inputs">
+                                <input type="radio" id="1_10_top_0" class="inpRadio" name="1_10_top"> 0
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_10_top_1" class="inpRadio" name="1_10_top"> 1
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_10_top_2" class="inpRadio" name="1_10_top"> 2
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_10_top_3" class="inpRadio" name="1_10_top"> 3
+                            </div>
+                        </div>
+                    </div>
+                    <div class="inp_bottom_1">
+                        <div class="inp_left_1">
+                            <span>Вариант 2</span>
+                        </div>
+                        <div class="inp_right_1">
+                            <div class="var_inputs">
+                                <input type="radio" id="1_10_bottom_0" class="inpRadio" name="1_10_bottom"> 0
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_10_bottom_1" class="inpRadio" name="1_10_bottom"> 1
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_10_bottom_2" class="inpRadio" name="1_10_bottom"> 2
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_10_bottom_3" class="inpRadio" name="1_10_bottom"> 3
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button id="btn_1_10_next" class="btn_nextprev">Далее</button>
+            </section>
+
+            <script>
+                // Работа с кнопками выбора
+                document.getElementById('1_10_top_0').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_10_bottom_3').checked = true;
+                    }
+                });
+                document.getElementById('1_10_top_1').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_10_bottom_2').checked = true;
+                    }
+                });
+                document.getElementById('1_10_top_2').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_10_bottom_1').checked = true;
+                    }
+                });
+                document.getElementById('1_10_top_3').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_10_bottom_0').checked = true;
+                    }
+                });
+                document.getElementById('1_10_bottom_3').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_10_top_0').checked = true;
+                    }
+                });
+                document.getElementById('1_10_bottom_2').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_10_top_1').checked = true;
+                    }
+                });
+                document.getElementById('1_10_bottom_1').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_10_top_2').checked = true;
+                    }
+                });
+                document.getElementById('1_10_bottom_0').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_10_top_3').checked = true;
+                    }
+                });
+                // Перелистывание назад
+                document.getElementById('btn_1_10_prev').addEventListener('click', function () {
+                    var from = document.querySelector('[name="quest_1_10"]');
+                    var to = document.querySelector('[name="quest_1_9"]');
+                    from.classList.add('animBlockDisappear_prev');
+                    from.addEventListener('animationend', function handler() {
+                        from.style.display = 'none';
+                        from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
+                        to.style.display = 'block';
+                        to.classList.add('animBlockAppear_prev'); // Добавляем класс анимации для появления
+                        to.addEventListener('animationend', function appearHandler() {
+                            to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
+                            to.removeEventListener('animationend', appearHandler);
+                        });
+                        from.removeEventListener('animationend', handler);
+                    });
+                });
+                // Переменные всплывающего окна
+                const popup_1_10 = document.getElementById('popup_1');
+                const closeBtn_1_10 = document.getElementById('closeBtn_1');
+                // Переменные и функция перелистывания вперед
+                const radioTop_1_10 = document.getElementsByName("1_10_top");
+                const nextButton_1_10 = document.getElementById("btn_1_10_next");
+                document.addEventListener("DOMContentLoaded", function () {
+                    nextButton_1_10.addEventListener("click", function () {
+                        let isChecked = false;
+                        // Проверяем состояние радиокнопок
+                        for (let radio of radioTop_1_10) {
+                            if (radio.checked) {
+                                isChecked = true;
+                                break;
+                            }
+                        }
+                        // Если ни один переключатель не выбран
+                        if (!isChecked) {
+                            popup_1_10.style.display = 'flex'; // Показываем всплывающее окно
+                        } else {
+                            // Логика перелистывания вперед
+                            const from = document.querySelector('[name="quest_1_10"]');
+                            const to = document.querySelector('[name="quest_1_11"]'); // Предполагается, что этот элемент существует
+                            from.classList.add('animBlockDisappear_next');
+                            from.addEventListener('animationend', function handler() {
+                                from.style.display = 'none';
+                                from.classList.remove('animBlockDisappear_next');
+                                to.style.display = 'block';
+                                to.classList.add('animBlockAppear_next');
+                                to.addEventListener('animationend', function appearHandler() {
+                                    to.classList.remove('animBlockAppear_next');
+                                    to.removeEventListener('animationend', appearHandler);
+                                });
+                                from.removeEventListener('animationend', handler);
+                            });
+                        }
+                    });
+                    // Закрытие всплывающего окна
+                    closeBtn_1_10.addEventListener('click', function () {
+                        popup_1_10.style.display = 'none'; // Скрываем всплывающее окно
+                    });
+                    // Инициализируем стиль обводки кнопки при загрузке страницы
+                    updateButtonBorder();
+                });
+                // Добавляем обработчики событий для радиокнопок
+                for (let radio of radioTop_1_10) {
+                    radio.addEventListener('change', updateButtonBorder); // Обновляем стиль обводки кнопки
+                }
+            </script>
+        </div>
+
+
+        <!-- ВОПРОС 11 -->
+
+        <div class="quest_1" name="quest_1_11">
+            <p class="quest_1_title">Вопрос 11</p>
+            <p class="quest_1_text">
+                <span class="affirm_1">Утверждение 1</span> Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Magnam,
+                consequatur, dolorem voluptatum cum aut unde consectetur obcaecati nam tenetur pariatur ratione
+                doloremque. Iste facere, in similique dolore, cupiditate nam corporis doloremque ab amet provident
+                necessitatibus voluptatem. Aspernatur delectus vel, ipsam rem aut repellat iusto odio magni, laudantium
+                voluptates qui cupiditate? <br>
+            </p>
+            <p class="quest_1_text">
+                <span class="affirm_1">Утверждение 2</span> Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Magnam,
+                consequatur, dolorem voluptatum cum aut unde consectetur obcaecati nam tenetur pariatur ratione
+                doloremque. Iste facere, in similique dolore, cupiditate nam corporis doloremque ab amet provident
+                necessitatibus voluptatem. Aspernatur delectus vel, ipsam rem aut repellat iusto odio magni, laudantium
+                voluptates qui cupiditate? <br>
+            </p>
+            <section class="quest_1_sect">
+                <button id="btn_1_11_prev" class="btn_nextprev">Назад</button>
+                <div class="inpBlock_1">
+                    <div class="inp_top_1">
+                        <div class="inp_left_1">
+                            <span>Вариант 1</span>
+                        </div>
+                        <div class="inp_right_1">
+                            <div class="var_inputs">
+                                <input type="radio" id="1_11_top_0" class="inpRadio" name="1_11_top"> 0
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_11_top_1" class="inpRadio" name="1_11_top"> 1
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_11_top_2" class="inpRadio" name="1_11_top"> 2
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_11_top_3" class="inpRadio" name="1_11_top"> 3
+                            </div>
+                        </div>
+                    </div>
+                    <div class="inp_bottom_1">
+                        <div class="inp_left_1">
+                            <span>Вариант 2</span>
+                        </div>
+                        <div class="inp_right_1">
+                            <div class="var_inputs">
+                                <input type="radio" id="1_11_bottom_0" class="inpRadio" name="1_11_bottom"> 0
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_11_bottom_1" class="inpRadio" name="1_11_bottom"> 1
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_11_bottom_2" class="inpRadio" name="1_11_bottom"> 2
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_11_bottom_3" class="inpRadio" name="1_11_bottom"> 3
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button id="btn_1_11_next" class="btn_nextprev">Далее</button>
+            </section>
+
+            <script>
+                // Работа с кнопками выбора
+                document.getElementById('1_11_top_0').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_11_bottom_3').checked = true;
+                    }
+                });
+                document.getElementById('1_11_top_1').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_11_bottom_2').checked = true;
+                    }
+                });
+                document.getElementById('1_11_top_2').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_11_bottom_1').checked = true;
+                    }
+                });
+                document.getElementById('1_11_top_3').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_11_bottom_0').checked = true;
+                    }
+                });
+                document.getElementById('1_11_bottom_3').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_11_top_0').checked = true;
+                    }
+                });
+                document.getElementById('1_11_bottom_2').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_11_top_1').checked = true;
+                    }
+                });
+                document.getElementById('1_11_bottom_1').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_11_top_2').checked = true;
+                    }
+                });
+                document.getElementById('1_11_bottom_0').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_11_top_3').checked = true;
+                    }
+                });
+                // Перелистывание назад
+                document.getElementById('btn_1_11_prev').addEventListener('click', function () {
+                    var from = document.querySelector('[name="quest_1_11"]');
+                    var to = document.querySelector('[name="quest_1_10"]');
+                    from.classList.add('animBlockDisappear_prev');
+                    from.addEventListener('animationend', function handler() {
+                        from.style.display = 'none';
+                        from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
+                        to.style.display = 'block';
+                        to.classList.add('animBlockAppear_prev'); // Добавляем класс анимации для появления
+                        to.addEventListener('animationend', function appearHandler() {
+                            to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
+                            to.removeEventListener('animationend', appearHandler);
+                        });
+                        from.removeEventListener('animationend', handler);
+                    });
+                });
+                // Переменные всплывающего окна
+                const popup_1_11 = document.getElementById('popup_1');
+                const closeBtn_1_11 = document.getElementById('closeBtn_1');
+                // Переменные и функция перелистывания вперед
+                const radioTop_1_11 = document.getElementsByName("1_11_top");
+                const nextButton_1_11 = document.getElementById("btn_1_11_next");
+                document.addEventListener("DOMContentLoaded", function () {
+                    nextButton_1_11.addEventListener("click", function () {
+                        let isChecked = false;
+                        // Проверяем состояние радиокнопок
+                        for (let radio of radioTop_1_11) {
+                            if (radio.checked) {
+                                isChecked = true;
+                                break;
+                            }
+                        }
+                        // Если ни один переключатель не выбран
+                        if (!isChecked) {
+                            popup_1_11.style.display = 'flex'; // Показываем всплывающее окно
+                        } else {
+                            // Логика перелистывания вперед
+                            const from = document.querySelector('[name="quest_1_11"]');
+                            const to = document.querySelector('[name="quest_1_12"]'); // Предполагается, что этот элемент существует
+                            from.classList.add('animBlockDisappear_next');
+                            from.addEventListener('animationend', function handler() {
+                                from.style.display = 'none';
+                                from.classList.remove('animBlockDisappear_next');
+                                to.style.display = 'block';
+                                to.classList.add('animBlockAppear_next');
+                                to.addEventListener('animationend', function appearHandler() {
+                                    to.classList.remove('animBlockAppear_next');
+                                    to.removeEventListener('animationend', appearHandler);
+                                });
+                                from.removeEventListener('animationend', handler);
+                            });
+                        }
+                    });
+                    // Закрытие всплывающего окна
+                    closeBtn_1_11.addEventListener('click', function () {
+                        popup_1_11.style.display = 'none'; // Скрываем всплывающее окно
+                    });
+                    // Инициализируем стиль обводки кнопки при загрузке страницы
+                    updateButtonBorder();
+                });
+                // Добавляем обработчики событий для радиокнопок
+                for (let radio of radioTop_1_11) {
+                    radio.addEventListener('change', updateButtonBorder); // Обновляем стиль обводки кнопки
+                }
+            </script>
+        </div>
+
+
+        <!-- ВОПРОС 12 -->
+
+        <div class="quest_1" name="quest_1_12">
+            <p class="quest_1_title">Вопрос 12</p>
+            <p class="quest_1_text">
+                <span class="affirm_1">Утверждение 1</span> Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Magnam,
+                consequatur, dolorem voluptatum cum aut unde consectetur obcaecati nam tenetur pariatur ratione
+                doloremque. Iste facere, in similique dolore, cupiditate nam corporis doloremque ab amet provident
+                necessitatibus voluptatem. Aspernatur delectus vel, ipsam rem aut repellat iusto odio magni, laudantium
+                voluptates qui cupiditate? <br>
+            </p>
+            <p class="quest_1_text">
+                <span class="affirm_1">Утверждение 2</span> Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Magnam,
+                consequatur, dolorem voluptatum cum aut unde consectetur obcaecati nam tenetur pariatur ratione
+                doloremque. Iste facere, in similique dolore, cupiditate nam corporis doloremque ab amet provident
+                necessitatibus voluptatem. Aspernatur delectus vel, ipsam rem aut repellat iusto odio magni, laudantium
+                voluptates qui cupiditate? <br>
+            </p>
+            <section class="quest_1_sect">
+                <button id="btn_1_12_prev" class="btn_nextprev">Назад</button>
+                <div class="inpBlock_1">
+                    <div class="inp_top_1">
+                        <div class="inp_left_1">
+                            <span>Вариант 1</span>
+                        </div>
+                        <div class="inp_right_1">
+                            <div class="var_inputs">
+                                <input type="radio" id="1_12_top_0" class="inpRadio" name="1_12_top"> 0
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_12_top_1" class="inpRadio" name="1_12_top"> 1
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_12_top_2" class="inpRadio" name="1_12_top"> 2
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_12_top_3" class="inpRadio" name="1_12_top"> 3
+                            </div>
+                        </div>
+                    </div>
+                    <div class="inp_bottom_1">
+                        <div class="inp_left_1">
+                            <span>Вариант 2</span>
+                        </div>
+                        <div class="inp_right_1">
+                            <div class="var_inputs">
+                                <input type="radio" id="1_12_bottom_0" class="inpRadio" name="1_12_bottom"> 0
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_12_bottom_1" class="inpRadio" name="1_12_bottom"> 1
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_12_bottom_2" class="inpRadio" name="1_12_bottom"> 2
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_12_bottom_3" class="inpRadio" name="1_12_bottom"> 3
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button id="btn_1_12_next" class="btn_nextprev">Далее</button>
+            </section>
+
+            <script>
+                // Работа с кнопками выбора
+                document.getElementById('1_12_top_0').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_12_bottom_3').checked = true;
+                    }
+                });
+                document.getElementById('1_12_top_1').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_12_bottom_2').checked = true;
+                    }
+                });
+                document.getElementById('1_12_top_2').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_12_bottom_1').checked = true;
+                    }
+                });
+                document.getElementById('1_12_top_3').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_12_bottom_0').checked = true;
+                    }
+                });
+                document.getElementById('1_12_bottom_3').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_12_top_0').checked = true;
+                    }
+                });
+                document.getElementById('1_12_bottom_2').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_12_top_1').checked = true;
+                    }
+                });
+                document.getElementById('1_12_bottom_1').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_12_top_2').checked = true;
+                    }
+                });
+                document.getElementById('1_12_bottom_0').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_12_top_3').checked = true;
+                    }
+                });
+                // Перелистывание назад
+                document.getElementById('btn_1_12_prev').addEventListener('click', function () {
+                    var from = document.querySelector('[name="quest_1_12"]');
+                    var to = document.querySelector('[name="quest_1_11"]');
+                    from.classList.add('animBlockDisappear_prev');
+                    from.addEventListener('animationend', function handler() {
+                        from.style.display = 'none';
+                        from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
+                        to.style.display = 'block';
+                        to.classList.add('animBlockAppear_prev'); // Добавляем класс анимации для появления
+                        to.addEventListener('animationend', function appearHandler() {
+                            to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
+                            to.removeEventListener('animationend', appearHandler);
+                        });
+                        from.removeEventListener('animationend', handler);
+                    });
+                });
+                // Переменные всплывающего окна
+                const popup_1_12 = document.getElementById('popup_1');
+                const closeBtn_1_12 = document.getElementById('closeBtn_1');
+                // Переменные и функция перелистывания вперед
+                const radioTop_1_12 = document.getElementsByName("1_12_top");
+                const nextButton_1_12 = document.getElementById("btn_1_12_next");
+                document.addEventListener("DOMContentLoaded", function () {
+                    nextButton_1_12.addEventListener("click", function () {
+                        let isChecked = false;
+                        // Проверяем состояние радиокнопок
+                        for (let radio of radioTop_1_12) {
+                            if (radio.checked) {
+                                isChecked = true;
+                                break;
+                            }
+                        }
+                        // Если ни один переключатель не выбран
+                        if (!isChecked) {
+                            popup_1_12.style.display = 'flex'; // Показываем всплывающее окно
+                        } else {
+                            // Логика перелистывания вперед
+                            const from = document.querySelector('[name="quest_1_12"]');
+                            const to = document.querySelector('[name="quest_1_13"]'); // Предполагается, что этот элемент существует
+                            from.classList.add('animBlockDisappear_next');
+                            from.addEventListener('animationend', function handler() {
+                                from.style.display = 'none';
+                                from.classList.remove('animBlockDisappear_next');
+                                to.style.display = 'block';
+                                to.classList.add('animBlockAppear_next');
+                                to.addEventListener('animationend', function appearHandler() {
+                                    to.classList.remove('animBlockAppear_next');
+                                    to.removeEventListener('animationend', appearHandler);
+                                });
+                                from.removeEventListener('animationend', handler);
+                            });
+                        }
+                    });
+                    // Закрытие всплывающего окна
+                    closeBtn_1_12.addEventListener('click', function () {
+                        popup_1_12.style.display = 'none'; // Скрываем всплывающее окно
+                    });
+                    // Инициализируем стиль обводки кнопки при загрузке страницы
+                    updateButtonBorder();
+                });
+                // Добавляем обработчики событий для радиокнопок
+                for (let radio of radioTop_1_12) {
+                    radio.addEventListener('change', updateButtonBorder); // Обновляем стиль обводки кнопки
+                }
+            </script>
+        </div>
+
+
+        <!-- ВОПРОС 13 -->
+
+        <div class="quest_1" name="quest_1_13">
+            <p class="quest_1_title">Вопрос 13</p>
+            <p class="quest_1_text">
+                <span class="affirm_1">Утверждение 1</span> Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Magnam,
+                consequatur, dolorem voluptatum cum aut unde consectetur obcaecati nam tenetur pariatur ratione
+                doloremque. Iste facere, in similique dolore, cupiditate nam corporis doloremque ab amet provident
+                necessitatibus voluptatem. Aspernatur delectus vel, ipsam rem aut repellat iusto odio magni, laudantium
+                voluptates qui cupiditate? <br>
+            </p>
+            <p class="quest_1_text">
+                <span class="affirm_1">Утверждение 2</span> Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Magnam,
+                consequatur, dolorem voluptatum cum aut unde consectetur obcaecati nam tenetur pariatur ratione
+                doloremque. Iste facere, in similique dolore, cupiditate nam corporis doloremque ab amet provident
+                necessitatibus voluptatem. Aspernatur delectus vel, ipsam rem aut repellat iusto odio magni, laudantium
+                voluptates qui cupiditate? <br>
+            </p>
+            <section class="quest_1_sect">
+                <button id="btn_1_13_prev" class="btn_nextprev">Назад</button>
+                <div class="inpBlock_1">
+                    <div class="inp_top_1">
+                        <div class="inp_left_1">
+                            <span>Вариант 1</span>
+                        </div>
+                        <div class="inp_right_1">
+                            <div class="var_inputs">
+                                <input type="radio" id="1_13_top_0" class="inpRadio" name="1_13_top"> 0
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_13_top_1" class="inpRadio" name="1_13_top"> 1
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_13_top_2" class="inpRadio" name="1_13_top"> 2
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_13_top_3" class="inpRadio" name="1_13_top"> 3
+                            </div>
+                        </div>
+                    </div>
+                    <div class="inp_bottom_1">
+                        <div class="inp_left_1">
+                            <span>Вариант 2</span>
+                        </div>
+                        <div class="inp_right_1">
+                            <div class="var_inputs">
+                                <input type="radio" id="1_13_bottom_0" class="inpRadio" name="1_13_bottom"> 0
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_13_bottom_1" class="inpRadio" name="1_13_bottom"> 1
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_13_bottom_2" class="inpRadio" name="1_13_bottom"> 2
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_13_bottom_3" class="inpRadio" name="1_13_bottom"> 3
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button id="btn_1_13_next" class="btn_nextprev">Далее</button>
+            </section>
+
+            <script>
+                // Работа с кнопками выбора
+                document.getElementById('1_13_top_0').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_13_bottom_3').checked = true;
+                    }
+                });
+                document.getElementById('1_13_top_1').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_13_bottom_2').checked = true;
+                    }
+                });
+                document.getElementById('1_13_top_2').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_13_bottom_1').checked = true;
+                    }
+                });
+                document.getElementById('1_13_top_3').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_13_bottom_0').checked = true;
+                    }
+                });
+                document.getElementById('1_13_bottom_3').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_13_top_0').checked = true;
+                    }
+                });
+                document.getElementById('1_13_bottom_2').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_13_top_1').checked = true;
+                    }
+                });
+                document.getElementById('1_13_bottom_1').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_13_top_2').checked = true;
+                    }
+                });
+                document.getElementById('1_13_bottom_0').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_13_top_3').checked = true;
+                    }
+                });
+                // Перелистывание назад
+                document.getElementById('btn_1_13_prev').addEventListener('click', function () {
+                    var from = document.querySelector('[name="quest_1_13"]');
+                    var to = document.querySelector('[name="quest_1_12"]');
+                    from.classList.add('animBlockDisappear_prev');
+                    from.addEventListener('animationend', function handler() {
+                        from.style.display = 'none';
+                        from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
+                        to.style.display = 'block';
+                        to.classList.add('animBlockAppear_prev'); // Добавляем класс анимации для появления
+                        to.addEventListener('animationend', function appearHandler() {
+                            to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
+                            to.removeEventListener('animationend', appearHandler);
+                        });
+                        from.removeEventListener('animationend', handler);
+                    });
+                });
+                // Переменные всплывающего окна
+                const popup_1_13 = document.getElementById('popup_1');
+                const closeBtn_1_13 = document.getElementById('closeBtn_1');
+                // Переменные и функция перелистывания вперед
+                const radioTop_1_13 = document.getElementsByName("1_13_top");
+                const nextButton_1_13 = document.getElementById("btn_1_13_next");
+                document.addEventListener("DOMContentLoaded", function () {
+                    nextButton_1_13.addEventListener("click", function () {
+                        let isChecked = false;
+                        // Проверяем состояние радиокнопок
+                        for (let radio of radioTop_1_13) {
+                            if (radio.checked) {
+                                isChecked = true;
+                                break;
+                            }
+                        }
+                        // Если ни один переключатель не выбран
+                        if (!isChecked) {
+                            popup_1_13.style.display = 'flex'; // Показываем всплывающее окно
+                        } else {
+                            // Логика перелистывания вперед
+                            const from = document.querySelector('[name="quest_1_13"]');
+                            const to = document.querySelector('[name="quest_1_14"]'); // Предполагается, что этот элемент существует
+                            from.classList.add('animBlockDisappear_next');
+                            from.addEventListener('animationend', function handler() {
+                                from.style.display = 'none';
+                                from.classList.remove('animBlockDisappear_next');
+                                to.style.display = 'block';
+                                to.classList.add('animBlockAppear_next');
+                                to.addEventListener('animationend', function appearHandler() {
+                                    to.classList.remove('animBlockAppear_next');
+                                    to.removeEventListener('animationend', appearHandler);
+                                });
+                                from.removeEventListener('animationend', handler);
+                            });
+                        }
+                    });
+                    // Закрытие всплывающего окна
+                    closeBtn_1_13.addEventListener('click', function () {
+                        popup_1_13.style.display = 'none'; // Скрываем всплывающее окно
+                    });
+                    // Инициализируем стиль обводки кнопки при загрузке страницы
+                    updateButtonBorder();
+                });
+                // Добавляем обработчики событий для радиокнопок
+                for (let radio of radioTop_1_13) {
+                    radio.addEventListener('change', updateButtonBorder); // Обновляем стиль обводки кнопки
+                }
+            </script>
+        </div>
+
+
+        <!-- ВОПРОС 14 -->
+
+        <div class="quest_1" name="quest_1_14">
+            <p class="quest_1_title">Вопрос 14</p>
+            <p class="quest_1_text">
+                <span class="affirm_1">Утверждение 1</span> Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Magnam,
+                consequatur, dolorem voluptatum cum aut unde consectetur obcaecati nam tenetur pariatur ratione
+                doloremque. Iste facere, in similique dolore, cupiditate nam corporis doloremque ab amet provident
+                necessitatibus voluptatem. Aspernatur delectus vel, ipsam rem aut repellat iusto odio magni, laudantium
+                voluptates qui cupiditate? <br>
+            </p>
+            <p class="quest_1_text">
+                <span class="affirm_1">Утверждение 2</span> Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Magnam,
+                consequatur, dolorem voluptatum cum aut unde consectetur obcaecati nam tenetur pariatur ratione
+                doloremque. Iste facere, in similique dolore, cupiditate nam corporis doloremque ab amet provident
+                necessitatibus voluptatem. Aspernatur delectus vel, ipsam rem aut repellat iusto odio magni, laudantium
+                voluptates qui cupiditate? <br>
+            </p>
+            <section class="quest_1_sect">
+                <button id="btn_1_14_prev" class="btn_nextprev">Назад</button>
+                <div class="inpBlock_1">
+                    <div class="inp_top_1">
+                        <div class="inp_left_1">
+                            <span>Вариант 1</span>
+                        </div>
+                        <div class="inp_right_1">
+                            <div class="var_inputs">
+                                <input type="radio" id="1_14_top_0" class="inpRadio" name="1_14_top"> 0
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_14_top_1" class="inpRadio" name="1_14_top"> 1
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_14_top_2" class="inpRadio" name="1_14_top"> 2
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_14_top_3" class="inpRadio" name="1_14_top"> 3
+                            </div>
+                        </div>
+                    </div>
+                    <div class="inp_bottom_1">
+                        <div class="inp_left_1">
+                            <span>Вариант 2</span>
+                        </div>
+                        <div class="inp_right_1">
+                            <div class="var_inputs">
+                                <input type="radio" id="1_14_bottom_0" class="inpRadio" name="1_14_bottom"> 0
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_14_bottom_1" class="inpRadio" name="1_14_bottom"> 1
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_14_bottom_2" class="inpRadio" name="1_14_bottom"> 2
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_14_bottom_3" class="inpRadio" name="1_14_bottom"> 3
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button id="btn_1_14_next" class="btn_nextprev">Далее</button>
+            </section>
+
+            <script>
+                // Работа с кнопками выбора
+                document.getElementById('1_14_top_0').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_14_bottom_3').checked = true;
+                    }
+                });
+                document.getElementById('1_14_top_1').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_14_bottom_2').checked = true;
+                    }
+                });
+                document.getElementById('1_14_top_2').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_14_bottom_1').checked = true;
+                    }
+                });
+                document.getElementById('1_14_top_3').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_14_bottom_0').checked = true;
+                    }
+                });
+                document.getElementById('1_14_bottom_3').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_14_top_0').checked = true;
+                    }
+                });
+                document.getElementById('1_14_bottom_2').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_14_top_1').checked = true;
+                    }
+                });
+                document.getElementById('1_14_bottom_1').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_14_top_2').checked = true;
+                    }
+                });
+                document.getElementById('1_14_bottom_0').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_14_top_3').checked = true;
+                    }
+                });
+                // Перелистывание назад
+                document.getElementById('btn_1_14_prev').addEventListener('click', function () {
+                    var from = document.querySelector('[name="quest_1_14"]');
+                    var to = document.querySelector('[name="quest_1_13"]');
+                    from.classList.add('animBlockDisappear_prev');
+                    from.addEventListener('animationend', function handler() {
+                        from.style.display = 'none';
+                        from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
+                        to.style.display = 'block';
+                        to.classList.add('animBlockAppear_prev'); // Добавляем класс анимации для появления
+                        to.addEventListener('animationend', function appearHandler() {
+                            to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
+                            to.removeEventListener('animationend', appearHandler);
+                        });
+                        from.removeEventListener('animationend', handler);
+                    });
+                });
+                // Переменные всплывающего окна
+                const popup_1_14 = document.getElementById('popup_1');
+                const closeBtn_1_14 = document.getElementById('closeBtn_1');
+                // Переменные и функция перелистывания вперед
+                const radioTop_1_14 = document.getElementsByName("1_14_top");
+                const nextButton_1_14 = document.getElementById("btn_1_14_next");
+                document.addEventListener("DOMContentLoaded", function () {
+                    nextButton_1_14.addEventListener("click", function () {
+                        let isChecked = false;
+                        // Проверяем состояние радиокнопок
+                        for (let radio of radioTop_1_14) {
+                            if (radio.checked) {
+                                isChecked = true;
+                                break;
+                            }
+                        }
+                        // Если ни один переключатель не выбран
+                        if (!isChecked) {
+                            popup_1_14.style.display = 'flex'; // Показываем всплывающее окно
+                        } else {
+                            // Логика перелистывания вперед
+                            const from = document.querySelector('[name="quest_1_14"]');
+                            const to = document.querySelector('[name="quest_1_15"]'); // Предполагается, что этот элемент существует
+                            from.classList.add('animBlockDisappear_next');
+                            from.addEventListener('animationend', function handler() {
+                                from.style.display = 'none';
+                                from.classList.remove('animBlockDisappear_next');
+                                to.style.display = 'block';
+                                to.classList.add('animBlockAppear_next');
+                                to.addEventListener('animationend', function appearHandler() {
+                                    to.classList.remove('animBlockAppear_next');
+                                    to.removeEventListener('animationend', appearHandler);
+                                });
+                                from.removeEventListener('animationend', handler);
+                            });
+                        }
+                    });
+                    // Закрытие всплывающего окна
+                    closeBtn_1_14.addEventListener('click', function () {
+                        popup_1_14.style.display = 'none'; // Скрываем всплывающее окно
+                    });
+                    // Инициализируем стиль обводки кнопки при загрузке страницы
+                    updateButtonBorder();
+                });
+                // Добавляем обработчики событий для радиокнопок
+                for (let radio of radioTop_1_14) {
+                    radio.addEventListener('change', updateButtonBorder); // Обновляем стиль обводки кнопки
+                }
+            </script>
+        </div>
+
+
+        <!-- ВОПРОС 15 -->
+
+        <div class="quest_1" name="quest_1_15">
+            <p class="quest_1_title">Вопрос 15</p>
+            <p class="quest_1_text">
+                <span class="affirm_1">Утверждение 1</span> Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Magnam,
+                consequatur, dolorem voluptatum cum aut unde consectetur obcaecati nam tenetur pariatur ratione
+                doloremque. Iste facere, in similique dolore, cupiditate nam corporis doloremque ab amet provident
+                necessitatibus voluptatem. Aspernatur delectus vel, ipsam rem aut repellat iusto odio magni, laudantium
+                voluptates qui cupiditate? <br>
+            </p>
+            <p class="quest_1_text">
+                <span class="affirm_1">Утверждение 2</span> Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Magnam,
+                consequatur, dolorem voluptatum cum aut unde consectetur obcaecati nam tenetur pariatur ratione
+                doloremque. Iste facere, in similique dolore, cupiditate nam corporis doloremque ab amet provident
+                necessitatibus voluptatem. Aspernatur delectus vel, ipsam rem aut repellat iusto odio magni, laudantium
+                voluptates qui cupiditate? <br>
+            </p>
+            <section class="quest_1_sect">
+                <button id="btn_1_15_prev" class="btn_nextprev">Назад</button>
+                <div class="inpBlock_1">
+                    <div class="inp_top_1">
+                        <div class="inp_left_1">
+                            <span>Вариант 1</span>
+                        </div>
+                        <div class="inp_right_1">
+                            <div class="var_inputs">
+                                <input type="radio" id="1_15_top_0" class="inpRadio" name="1_15_top"> 0
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_15_top_1" class="inpRadio" name="1_15_top"> 1
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_15_top_2" class="inpRadio" name="1_15_top"> 2
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_15_top_3" class="inpRadio" name="1_15_top"> 3
+                            </div>
+                        </div>
+                    </div>
+                    <div class="inp_bottom_1">
+                        <div class="inp_left_1">
+                            <span>Вариант 2</span>
+                        </div>
+                        <div class="inp_right_1">
+                            <div class="var_inputs">
+                                <input type="radio" id="1_15_bottom_0" class="inpRadio" name="1_15_bottom"> 0
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_15_bottom_1" class="inpRadio" name="1_15_bottom"> 1
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_15_bottom_2" class="inpRadio" name="1_15_bottom"> 2
+                            </div>
+                            <div class="var_inputs">
+                                <input type="radio" id="1_15_bottom_3" class="inpRadio" name="1_15_bottom"> 3
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button id="btn_1_15_next" class="btn_nextprev">Далее</button>
+            </section>
+
+            <script>
+                // Работа с кнопками выбора
+                document.getElementById('1_15_top_0').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_15_bottom_3').checked = true;
+                    }
+                });
+                document.getElementById('1_15_top_1').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_15_bottom_2').checked = true;
+                    }
+                });
+                document.getElementById('1_15_top_2').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_15_bottom_1').checked = true;
+                    }
+                });
+                document.getElementById('1_15_top_3').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_15_bottom_0').checked = true;
+                    }
+                });
+                document.getElementById('1_15_bottom_3').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_15_top_0').checked = true;
+                    }
+                });
+                document.getElementById('1_15_bottom_2').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_15_top_1').checked = true;
+                    }
+                });
+                document.getElementById('1_15_bottom_1').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_15_top_2').checked = true;
+                    }
+                });
+                document.getElementById('1_15_bottom_0').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('1_15_top_3').checked = true;
+                    }
+                });
+                // Перелистывание назад
+                document.getElementById('btn_1_15_prev').addEventListener('click', function () {
+                    var from = document.querySelector('[name="quest_1_15"]');
+                    var to = document.querySelector('[name="quest_1_14"]');
+                    from.classList.add('animBlockDisappear_prev');
+                    from.addEventListener('animationend', function handler() {
+                        from.style.display = 'none';
+                        from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
+                        to.style.display = 'block';
+                        to.classList.add('animBlockAppear_prev'); // Добавляем класс анимации для появления
+                        to.addEventListener('animationend', function appearHandler() {
+                            to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
+                            to.removeEventListener('animationend', appearHandler);
+                        });
+                        from.removeEventListener('animationend', handler);
+                    });
+                });
+                // Переменные всплывающего окна
+                const popup_1_15 = document.getElementById('popup_1');
+                const closeBtn_1_15 = document.getElementById('closeBtn_1');
+                // Переменные и функция перелистывания вперед
+                const radioTop_1_15 = document.getElementsByName("1_15_top");
+                const nextButton_1_15 = document.getElementById("btn_1_15_next");
+                document.addEventListener("DOMContentLoaded", function () {
+                    nextButton_1_15.addEventListener("click", function () {
+                        let isChecked = false;
+                        // Проверяем состояние радиокнопок
+                        for (let radio of radioTop_1_15) {
+                            if (radio.checked) {
+                                isChecked = true;
+                                break;
+                            }
+                        }
+                        // Если ни один переключатель не выбран
+                        if (!isChecked) {
+                            popup_1_15.style.display = 'flex'; // Показываем всплывающее окно
+                        } else {
+                            // Логика перелистывания вперед
+                            const from = document.querySelector('[name="quest_1_15"]');
+                            const to = document.querySelector('[name="end_test_1"]'); // Предполагается, что этот элемент существует
+                            from.classList.add('animBlockDisappear_next');
+                            from.addEventListener('animationend', function handler() {
+                                from.style.display = 'none';
+                                from.classList.remove('animBlockDisappear_next');
+                                to.style.display = 'block';
+                                to.classList.add('animBlockAppear_next');
+                                to.addEventListener('animationend', function appearHandler() {
+                                    to.classList.remove('animBlockAppear_next');
+                                    to.removeEventListener('animationend', appearHandler);
+                                });
+                                from.removeEventListener('animationend', handler);
+                            });
+                        }
+                    });
+                    // Закрытие всплывающего окна
+                    closeBtn_1_15.addEventListener('click', function () {
+                        popup_1_15.style.display = 'none'; // Скрываем всплывающее окно
+                    });
+                    // Инициализируем стиль обводки кнопки при загрузке страницы
+                    updateButtonBorder();
+                });
+                // Добавляем обработчики событий для радиокнопок
+                for (let radio of radioTop_1_15) {
+                    radio.addEventListener('change', updateButtonBorder); // Обновляем стиль обводки кнопки
+                }
+            </script>
+        </div>
+
+
+        <!-- ВСПЛЫВАЮЩЕЕ ОКНО В КОНЦЕ БЛОКА -->
+        <div class="popup" id="popup_1_end">
+            <div class="popup-content">
+                <p class="error_text">Ошибка</p>
+                <p>Подтвердите свой выбор вариантов ответа</p>
+                <button class="close-btn" id="closeBtn_1_end">Закрыть</button>
+            </div>
+        </div>
+
+        <!-- КОНЕЦ БЛОКА -->
+
+        <div class="end_test" name="end_test_1">
+            <p class="end_test_title">Блок 1 пройден<br>
+            </p>
+            <p class="end_test_text">Вы завершаете прохождение блока 1. Если у Вас остались сомнения в выборе вариантов
+                ответа, перепроверьте их перед тем, как продолжить тест. После нажатия на кнопку "Продолжить" изменить
+                ответы уже не получится.<br>
+            </p>
+            <section class="end_sect">
+                <button class="btn_nextprev" id="end_test_prev">Назад</button>
+                <div class="confirm_answers">
+                    <div></div>
+                    <span>Подтвердить ответы</span>
+                    <input type="checkbox" id="confirm_1_end" class="inpRadio">
+                    <div></div>
+                </div>
+                <button class="btn_continue" id="end_test_next_1" type="button">Продолжить</button>
+            </section>
+
+            <script>
+                window.addEventListener('load', function () {
+                    // Скрываем всплывающее окно при загрузке страницы
+                    const popup = document.getElementById('popup_1_end');
+                    popup.style.display = 'none';
+                });
+                // Перелистывание назад
+                document.getElementById('end_test_prev').addEventListener('click', function () {
+                    var from = document.querySelector('[name="end_test_1"]');
+                    var to = document.querySelector('[name="quest_1_15"]');
+                    from.classList.add('animBlockDisappear_prev');
+                    from.addEventListener('animationend', function handler() {
+                        from.style.display = 'none';
+                        from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
+                        to.style.display = 'block';
+                        to.classList.add('animBlockAppear_prev');
+                        to.addEventListener('animationend', function appearHandler() {
+                            to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
+                            to.removeEventListener('animationend', appearHandler);
+                        });
+                        from.removeEventListener('animationend', handler);
+                    });
+                });
+                // Переменные всплывающего окна
+                const popup_1_end = document.getElementById('popup_1_end');
+                const closeBtn_1_end = document.getElementById('closeBtn_1_end');
+                // Переменные и функция перелистывания вперед
+                const nextButton_1_end = document.getElementById("end_test_next_1");
+                document.addEventListener("DOMContentLoaded", function () {
+                    nextButton_1_end.addEventListener("click", function () {
+                        // Если переключатель не выбран
+                        const checkbox = document.getElementById('confirm_1_end');
+                        if (!checkbox.checked) {
+                            popup_1_end.style.display = 'flex'; // Показываем всплывающее окно
+                        } else {
+                            // Переход на другую страницу при нажатии на кнопку
+                            const from = document.querySelector('[name="end_test_1"]');
+                            from.classList.add('animBlockDisappear_next');
+                            from.addEventListener('animationend', function handler() {
+                                from.style.display = 'none';
+                                from.classList.remove('animBlockDisappear_next');
+
+                                                                                                               // !!!!! Сделать код для подсчёта баллов!
+
+                                // Переход на новую страницу после окончания анимации
+                                window.location.href = 'test_2.html';
+                                from.removeEventListener('animationend', handler);
+                            });
+                        }
+                    });
+                    // Закрытие всплывающего окна
+                    closeBtn_1_end.addEventListener('click', function () {
+                        popup_1_end.style.display = 'none'; // Скрываем всплывающее окно
+                    });
+                });
+            </script>
+        </div>
+
+    </main>
+
+</body>
+
+</html>
