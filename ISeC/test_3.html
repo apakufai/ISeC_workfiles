@@ -324,6 +324,969 @@
             </script>
         </div>
 
+
+        <!-- ВОПРОС 3 -->
+
+        <div class="quest_3" name="quest_3_3">
+            <p class="quest_3_title">Вопрос 3</p>
+            <p class="quest_3_text">
+                <span class="affirm_3">Утверждение 1</span>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Magnam, consequatur, dolorem voluptatum cum aut unde consectetur obcaecati nam tenetur pariatur ratione
+                doloremque. Iste facere, in similique dolore, cupiditate nam corporis doloremque ab amet provident
+                necessitatibus voluptatem. Aspernatur delectus vel, ipsam rem aut repellat iusto odio magni, laudantium
+                voluptates qui cupiditate? <br>
+            </p>
+            <p class="quest_3_text">
+                <span class="affirm_3">Утверждение 2</span>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Magnam, consequatur, dolorem voluptatum cum aut unde consectetur obcaecati nam tenetur pariatur ratione
+                doloremque. Iste facere, in similique dolore, cupiditate nam corporis doloremque ab amet provident
+                necessitatibus voluptatem. Aspernatur delectus vel, ipsam rem aut repellat iusto odio magni, laudantium
+                voluptates qui cupiditate? <br>
+            </p>
+            <p class="quest_3_text">
+                <span class="affirm_3">Утверждение 3</span>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Magnam, consequatur, dolorem voluptatum cum aut unde consectetur obcaecati nam tenetur pariatur ratione
+                doloremque. Iste facere, in similique dolore, cupiditate nam corporis doloremque ab amet provident
+                necessitatibus voluptatem. Aspernatur delectus vel, ipsam rem aut repellat iusto odio magni, laudantium
+                voluptates qui cupiditate? <br>
+            </p>
+            <section class="quest_3_sect">
+                <button id="btn_3_3_prev" class="btn_nextprev">Назад</button>
+                <div class="inpBlock_3">
+                    <div class="inp_count_3" id="inp_count_3_3_1">
+                        <span>Вариант 1</span>
+                        <input type="range" class="slider" value="1" min="1" max="3" list="input-list_3_3">
+                        <div class="range-output">
+                            <span>1</span>
+                            <span>2</span>
+                            <span>3</span>
+                        </div>
+                    </div>
+                    <div class="inp_count_3" id="inp_count_3_3_2">
+                        <span>Вариант 2</span>
+                        <input type="range" class="slider" value="1" min="1" max="3" list="input-list_3_3">
+                        <div class="range-output">
+                            <span>1</span>
+                            <span>2</span>
+                            <span>3</span>
+                        </div>
+                    </div>
+                    <div class="inp_count_3" id="inp_count_3_3_3">
+                        <span>Вариант 3</span>
+                        <input type="range" class="slider" value="1" min="1" max="3" list="input-list_3_3">
+                        <div class="range-output">
+                            <span>1</span>
+                            <span>2</span>
+                            <span>3</span>
+                        </div>
+                    </div>
+                    <datalist id="input-list_3_3">
+                        <option value="1"></option>
+                        <option value="2"></option>
+                        <option value="3"></option>
+                    </datalist>
+                </div>
+                <button id="btn_3_3_next" class="btn_nextprev">Далее</button>
+            </section>
+
+            <script>
+                // Перелистывание назад
+                document.getElementById('btn_3_3_prev').addEventListener('click', function () {
+                    var from = document.querySelector('[name="quest_3_3"]');
+                    var to = document.querySelector('[name="quest_3_2"]');
+                    from.classList.add('animBlockDisappear_prev');
+                    from.addEventListener('animationend', function handler() {
+                        from.style.display = 'none';
+                        from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
+                        to.style.display = 'block';
+                        to.classList.add('animBlockAppear_prev'); // Добавляем класс анимации для появления
+                        to.addEventListener('animationend', function appearHandler() {
+                            to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
+                            to.removeEventListener('animationend', appearHandler);
+                        });
+                        from.removeEventListener('animationend', handler);
+                    });
+                });
+                // Переменные всплывающего окна
+                const popup_3_3 = document.getElementById('popup_3');
+                const closeBtn_3_3 = document.getElementById('closeBtn_3');
+                // Кнопка и функция перелистывания вперед
+                const nextButton_3_3 = document.getElementById("btn_3_3_next");
+                document.addEventListener("DOMContentLoaded", function () {
+                    nextButton_3_3.addEventListener("click", function () {
+                        // Получаем значения ползунков по ID
+                        const value_3_3_1 = parseInt(document.getElementById('inp_count_3_3_1').querySelector('.slider').value, 10);
+                        const value_3_3_2 = parseInt(document.getElementById('inp_count_3_3_2').querySelector('.slider').value, 10);
+                        const value_3_3_3 = parseInt(document.getElementById('inp_count_3_3_3').querySelector('.slider').value, 10);
+                        const values_3_3 = [value_3_3_1, value_3_3_2, value_3_3_3];
+                        // Проверяем, есть ли значения 1, 2 и 3 среди ползунков
+                        if (!(values_3_3.includes(1) && values_3_3.includes(2) && values_3_3.includes(3))) {
+                            // Если все три уникальных значения отсутствуют, показываем всплывающее окно
+                            popup_3_3.style.display = 'flex';
+                        } else {
+                            // Логика перелистывания вперед
+                            const from = document.querySelector('[name="quest_3_3"]');
+                            const to = document.querySelector('[name="quest_3_4"]'); // Предполагается, что этот элемент существует
+                            from.classList.add('animBlockDisappear_next');
+                            from.addEventListener('animationend', function handler() {
+                                from.style.display = 'none';
+                                from.classList.remove('animBlockDisappear_next');
+                                to.style.display = 'block';
+                                to.classList.add('animBlockAppear_next');
+                                to.addEventListener('animationend', function appearHandler() {
+                                    to.classList.remove('animBlockAppear_next');
+                                    to.removeEventListener('animationend', appearHandler);
+                                });
+                                from.removeEventListener('animationend', handler);
+                            });
+                        }
+                    });
+                    // Закрытие всплывающего окна
+                    closeBtn_3_3.addEventListener('click', function () {
+                        popup_3_3.style.display = 'none'; // Скрываем всплывающее окно
+                    });
+                });
+            </script>
+        </div>
+
+
+        <!-- ВОПРОС 4 -->
+
+        <div class="quest_3" name="quest_3_4">
+            <p class="quest_3_title">Вопрос 4</p>
+            <p class="quest_3_text">
+                <span class="affirm_3">Утверждение 1</span>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Magnam, consequatur, dolorem voluptatum cum aut unde consectetur obcaecati nam tenetur pariatur ratione
+                doloremque. Iste facere, in similique dolore, cupiditate nam corporis doloremque ab amet provident
+                necessitatibus voluptatem. Aspernatur delectus vel, ipsam rem aut repellat iusto odio magni, laudantium
+                voluptates qui cupiditate? <br>
+            </p>
+            <p class="quest_3_text">
+                <span class="affirm_3">Утверждение 2</span>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Magnam, consequatur, dolorem voluptatum cum aut unde consectetur obcaecati nam tenetur pariatur ratione
+                doloremque. Iste facere, in similique dolore, cupiditate nam corporis doloremque ab amet provident
+                necessitatibus voluptatem. Aspernatur delectus vel, ipsam rem aut repellat iusto odio magni, laudantium
+                voluptates qui cupiditate? <br>
+            </p>
+            <p class="quest_3_text">
+                <span class="affirm_3">Утверждение 3</span>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Magnam, consequatur, dolorem voluptatum cum aut unde consectetur obcaecati nam tenetur pariatur ratione
+                doloremque. Iste facere, in similique dolore, cupiditate nam corporis doloremque ab amet provident
+                necessitatibus voluptatem. Aspernatur delectus vel, ipsam rem aut repellat iusto odio magni, laudantium
+                voluptates qui cupiditate? <br>
+            </p>
+            <section class="quest_3_sect">
+                <button id="btn_3_4_prev" class="btn_nextprev">Назад</button>
+                <div class="inpBlock_3">
+                    <div class="inp_count_3" id="inp_count_3_4_1">
+                        <span>Вариант 1</span>
+                        <input type="range" class="slider" value="1" min="1" max="3" list="input-list_3_4">
+                        <div class="range-output">
+                            <span>1</span>
+                            <span>2</span>
+                            <span>3</span>
+                        </div>
+                    </div>
+                    <div class="inp_count_3" id="inp_count_3_4_2">
+                        <span>Вариант 2</span>
+                        <input type="range" class="slider" value="1" min="1" max="3" list="input-list_3_4">
+                        <div class="range-output">
+                            <span>1</span>
+                            <span>2</span>
+                            <span>3</span>
+                        </div>
+                    </div>
+                    <div class="inp_count_3" id="inp_count_3_4_3">
+                        <span>Вариант 3</span>
+                        <input type="range" class="slider" value="1" min="1" max="3" list="input-list_3_4">
+                        <div class="range-output">
+                            <span>1</span>
+                            <span>2</span>
+                            <span>3</span>
+                        </div>
+                    </div>
+                    <datalist id="input-list_3_4">
+                        <option value="1"></option>
+                        <option value="2"></option>
+                        <option value="3"></option>
+                    </datalist>
+                </div>
+                <button id="btn_3_4_next" class="btn_nextprev">Далее</button>
+            </section>
+
+            <script>
+                // Перелистывание назад
+                document.getElementById('btn_3_4_prev').addEventListener('click', function () {
+                    var from = document.querySelector('[name="quest_3_4"]');
+                    var to = document.querySelector('[name="quest_3_3"]');
+                    from.classList.add('animBlockDisappear_prev');
+                    from.addEventListener('animationend', function handler() {
+                        from.style.display = 'none';
+                        from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
+                        to.style.display = 'block';
+                        to.classList.add('animBlockAppear_prev'); // Добавляем класс анимации для появления
+                        to.addEventListener('animationend', function appearHandler() {
+                            to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
+                            to.removeEventListener('animationend', appearHandler);
+                        });
+                        from.removeEventListener('animationend', handler);
+                    });
+                });
+                // Переменные всплывающего окна
+                const popup_3_4 = document.getElementById('popup_3');
+                const closeBtn_3_4 = document.getElementById('closeBtn_3');
+                // Кнопка и функция перелистывания вперед
+                const nextButton_3_4 = document.getElementById("btn_3_4_next");
+                document.addEventListener("DOMContentLoaded", function () {
+                    nextButton_3_4.addEventListener("click", function () {
+                        // Получаем значения ползунков по ID
+                        const value_3_4_1 = parseInt(document.getElementById('inp_count_3_4_1').querySelector('.slider').value, 10);
+                        const value_3_4_2 = parseInt(document.getElementById('inp_count_3_4_2').querySelector('.slider').value, 10);
+                        const value_3_4_3 = parseInt(document.getElementById('inp_count_3_4_3').querySelector('.slider').value, 10);
+                        const values_3_4 = [value_3_4_1, value_3_4_2, value_3_4_3];
+                        // Проверяем, есть ли значения 1, 2 и 3 среди ползунков
+                        if (!(values_3_4.includes(1) && values_3_4.includes(2) && values_3_4.includes(3))) {
+                            // Если все три уникальных значения отсутствуют, показываем всплывающее окно
+                            popup_3_4.style.display = 'flex';
+                        } else {
+                            // Логика перелистывания вперед
+                            const from = document.querySelector('[name="quest_3_4"]');
+                            const to = document.querySelector('[name="quest_3_5"]'); // Предполагается, что этот элемент существует
+                            from.classList.add('animBlockDisappear_next');
+                            from.addEventListener('animationend', function handler() {
+                                from.style.display = 'none';
+                                from.classList.remove('animBlockDisappear_next');
+                                to.style.display = 'block';
+                                to.classList.add('animBlockAppear_next');
+                                to.addEventListener('animationend', function appearHandler() {
+                                    to.classList.remove('animBlockAppear_next');
+                                    to.removeEventListener('animationend', appearHandler);
+                                });
+                                from.removeEventListener('animationend', handler);
+                            });
+                        }
+                    });
+                    // Закрытие всплывающего окна
+                    closeBtn_3_4.addEventListener('click', function () {
+                        popup_3_4.style.display = 'none'; // Скрываем всплывающее окно
+                    });
+                });
+            </script>
+        </div>
+
+
+        <!-- ВОПРОС 5 -->
+
+        <div class="quest_3" name="quest_3_5">
+            <p class="quest_3_title">Вопрос 5</p>
+            <p class="quest_3_text">
+                <span class="affirm_3">Утверждение 1</span>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Magnam, consequatur, dolorem voluptatum cum aut unde consectetur obcaecati nam tenetur pariatur ratione
+                doloremque. Iste facere, in similique dolore, cupiditate nam corporis doloremque ab amet provident
+                necessitatibus voluptatem. Aspernatur delectus vel, ipsam rem aut repellat iusto odio magni, laudantium
+                voluptates qui cupiditate? <br>
+            </p>
+            <p class="quest_3_text">
+                <span class="affirm_3">Утверждение 2</span>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Magnam, consequatur, dolorem voluptatum cum aut unde consectetur obcaecati nam tenetur pariatur ratione
+                doloremque. Iste facere, in similique dolore, cupiditate nam corporis doloremque ab amet provident
+                necessitatibus voluptatem. Aspernatur delectus vel, ipsam rem aut repellat iusto odio magni, laudantium
+                voluptates qui cupiditate? <br>
+            </p>
+            <p class="quest_3_text">
+                <span class="affirm_3">Утверждение 3</span>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Magnam, consequatur, dolorem voluptatum cum aut unde consectetur obcaecati nam tenetur pariatur ratione
+                doloremque. Iste facere, in similique dolore, cupiditate nam corporis doloremque ab amet provident
+                necessitatibus voluptatem. Aspernatur delectus vel, ipsam rem aut repellat iusto odio magni, laudantium
+                voluptates qui cupiditate? <br>
+            </p>
+            <section class="quest_3_sect">
+                <button id="btn_3_5_prev" class="btn_nextprev">Назад</button>
+                <div class="inpBlock_3">
+                    <div class="inp_count_3" id="inp_count_3_5_1">
+                        <span>Вариант 1</span>
+                        <input type="range" class="slider" value="1" min="1" max="3" list="input-list_3_5">
+                        <div class="range-output">
+                            <span>1</span>
+                            <span>2</span>
+                            <span>3</span>
+                        </div>
+                    </div>
+                    <div class="inp_count_3" id="inp_count_3_5_2">
+                        <span>Вариант 2</span>
+                        <input type="range" class="slider" value="1" min="1" max="3" list="input-list_3_5">
+                        <div class="range-output">
+                            <span>1</span>
+                            <span>2</span>
+                            <span>3</span>
+                        </div>
+                    </div>
+                    <div class="inp_count_3" id="inp_count_3_5_3">
+                        <span>Вариант 3</span>
+                        <input type="range" class="slider" value="1" min="1" max="3" list="input-list_3_5">
+                        <div class="range-output">
+                            <span>1</span>
+                            <span>2</span>
+                            <span>3</span>
+                        </div>
+                    </div>
+                    <datalist id="input-list_3_5">
+                        <option value="1"></option>
+                        <option value="2"></option>
+                        <option value="3"></option>
+                    </datalist>
+                </div>
+                <button id="btn_3_5_next" class="btn_nextprev">Далее</button>
+            </section>
+
+            <script>
+                // Перелистывание назад
+                document.getElementById('btn_3_5_prev').addEventListener('click', function () {
+                    var from = document.querySelector('[name="quest_3_5"]');
+                    var to = document.querySelector('[name="quest_3_4"]');
+                    from.classList.add('animBlockDisappear_prev');
+                    from.addEventListener('animationend', function handler() {
+                        from.style.display = 'none';
+                        from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
+                        to.style.display = 'block';
+                        to.classList.add('animBlockAppear_prev'); // Добавляем класс анимации для появления
+                        to.addEventListener('animationend', function appearHandler() {
+                            to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
+                            to.removeEventListener('animationend', appearHandler);
+                        });
+                        from.removeEventListener('animationend', handler);
+                    });
+                });
+                // Переменные всплывающего окна
+                const popup_3_5 = document.getElementById('popup_3');
+                const closeBtn_3_5 = document.getElementById('closeBtn_3');
+                // Кнопка и функция перелистывания вперед
+                const nextButton_3_5 = document.getElementById("btn_3_5_next");
+                document.addEventListener("DOMContentLoaded", function () {
+                    nextButton_3_5.addEventListener("click", function () {
+                        // Получаем значения ползунков по ID
+                        const value_3_5_1 = parseInt(document.getElementById('inp_count_3_5_1').querySelector('.slider').value, 10);
+                        const value_3_5_2 = parseInt(document.getElementById('inp_count_3_5_2').querySelector('.slider').value, 10);
+                        const value_3_5_3 = parseInt(document.getElementById('inp_count_3_5_3').querySelector('.slider').value, 10);
+                        const values_3_5 = [value_3_5_1, value_3_5_2, value_3_5_3];
+                        // Проверяем, есть ли значения 1, 2 и 3 среди ползунков
+                        if (!(values_3_5.includes(1) && values_3_5.includes(2) && values_3_5.includes(3))) {
+                            // Если все три уникальных значения отсутствуют, показываем всплывающее окно
+                            popup_3_5.style.display = 'flex';
+                        } else {
+                            // Логика перелистывания вперед
+                            const from = document.querySelector('[name="quest_3_5"]');
+                            const to = document.querySelector('[name="quest_3_6"]'); // Предполагается, что этот элемент существует
+                            from.classList.add('animBlockDisappear_next');
+                            from.addEventListener('animationend', function handler() {
+                                from.style.display = 'none';
+                                from.classList.remove('animBlockDisappear_next');
+                                to.style.display = 'block';
+                                to.classList.add('animBlockAppear_next');
+                                to.addEventListener('animationend', function appearHandler() {
+                                    to.classList.remove('animBlockAppear_next');
+                                    to.removeEventListener('animationend', appearHandler);
+                                });
+                                from.removeEventListener('animationend', handler);
+                            });
+                        }
+                    });
+                    // Закрытие всплывающего окна
+                    closeBtn_3_5.addEventListener('click', function () {
+                        popup_3_5.style.display = 'none'; // Скрываем всплывающее окно
+                    });
+                });
+            </script>
+        </div>
+
+
+        <!-- ВОПРОС 6 -->
+
+        <div class="quest_3" name="quest_3_6">
+            <p class="quest_3_title">Вопрос 6</p>
+            <p class="quest_3_text">
+                <span class="affirm_3">Утверждение 1</span>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Magnam, consequatur, dolorem voluptatum cum aut unde consectetur obcaecati nam tenetur pariatur ratione
+                doloremque. Iste facere, in similique dolore, cupiditate nam corporis doloremque ab amet provident
+                necessitatibus voluptatem. Aspernatur delectus vel, ipsam rem aut repellat iusto odio magni, laudantium
+                voluptates qui cupiditate? <br>
+            </p>
+            <p class="quest_3_text">
+                <span class="affirm_3">Утверждение 2</span>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Magnam, consequatur, dolorem voluptatum cum aut unde consectetur obcaecati nam tenetur pariatur ratione
+                doloremque. Iste facere, in similique dolore, cupiditate nam corporis doloremque ab amet provident
+                necessitatibus voluptatem. Aspernatur delectus vel, ipsam rem aut repellat iusto odio magni, laudantium
+                voluptates qui cupiditate? <br>
+            </p>
+            <p class="quest_3_text">
+                <span class="affirm_3">Утверждение 3</span>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Magnam, consequatur, dolorem voluptatum cum aut unde consectetur obcaecati nam tenetur pariatur ratione
+                doloremque. Iste facere, in similique dolore, cupiditate nam corporis doloremque ab amet provident
+                necessitatibus voluptatem. Aspernatur delectus vel, ipsam rem aut repellat iusto odio magni, laudantium
+                voluptates qui cupiditate? <br>
+            </p>
+            <section class="quest_3_sect">
+                <button id="btn_3_6_prev" class="btn_nextprev">Назад</button>
+                <div class="inpBlock_3">
+                    <div class="inp_count_3" id="inp_count_3_6_1">
+                        <span>Вариант 1</span>
+                        <input type="range" class="slider" value="1" min="1" max="3" list="input-list_3_6">
+                        <div class="range-output">
+                            <span>1</span>
+                            <span>2</span>
+                            <span>3</span>
+                        </div>
+                    </div>
+                    <div class="inp_count_3" id="inp_count_3_6_2">
+                        <span>Вариант 2</span>
+                        <input type="range" class="slider" value="1" min="1" max="3" list="input-list_3_6">
+                        <div class="range-output">
+                            <span>1</span>
+                            <span>2</span>
+                            <span>3</span>
+                        </div>
+                    </div>
+                    <div class="inp_count_3" id="inp_count_3_6_3">
+                        <span>Вариант 3</span>
+                        <input type="range" class="slider" value="1" min="1" max="3" list="input-list_3_6">
+                        <div class="range-output">
+                            <span>1</span>
+                            <span>2</span>
+                            <span>3</span>
+                        </div>
+                    </div>
+                    <datalist id="input-list_3_6">
+                        <option value="1"></option>
+                        <option value="2"></option>
+                        <option value="3"></option>
+                    </datalist>
+                </div>
+                <button id="btn_3_6_next" class="btn_nextprev">Далее</button>
+            </section>
+
+            <script>
+                // Перелистывание назад
+                document.getElementById('btn_3_6_prev').addEventListener('click', function () {
+                    var from = document.querySelector('[name="quest_3_6"]');
+                    var to = document.querySelector('[name="quest_3_5"]');
+                    from.classList.add('animBlockDisappear_prev');
+                    from.addEventListener('animationend', function handler() {
+                        from.style.display = 'none';
+                        from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
+                        to.style.display = 'block';
+                        to.classList.add('animBlockAppear_prev'); // Добавляем класс анимации для появления
+                        to.addEventListener('animationend', function appearHandler() {
+                            to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
+                            to.removeEventListener('animationend', appearHandler);
+                        });
+                        from.removeEventListener('animationend', handler);
+                    });
+                });
+                // Переменные всплывающего окна
+                const popup_3_6 = document.getElementById('popup_3');
+                const closeBtn_3_6 = document.getElementById('closeBtn_3');
+                // Кнопка и функция перелистывания вперед
+                const nextButton_3_6 = document.getElementById("btn_3_6_next");
+                document.addEventListener("DOMContentLoaded", function () {
+                    nextButton_3_6.addEventListener("click", function () {
+                        // Получаем значения ползунков по ID
+                        const value_3_6_1 = parseInt(document.getElementById('inp_count_3_6_1').querySelector('.slider').value, 10);
+                        const value_3_6_2 = parseInt(document.getElementById('inp_count_3_6_2').querySelector('.slider').value, 10);
+                        const value_3_6_3 = parseInt(document.getElementById('inp_count_3_6_3').querySelector('.slider').value, 10);
+                        const values_3_6 = [value_3_6_1, value_3_6_2, value_3_6_3];
+                        // Проверяем, есть ли значения 1, 2 и 3 среди ползунков
+                        if (!(values_3_6.includes(1) && values_3_6.includes(2) && values_3_6.includes(3))) {
+                            // Если все три уникальных значения отсутствуют, показываем всплывающее окно
+                            popup_3_6.style.display = 'flex';
+                        } else {
+                            // Логика перелистывания вперед
+                            const from = document.querySelector('[name="quest_3_6"]');
+                            const to = document.querySelector('[name="quest_3_7"]'); // Предполагается, что этот элемент существует
+                            from.classList.add('animBlockDisappear_next');
+                            from.addEventListener('animationend', function handler() {
+                                from.style.display = 'none';
+                                from.classList.remove('animBlockDisappear_next');
+                                to.style.display = 'block';
+                                to.classList.add('animBlockAppear_next');
+                                to.addEventListener('animationend', function appearHandler() {
+                                    to.classList.remove('animBlockAppear_next');
+                                    to.removeEventListener('animationend', appearHandler);
+                                });
+                                from.removeEventListener('animationend', handler);
+                            });
+                        }
+                    });
+                    // Закрытие всплывающего окна
+                    closeBtn_3_6.addEventListener('click', function () {
+                        popup_3_6.style.display = 'none'; // Скрываем всплывающее окно
+                    });
+                });
+            </script>
+        </div>
+
+
+        <!-- ВОПРОС 7 -->
+
+        <div class="quest_3" name="quest_3_7">
+            <p class="quest_3_title">Вопрос 7</p>
+            <p class="quest_3_text">
+                <span class="affirm_3">Утверждение 1</span>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Magnam, consequatur, dolorem voluptatum cum aut unde consectetur obcaecati nam tenetur pariatur ratione
+                doloremque. Iste facere, in similique dolore, cupiditate nam corporis doloremque ab amet provident
+                necessitatibus voluptatem. Aspernatur delectus vel, ipsam rem aut repellat iusto odio magni, laudantium
+                voluptates qui cupiditate? <br>
+            </p>
+            <p class="quest_3_text">
+                <span class="affirm_3">Утверждение 2</span>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Magnam, consequatur, dolorem voluptatum cum aut unde consectetur obcaecati nam tenetur pariatur ratione
+                doloremque. Iste facere, in similique dolore, cupiditate nam corporis doloremque ab amet provident
+                necessitatibus voluptatem. Aspernatur delectus vel, ipsam rem aut repellat iusto odio magni, laudantium
+                voluptates qui cupiditate? <br>
+            </p>
+            <p class="quest_3_text">
+                <span class="affirm_3">Утверждение 3</span>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Magnam, consequatur, dolorem voluptatum cum aut unde consectetur obcaecati nam tenetur pariatur ratione
+                doloremque. Iste facere, in similique dolore, cupiditate nam corporis doloremque ab amet provident
+                necessitatibus voluptatem. Aspernatur delectus vel, ipsam rem aut repellat iusto odio magni, laudantium
+                voluptates qui cupiditate? <br>
+            </p>
+            <section class="quest_3_sect">
+                <button id="btn_3_7_prev" class="btn_nextprev">Назад</button>
+                <div class="inpBlock_3">
+                    <div class="inp_count_3" id="inp_count_3_7_1">
+                        <span>Вариант 1</span>
+                        <input type="range" class="slider" value="1" min="1" max="3" list="input-list_3_7">
+                        <div class="range-output">
+                            <span>1</span>
+                            <span>2</span>
+                            <span>3</span>
+                        </div>
+                    </div>
+                    <div class="inp_count_3" id="inp_count_3_7_2">
+                        <span>Вариант 2</span>
+                        <input type="range" class="slider" value="1" min="1" max="3" list="input-list_3_7">
+                        <div class="range-output">
+                            <span>1</span>
+                            <span>2</span>
+                            <span>3</span>
+                        </div>
+                    </div>
+                    <div class="inp_count_3" id="inp_count_3_7_3">
+                        <span>Вариант 3</span>
+                        <input type="range" class="slider" value="1" min="1" max="3" list="input-list_3_7">
+                        <div class="range-output">
+                            <span>1</span>
+                            <span>2</span>
+                            <span>3</span>
+                        </div>
+                    </div>
+                    <datalist id="input-list_3_7">
+                        <option value="1"></option>
+                        <option value="2"></option>
+                        <option value="3"></option>
+                    </datalist>
+                </div>
+                <button id="btn_3_7_next" class="btn_nextprev">Далее</button>
+            </section>
+
+            <script>
+                // Перелистывание назад
+                document.getElementById('btn_3_7_prev').addEventListener('click', function () {
+                    var from = document.querySelector('[name="quest_3_7"]');
+                    var to = document.querySelector('[name="quest_3_6"]');
+                    from.classList.add('animBlockDisappear_prev');
+                    from.addEventListener('animationend', function handler() {
+                        from.style.display = 'none';
+                        from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
+                        to.style.display = 'block';
+                        to.classList.add('animBlockAppear_prev'); // Добавляем класс анимации для появления
+                        to.addEventListener('animationend', function appearHandler() {
+                            to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
+                            to.removeEventListener('animationend', appearHandler);
+                        });
+                        from.removeEventListener('animationend', handler);
+                    });
+                });
+                // Переменные всплывающего окна
+                const popup_3_7 = document.getElementById('popup_3');
+                const closeBtn_3_7 = document.getElementById('closeBtn_3');
+                // Кнопка и функция перелистывания вперед
+                const nextButton_3_7 = document.getElementById("btn_3_7_next");
+                document.addEventListener("DOMContentLoaded", function () {
+                    nextButton_3_7.addEventListener("click", function () {
+                        // Получаем значения ползунков по ID
+                        const value_3_7_1 = parseInt(document.getElementById('inp_count_3_7_1').querySelector('.slider').value, 10);
+                        const value_3_7_2 = parseInt(document.getElementById('inp_count_3_7_2').querySelector('.slider').value, 10);
+                        const value_3_7_3 = parseInt(document.getElementById('inp_count_3_7_3').querySelector('.slider').value, 10);
+                        const values_3_7 = [value_3_7_1, value_3_7_2, value_3_7_3];
+                        // Проверяем, есть ли значения 1, 2 и 3 среди ползунков
+                        if (!(values_3_7.includes(1) && values_3_7.includes(2) && values_3_7.includes(3))) {
+                            // Если все три уникальных значения отсутствуют, показываем всплывающее окно
+                            popup_3_7.style.display = 'flex';
+                        } else {
+                            // Логика перелистывания вперед
+                            const from = document.querySelector('[name="quest_3_7"]');
+                            const to = document.querySelector('[name="quest_3_8"]'); // Предполагается, что этот элемент существует
+                            from.classList.add('animBlockDisappear_next');
+                            from.addEventListener('animationend', function handler() {
+                                from.style.display = 'none';
+                                from.classList.remove('animBlockDisappear_next');
+                                to.style.display = 'block';
+                                to.classList.add('animBlockAppear_next');
+                                to.addEventListener('animationend', function appearHandler() {
+                                    to.classList.remove('animBlockAppear_next');
+                                    to.removeEventListener('animationend', appearHandler);
+                                });
+                                from.removeEventListener('animationend', handler);
+                            });
+                        }
+                    });
+                    // Закрытие всплывающего окна
+                    closeBtn_3_7.addEventListener('click', function () {
+                        popup_3_7.style.display = 'none'; // Скрываем всплывающее окно
+                    });
+                });
+            </script>
+        </div>
+
+
+        <!-- ВОПРОС 8 -->
+
+        <div class="quest_3" name="quest_3_8">
+            <p class="quest_3_title">Вопрос 8</p>
+            <p class="quest_3_text">
+                <span class="affirm_3">Утверждение 1</span>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Magnam, consequatur, dolorem voluptatum cum aut unde consectetur obcaecati nam tenetur pariatur ratione
+                doloremque. Iste facere, in similique dolore, cupiditate nam corporis doloremque ab amet provident
+                necessitatibus voluptatem. Aspernatur delectus vel, ipsam rem aut repellat iusto odio magni, laudantium
+                voluptates qui cupiditate? <br>
+            </p>
+            <p class="quest_3_text">
+                <span class="affirm_3">Утверждение 2</span>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Magnam, consequatur, dolorem voluptatum cum aut unde consectetur obcaecati nam tenetur pariatur ratione
+                doloremque. Iste facere, in similique dolore, cupiditate nam corporis doloremque ab amet provident
+                necessitatibus voluptatem. Aspernatur delectus vel, ipsam rem aut repellat iusto odio magni, laudantium
+                voluptates qui cupiditate? <br>
+            </p>
+            <p class="quest_3_text">
+                <span class="affirm_3">Утверждение 3</span>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Magnam, consequatur, dolorem voluptatum cum aut unde consectetur obcaecati nam tenetur pariatur ratione
+                doloremque. Iste facere, in similique dolore, cupiditate nam corporis doloremque ab amet provident
+                necessitatibus voluptatem. Aspernatur delectus vel, ipsam rem aut repellat iusto odio magni, laudantium
+                voluptates qui cupiditate? <br>
+            </p>
+            <section class="quest_3_sect">
+                <button id="btn_3_8_prev" class="btn_nextprev">Назад</button>
+                <div class="inpBlock_3">
+                    <div class="inp_count_3" id="inp_count_3_8_1">
+                        <span>Вариант 1</span>
+                        <input type="range" class="slider" value="1" min="1" max="3" list="input-list_3_8">
+                        <div class="range-output">
+                            <span>1</span>
+                            <span>2</span>
+                            <span>3</span>
+                        </div>
+                    </div>
+                    <div class="inp_count_3" id="inp_count_3_8_2">
+                        <span>Вариант 2</span>
+                        <input type="range" class="slider" value="1" min="1" max="3" list="input-list_3_8">
+                        <div class="range-output">
+                            <span>1</span>
+                            <span>2</span>
+                            <span>3</span>
+                        </div>
+                    </div>
+                    <div class="inp_count_3" id="inp_count_3_8_3">
+                        <span>Вариант 3</span>
+                        <input type="range" class="slider" value="1" min="1" max="3" list="input-list_3_8">
+                        <div class="range-output">
+                            <span>1</span>
+                            <span>2</span>
+                            <span>3</span>
+                        </div>
+                    </div>
+                    <datalist id="input-list_3_8">
+                        <option value="1"></option>
+                        <option value="2"></option>
+                        <option value="3"></option>
+                    </datalist>
+                </div>
+                <button id="btn_3_8_next" class="btn_nextprev">Далее</button>
+            </section>
+
+            <script>
+                // Перелистывание назад
+                document.getElementById('btn_3_8_prev').addEventListener('click', function () {
+                    var from = document.querySelector('[name="quest_3_8"]');
+                    var to = document.querySelector('[name="quest_3_7"]');
+                    from.classList.add('animBlockDisappear_prev');
+                    from.addEventListener('animationend', function handler() {
+                        from.style.display = 'none';
+                        from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
+                        to.style.display = 'block';
+                        to.classList.add('animBlockAppear_prev'); // Добавляем класс анимации для появления
+                        to.addEventListener('animationend', function appearHandler() {
+                            to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
+                            to.removeEventListener('animationend', appearHandler);
+                        });
+                        from.removeEventListener('animationend', handler);
+                    });
+                });
+                // Переменные всплывающего окна
+                const popup_3_8 = document.getElementById('popup_3');
+                const closeBtn_3_8 = document.getElementById('closeBtn_3');
+                // Кнопка и функция перелистывания вперед
+                const nextButton_3_8 = document.getElementById("btn_3_8_next");
+                document.addEventListener("DOMContentLoaded", function () {
+                    nextButton_3_8.addEventListener("click", function () {
+                        // Получаем значения ползунков по ID
+                        const value_3_8_1 = parseInt(document.getElementById('inp_count_3_8_1').querySelector('.slider').value, 10);
+                        const value_3_8_2 = parseInt(document.getElementById('inp_count_3_8_2').querySelector('.slider').value, 10);
+                        const value_3_8_3 = parseInt(document.getElementById('inp_count_3_8_3').querySelector('.slider').value, 10);
+                        const values_3_8 = [value_3_8_1, value_3_8_2, value_3_8_3];
+                        // Проверяем, есть ли значения 1, 2 и 3 среди ползунков
+                        if (!(values_3_8.includes(1) && values_3_8.includes(2) && values_3_8.includes(3))) {
+                            // Если все три уникальных значения отсутствуют, показываем всплывающее окно
+                            popup_3_8.style.display = 'flex';
+                        } else {
+                            // Логика перелистывания вперед
+                            const from = document.querySelector('[name="quest_3_8"]');
+                            const to = document.querySelector('[name="quest_3_9"]'); // Предполагается, что этот элемент существует
+                            from.classList.add('animBlockDisappear_next');
+                            from.addEventListener('animationend', function handler() {
+                                from.style.display = 'none';
+                                from.classList.remove('animBlockDisappear_next');
+                                to.style.display = 'block';
+                                to.classList.add('animBlockAppear_next');
+                                to.addEventListener('animationend', function appearHandler() {
+                                    to.classList.remove('animBlockAppear_next');
+                                    to.removeEventListener('animationend', appearHandler);
+                                });
+                                from.removeEventListener('animationend', handler);
+                            });
+                        }
+                    });
+                    // Закрытие всплывающего окна
+                    closeBtn_3_8.addEventListener('click', function () {
+                        popup_3_8.style.display = 'none'; // Скрываем всплывающее окно
+                    });
+                });
+            </script>
+        </div>
+
+
+        <!-- ВОПРОС 9 -->
+
+        <div class="quest_3" name="quest_3_9">
+            <p class="quest_3_title">Вопрос 9</p>
+            <p class="quest_3_text">
+                <span class="affirm_3">Утверждение 1</span>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Magnam, consequatur, dolorem voluptatum cum aut unde consectetur obcaecati nam tenetur pariatur ratione
+                doloremque. Iste facere, in similique dolore, cupiditate nam corporis doloremque ab amet provident
+                necessitatibus voluptatem. Aspernatur delectus vel, ipsam rem aut repellat iusto odio magni, laudantium
+                voluptates qui cupiditate? <br>
+            </p>
+            <p class="quest_3_text">
+                <span class="affirm_3">Утверждение 2</span>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Magnam, consequatur, dolorem voluptatum cum aut unde consectetur obcaecati nam tenetur pariatur ratione
+                doloremque. Iste facere, in similique dolore, cupiditate nam corporis doloremque ab amet provident
+                necessitatibus voluptatem. Aspernatur delectus vel, ipsam rem aut repellat iusto odio magni, laudantium
+                voluptates qui cupiditate? <br>
+            </p>
+            <p class="quest_3_text">
+                <span class="affirm_3">Утверждение 3</span>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Magnam, consequatur, dolorem voluptatum cum aut unde consectetur obcaecati nam tenetur pariatur ratione
+                doloremque. Iste facere, in similique dolore, cupiditate nam corporis doloremque ab amet provident
+                necessitatibus voluptatem. Aspernatur delectus vel, ipsam rem aut repellat iusto odio magni, laudantium
+                voluptates qui cupiditate? <br>
+            </p>
+            <section class="quest_3_sect">
+                <button id="btn_3_9_prev" class="btn_nextprev">Назад</button>
+                <div class="inpBlock_3">
+                    <div class="inp_count_3" id="inp_count_3_9_1">
+                        <span>Вариант 1</span>
+                        <input type="range" class="slider" value="1" min="1" max="3" list="input-list_3_9">
+                        <div class="range-output">
+                            <span>1</span>
+                            <span>2</span>
+                            <span>3</span>
+                        </div>
+                    </div>
+                    <div class="inp_count_3" id="inp_count_3_9_2">
+                        <span>Вариант 2</span>
+                        <input type="range" class="slider" value="1" min="1" max="3" list="input-list_3_9">
+                        <div class="range-output">
+                            <span>1</span>
+                            <span>2</span>
+                            <span>3</span>
+                        </div>
+                    </div>
+                    <div class="inp_count_3" id="inp_count_3_9_3">
+                        <span>Вариант 3</span>
+                        <input type="range" class="slider" value="1" min="1" max="3" list="input-list_3_9">
+                        <div class="range-output">
+                            <span>1</span>
+                            <span>2</span>
+                            <span>3</span>
+                        </div>
+                    </div>
+                    <datalist id="input-list_3_9">
+                        <option value="1"></option>
+                        <option value="2"></option>
+                        <option value="3"></option>
+                    </datalist>
+                </div>
+                <button id="btn_3_9_next" class="btn_nextprev">Далее</button>
+            </section>
+
+            <script>
+                // Перелистывание назад
+                document.getElementById('btn_3_9_prev').addEventListener('click', function () {
+                    var from = document.querySelector('[name="quest_3_9"]');
+                    var to = document.querySelector('[name="quest_3_8"]');
+                    from.classList.add('animBlockDisappear_prev');
+                    from.addEventListener('animationend', function handler() {
+                        from.style.display = 'none';
+                        from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
+                        to.style.display = 'block';
+                        to.classList.add('animBlockAppear_prev'); // Добавляем класс анимации для появления
+                        to.addEventListener('animationend', function appearHandler() {
+                            to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
+                            to.removeEventListener('animationend', appearHandler);
+                        });
+                        from.removeEventListener('animationend', handler);
+                    });
+                });
+                // Переменные всплывающего окна
+                const popup_3_9 = document.getElementById('popup_3');
+                const closeBtn_3_9 = document.getElementById('closeBtn_3');
+                // Кнопка и функция перелистывания вперед
+                const nextButton_3_9 = document.getElementById("btn_3_9_next");
+                document.addEventListener("DOMContentLoaded", function () {
+                    nextButton_3_9.addEventListener("click", function () {
+                        // Получаем значения ползунков по ID
+                        const value_3_9_1 = parseInt(document.getElementById('inp_count_3_9_1').querySelector('.slider').value, 10);
+                        const value_3_9_2 = parseInt(document.getElementById('inp_count_3_9_2').querySelector('.slider').value, 10);
+                        const value_3_9_3 = parseInt(document.getElementById('inp_count_3_9_3').querySelector('.slider').value, 10);
+                        const values_3_9 = [value_3_9_1, value_3_9_2, value_3_9_3];
+                        // Проверяем, есть ли значения 1, 2 и 3 среди ползунков
+                        if (!(values_3_9.includes(1) && values_3_9.includes(2) && values_3_9.includes(3))) {
+                            // Если все три уникальных значения отсутствуют, показываем всплывающее окно
+                            popup_3_9.style.display = 'flex';
+                        } else {
+                            // Логика перелистывания вперед
+                            const from = document.querySelector('[name="quest_3_9"]');
+                            const to = document.querySelector('[name="end_test_3"]'); // Предполагается, что этот элемент существует
+                            from.classList.add('animBlockDisappear_next');
+                            from.addEventListener('animationend', function handler() {
+                                from.style.display = 'none';
+                                from.classList.remove('animBlockDisappear_next');
+                                to.style.display = 'block';
+                                to.classList.add('animBlockAppear_next');
+                                to.addEventListener('animationend', function appearHandler() {
+                                    to.classList.remove('animBlockAppear_next');
+                                    to.removeEventListener('animationend', appearHandler);
+                                });
+                                from.removeEventListener('animationend', handler);
+                            });
+                        }
+                    });
+                    // Закрытие всплывающего окна
+                    closeBtn_3_9.addEventListener('click', function () {
+                        popup_3_9.style.display = 'none'; // Скрываем всплывающее окно
+                    });
+                });
+            </script>
+        </div>
+
+
+        <!-- ВСПЛЫВАЮЩЕЕ ОКНО В КОНЦЕ БЛОКА -->
+        <div class="popup" id="popup_3_end">
+            <div class="popup-content">
+                <p class="error_text">Ошибка</p>
+                <p>Подтвердите свой выбор вариантов ответа</p>
+                <button class="close-btn" id="closeBtn_3_end">Закрыть</button>
+            </div>
+        </div>
+
+        <!-- КОНЕЦ БЛОКА -->
+
+        <div class="end_test" name="end_test_3">
+            <p class="end_test_title">Блок 3 пройден<br>
+            </p>
+            <p class="end_test_text">Вы завершаете прохождение блока 3. Если у Вас остались сомнения в выборе вариантов
+                ответа, перепроверьте их перед тем, как продолжить тест. После нажатия на кнопку "Продолжить" изменить
+                ответы уже не получится.<br>
+            </p>
+            <section class="end_sect">
+                <button class="btn_nextprev" id="end_test_prev">Назад</button>
+                <div class="confirm_answers">
+                    <div></div>
+                    <span>Подтвердить ответы</span>
+                    <input type="checkbox" id="confirm_3_end" class="inpRadio">
+                    <div></div>
+                </div>
+                <button class="btn_continue" id="end_test_next_3" type="button">Продолжить</button>
+            </section>
+
+            <script>
+                window.addEventListener('load', function () {
+                    // Скрываем всплывающее окно при загрузке страницы
+                    const popup = document.getElementById('popup_3_end');
+                    popup.style.display = 'none';
+                });
+                // Перелистывание назад
+                document.getElementById('end_test_prev').addEventListener('click', function () {
+                    var from = document.querySelector('[name="end_test_3"]');
+                    var to = document.querySelector('[name="quest_3_9"]');
+                    from.classList.add('animBlockDisappear_prev');
+                    from.addEventListener('animationend', function handler() {
+                        from.style.display = 'none';
+                        from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
+                        to.style.display = 'block';
+                        to.classList.add('animBlockAppear_prev');
+                        to.addEventListener('animationend', function appearHandler() {
+                            to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
+                            to.removeEventListener('animationend', appearHandler);
+                        });
+                        from.removeEventListener('animationend', handler);
+                    });
+                });
+                // Переменные всплывающего окна
+                const popup_3_end = document.getElementById('popup_3_end');
+                const closeBtn_3_end = document.getElementById('closeBtn_3_end');
+                // Переменные и функция перелистывания вперед
+                const nextButton_3_end = document.getElementById("end_test_next_3");
+                document.addEventListener("DOMContentLoaded", function () {
+                    nextButton_3_end.addEventListener("click", function () {
+                        // Если переключатель не выбран
+                        const checkbox = document.getElementById('confirm_3_end');
+                        if (!checkbox.checked) {
+                            popup_3_end.style.display = 'flex'; // Показываем всплывающее окно
+                        } else {
+                            // Переход на другую страницу при нажатии на кнопку
+                            const from = document.querySelector('[name="end_test_3"]');
+                            from.classList.add('animBlockDisappear_next');
+                            from.addEventListener('animationend', function handler() {
+                                from.style.display = 'none';
+                                from.classList.remove('animBlockDisappear_next');
+
+                                                                                                               // !!!!! Сделать код для подсчёта баллов!
+
+                                // Переход на новую страницу после окончания анимации
+                                window.location.href = 'test_4.html';
+                                from.removeEventListener('animationend', handler);
+                            });
+                        }
+                    });
+                    // Закрытие всплывающего окна
+                    closeBtn_3_end.addEventListener('click', function () {
+                        popup_3_end.style.display = 'none'; // Скрываем всплывающее окно
+                    });
+                });
+            </script>
+        </div>
+
     </main>
 
 </body>
