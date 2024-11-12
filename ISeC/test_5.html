@@ -9,8 +9,7 @@
 </head>
 
 <body>
-
-
+    
     <section class="vertical_lines">
         <img class="line_1" src="./images/line.svg"></img>
         <img class="line_2" src="./images/line.svg"></img>
@@ -1176,7 +1175,7 @@
                         } else {
                             // Логика перелистывания вперед
                             const from = document.querySelector('[name="quest_5_9"]');
-                            const to = document.querySelector('[name="end_test_3"]'); // Предполагается, что этот элемент существует
+                            const to = document.querySelector('[name="quest_5_10"]'); // Предполагается, что этот элемент существует
                             from.classList.add('animBlockDisappear_next');
                             from.addEventListener('animationend', function handler() {
                                 from.style.display = 'none';
@@ -1197,16 +1196,6 @@
                     });
                 });
             </script>
-        </div>
-
-
-        <!-- ВСПЛЫВАЮЩЕЕ ОКНО В КОНЦЕ БЛОКА -->
-        <div class="popup" id="popup_5_end">
-            <div class="popup-content">
-                <p class="error_text">Ошибка</p>
-                <p>Подтвердите свой выбор вариантов ответа</p>
-                <button class="close-btn" id="closeBtn_5_end">Закрыть</button>
-            </div>
         </div>
 
 
