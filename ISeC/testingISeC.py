@@ -6,11 +6,12 @@ import time  # Импортируем модуль time
 browser = webdriver.Chrome()
 
 try:
-    # Открытие HTML файла с тестом 1 и нажатие на кнопку "пройти тест"
     browser.get('file:///C:/Users/Admin/Desktop/ISeC/test_1.html')
+
+# СТАРТ БЛОКА 1
+    time.sleep(0.5)
     btn_1_start = browser.find_element(By.ID, 'test_1_start')
     btn_1_start.click()
-
 
 # ВОПРОС 1_1
     # Ожидание 0,1 секунды
@@ -555,6 +556,677 @@ try:
     ans_3_end.click()
     btn_3_end_next = browser.find_element(By.ID, 'end_test_next_3')
     btn_3_end_next.click()
+
+
+# СТАРТ БЛОКА 4
+    time.sleep(0.5)
+    btn_4_start = browser.find_element(By.ID, 'test_4_start')
+    btn_4_start.click()
+
+# ВОПРОС 4_1
+    time.sleep(0.5)
+    ans_4_1 = browser.find_element(By.ID, '4_1_1')
+    ans_4_1.click()
+    btn_4_1_next = browser.find_element(By.ID, 'btn_4_1_next')
+    btn_4_1_next.click()
+
+# ВОПРОС 4_2
+    time.sleep(0.5)
+    ans_4_2 = browser.find_element(By.ID, '4_2_1')
+    ans_4_2.click()
+    btn_4_2_next = browser.find_element(By.ID, 'btn_4_2_next')
+    btn_4_2_next.click()
+
+# ВОПРОС 4_3
+    time.sleep(0.5)
+    ans_4_3 = browser.find_element(By.ID, '4_3_1')
+    ans_4_3.click()
+    btn_4_3_next = browser.find_element(By.ID, 'btn_4_3_next')
+    btn_4_3_next.click()
+
+# ВОПРОС 4_4
+    time.sleep(0.5)
+    ans_4_4 = browser.find_element(By.ID, '4_4_1')
+    ans_4_4.click()
+    btn_4_4_next = browser.find_element(By.ID, 'btn_4_4_next')
+    btn_4_4_next.click()
+
+# ВОПРОС 4_5
+    time.sleep(0.5)
+    ans_4_5 = browser.find_element(By.ID, '4_5_1')
+    ans_4_5.click()
+    btn_4_5_next = browser.find_element(By.ID, 'btn_4_5_next')
+    btn_4_5_next.click()
+
+# ВОПРОС 4_6
+    time.sleep(0.5)
+    ans_4_6 = browser.find_element(By.ID, '4_6_1')
+    ans_4_6.click()
+    btn_4_6_next = browser.find_element(By.ID, 'btn_4_6_next')
+    btn_4_6_next.click()
+
+# ВОПРОС 4_7
+    time.sleep(0.5)
+    ans_4_7 = browser.find_element(By.ID, '4_7_1')
+    ans_4_7.click()
+    btn_4_7_next = browser.find_element(By.ID, 'btn_4_7_next')
+    btn_4_7_next.click()
+
+# ВОПРОС 4_8
+    time.sleep(0.5)
+    ans_4_8 = browser.find_element(By.ID, '4_8_1')
+    ans_4_8.click()
+    btn_4_8_next = browser.find_element(By.ID, 'btn_4_8_next')
+    btn_4_8_next.click()
+
+# ВОПРОС 4_9
+    time.sleep(0.5)
+    ans_4_9 = browser.find_element(By.ID, '4_9_1')
+    ans_4_9.click()
+    btn_4_9_next = browser.find_element(By.ID, 'btn_4_9_next')
+    btn_4_9_next.click()
+
+# ВОПРОС 4_10
+    time.sleep(0.5)
+    ans_4_10 = browser.find_element(By.ID, '4_10_1')
+    ans_4_10.click()
+    btn_4_10_next = browser.find_element(By.ID, 'btn_4_10_next')
+    btn_4_10_next.click()
+
+# ВОПРОС 4_11
+    time.sleep(0.5)
+    ans_4_11 = browser.find_element(By.ID, '4_11_1')
+    ans_4_11.click()
+    btn_4_11_next = browser.find_element(By.ID, 'btn_4_11_next')
+    btn_4_11_next.click()
+
+# ВОПРОС 4_12
+    time.sleep(0.5)
+    ans_4_12 = browser.find_element(By.ID, '4_12_1')
+    ans_4_12.click()
+    btn_4_12_next = browser.find_element(By.ID, 'btn_4_12_next')
+    btn_4_12_next.click()
+
+# ВОПРОС 4_13
+    time.sleep(0.5)
+    ans_4_13 = browser.find_element(By.ID, '4_13_1')
+    ans_4_13.click()
+    btn_4_13_next = browser.find_element(By.ID, 'btn_4_13_next')
+    btn_4_13_next.click()
+
+# ВОПРОС 4_14
+    time.sleep(0.5)
+    ans_4_14 = browser.find_element(By.ID, '4_14_1')
+    ans_4_14.click()
+    btn_4_14_next = browser.find_element(By.ID, 'btn_4_14_next')
+    btn_4_14_next.click()
+
+# ВОПРОС 4_15
+    time.sleep(0.5)
+    ans_4_15 = browser.find_element(By.ID, '4_15_1')
+    ans_4_15.click()
+    btn_4_15_next = browser.find_element(By.ID, 'btn_4_15_next')
+    btn_4_15_next.click()
+
+# ВОПРОС 4_16
+    time.sleep(0.5)
+    ans_4_16 = browser.find_element(By.ID, '4_16_1')
+    ans_4_16.click()
+    btn_4_16_next = browser.find_element(By.ID, 'btn_4_16_next')
+    btn_4_16_next.click()
+
+# КОНЕЦ БЛОКА 4
+    time.sleep(0.5)
+    ans_4_end = browser.find_element(By.ID, 'confirm_4_end')
+    ans_4_end.click()
+    btn_4_end_next = browser.find_element(By.ID, 'end_test_next_4')
+    btn_4_end_next.click()
+
+
+# СТАРТ БЛОКА 5
+    time.sleep(0.5)
+    btn_5_start = browser.find_element(By.ID, 'test_5_start')
+    btn_5_start.click()
+
+# ВОПРОС 5_1
+    time.sleep(0.5)
+
+    # Находим элементы input type="range" для каждого ползунка
+    range_input_5_1_1 = browser.find_element(By.CSS_SELECTOR, '#inp_count_5_1_1 input[type="range"]')
+    range_input_5_1_2 = browser.find_element(By.CSS_SELECTOR, '#inp_count_5_1_2 input[type="range"]')
+    range_input_5_1_3 = browser.find_element(By.CSS_SELECTOR, '#inp_count_5_1_3 input[type="range"]')
+    
+    # Устанавливаем значение для ползунка range_input_5_1_1
+    desired_value_5_1_1 = 1  # Значение, которое нужно установить на ползунке 1
+    max_value_5_1_1 = range_input_5_1_1.get_attribute('max')  # Получаем максимальное значение ползунка
+    # Устанавливаем значение на ползунок, если оно меньше или равно максимальному значению ползунка
+    if desired_value_5_1_1 <= int(max_value_5_1_1):
+        browser.execute_script("arguments[0].value = arguments[1];", range_input_5_1_1, desired_value_5_1_1)
+
+    # Устанавливаем значение для ползунка range_input_5_1_2
+    desired_value_5_1_2 = 2  # Значение, которое нужно установить на ползунке 2
+    max_value_5_1_2 = range_input_5_1_2.get_attribute('max')  # Получаем максимальное значение ползунка
+    # Устанавливаем значение на ползунок, если оно меньше или равно максимальному значению ползунка
+    if desired_value_5_1_2 <= int(max_value_5_1_2):
+        browser.execute_script("arguments[0].value = arguments[1];", range_input_5_1_2, desired_value_5_1_2)
+
+    # Устанавливаем значение для ползунка range_input_5_1_3
+    desired_value_5_1_3 = 3  # Значение, которое нужно установить на ползунке 3
+    max_value_5_1_3 = range_input_5_1_3.get_attribute('max')  # Получаем максимальное значение ползунка
+    # Устанавливаем значение на ползунок, если оно меньше или равно максимальному значению ползунка
+    if desired_value_5_1_3 <= int(max_value_5_1_3):
+        browser.execute_script("arguments[0].value = arguments[1];", range_input_5_1_3, desired_value_5_1_3)
+
+    # Нажимаем кнопку "Далее"
+    btn_5_1_next = browser.find_element(By.ID, 'btn_5_1_next')
+    btn_5_1_next.click()
+
+# ВОПРОС 5_2
+    time.sleep(0.5)
+    range_input_5_2_1 = browser.find_element(By.CSS_SELECTOR, '#inp_count_5_2_1 input[type="range"]')
+    range_input_5_2_2 = browser.find_element(By.CSS_SELECTOR, '#inp_count_5_2_2 input[type="range"]')
+    range_input_5_2_3 = browser.find_element(By.CSS_SELECTOR, '#inp_count_5_2_3 input[type="range"]')
+    desired_value_5_2_1 = 1  # Значение, которое нужно установить на ползунке 1
+    max_value_5_2_1 = range_input_5_2_1.get_attribute('max')
+    if desired_value_5_2_1 <= int(max_value_5_2_1):
+        browser.execute_script("arguments[0].value = arguments[1];", range_input_5_2_1, desired_value_5_2_1)
+    desired_value_5_2_2 = 2  # Значение, которое нужно установить на ползунке 2
+    max_value_5_2_2 = range_input_5_2_2.get_attribute('max')
+    if desired_value_5_2_2 <= int(max_value_5_2_2):
+        browser.execute_script("arguments[0].value = arguments[1];", range_input_5_2_2, desired_value_5_2_2)
+    desired_value_5_2_3 = 3  # Значение, которое нужно установить на ползунке 3
+    max_value_5_2_3 = range_input_5_2_3.get_attribute('max')
+    if desired_value_5_2_3 <= int(max_value_5_2_3):
+        browser.execute_script("arguments[0].value = arguments[1];", range_input_5_2_3, desired_value_5_2_3)
+    btn_5_2_next = browser.find_element(By.ID, 'btn_5_2_next')
+    btn_5_2_next.click()
+
+# ВОПРОС 5_3
+    time.sleep(0.5)
+    range_input_5_3_1 = browser.find_element(By.CSS_SELECTOR, '#inp_count_5_3_1 input[type="range"]')
+    range_input_5_3_2 = browser.find_element(By.CSS_SELECTOR, '#inp_count_5_3_2 input[type="range"]')
+    range_input_5_3_3 = browser.find_element(By.CSS_SELECTOR, '#inp_count_5_3_3 input[type="range"]')
+    desired_value_5_3_1 = 1  # Значение, которое нужно установить на ползунке 1
+    max_value_5_3_1 = range_input_5_3_1.get_attribute('max')
+    if desired_value_5_3_1 <= int(max_value_5_3_1):
+        browser.execute_script("arguments[0].value = arguments[1];", range_input_5_3_1, desired_value_5_3_1)
+    desired_value_5_3_2 = 2  # Значение, которое нужно установить на ползунке 2
+    max_value_5_3_2 = range_input_5_3_2.get_attribute('max')
+    if desired_value_5_3_2 <= int(max_value_5_3_2):
+        browser.execute_script("arguments[0].value = arguments[1];", range_input_5_3_2, desired_value_5_3_2)
+    desired_value_5_3_3 = 3  # Значение, которое нужно установить на ползунке 3
+    max_value_5_3_3 = range_input_5_3_3.get_attribute('max')
+    if desired_value_5_3_3 <= int(max_value_5_3_3):
+        browser.execute_script("arguments[0].value = arguments[1];", range_input_5_3_3, desired_value_5_3_3)
+    btn_5_3_next = browser.find_element(By.ID, 'btn_5_3_next')
+    btn_5_3_next.click()
+
+# ВОПРОС 5_4
+    time.sleep(0.5)
+    range_input_5_4_1 = browser.find_element(By.CSS_SELECTOR, '#inp_count_5_4_1 input[type="range"]')
+    range_input_5_4_2 = browser.find_element(By.CSS_SELECTOR, '#inp_count_5_4_2 input[type="range"]')
+    range_input_5_4_3 = browser.find_element(By.CSS_SELECTOR, '#inp_count_5_4_3 input[type="range"]')
+    desired_value_5_4_1 = 1  # Значение, которое нужно установить на ползунке 1
+    max_value_5_4_1 = range_input_5_4_1.get_attribute('max')
+    if desired_value_5_4_1 <= int(max_value_5_4_1):
+        browser.execute_script("arguments[0].value = arguments[1];", range_input_5_4_1, desired_value_5_4_1)
+    desired_value_5_4_2 = 2  # Значение, которое нужно установить на ползунке 2
+    max_value_5_4_2 = range_input_5_4_2.get_attribute('max')
+    if desired_value_5_4_2 <= int(max_value_5_4_2):
+        browser.execute_script("arguments[0].value = arguments[1];", range_input_5_4_2, desired_value_5_4_2)
+    desired_value_5_4_3 = 3  # Значение, которое нужно установить на ползунке 3
+    max_value_5_4_3 = range_input_5_4_3.get_attribute('max')
+    if desired_value_5_4_3 <= int(max_value_5_4_3):
+        browser.execute_script("arguments[0].value = arguments[1];", range_input_5_4_3, desired_value_5_4_3)
+    btn_5_4_next = browser.find_element(By.ID, 'btn_5_4_next')
+    btn_5_4_next.click()
+
+# ВОПРОС 5_5
+    time.sleep(0.5)
+    range_input_5_5_1 = browser.find_element(By.CSS_SELECTOR, '#inp_count_5_5_1 input[type="range"]')
+    range_input_5_5_2 = browser.find_element(By.CSS_SELECTOR, '#inp_count_5_5_2 input[type="range"]')
+    range_input_5_5_3 = browser.find_element(By.CSS_SELECTOR, '#inp_count_5_5_3 input[type="range"]')
+    desired_value_5_5_1 = 1  # Значение, которое нужно установить на ползунке 1
+    max_value_5_5_1 = range_input_5_5_1.get_attribute('max')
+    if desired_value_5_5_1 <= int(max_value_5_5_1):
+        browser.execute_script("arguments[0].value = arguments[1];", range_input_5_5_1, desired_value_5_5_1)
+    desired_value_5_5_2 = 2  # Значение, которое нужно установить на ползунке 2
+    max_value_5_5_2 = range_input_5_5_2.get_attribute('max')
+    if desired_value_5_5_2 <= int(max_value_5_5_2):
+        browser.execute_script("arguments[0].value = arguments[1];", range_input_5_5_2, desired_value_5_5_2)
+    desired_value_5_5_3 = 3  # Значение, которое нужно установить на ползунке 3
+    max_value_5_5_3 = range_input_5_5_3.get_attribute('max')
+    if desired_value_5_5_3 <= int(max_value_5_5_3):
+        browser.execute_script("arguments[0].value = arguments[1];", range_input_5_5_3, desired_value_5_5_3)
+    btn_5_5_next = browser.find_element(By.ID, 'btn_5_5_next')
+    btn_5_5_next.click()
+
+# ВОПРОС 5_6
+    time.sleep(0.5)
+    range_input_5_6_1 = browser.find_element(By.CSS_SELECTOR, '#inp_count_5_6_1 input[type="range"]')
+    range_input_5_6_2 = browser.find_element(By.CSS_SELECTOR, '#inp_count_5_6_2 input[type="range"]')
+    range_input_5_6_3 = browser.find_element(By.CSS_SELECTOR, '#inp_count_5_6_3 input[type="range"]')
+    desired_value_5_6_1 = 1  # Значение, которое нужно установить на ползунке 1
+    max_value_5_6_1 = range_input_5_6_1.get_attribute('max')
+    if desired_value_5_6_1 <= int(max_value_5_6_1):
+        browser.execute_script("arguments[0].value = arguments[1];", range_input_5_6_1, desired_value_5_6_1)
+    desired_value_5_6_2 = 2  # Значение, которое нужно установить на ползунке 2
+    max_value_5_6_2 = range_input_5_6_2.get_attribute('max')
+    if desired_value_5_6_2 <= int(max_value_5_6_2):
+        browser.execute_script("arguments[0].value = arguments[1];", range_input_5_6_2, desired_value_5_6_2)
+    desired_value_5_6_3 = 3  # Значение, которое нужно установить на ползунке 3
+    max_value_5_6_3 = range_input_5_6_3.get_attribute('max')
+    if desired_value_5_6_3 <= int(max_value_5_6_3):
+        browser.execute_script("arguments[0].value = arguments[1];", range_input_5_6_3, desired_value_5_6_3)
+    btn_5_6_next = browser.find_element(By.ID, 'btn_5_6_next')
+    btn_5_6_next.click()
+
+# ВОПРОС 5_7
+    time.sleep(0.5)
+    range_input_5_7_1 = browser.find_element(By.CSS_SELECTOR, '#inp_count_5_7_1 input[type="range"]')
+    range_input_5_7_2 = browser.find_element(By.CSS_SELECTOR, '#inp_count_5_7_2 input[type="range"]')
+    range_input_5_7_3 = browser.find_element(By.CSS_SELECTOR, '#inp_count_5_7_3 input[type="range"]')
+    desired_value_5_7_1 = 1  # Значение, которое нужно установить на ползунке 1
+    max_value_5_7_1 = range_input_5_7_1.get_attribute('max')
+    if desired_value_5_7_1 <= int(max_value_5_7_1):
+        browser.execute_script("arguments[0].value = arguments[1];", range_input_5_7_1, desired_value_5_7_1)
+    desired_value_5_7_2 = 2  # Значение, которое нужно установить на ползунке 2
+    max_value_5_7_2 = range_input_5_7_2.get_attribute('max')
+    if desired_value_5_7_2 <= int(max_value_5_7_2):
+        browser.execute_script("arguments[0].value = arguments[1];", range_input_5_7_2, desired_value_5_7_2)
+    desired_value_5_7_3 = 3  # Значение, которое нужно установить на ползунке 3
+    max_value_5_7_3 = range_input_5_7_3.get_attribute('max')
+    if desired_value_5_7_3 <= int(max_value_5_7_3):
+        browser.execute_script("arguments[0].value = arguments[1];", range_input_5_7_3, desired_value_5_7_3)
+    btn_5_7_next = browser.find_element(By.ID, 'btn_5_7_next')
+    btn_5_7_next.click()
+
+# ВОПРОС 5_8
+    time.sleep(0.5)
+    range_input_5_8_1 = browser.find_element(By.CSS_SELECTOR, '#inp_count_5_8_1 input[type="range"]')
+    range_input_5_8_2 = browser.find_element(By.CSS_SELECTOR, '#inp_count_5_8_2 input[type="range"]')
+    range_input_5_8_3 = browser.find_element(By.CSS_SELECTOR, '#inp_count_5_8_3 input[type="range"]')
+    desired_value_5_8_1 = 1  # Значение, которое нужно установить на ползунке 1
+    max_value_5_8_1 = range_input_5_8_1.get_attribute('max')
+    if desired_value_5_8_1 <= int(max_value_5_8_1):
+        browser.execute_script("arguments[0].value = arguments[1];", range_input_5_8_1, desired_value_5_8_1)
+    desired_value_5_8_2 = 2  # Значение, которое нужно установить на ползунке 2
+    max_value_5_8_2 = range_input_5_8_2.get_attribute('max')
+    if desired_value_5_8_2 <= int(max_value_5_8_2):
+        browser.execute_script("arguments[0].value = arguments[1];", range_input_5_8_2, desired_value_5_8_2)
+    desired_value_5_8_3 = 3  # Значение, которое нужно установить на ползунке 3
+    max_value_5_8_3 = range_input_5_8_3.get_attribute('max')
+    if desired_value_5_8_3 <= int(max_value_5_8_3):
+        browser.execute_script("arguments[0].value = arguments[1];", range_input_5_8_3, desired_value_5_8_3)
+    btn_5_8_next = browser.find_element(By.ID, 'btn_5_8_next')
+    btn_5_8_next.click()
+
+# ВОПРОС 5_9
+    time.sleep(0.5)
+    range_input_5_9_1 = browser.find_element(By.CSS_SELECTOR, '#inp_count_5_9_1 input[type="range"]')
+    range_input_5_9_2 = browser.find_element(By.CSS_SELECTOR, '#inp_count_5_9_2 input[type="range"]')
+    range_input_5_9_3 = browser.find_element(By.CSS_SELECTOR, '#inp_count_5_9_3 input[type="range"]')
+    desired_value_5_9_1 = 1  # Значение, которое нужно установить на ползунке 1
+    max_value_5_9_1 = range_input_5_9_1.get_attribute('max')
+    if desired_value_5_9_1 <= int(max_value_5_9_1):
+        browser.execute_script("arguments[0].value = arguments[1];", range_input_5_9_1, desired_value_5_9_1)
+    desired_value_5_9_2 = 2  # Значение, которое нужно установить на ползунке 2
+    max_value_5_9_2 = range_input_5_9_2.get_attribute('max')
+    if desired_value_5_9_2 <= int(max_value_5_9_2):
+        browser.execute_script("arguments[0].value = arguments[1];", range_input_5_9_2, desired_value_5_9_2)
+    desired_value_5_9_3 = 3  # Значение, которое нужно установить на ползунке 3
+    max_value_5_9_3 = range_input_5_9_3.get_attribute('max')
+    if desired_value_5_9_3 <= int(max_value_5_9_3):
+        browser.execute_script("arguments[0].value = arguments[1];", range_input_5_9_3, desired_value_5_9_3)
+    btn_5_9_next = browser.find_element(By.ID, 'btn_5_9_next')
+    btn_5_9_next.click()
+
+# ВОПРОС 5_10
+    time.sleep(0.5)
+    range_input_5_10_1 = browser.find_element(By.CSS_SELECTOR, '#inp_count_5_10_1 input[type="range"]')
+    range_input_5_10_2 = browser.find_element(By.CSS_SELECTOR, '#inp_count_5_10_2 input[type="range"]')
+    range_input_5_10_3 = browser.find_element(By.CSS_SELECTOR, '#inp_count_5_10_3 input[type="range"]')
+    desired_value_5_10_1 = 1  # Значение, которое нужно установить на ползунке 1
+    max_value_5_10_1 = range_input_5_10_1.get_attribute('max')
+    if desired_value_5_10_1 <= int(max_value_5_10_1):
+        browser.execute_script("arguments[0].value = arguments[1];", range_input_5_10_1, desired_value_5_10_1)
+    desired_value_5_10_2 = 2  # Значение, которое нужно установить на ползунке 2
+    max_value_5_10_2 = range_input_5_10_2.get_attribute('max')
+    if desired_value_5_10_2 <= int(max_value_5_10_2):
+        browser.execute_script("arguments[0].value = arguments[1];", range_input_5_10_2, desired_value_5_10_2)
+    desired_value_5_10_3 = 3  # Значение, которое нужно установить на ползунке 3
+    max_value_5_10_3 = range_input_5_10_3.get_attribute('max')
+    if desired_value_5_10_3 <= int(max_value_5_10_3):
+        browser.execute_script("arguments[0].value = arguments[1];", range_input_5_10_3, desired_value_5_10_3)
+    btn_5_10_next = browser.find_element(By.ID, 'btn_5_10_next')
+    btn_5_10_next.click()
+
+# ВОПРОС 5_11
+    time.sleep(0.5)
+    range_input_5_11_1 = browser.find_element(By.CSS_SELECTOR, '#inp_count_5_11_1 input[type="range"]')
+    range_input_5_11_2 = browser.find_element(By.CSS_SELECTOR, '#inp_count_5_11_2 input[type="range"]')
+    range_input_5_11_3 = browser.find_element(By.CSS_SELECTOR, '#inp_count_5_11_3 input[type="range"]')
+    desired_value_5_11_1 = 1  # Значение, которое нужно установить на ползунке 1
+    max_value_5_11_1 = range_input_5_11_1.get_attribute('max')
+    if desired_value_5_11_1 <= int(max_value_5_11_1):
+        browser.execute_script("arguments[0].value = arguments[1];", range_input_5_11_1, desired_value_5_11_1)
+    desired_value_5_11_2 = 2  # Значение, которое нужно установить на ползунке 2
+    max_value_5_11_2 = range_input_5_11_2.get_attribute('max')
+    if desired_value_5_11_2 <= int(max_value_5_11_2):
+        browser.execute_script("arguments[0].value = arguments[1];", range_input_5_11_2, desired_value_5_11_2)
+    desired_value_5_11_3 = 3  # Значение, которое нужно установить на ползунке 3
+    max_value_5_11_3 = range_input_5_11_3.get_attribute('max')
+    if desired_value_5_11_3 <= int(max_value_5_11_3):
+        browser.execute_script("arguments[0].value = arguments[1];", range_input_5_11_3, desired_value_5_11_3)
+    btn_5_11_next = browser.find_element(By.ID, 'btn_5_11_next')
+    btn_5_11_next.click()
+
+# ВОПРОС 5_12
+    time.sleep(0.5)
+    range_input_5_12_1 = browser.find_element(By.CSS_SELECTOR, '#inp_count_5_12_1 input[type="range"]')
+    range_input_5_12_2 = browser.find_element(By.CSS_SELECTOR, '#inp_count_5_12_2 input[type="range"]')
+    range_input_5_12_3 = browser.find_element(By.CSS_SELECTOR, '#inp_count_5_12_3 input[type="range"]')
+    desired_value_5_12_1 = 1  # Значение, которое нужно установить на ползунке 1
+    max_value_5_12_1 = range_input_5_12_1.get_attribute('max')
+    if desired_value_5_12_1 <= int(max_value_5_12_1):
+        browser.execute_script("arguments[0].value = arguments[1];", range_input_5_12_1, desired_value_5_12_1)
+    desired_value_5_12_2 = 2  # Значение, которое нужно установить на ползунке 2
+    max_value_5_12_2 = range_input_5_12_2.get_attribute('max')
+    if desired_value_5_12_2 <= int(max_value_5_12_2):
+        browser.execute_script("arguments[0].value = arguments[1];", range_input_5_12_2, desired_value_5_12_2)
+    desired_value_5_12_3 = 3  # Значение, которое нужно установить на ползунке 3
+    max_value_5_12_3 = range_input_5_12_3.get_attribute('max')
+    if desired_value_5_12_3 <= int(max_value_5_12_3):
+        browser.execute_script("arguments[0].value = arguments[1];", range_input_5_12_3, desired_value_5_12_3)
+    btn_5_12_next = browser.find_element(By.ID, 'btn_5_12_next')
+    btn_5_12_next.click()
+
+# КОНЕЦ БЛОКА 5
+    time.sleep(0.5)
+    ans_5_end = browser.find_element(By.ID, 'confirm_5_end')
+    ans_5_end.click()
+    btn_5_end_next = browser.find_element(By.ID, 'end_test_next_5')
+    btn_5_end_next.click()
+
+
+# СТАРТ БЛОКА 6
+    time.sleep(0.5)
+    btn_6_start = browser.find_element(By.ID, 'test_6_start')
+    btn_6_start.click()
+
+# ВОПРОС 6_1
+    time.sleep(0.5)
+
+    # Находим элементы input type="range" для каждого ползунка
+    range_input_6_1_1 = browser.find_element(By.CSS_SELECTOR, '#inp_count_6_1_1 input[type="range"]')
+    range_input_6_1_2 = browser.find_element(By.CSS_SELECTOR, '#inp_count_6_1_2 input[type="range"]')
+    range_input_6_1_3 = browser.find_element(By.CSS_SELECTOR, '#inp_count_6_1_3 input[type="range"]')
+    range_input_6_1_4 = browser.find_element(By.CSS_SELECTOR, '#inp_count_6_1_4 input[type="range"]')
+    
+    # Устанавливаем значение для ползунка range_input_6_1_1
+    desired_value_6_1_1 = 1  # Значение, которое нужно установить на ползунке 1
+    max_value_6_1_1 = range_input_6_1_1.get_attribute('max')  # Получаем максимальное значение ползунка
+    # Устанавливаем значение на ползунок, если оно меньше или равно максимальному значению ползунка
+    if desired_value_6_1_1 <= int(max_value_6_1_1):
+        browser.execute_script("arguments[0].value = arguments[1];", range_input_6_1_1, desired_value_6_1_1)
+
+    # Устанавливаем значение для ползунка range_input_6_1_2
+    desired_value_6_1_2 = 2  # Значение, которое нужно установить на ползунке 2
+    max_value_6_1_2 = range_input_6_1_2.get_attribute('max')  # Получаем максимальное значение ползунка
+    # Устанавливаем значение на ползунок, если оно меньше или равно максимальному значению ползунка
+    if desired_value_6_1_2 <= int(max_value_6_1_2):
+        browser.execute_script("arguments[0].value = arguments[1];", range_input_6_1_2, desired_value_6_1_2)
+
+    # Устанавливаем значение для ползунка range_input_6_1_3
+    desired_value_6_1_3 = 3  # Значение, которое нужно установить на ползунке 3
+    max_value_6_1_3 = range_input_6_1_3.get_attribute('max')  # Получаем максимальное значение ползунка
+    # Устанавливаем значение на ползунок, если оно меньше или равно максимальному значению ползунка
+    if desired_value_6_1_3 <= int(max_value_6_1_3):
+        browser.execute_script("arguments[0].value = arguments[1];", range_input_6_1_3, desired_value_6_1_3)
+
+    # Устанавливаем значение для ползунка range_input_6_1_4
+    desired_value_6_1_4 = 4  # Значение, которое нужно установить на ползунке 4
+    max_value_6_1_4 = range_input_6_1_4.get_attribute('max')  # Получаем максимальное значение ползунка
+    # Устанавливаем значение на ползунок, если оно меньше или равно максимальному значению ползунка
+    if desired_value_6_1_4 <= int(max_value_6_1_4):
+        browser.execute_script("arguments[0].value = arguments[1];", range_input_6_1_4, desired_value_6_1_4)
+
+    # Нажимаем кнопку "Далее"
+    btn_6_1_next = browser.find_element(By.ID, 'btn_6_1_next')
+    btn_6_1_next.click()
+
+# ВОПРОС 6_2
+    time.sleep(0.5)
+    range_input_6_2_1 = browser.find_element(By.CSS_SELECTOR, '#inp_count_6_2_1 input[type="range"]')
+    range_input_6_2_2 = browser.find_element(By.CSS_SELECTOR, '#inp_count_6_2_2 input[type="range"]')
+    range_input_6_2_3 = browser.find_element(By.CSS_SELECTOR, '#inp_count_6_2_3 input[type="range"]')
+    range_input_6_2_4 = browser.find_element(By.CSS_SELECTOR, '#inp_count_6_2_4 input[type="range"]')
+    desired_value_6_2_1 = 1  # Значение, которое нужно установить на ползунке 1
+    max_value_6_2_1 = range_input_6_2_1.get_attribute('max')
+    if desired_value_6_2_1 <= int(max_value_6_2_1):
+        browser.execute_script("arguments[0].value = arguments[1];", range_input_6_2_1, desired_value_6_2_1)
+    desired_value_6_2_2 = 2  # Значение, которое нужно установить на ползунке 2
+    max_value_6_2_2 = range_input_6_2_2.get_attribute('max')
+    if desired_value_6_2_2 <= int(max_value_6_2_2):
+        browser.execute_script("arguments[0].value = arguments[1];", range_input_6_2_2, desired_value_6_2_2)
+    desired_value_6_2_3 = 3  # Значение, которое нужно установить на ползунке 3
+    max_value_6_2_3 = range_input_6_2_3.get_attribute('max')
+    if desired_value_6_2_3 <= int(max_value_6_2_3):
+        browser.execute_script("arguments[0].value = arguments[1];", range_input_6_2_3, desired_value_6_2_3)
+    desired_value_6_2_4 = 4  # Значение, которое нужно установить на ползунке 4
+    max_value_6_2_4 = range_input_6_2_4.get_attribute('max')
+    if desired_value_6_2_4 <= int(max_value_6_2_4):
+        browser.execute_script("arguments[0].value = arguments[1];", range_input_6_2_4, desired_value_6_2_4)
+    btn_6_2_next = browser.find_element(By.ID, 'btn_6_2_next')
+    btn_6_2_next.click()
+
+# ВОПРОС 6_3
+    time.sleep(0.5)
+    range_input_6_3_1 = browser.find_element(By.CSS_SELECTOR, '#inp_count_6_3_1 input[type="range"]')
+    range_input_6_3_2 = browser.find_element(By.CSS_SELECTOR, '#inp_count_6_3_2 input[type="range"]')
+    range_input_6_3_3 = browser.find_element(By.CSS_SELECTOR, '#inp_count_6_3_3 input[type="range"]')
+    range_input_6_3_4 = browser.find_element(By.CSS_SELECTOR, '#inp_count_6_3_4 input[type="range"]')
+    desired_value_6_3_1 = 1  # Значение, которое нужно установить на ползунке 1
+    max_value_6_3_1 = range_input_6_3_1.get_attribute('max')
+    if desired_value_6_3_1 <= int(max_value_6_3_1):
+        browser.execute_script("arguments[0].value = arguments[1];", range_input_6_3_1, desired_value_6_3_1)
+    desired_value_6_3_2 = 2  # Значение, которое нужно установить на ползунке 2
+    max_value_6_3_2 = range_input_6_3_2.get_attribute('max')
+    if desired_value_6_3_2 <= int(max_value_6_3_2):
+        browser.execute_script("arguments[0].value = arguments[1];", range_input_6_3_2, desired_value_6_3_2)
+    desired_value_6_3_3 = 3  # Значение, которое нужно установить на ползунке 3
+    max_value_6_3_3 = range_input_6_3_3.get_attribute('max')
+    if desired_value_6_3_3 <= int(max_value_6_3_3):
+        browser.execute_script("arguments[0].value = arguments[1];", range_input_6_3_3, desired_value_6_3_3)
+    desired_value_6_3_4 = 4  # Значение, которое нужно установить на ползунке 4
+    max_value_6_3_4 = range_input_6_3_4.get_attribute('max')
+    if desired_value_6_3_4 <= int(max_value_6_3_4):
+        browser.execute_script("arguments[0].value = arguments[1];", range_input_6_3_4, desired_value_6_3_4)
+    btn_6_3_next = browser.find_element(By.ID, 'btn_6_3_next')
+    btn_6_3_next.click()
+
+# ВОПРОС 6_4
+    time.sleep(0.5)
+    range_input_6_4_1 = browser.find_element(By.CSS_SELECTOR, '#inp_count_6_4_1 input[type="range"]')
+    range_input_6_4_2 = browser.find_element(By.CSS_SELECTOR, '#inp_count_6_4_2 input[type="range"]')
+    range_input_6_4_3 = browser.find_element(By.CSS_SELECTOR, '#inp_count_6_4_3 input[type="range"]')
+    range_input_6_4_4 = browser.find_element(By.CSS_SELECTOR, '#inp_count_6_4_4 input[type="range"]')
+    desired_value_6_4_1 = 1  # Значение, которое нужно установить на ползунке 1
+    max_value_6_4_1 = range_input_6_4_1.get_attribute('max')
+    if desired_value_6_4_1 <= int(max_value_6_4_1):
+        browser.execute_script("arguments[0].value = arguments[1];", range_input_6_4_1, desired_value_6_4_1)
+    desired_value_6_4_2 = 2  # Значение, которое нужно установить на ползунке 2
+    max_value_6_4_2 = range_input_6_4_2.get_attribute('max')
+    if desired_value_6_4_2 <= int(max_value_6_4_2):
+        browser.execute_script("arguments[0].value = arguments[1];", range_input_6_4_2, desired_value_6_4_2)
+    desired_value_6_4_3 = 3  # Значение, которое нужно установить на ползунке 3
+    max_value_6_4_3 = range_input_6_4_3.get_attribute('max')
+    if desired_value_6_4_3 <= int(max_value_6_4_3):
+        browser.execute_script("arguments[0].value = arguments[1];", range_input_6_4_3, desired_value_6_4_3)
+    desired_value_6_4_4 = 4  # Значение, которое нужно установить на ползунке 4
+    max_value_6_4_4 = range_input_6_4_4.get_attribute('max')
+    if desired_value_6_4_4 <= int(max_value_6_4_4):
+        browser.execute_script("arguments[0].value = arguments[1];", range_input_6_4_4, desired_value_6_4_4)
+    btn_6_4_next = browser.find_element(By.ID, 'btn_6_4_next')
+    btn_6_4_next.click()
+
+# ВОПРОС 6_5
+    time.sleep(0.5)
+    range_input_6_5_1 = browser.find_element(By.CSS_SELECTOR, '#inp_count_6_5_1 input[type="range"]')
+    range_input_6_5_2 = browser.find_element(By.CSS_SELECTOR, '#inp_count_6_5_2 input[type="range"]')
+    range_input_6_5_3 = browser.find_element(By.CSS_SELECTOR, '#inp_count_6_5_3 input[type="range"]')
+    range_input_6_5_4 = browser.find_element(By.CSS_SELECTOR, '#inp_count_6_5_4 input[type="range"]')
+    desired_value_6_5_1 = 1  # Значение, которое нужно установить на ползунке 1
+    max_value_6_5_1 = range_input_6_5_1.get_attribute('max')
+    if desired_value_6_5_1 <= int(max_value_6_5_1):
+        browser.execute_script("arguments[0].value = arguments[1];", range_input_6_5_1, desired_value_6_5_1)
+    desired_value_6_5_2 = 2  # Значение, которое нужно установить на ползунке 2
+    max_value_6_5_2 = range_input_6_5_2.get_attribute('max')
+    if desired_value_6_5_2 <= int(max_value_6_5_2):
+        browser.execute_script("arguments[0].value = arguments[1];", range_input_6_5_2, desired_value_6_5_2)
+    desired_value_6_5_3 = 3  # Значение, которое нужно установить на ползунке 3
+    max_value_6_5_3 = range_input_6_5_3.get_attribute('max')
+    if desired_value_6_5_3 <= int(max_value_6_5_3):
+        browser.execute_script("arguments[0].value = arguments[1];", range_input_6_5_3, desired_value_6_5_3)
+    desired_value_6_5_4 = 4  # Значение, которое нужно установить на ползунке 4
+    max_value_6_5_4 = range_input_6_5_4.get_attribute('max')
+    if desired_value_6_5_4 <= int(max_value_6_5_4):
+        browser.execute_script("arguments[0].value = arguments[1];", range_input_6_5_4, desired_value_6_5_4)
+    btn_6_5_next = browser.find_element(By.ID, 'btn_6_5_next')
+    btn_6_5_next.click()
+
+# ВОПРОС 6_6
+    time.sleep(0.5)
+    range_input_6_6_1 = browser.find_element(By.CSS_SELECTOR, '#inp_count_6_6_1 input[type="range"]')
+    range_input_6_6_2 = browser.find_element(By.CSS_SELECTOR, '#inp_count_6_6_2 input[type="range"]')
+    range_input_6_6_3 = browser.find_element(By.CSS_SELECTOR, '#inp_count_6_6_3 input[type="range"]')
+    range_input_6_6_4 = browser.find_element(By.CSS_SELECTOR, '#inp_count_6_6_4 input[type="range"]')
+    desired_value_6_6_1 = 1  # Значение, которое нужно установить на ползунке 1
+    max_value_6_6_1 = range_input_6_6_1.get_attribute('max')
+    if desired_value_6_6_1 <= int(max_value_6_6_1):
+        browser.execute_script("arguments[0].value = arguments[1];", range_input_6_6_1, desired_value_6_6_1)
+    desired_value_6_6_2 = 2  # Значение, которое нужно установить на ползунке 2
+    max_value_6_6_2 = range_input_6_6_2.get_attribute('max')
+    if desired_value_6_6_2 <= int(max_value_6_6_2):
+        browser.execute_script("arguments[0].value = arguments[1];", range_input_6_6_2, desired_value_6_6_2)
+    desired_value_6_6_3 = 3  # Значение, которое нужно установить на ползунке 3
+    max_value_6_6_3 = range_input_6_6_3.get_attribute('max')
+    if desired_value_6_6_3 <= int(max_value_6_6_3):
+        browser.execute_script("arguments[0].value = arguments[1];", range_input_6_6_3, desired_value_6_6_3)
+    desired_value_6_6_4 = 4  # Значение, которое нужно установить на ползунке 4
+    max_value_6_6_4 = range_input_6_6_4.get_attribute('max')
+    if desired_value_6_6_4 <= int(max_value_6_6_4):
+        browser.execute_script("arguments[0].value = arguments[1];", range_input_6_6_4, desired_value_6_6_4)
+    btn_6_6_next = browser.find_element(By.ID, 'btn_6_6_next')
+    btn_6_6_next.click()
+
+# ВОПРОС 6_7
+    time.sleep(0.5)
+    range_input_6_7_1 = browser.find_element(By.CSS_SELECTOR, '#inp_count_6_7_1 input[type="range"]')
+    range_input_6_7_2 = browser.find_element(By.CSS_SELECTOR, '#inp_count_6_7_2 input[type="range"]')
+    range_input_6_7_3 = browser.find_element(By.CSS_SELECTOR, '#inp_count_6_7_3 input[type="range"]')
+    range_input_6_7_4 = browser.find_element(By.CSS_SELECTOR, '#inp_count_6_7_4 input[type="range"]')
+    desired_value_6_7_1 = 1  # Значение, которое нужно установить на ползунке 1
+    max_value_6_7_1 = range_input_6_7_1.get_attribute('max')
+    if desired_value_6_7_1 <= int(max_value_6_7_1):
+        browser.execute_script("arguments[0].value = arguments[1];", range_input_6_7_1, desired_value_6_7_1)
+    desired_value_6_7_2 = 2  # Значение, которое нужно установить на ползунке 2
+    max_value_6_7_2 = range_input_6_7_2.get_attribute('max')
+    if desired_value_6_7_2 <= int(max_value_6_7_2):
+        browser.execute_script("arguments[0].value = arguments[1];", range_input_6_7_2, desired_value_6_7_2)
+    desired_value_6_7_3 = 3  # Значение, которое нужно установить на ползунке 3
+    max_value_6_7_3 = range_input_6_7_3.get_attribute('max')
+    if desired_value_6_7_3 <= int(max_value_6_7_3):
+        browser.execute_script("arguments[0].value = arguments[1];", range_input_6_7_3, desired_value_6_7_3)
+    desired_value_6_7_4 = 4  # Значение, которое нужно установить на ползунке 4
+    max_value_6_7_4 = range_input_6_7_4.get_attribute('max')
+    if desired_value_6_7_4 <= int(max_value_6_7_4):
+        browser.execute_script("arguments[0].value = arguments[1];", range_input_6_7_4, desired_value_6_7_4)
+    btn_6_7_next = browser.find_element(By.ID, 'btn_6_7_next')
+    btn_6_7_next.click()
+
+# ВОПРОС 6_8
+    time.sleep(0.5)
+    range_input_6_8_1 = browser.find_element(By.CSS_SELECTOR, '#inp_count_6_8_1 input[type="range"]')
+    range_input_6_8_2 = browser.find_element(By.CSS_SELECTOR, '#inp_count_6_8_2 input[type="range"]')
+    range_input_6_8_3 = browser.find_element(By.CSS_SELECTOR, '#inp_count_6_8_3 input[type="range"]')
+    range_input_6_8_4 = browser.find_element(By.CSS_SELECTOR, '#inp_count_6_8_4 input[type="range"]')
+    desired_value_6_8_1 = 1  # Значение, которое нужно установить на ползунке 1
+    max_value_6_8_1 = range_input_6_8_1.get_attribute('max')
+    if desired_value_6_8_1 <= int(max_value_6_8_1):
+        browser.execute_script("arguments[0].value = arguments[1];", range_input_6_8_1, desired_value_6_8_1)
+    desired_value_6_8_2 = 2  # Значение, которое нужно установить на ползунке 2
+    max_value_6_8_2 = range_input_6_8_2.get_attribute('max')
+    if desired_value_6_8_2 <= int(max_value_6_8_2):
+        browser.execute_script("arguments[0].value = arguments[1];", range_input_6_8_2, desired_value_6_8_2)
+    desired_value_6_8_3 = 3  # Значение, которое нужно установить на ползунке 3
+    max_value_6_8_3 = range_input_6_8_3.get_attribute('max')
+    if desired_value_6_8_3 <= int(max_value_6_8_3):
+        browser.execute_script("arguments[0].value = arguments[1];", range_input_6_8_3, desired_value_6_8_3)
+    desired_value_6_8_4 = 4  # Значение, которое нужно установить на ползунке 4
+    max_value_6_8_4 = range_input_6_8_4.get_attribute('max')
+    if desired_value_6_8_4 <= int(max_value_6_8_4):
+        browser.execute_script("arguments[0].value = arguments[1];", range_input_6_8_4, desired_value_6_8_4)
+    btn_6_8_next = browser.find_element(By.ID, 'btn_6_8_next')
+    btn_6_8_next.click()
+
+# ВОПРОС 6_9
+    time.sleep(0.5)
+    range_input_6_9_1 = browser.find_element(By.CSS_SELECTOR, '#inp_count_6_9_1 input[type="range"]')
+    range_input_6_9_2 = browser.find_element(By.CSS_SELECTOR, '#inp_count_6_9_2 input[type="range"]')
+    range_input_6_9_3 = browser.find_element(By.CSS_SELECTOR, '#inp_count_6_9_3 input[type="range"]')
+    range_input_6_9_4 = browser.find_element(By.CSS_SELECTOR, '#inp_count_6_9_4 input[type="range"]')
+    desired_value_6_9_1 = 1  # Значение, которое нужно установить на ползунке 1
+    max_value_6_9_1 = range_input_6_9_1.get_attribute('max')
+    if desired_value_6_9_1 <= int(max_value_6_9_1):
+        browser.execute_script("arguments[0].value = arguments[1];", range_input_6_9_1, desired_value_6_9_1)
+    desired_value_6_9_2 = 2  # Значение, которое нужно установить на ползунке 2
+    max_value_6_9_2 = range_input_6_9_2.get_attribute('max')
+    if desired_value_6_9_2 <= int(max_value_6_9_2):
+        browser.execute_script("arguments[0].value = arguments[1];", range_input_6_9_2, desired_value_6_9_2)
+    desired_value_6_9_3 = 3  # Значение, которое нужно установить на ползунке 3
+    max_value_6_9_3 = range_input_6_9_3.get_attribute('max')
+    if desired_value_6_9_3 <= int(max_value_6_9_3):
+        browser.execute_script("arguments[0].value = arguments[1];", range_input_6_9_3, desired_value_6_9_3)
+    desired_value_6_9_4 = 4  # Значение, которое нужно установить на ползунке 4
+    max_value_6_9_4 = range_input_6_9_4.get_attribute('max')
+    if desired_value_6_9_4 <= int(max_value_6_9_4):
+        browser.execute_script("arguments[0].value = arguments[1];", range_input_6_9_4, desired_value_6_9_4)
+    btn_6_9_next = browser.find_element(By.ID, 'btn_6_9_next')
+    btn_6_9_next.click()
+
+# ВОПРОС 6_10
+    time.sleep(0.5)
+    range_input_6_10_1 = browser.find_element(By.CSS_SELECTOR, '#inp_count_6_10_1 input[type="range"]')
+    range_input_6_10_2 = browser.find_element(By.CSS_SELECTOR, '#inp_count_6_10_2 input[type="range"]')
+    range_input_6_10_3 = browser.find_element(By.CSS_SELECTOR, '#inp_count_6_10_3 input[type="range"]')
+    range_input_6_10_4 = browser.find_element(By.CSS_SELECTOR, '#inp_count_6_10_4 input[type="range"]')
+    desired_value_6_10_1 = 1  # Значение, которое нужно установить на ползунке 1
+    max_value_6_10_1 = range_input_6_10_1.get_attribute('max')
+    if desired_value_6_10_1 <= int(max_value_6_10_1):
+        browser.execute_script("arguments[0].value = arguments[1];", range_input_6_10_1, desired_value_6_10_1)
+    desired_value_6_10_2 = 2  # Значение, которое нужно установить на ползунке 2
+    max_value_6_10_2 = range_input_6_10_2.get_attribute('max')
+    if desired_value_6_10_2 <= int(max_value_6_10_2):
+        browser.execute_script("arguments[0].value = arguments[1];", range_input_6_10_2, desired_value_6_10_2)
+    desired_value_6_10_3 = 3  # Значение, которое нужно установить на ползунке 3
+    max_value_6_10_3 = range_input_6_10_3.get_attribute('max')
+    if desired_value_6_10_3 <= int(max_value_6_10_3):
+        browser.execute_script("arguments[0].value = arguments[1];", range_input_6_10_3, desired_value_6_10_3)
+    desired_value_6_10_4 = 4  # Значение, которое нужно установить на ползунке 4
+    max_value_6_10_4 = range_input_6_10_4.get_attribute('max')
+    if desired_value_6_10_4 <= int(max_value_6_10_4):
+        browser.execute_script("arguments[0].value = arguments[1];", range_input_6_10_4, desired_value_6_10_4)
+    btn_6_10_next = browser.find_element(By.ID, 'btn_6_10_next')
+    btn_6_10_next.click()
+
+
+# КОНЕЦ БЛОКА 6
+    time.sleep(0.5)
+    ans_6_end = browser.find_element(By.ID, 'confirm_6_end')
+    ans_6_end.click()
+    btn_6_end_next = browser.find_element(By.ID, 'end_test_next_6')
+    btn_6_end_next.click()
 
 
 except Exception as e:
