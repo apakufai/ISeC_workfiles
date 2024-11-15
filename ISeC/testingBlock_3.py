@@ -8,10 +8,9 @@ import time  # Импортируем модуль time
 browser = webdriver.Chrome()
 
 try:
-    # Открытие HTML файла с тестом 1 и нажатие на кнопку "пройти тест"
     browser.get('file:///C:/Users/Admin/Desktop/ISeC/test_3.html')
-    btn3_start = browser.find_element(By.ID, 'test_3_start')
-    btn3_start.click()
+    btn_3_start = browser.find_element(By.ID, 'test_3_start')
+    btn_3_start.click()
 
 # ВОПРОС 3_1
     time.sleep(0.5)
@@ -210,8 +209,8 @@ try:
     time.sleep(0.5)
     ans_3_end = browser.find_element(By.ID, 'confirm_3_end')
     ans_3_end.click()
-    btn3_end_next = browser.find_element(By.ID, 'end_test_next_3')
-    btn3_end_next.click()
+    btn_3_end_next = browser.find_element(By.ID, 'end_test_next_3')
+    btn_3_end_next.click()
 
 
 
