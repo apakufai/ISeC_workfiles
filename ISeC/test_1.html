@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    
+
     <section class="vertical_lines">
         <img class="line_1" src="./images/line.svg"></img>
         <img class="line_2" src="./images/line.svg"></img>
@@ -2790,7 +2790,370 @@
                                 from.style.display = 'none';
                                 from.classList.remove('animBlockDisappear_next');
 
-                                // !!!!! Сделать код для подсчёта баллов!
+
+
+                                // Инициализация переменных
+                                let adaptation = 0;// Приспособление
+                                let compromise = 0;// Компромисс
+                                let bidding = 0;// Торги
+                                let rivalry = 0;// Соперничество
+                                let logicArgument = 0;// Логика как аргумент
+                                let emotionsArgument = 0;// Эмоции как аргумент
+
+                                // Результаты вопроса 1
+                                const radios_1_1 = document.getElementsByName("1_1_top");
+                                radios_1_1.forEach(radio => {
+                                    if (radio.checked) {
+                                        switch (radio.id) {
+                                            case "1_1_top_0":
+                                                compromise += 3;
+                                                break;
+                                            case "1_1_top_1":
+                                                compromise += 2;
+                                                adaptation += 1;
+                                                break;
+                                            case "1_1_top_2":
+                                                compromise += 1;
+                                                adaptation += 2;
+                                                break;
+                                            case "1_1_top_3":
+                                                adaptation += 3;
+                                                break;
+                                        }
+                                    }
+                                });
+
+                                // Результаты вопроса 2
+                                const radios_1_2 = document.getElementsByName("1_2_top");
+                                radios_1_2.forEach(radio => {
+                                    if (radio.checked) {
+                                        switch (radio.id) {
+                                            case "1_2_top_0":
+                                                bidding += 3;
+                                                break;
+                                            case "1_2_top_1":
+                                                bidding += 2;
+                                                rivalry += 1;
+                                                break;
+                                            case "1_2_top_2":
+                                                bidding += 1;
+                                                rivalry += 2;
+                                                break;
+                                            case "1_2_top_3":
+                                                rivalry += 3;
+                                                break;
+                                        }
+                                    }
+                                });
+
+                                // Результаты вопроса 3
+                                const radios_1_3 = document.getElementsByName("1_3_top");
+                                radios_1_3.forEach(radio => {
+                                    if (radio.checked) {
+                                        switch (radio.id) {
+                                            case "1_3_top_0":
+                                                logicArgument += 3;
+                                                break;
+                                            case "1_3_top_1":
+                                                logicArgument += 2;
+                                                emotionsArgument += 1;
+                                                break;
+                                            case "1_3_top_2":
+                                                logicArgument += 1;
+                                                emotionsArgument += 2;
+                                                break;
+                                            case "1_3_top_3":
+                                                emotionsArgument += 3;
+                                                break;
+                                        }
+                                    }
+                                });
+
+                                // Результаты вопроса 4
+                                const radios_1_4 = document.getElementsByName("1_4_top");
+                                radios_1_4.forEach(radio => {
+                                    if (radio.checked) {
+                                        switch (radio.id) {
+                                            case "1_4_top_0":
+                                                bidding += 3;
+                                                break;
+                                            case "1_4_top_1":
+                                                bidding += 2;
+                                                compromise += 1;
+                                                break;
+                                            case "1_4_top_2":
+                                                bidding += 1;
+                                                compromise += 2;
+                                                break;
+                                            case "1_4_top_3":
+                                                compromise += 3;
+                                                break;
+                                        }
+                                    }
+                                });
+
+                                // Результаты вопроса 5
+                                const radios_1_5 = document.getElementsByName("1_5_top");
+                                radios_1_5.forEach(radio => {
+                                    if (radio.checked) {
+                                        switch (radio.id) {
+                                            case "1_5_top_0":
+                                                rivalry += 3;
+                                                break;
+                                            case "1_5_top_1":
+                                                rivalry += 2;
+                                                logicArgument += 1;
+                                                break;
+                                            case "1_5_top_2":
+                                                rivalry += 1;
+                                                logicArgument += 2;
+                                                break;
+                                            case "1_5_top_3":
+                                                logicArgument += 3;
+                                                break;
+                                        }
+                                    }
+                                });
+
+                                // Результаты вопроса 6
+                                const radios_1_6 = document.getElementsByName("1_6_top");
+                                radios_1_6.forEach(radio => {
+                                    if (radio.checked) {
+                                        switch (radio.id) {
+                                            case "1_6_top_0":
+                                                compromise += 3;
+                                                break;
+                                            case "1_6_top_1":
+                                                compromise += 2;
+                                                emotionsArgument += 1;
+                                                break;
+                                            case "1_6_top_2":
+                                                compromise += 1;
+                                                emotionsArgument += 2;
+                                                break;
+                                            case "1_6_top_3":
+                                                emotionsArgument += 3;
+                                                break;
+                                        }
+                                    }
+                                });
+
+                                // Результаты вопроса 7
+                                const radios_1_7 = document.getElementsByName("1_7_top");
+                                radios_1_7.forEach(radio => {
+                                    if (radio.checked) {
+                                        switch (radio.id) {
+                                            case "1_7_top_0":
+                                                adaptation += 3;
+                                                break;
+                                            case "1_7_top_1":
+                                                adaptation += 2;
+                                                rivalry += 1;
+                                                break;
+                                            case "1_7_top_2":
+                                                adaptation += 1;
+                                                rivalry += 2;
+                                                break;
+                                            case "1_7_top_3":
+                                                rivalry += 3;
+                                                break;
+                                        }
+                                    }
+                                });
+
+                                // Результаты вопроса 8
+                                const radios_1_8 = document.getElementsByName("1_8_top");
+                                radios_1_8.forEach(radio => {
+                                    if (radio.checked) {
+                                        switch (radio.id) {
+                                            case "1_8_top_0":
+                                                compromise += 3;
+                                                break;
+                                            case "1_8_top_1":
+                                                compromise += 2;
+                                                logicArgument += 1;
+                                                break;
+                                            case "1_8_top_2":
+                                                compromise += 1;
+                                                logicArgument += 2;
+                                                break;
+                                            case "1_8_top_3":
+                                                logicArgument += 3;
+                                                break;
+                                        }
+                                    }
+                                });
+
+                                // Результаты вопроса 9
+                                const radios_1_9 = document.getElementsByName("1_9_top");
+                                radios_1_9.forEach(radio => {
+                                    if (radio.checked) {
+                                        switch (radio.id) {
+                                            case "1_9_top_0":
+                                                adaptation += 3;
+                                                break;
+                                            case "1_9_top_1":
+                                                adaptation += 2;
+                                                bidding += 1;
+                                                break;
+                                            case "1_9_top_2":
+                                                adaptation += 1;
+                                                bidding += 2;
+                                                break;
+                                            case "1_9_top_3":
+                                                bidding += 3;
+                                                break;
+                                        }
+                                    }
+                                });
+
+                                // Результаты вопроса 10
+                                const radios_1_10 = document.getElementsByName("1_10_top");
+                                radios_1_10.forEach(radio => {
+                                    if (radio.checked) {
+                                        switch (radio.id) {
+                                            case "1_10_top_0":
+                                                rivalry += 3;
+                                                break;
+                                            case "1_10_top_1":
+                                                rivalry += 2;
+                                                emotionsArgument += 1;
+                                                break;
+                                            case "1_10_top_2":
+                                                rivalry += 1;
+                                                emotionsArgument += 2;
+                                                break;
+                                            case "1_10_top_3":
+                                                emotionsArgument += 3;
+                                                break;
+                                        }
+                                    }
+                                });
+
+                                // Результаты вопроса 11
+                                const radios_1_11 = document.getElementsByName("1_11_top");
+                                radios_1_11.forEach(radio => {
+                                    if (radio.checked) {
+                                        switch (radio.id) {
+                                            case "1_11_top_0":
+                                                adaptation += 3;
+                                                break;
+                                            case "1_11_top_1":
+                                                adaptation += 2;
+                                                logicArgument += 1;
+                                                break;
+                                            case "1_11_top_2":
+                                                adaptation += 1;
+                                                logicArgument += 2;
+                                                break;
+                                            case "1_11_top_3":
+                                                logicArgument += 3;
+                                                break;
+                                        }
+                                    }
+                                });
+
+                                // Результаты вопроса 12
+                                const radios_1_12 = document.getElementsByName("1_12_top");
+                                radios_1_12.forEach(radio => {
+                                    if (radio.checked) {
+                                        switch (radio.id) {
+                                            case "1_12_top_0":
+                                                emotionsArgument += 3;
+                                                break;
+                                            case "1_12_top_1":
+                                                emotionsArgument += 2;
+                                                bidding += 1;
+                                                break;
+                                            case "1_12_top_2":
+                                                emotionsArgument += 1;
+                                                bidding += 2;
+                                                break;
+                                            case "1_12_top_3":
+                                                bidding += 3;
+                                                break;
+                                        }
+                                    }
+                                });
+
+                                // Результаты вопроса 13
+                                const radios_1_13 = document.getElementsByName("1_13_top");
+                                radios_1_13.forEach(radio => {
+                                    if (radio.checked) {
+                                        switch (radio.id) {
+                                            case "1_13_top_0":
+                                                compromise += 3;
+                                                break;
+                                            case "1_13_top_1":
+                                                compromise += 2;
+                                                rivalry += 1;
+                                                break;
+                                            case "1_13_top_2":
+                                                compromise += 1;
+                                                rivalry += 2;
+                                                break;
+                                            case "1_13_top_3":
+                                                rivalry += 3;
+                                                break;
+                                        }
+                                    }
+                                });
+
+                                // Результаты вопроса 14
+                                const radios_1_14 = document.getElementsByName("1_14_top");
+                                radios_1_14.forEach(radio => {
+                                    if (radio.checked) {
+                                        switch (radio.id) {
+                                            case "1_14_top_0":
+                                                bidding += 3;
+                                                break;
+                                            case "1_14_top_1":
+                                                bidding += 2;
+                                                logicArgument += 1;
+                                                break;
+                                            case "1_14_top_2":
+                                                bidding += 1;
+                                                logicArgument += 2;
+                                                break;
+                                            case "1_14_top_3":
+                                                logicArgument += 3;
+                                                break;
+                                        }
+                                    }
+                                });
+
+                                // Результаты вопроса 15
+                                const radios_1_15 = document.getElementsByName("1_15_top");
+                                radios_1_15.forEach(radio => {
+                                    if (radio.checked) {
+                                        switch (radio.id) {
+                                            case "1_15_top_0":
+                                                emotionsArgument += 3;
+                                                break;
+                                            case "1_15_top_1":
+                                                emotionsArgument += 2;
+                                                adaptation += 1;
+                                                break;
+                                            case "1_15_top_2":
+                                                emotionsArgument += 1;
+                                                adaptation += 2;
+                                                break;
+                                            case "1_15_top_3":
+                                                adaptation += 3;
+                                                break;
+                                        }
+                                    }
+                                });
+
+
+                                // Выводим значения в alert
+                                alert(`Компромисс: ${compromise}\n` +
+                                    `Приспособление: ${adaptation}\n` +
+                                    `Торги: ${bidding}\n` +
+                                    `Соперничество: ${rivalry}\n` +
+                                    `Логика как аргумент: ${logicArgument}\n` +
+                                    `Эмоции как аргумент: ${emotionsArgument}`);
+
 
                                 // Переход на новую страницу после окончания анимации
                                 window.location.href = 'test_2.html';
