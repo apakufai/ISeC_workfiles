@@ -38,27 +38,76 @@
     <main>
 
 
+        <script>
+
+            // Инициализация переменных      
+            let resUnderstandingOfStyles = 0; // Понимание стилей
+            let resAdaptation = 0; // Приспособление
+            let resCompromise = 0; // Компромисс
+            let resBidding = 0; // Торги
+            let resRivalry = 0; // Соперничество
+            let resLogicArgument = 0; // Логика как аргумент
+            let resEmotionsArgument = 0; // Эмоции как аргумент
+            let resStrengthInstallation = 0; // Установка на силу
+            let resManipulationInstallation = 0; // Установка на манипуляцию
+            let resNegotiationsInstallation = 0; // Установка на деловые переговоры
+            let resCooperation = 0;// Сотрудничество
+            let resAvoidance = 0;// Избегание
+
+
+            // Получение значений из sessionStorage блока 1 и их инкрементация к общему результату
+            resAdaptation += parseInt(sessionStorage.getItem("resAdaptation_1")); // Приспособление
+            resCompromise += parseInt(sessionStorage.getItem("resCompromise_1")); // Компромисс
+            resBidding += parseInt(sessionStorage.getItem("resBidding_1")); // Торги
+            resRivalry += parseInt(sessionStorage.getItem("resRivalry_1")); // Соперничество
+            resLogicArgument += parseInt(sessionStorage.getItem("resLogicArgument_1")); // Логика как аргумент
+            resEmotionsArgument += parseInt(sessionStorage.getItem("resEmotionsArgument_1")); // Эмоции как аргумент
+
+            // Получение значений из sessionStorage блока 2 и их инкрементация к общему результату
+            resRivalry += parseInt(sessionStorage.getItem("resRivalry_2")); // Соперничество (Б)
+            resCooperation += parseInt(sessionStorage.getItem("resCooperation_2")); // Сотрудничество (В)
+            resCompromise += parseInt(sessionStorage.getItem("resCompromise_2")); // Компромисс (П)
+            resAvoidance += parseInt(sessionStorage.getItem("resAvoidance_2")); // Избегание (Р)
+            resAdaptation += parseInt(sessionStorage.getItem("resAdaptation_2")); // Приспособление (ДЧ)
+
+        </script>
+
 
 
         <!-- БЛОК РЕЗУЛЬТАТОВ -->
 
         <div class="descr_test" name="testEnding">
             <p class="descr_test_title">Итоги теста<br></p>
-            <p class="descr_test_text">&emsp;Понимание стилей<br></p>
-            <p class="descr_test_text">&emsp;Приспособление<br></p>
-            <p class="descr_test_text">&emsp;Компромисс<br></p>
-            <p class="descr_test_text">&emsp;Торги<br></p>
-            <p class="descr_test_text">&emsp;Соперничество <br></p>
-            <p class="descr_test_text">&emsp;Логика как аргумент<br></p>
-            <p class="descr_test_text">&emsp;Эмоции как аргумент<br></p>
-            <p class="descr_test_text">&emsp;Установка на силу<br></p>
-            <p class="descr_test_text">&emsp;Установка на манипуляцию<br></p>
-            <p class="descr_test_text">&emsp;Установка на деловые переговоры<br></p>
-            <p class="descr_test_text">&emsp;Сотрудничество<br></p>
-            <p class="descr_test_text">&emsp;Избегание<br></p>
+            <p id="strUnderstandingOfStyles" class="descr_test_text">&emsp;Понимание стилей<br></p>
+            <p id="strAdaptation" class="descr_test_text">&emsp;Приспособление<br></p>
+            <p id="strCompromise" class="descr_test_text">&emsp;Компромисс<br></p>
+            <p id="strBidding" class="descr_test_text">&emsp;Торги<br></p>
+            <p id="strRivalry" class="descr_test_text">&emsp;Соперничество <br></p>
+            <p id="strLogicArgument" class="descr_test_text">&emsp;Логика как аргумент<br></p>
+            <p id="strEmotionsArgument" class="descr_test_text">&emsp;Эмоции как аргумент<br></p>
+            <p id="strStrengthInstallation" class="descr_test_text">&emsp;Установка на силу<br></p>
+            <p id="strManipulationInstallation" class="descr_test_text">&emsp;Установка на манипуляцию<br></p>
+            <p id="strNegotiationsInstallation" class="descr_test_text">&emsp;Установка на деловые переговоры<br></p>
+            <p id="strCooperation" class="descr_test_text">&emsp;Сотрудничество<br></p>
+            <p id="strAvoidance" class="descr_test_text">&emsp;Избегание<br></p>
         </div>
 
 
+
+        <script>
+            document.getElementById("strUnderstandingOfStyles").innerText = "Понимание стилей: " + resUnderstandingOfStyles;
+            document.getElementById("strAdaptation").innerText = "Приспособление: " + resAdaptation;
+            document.getElementById("strCompromise").innerText = "Компромисс: " + resCompromise;
+            document.getElementById("strBidding").innerText = "Торги: " + resBidding;
+            document.getElementById("strRivalry").innerText = "Соперничество: " + resRivalry;
+            document.getElementById("strLogicArgument").innerText = "Логика как аргумент: " + resLogicArgument;
+            document.getElementById("strEmotionsArgument").innerText = "Эмоции как аргумент: " + resEmotionsArgument;
+            document.getElementById("strStrengthInstallation").innerText = "Установка на силу: " + resStrengthInstallation;
+            document.getElementById("strManipulationInstallation").innerText = "Установка на манипуляцию: " + resManipulationInstallation;
+            document.getElementById("strNegotiationsInstallation").innerText = "Установка на деловые переговоры: " + resNegotiationsInstallation;
+            document.getElementById("strCooperation").innerText = "Сотрудничество: " + resCooperation;
+            document.getElementById("strAvoidance").innerText = "Избегание: " + resAvoidance;
+        </script>
 
 
 

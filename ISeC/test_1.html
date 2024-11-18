@@ -3145,12 +3145,20 @@
 
 
                                 // Выводим значения в alert (тест)
-                                alert(`Компромисс: ${compromise}\n` +
-                                    `Приспособление: ${adaptation}\n` +
-                                    `Торги: ${bidding}\n` +
-                                    `Соперничество: ${rivalry}\n` +
-                                    `Логика как аргумент: ${logicArgument}\n` +
-                                    `Эмоции как аргумент: ${emotionsArgument}`);
+                                // alert(`Компромисс: ${compromise}\n` +
+                                //     `Приспособление: ${adaptation}\n` +
+                                //     `Торги: ${bidding}\n` +
+                                //     `Соперничество: ${rivalry}\n` +
+                                //     `Логика как аргумент: ${logicArgument}\n` +
+                                //     `Эмоции как аргумент: ${emotionsArgument}`);
+
+                                // Сохранение значений в sessionStorage
+                                sessionStorage.setItem("resAdaptation_1", adaptation); // Приспособление
+                                sessionStorage.setItem("resCompromise_1", compromise); // Компромисс
+                                sessionStorage.setItem("resBidding_1", bidding); // Торги
+                                sessionStorage.setItem("resRivalry_1", rivalry); // Соперничество
+                                sessionStorage.setItem("resLogicArgument_1", logicArgument); // Логика как аргумент
+                                sessionStorage.setItem("resEmotionsArgument_1", emotionsArgument); // Эмоции как аргумент
 
 
                                 // Переход на новую страницу после окончания анимации

@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    
+
     <section class="vertical_lines">
         <img class="line_1" src="./images/line.svg"></img>
         <img class="line_2" src="./images/line.svg"></img>
@@ -1645,7 +1645,82 @@
                                 from.style.display = 'none';
                                 from.classList.remove('animBlockDisappear_next');
 
-                                                                                                               // !!!!! Сделать код для подсчёта баллов!
+                                // Инициализация переменных      
+                                let adaptation = 0;// Приспособление
+                                let bidding = 0;// Торги
+                                let logicArgument = 0;// Логика как аргумент
+                                let emotionsArgument = 0;// Эмоции как аргумент
+                                let avoidance = 0;// Избегание
+
+                                // Результаты вопроса 1
+                                // Получаем значения из ползунков и инкрементируем их к общему значению
+                                avoidance += (parseInt(document.querySelector('#inp_count_5_1_1 input[type="range"]').value) - 1);
+                                bidding += (parseInt(document.querySelector('#inp_count_5_1_2 input[type="range"]').value) - 1);
+                                emotionsArgument += (parseInt(document.querySelector('#inp_count_5_1_3 input[type="range"]').value) - 1);
+
+                                // Результаты вопроса 2
+                                emotionsArgument += (parseInt(document.querySelector('#inp_count_5_2_1 input[type="range"]').value) - 1);
+                                bidding += (parseInt(document.querySelector('#inp_count_5_2_2 input[type="range"]').value) - 1);
+                                adaptation += (parseInt(document.querySelector('#inp_count_5_2_3 input[type="range"]').value) - 1);
+
+                                // Результаты вопроса 3
+                                logicArgument += (parseInt(document.querySelector('#inp_count_5_3_1 input[type="range"]').value) - 1);
+                                bidding += (parseInt(document.querySelector('#inp_count_5_3_2 input[type="range"]').value) - 1);
+                                adaptation += (parseInt(document.querySelector('#inp_count_5_3_3 input[type="range"]').value) - 1);
+
+                                // Результаты вопроса 4
+                                avoidance += (parseInt(document.querySelector('#inp_count_5_4_1 input[type="range"]').value) - 1);
+                                adaptation += (parseInt(document.querySelector('#inp_count_5_4_2 input[type="range"]').value) - 1);
+                                emotionsArgument += (parseInt(document.querySelector('#inp_count_5_4_3 input[type="range"]').value) - 1);
+
+                                // Результаты вопроса 5
+                                bidding += (parseInt(document.querySelector('#inp_count_5_5_1 input[type="range"]').value) - 1);
+                                logicArgument += (parseInt(document.querySelector('#inp_count_5_5_2 input[type="range"]').value) - 1);
+                                emotionsArgument += (parseInt(document.querySelector('#inp_count_5_5_3 input[type="range"]').value) - 1);
+
+                                // Результаты вопроса 6
+                                bidding += (parseInt(document.querySelector('#inp_count_5_6_1 input[type="range"]').value) - 1);
+                                emotionsArgument += (parseInt(document.querySelector('#inp_count_5_6_2 input[type="range"]').value) - 1);
+                                logicArgument += (parseInt(document.querySelector('#inp_count_5_6_3 input[type="range"]').value) - 1);
+
+                                // Результаты вопроса 7
+                                logicArgument += (parseInt(document.querySelector('#inp_count_5_7_1 input[type="range"]').value) - 1);
+                                emotionsArgument += (parseInt(document.querySelector('#inp_count_5_7_2 input[type="range"]').value) - 1);
+                                bidding += (parseInt(document.querySelector('#inp_count_5_7_3 input[type="range"]').value) - 1);
+
+                                // Результаты вопроса 8
+                                bidding += (parseInt(document.querySelector('#inp_count_5_8_1 input[type="range"]').value) - 1);
+                                emotionsArgument += (parseInt(document.querySelector('#inp_count_5_8_2 input[type="range"]').value) - 1);
+                                adaptation += (parseInt(document.querySelector('#inp_count_5_8_3 input[type="range"]').value) - 1);
+
+                                // Результаты вопроса 9
+                                logicArgument += (parseInt(document.querySelector('#inp_count_5_9_1 input[type="range"]').value) - 1);
+                                emotionsArgument += (parseInt(document.querySelector('#inp_count_5_9_2 input[type="range"]').value) - 1);
+                                bidding += (parseInt(document.querySelector('#inp_count_5_9_3 input[type="range"]').value) - 1);
+
+                                // Результаты вопроса 10
+                                emotionsArgument += (parseInt(document.querySelector('#inp_count_5_10_1 input[type="range"]').value) - 1);
+                                logicArgument += (parseInt(document.querySelector('#inp_count_5_10_2 input[type="range"]').value) - 1);
+                                avoidance += (parseInt(document.querySelector('#inp_count_5_10_3 input[type="range"]').value) - 1);
+
+                                // Результаты вопроса 11
+                                emotionsArgument += (parseInt(document.querySelector('#inp_count_5_11_1 input[type="range"]').value) - 1);
+                                logicArgument += (parseInt(document.querySelector('#inp_count_5_11_2 input[type="range"]').value) - 1);
+                                bidding += (parseInt(document.querySelector('#inp_count_5_11_3 input[type="range"]').value) - 1);
+
+                                // Результаты вопроса 12
+                                emotionsArgument += (parseInt(document.querySelector('#inp_count_5_12_1 input[type="range"]').value) - 1);
+                                avoidance += (parseInt(document.querySelector('#inp_count_5_12_2 input[type="range"]').value) - 1);
+                                logicArgument += (parseInt(document.querySelector('#inp_count_5_12_3 input[type="range"]').value) - 1);
+
+
+                                // Выводим значения в alert (тест)
+                                // alert(`Приспособление: ${adaptation}\n` +
+                                //     `Торги: ${bidding}\n` +
+                                //     `Логика как аргумент: ${logicArgument}\n` +
+                                //     `Эмоции как аргумент: ${emotionsArgument}\n` +
+                                //     `Избегание: ${avoidance}`);
+
 
                                 // Переход на новую страницу после окончания анимации
                                 window.location.href = 'test_6.html';

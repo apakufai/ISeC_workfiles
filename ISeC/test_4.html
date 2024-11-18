@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    
+
     <section class="vertical_lines">
         <img class="line_1" src="./images/line.svg"></img>
         <img class="line_2" src="./images/line.svg"></img>
@@ -1752,12 +1752,6 @@
         </div>
 
 
-
-
-
-
-
-
         <!-- ВСПЛЫВАЮЩЕЕ ОКНО В КОНЦЕ БЛОКА -->
         <div class="popup" id="popup_4_end">
             <div class="popup-content">
@@ -1829,7 +1823,245 @@
                                 from.style.display = 'none';
                                 from.classList.remove('animBlockDisappear_next');
 
-                                // !!!!! Сделать код для подсчёта баллов!
+
+                                // Инициализация переменных
+                                let understandingOfStyles = 0; // Понимание стилей
+                                let strengthInstallation = 0; // Установка на силу
+                                let manipulationInstallation = 0; // Установка на манипуляцию
+                                let negotiationsInstallation = 0; // Установка на деловые переговоры
+
+                                // Результаты вопроса 1
+                                if (document.getElementById('4_1_1').checked) {
+                                    understandingOfStyles += 1; // Инкремент "Понимание стилей"
+                                    negotiationsInstallation += 1; // Инкремент одной из трёх "установок"
+                                }
+                                if (document.getElementById('4_1_2').checked) {
+                                    understandingOfStyles += 0; // Инкремент "Понимание стилей"
+                                    strengthInstallation += 1; // Инкремент одной из трёх "установок"
+                                }
+                                if (document.getElementById('4_1_3').checked) {
+                                    understandingOfStyles += 2; // Инкремент "Понимание стилей"
+                                    manipulationInstallation += 1; // Инкремент одной из трёх "установок"
+                                }
+
+                                // Результаты вопроса 2
+                                if (document.getElementById('4_2_1').checked) {
+                                    understandingOfStyles += 1;
+                                    negotiationsInstallation += 1;
+                                }
+                                if (document.getElementById('4_2_2').checked) {
+                                    understandingOfStyles += 2;
+                                    manipulationInstallation += 1;
+                                }
+                                if (document.getElementById('4_2_3').checked) {
+                                    understandingOfStyles += 0;
+                                    strengthInstallation += 1;
+                                }
+
+                                // Результаты вопроса 3
+                                if (document.getElementById('4_3_1').checked) {
+                                    understandingOfStyles += 0;
+                                    negotiationsInstallation += 1;
+                                }
+                                if (document.getElementById('4_3_2').checked) {
+                                    understandingOfStyles += 2;
+                                    manipulationInstallation += 1;
+                                }
+                                if (document.getElementById('4_3_3').checked) {
+                                    understandingOfStyles += 1;
+                                    strengthInstallation += 1;
+                                }
+
+                                // Результаты вопроса 4
+                                if (document.getElementById('4_4_1').checked) {
+                                    understandingOfStyles += 0;
+                                    strengthInstallation += 1;
+                                }
+                                if (document.getElementById('4_4_2').checked) {
+                                    understandingOfStyles += 1;
+                                    manipulationInstallation += 1;
+                                }
+                                if (document.getElementById('4_4_3').checked) {
+                                    understandingOfStyles += 2;
+                                    negotiationsInstallation += 1;
+                                }
+
+                                // Результаты вопроса 5
+                                if (document.getElementById('4_5_1').checked) {
+                                    understandingOfStyles += 1;
+                                    negotiationsInstallation += 1;
+                                }
+                                if (document.getElementById('4_5_2').checked) {
+                                    understandingOfStyles += 2;
+                                    manipulationInstallation += 1;
+                                }
+                                if (document.getElementById('4_5_3').checked) {
+                                    understandingOfStyles += 0;
+                                    strengthInstallation += 1;
+                                }
+
+                                // Результаты вопроса 6
+                                if (document.getElementById('4_6_1').checked) {
+                                    understandingOfStyles += 1;
+                                    strengthInstallation += 1;
+                                }
+                                if (document.getElementById('4_6_2').checked) {
+                                    understandingOfStyles += 0;
+                                    manipulationInstallation += 1;
+                                }
+                                if (document.getElementById('4_6_3').checked) {
+                                    understandingOfStyles += 2;
+                                    negotiationsInstallation += 1;
+                                }
+
+                                // Результаты вопроса 7
+                                if (document.getElementById('4_7_1').checked) {
+                                    understandingOfStyles += 2;
+                                    negotiationsInstallation += 1;
+                                }
+                                if (document.getElementById('4_7_2').checked) {
+                                    understandingOfStyles += 1;
+                                    manipulationInstallation += 1;
+                                }
+                                if (document.getElementById('4_7_3').checked) {
+                                    understandingOfStyles += 0;
+                                    strengthInstallation += 1;
+                                }
+
+                                // Результаты вопроса 8
+                                if (document.getElementById('4_8_1').checked) {
+                                    understandingOfStyles += 1;
+                                    manipulationInstallation += 1;
+                                }
+                                if (document.getElementById('4_8_2').checked) {
+                                    understandingOfStyles += 2;
+                                    negotiationsInstallation += 1;
+                                }
+                                if (document.getElementById('4_8_3').checked) {
+                                    understandingOfStyles += 0;
+                                    strengthInstallation += 1;
+                                }
+
+                                // Результаты вопроса 9
+                                if (document.getElementById('4_9_1').checked) {
+                                    understandingOfStyles += 0;
+                                    strengthInstallation += 1;
+                                }
+                                if (document.getElementById('4_9_2').checked) {
+                                    understandingOfStyles += 2;
+                                    manipulationInstallation += 1;
+                                }
+                                if (document.getElementById('4_9_3').checked) {
+                                    understandingOfStyles += 1;
+                                    negotiationsInstallation += 1;
+                                }
+
+                                // Результаты вопроса 10
+                                if (document.getElementById('4_10_1').checked) {
+                                    understandingOfStyles += 1;
+                                    strengthInstallation += 1;
+                                }
+                                if (document.getElementById('4_10_2').checked) {
+                                    understandingOfStyles += 2;
+                                    negotiationsInstallation += 1;
+                                }
+                                if (document.getElementById('4_10_3').checked) {
+                                    understandingOfStyles += 0;
+                                    manipulationInstallation += 1;
+                                }
+
+                                // Результаты вопроса 11
+                                if (document.getElementById('4_11_1').checked) {
+                                    understandingOfStyles += 1;
+                                    strengthInstallation += 1;
+                                }
+                                if (document.getElementById('4_11_2').checked) {
+                                    understandingOfStyles += 2;
+                                    manipulationInstallation += 1;
+                                }
+                                if (document.getElementById('4_11_3').checked) {
+                                    understandingOfStyles += 0;
+                                    negotiationsInstallation += 1;
+                                }
+
+                                // Результаты вопроса 12
+                                if (document.getElementById('4_12_1').checked) {
+                                    understandingOfStyles += 2;
+                                    negotiationsInstallation += 1;
+                                }
+                                if (document.getElementById('4_12_2').checked) {
+                                    understandingOfStyles += 1;
+                                    manipulationInstallation += 1;
+                                }
+                                if (document.getElementById('4_12_3').checked) {
+                                    understandingOfStyles += 0;
+                                    strengthInstallation += 1;
+                                }
+
+                                // Результаты вопроса 13
+                                if (document.getElementById('4_13_1').checked) {
+                                    understandingOfStyles += 2;
+                                    negotiationsInstallation += 1;
+                                }
+                                if (document.getElementById('4_13_2').checked) {
+                                    understandingOfStyles += 1;
+                                    manipulationInstallation += 1;
+                                }
+                                if (document.getElementById('4_13_3').checked) {
+                                    understandingOfStyles += 0;
+                                    strengthInstallation += 1;
+                                }
+
+                                // Результаты вопроса 14
+                                if (document.getElementById('4_14_1').checked) {
+                                    understandingOfStyles += 1;
+                                    negotiationsInstallation += 1;
+                                }
+                                if (document.getElementById('4_14_2').checked) {
+                                    understandingOfStyles += 0;
+                                    strengthInstallation += 1;
+                                }
+                                if (document.getElementById('4_14_3').checked) {
+                                    understandingOfStyles += 2;
+                                    manipulationInstallation += 1;
+                                }
+
+                                // Результаты вопроса 15
+                                if (document.getElementById('4_15_1').checked) {
+                                    understandingOfStyles += 2;
+                                    manipulationInstallation += 1;
+                                }
+                                if (document.getElementById('4_15_2').checked) {
+                                    understandingOfStyles += 1;
+                                    negotiationsInstallation += 1;
+                                }
+                                if (document.getElementById('4_15_3').checked) {
+                                    understandingOfStyles += 0;
+                                    strengthInstallation += 1;
+                                }
+
+                                // Результаты вопроса 16
+                                if (document.getElementById('4_16_1').checked) {
+                                    understandingOfStyles += 2;
+                                    strengthInstallation += 1;
+                                }
+                                if (document.getElementById('4_16_2').checked) {
+                                    understandingOfStyles += 1;
+                                    manipulationInstallation += 1;
+                                }
+                                if (document.getElementById('4_16_3').checked) {
+                                    understandingOfStyles += 0;
+                                    negotiationsInstallation += 1;
+                                }
+
+
+                                // Выводим значения в alert (тест)
+                                // alert(`Понимание стилей: ${understandingOfStyles}\n` +
+                                //     `Установка на силу: ${strengthInstallation}\n` +
+                                //     `Установка на манипуляцию: ${manipulationInstallation}\n` +
+                                //     `Установка на деловые переговоры: ${negotiationsInstallation}`);
+
+
 
                                 // Переход на новую страницу после окончания анимации
                                 window.location.href = 'test_5.html';

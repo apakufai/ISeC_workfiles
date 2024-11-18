@@ -6129,12 +6129,20 @@
 
 
                                 // Выводим значения в alert (тест)
-                                alert(`Соперничество: ${rivalry}\n` +
-                                    `Сотрудничество: ${cooperation}\n` +
-                                    `Компромисс: ${compromise}\n` +
-                                    `Избегание: ${avoidance}\n` +
-                                    `Приспособление: ${adaptation}`);
+                                // alert(`Соперничество: ${rivalry}\n` +
+                                //     `Сотрудничество: ${cooperation}\n` +
+                                //     `Компромисс: ${compromise}\n` +
+                                //     `Избегание: ${avoidance}\n` +
+                                //     `Приспособление: ${adaptation}`);
 
+
+                                // Сохранение значений в sessionStorage
+                                sessionStorage.setItem("resRivalry_2", rivalry); // Соперничество (Б)
+                                sessionStorage.setItem("resCooperation_2", cooperation); // Сотрудничество (В)
+                                sessionStorage.setItem("resCompromise_2", compromise); // Компромисс (П)
+                                sessionStorage.setItem("resAvoidance_2", rivalry); // Избегание (Р)
+                                sessionStorage.setItem("resAdaptation_2", adaptation); // Приспособление (ДЧ)
+                                
 
                                 // Переход на новую страницу после окончания анимации
                                 window.location.href = 'test_3.html';
