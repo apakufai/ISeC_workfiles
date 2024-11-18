@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    
+
     <section class="vertical_lines">
         <img class="line_1" src="./images/line.svg"></img>
         <img class="line_2" src="./images/line.svg"></img>
@@ -1556,7 +1556,207 @@
                                 from.style.display = 'none';
                                 from.classList.remove('animBlockDisappear_next');
 
-                                                                                                               // !!!!! Сделать код для подсчёта баллов!
+
+
+                                // Инициализация переменных
+                                let logicArgument = 0;// Логика как аргумент
+                                let emotionsArgument = 0;// Эмоции как аргумент
+
+                                // Результаты вопроса 1
+                                // Получаем значения из ползунков и переводлим их в константы
+                                const slider_6_1_1 = parseInt(document.querySelector('#inp_count_6_1_1 input[type="range"]').value);
+                                const slider_6_1_2 = parseInt(document.querySelector('#inp_count_6_1_2 input[type="range"]').value);
+                                const slider_6_1_3 = parseInt(document.querySelector('#inp_count_6_1_3 input[type="range"]').value);
+                                const slider_6_1_4 = parseInt(document.querySelector('#inp_count_6_1_4 input[type="range"]').value);
+                                if (slider_6_1_1 >= 3) {
+                                    logicArgument += (slider_6_1_1 - 2);
+                                }
+                                if (slider_6_1_2 >= 3) {
+                                    emotionsArgument += (slider_6_1_2 - 2);
+                                }
+                                if (slider_6_1_3 >= 3) {
+                                    emotionsArgument += (slider_6_1_3 - 2);
+                                }
+                                if (slider_6_1_4 >= 3) {
+                                    logicArgument += (slider_6_1_4 - 2);
+                                }
+
+                                // Результаты вопроса 2
+                                // Получаем значения из ползунков и переводлим их в константы
+                                const slider_6_2_1 = parseInt(document.querySelector('#inp_count_6_2_1 input[type="range"]').value);
+                                const slider_6_2_2 = parseInt(document.querySelector('#inp_count_6_2_2 input[type="range"]').value);
+                                const slider_6_2_3 = parseInt(document.querySelector('#inp_count_6_2_3 input[type="range"]').value);
+                                const slider_6_2_4 = parseInt(document.querySelector('#inp_count_6_2_4 input[type="range"]').value);
+                                if (slider_6_2_1 >= 3) {
+                                    logicArgument += (slider_6_2_1 - 2);
+                                }
+                                if (slider_6_2_2 >= 3) {
+                                    emotionsArgument += (slider_6_2_2 - 2);
+                                }
+                                if (slider_6_2_3 >= 3) {
+                                    logicArgument += (slider_6_2_3 - 2);
+                                }
+                                if (slider_6_2_4 >= 3) {
+                                    emotionsArgument += (slider_6_2_4 - 2);
+                                }
+
+                                // Результаты вопроса 3
+                                // Получаем значения из ползунков и переводлим их в константы
+                                const slider_6_3_1 = parseInt(document.querySelector('#inp_count_6_3_1 input[type="range"]').value);
+                                const slider_6_3_2 = parseInt(document.querySelector('#inp_count_6_3_2 input[type="range"]').value);
+                                const slider_6_3_3 = parseInt(document.querySelector('#inp_count_6_3_3 input[type="range"]').value);
+                                const slider_6_3_4 = parseInt(document.querySelector('#inp_count_6_3_4 input[type="range"]').value);
+                                if (slider_6_3_1 >= 3) {
+                                    emotionsArgument += (slider_6_3_1 - 2);
+                                }
+                                if (slider_6_3_2 >= 3) {
+                                    logicArgument += (slider_6_3_2 - 2);
+                                }
+                                if (slider_6_3_3 >= 3) {
+                                    emotionsArgument += (slider_6_3_3 - 2);
+                                }
+                                if (slider_6_3_4 >= 3) {
+                                    logicArgument += (slider_6_3_4 - 2);
+                                }
+
+                                // Результаты вопроса 4
+                                // Получаем значения из ползунков и переводлим их в константы
+                                const slider_6_4_1 = parseInt(document.querySelector('#inp_count_6_4_1 input[type="range"]').value);
+                                const slider_6_4_2 = parseInt(document.querySelector('#inp_count_6_4_2 input[type="range"]').value);
+                                const slider_6_4_3 = parseInt(document.querySelector('#inp_count_6_4_3 input[type="range"]').value);
+                                const slider_6_4_4 = parseInt(document.querySelector('#inp_count_6_4_4 input[type="range"]').value);
+                                if (slider_6_4_1 >= 3) {
+                                    emotionsArgument += (slider_6_4_1 - 2);
+                                }
+                                if (slider_6_4_2 >= 3) {
+                                    logicArgument += (slider_6_4_2 - 2);
+                                }
+                                if (slider_6_4_3 >= 3) {
+                                    emotionsArgument += (slider_6_4_3 - 2);
+                                }
+                                if (slider_6_4_4 >= 3) {
+                                    logicArgument += (slider_6_4_4 - 2);
+                                }
+
+                                // Результаты вопроса 5
+                                // Получаем значения из ползунков и переводлим их в константы
+                                const slider_6_5_1 = parseInt(document.querySelector('#inp_count_6_5_1 input[type="range"]').value);
+                                const slider_6_5_2 = parseInt(document.querySelector('#inp_count_6_5_2 input[type="range"]').value);
+                                const slider_6_5_3 = parseInt(document.querySelector('#inp_count_6_5_3 input[type="range"]').value);
+                                const slider_6_5_4 = parseInt(document.querySelector('#inp_count_6_5_4 input[type="range"]').value);
+                                if (slider_6_5_1 >= 3) {
+                                    emotionsArgument += (slider_6_5_1 - 2);
+                                }
+                                if (slider_6_5_2 >= 3) {
+                                    logicArgument += (slider_6_5_2 - 2);
+                                }
+                                if (slider_6_5_3 >= 3) {
+                                    logicArgument += (slider_6_5_3 - 2);
+                                }
+                                if (slider_6_5_4 >= 3) {
+                                    emotionsArgument += (slider_6_5_4 - 2);
+                                }
+
+                                // Результаты вопроса 6
+                                // Получаем значения из ползунков и переводлим их в константы
+                                const slider_6_6_1 = parseInt(document.querySelector('#inp_count_6_6_1 input[type="range"]').value);
+                                const slider_6_6_2 = parseInt(document.querySelector('#inp_count_6_6_2 input[type="range"]').value);
+                                const slider_6_6_3 = parseInt(document.querySelector('#inp_count_6_6_3 input[type="range"]').value);
+                                const slider_6_6_4 = parseInt(document.querySelector('#inp_count_6_6_4 input[type="range"]').value);
+                                if (slider_6_6_1 >= 3) {
+                                    logicArgument += (slider_6_6_1 - 2);
+                                }
+                                if (slider_6_6_2 >= 3) {
+                                    emotionsArgument += (slider_6_6_2 - 2);
+                                }
+                                if (slider_6_6_3 >= 3) {
+                                    emotionsArgument += (slider_6_6_3 - 2);
+                                }
+                                if (slider_6_6_4 >= 3) {
+                                    logicArgument += (slider_6_6_4 - 2);
+                                }
+
+                                // Результаты вопроса 7
+                                // Получаем значения из ползунков и переводлим их в константы
+                                const slider_6_7_1 = parseInt(document.querySelector('#inp_count_6_7_1 input[type="range"]').value);
+                                const slider_6_7_2 = parseInt(document.querySelector('#inp_count_6_7_2 input[type="range"]').value);
+                                const slider_6_7_3 = parseInt(document.querySelector('#inp_count_6_7_3 input[type="range"]').value);
+                                const slider_6_7_4 = parseInt(document.querySelector('#inp_count_6_7_4 input[type="range"]').value);
+                                if (slider_6_7_1 >= 3) {
+                                    emotionsArgument += (slider_6_7_1 - 2);
+                                }
+                                if (slider_6_7_2 >= 3) {
+                                    logicArgument += (slider_6_7_2 - 2);
+                                }
+                                if (slider_6_7_3 >= 3) {
+                                    emotionsArgument += (slider_6_7_3 - 2);
+                                }
+                                if (slider_6_7_4 >= 3) {
+                                    logicArgument += (slider_6_7_4 - 2);
+                                }
+
+                                // Результаты вопроса 8
+                                // Получаем значения из ползунков и переводлим их в константы
+                                const slider_6_8_1 = parseInt(document.querySelector('#inp_count_6_8_1 input[type="range"]').value);
+                                const slider_6_8_2 = parseInt(document.querySelector('#inp_count_6_8_2 input[type="range"]').value);
+                                const slider_6_8_3 = parseInt(document.querySelector('#inp_count_6_8_3 input[type="range"]').value);
+                                const slider_6_8_4 = parseInt(document.querySelector('#inp_count_6_8_4 input[type="range"]').value);
+                                if (slider_6_8_1 >= 3) {
+                                    logicArgument += (slider_6_8_1 - 2);
+                                }
+                                if (slider_6_8_2 >= 3) {
+                                    emotionsArgument += (slider_6_8_2 - 2);
+                                }
+                                if (slider_6_8_3 >= 3) {
+                                    emotionsArgument += (slider_6_8_3 - 2);
+                                }
+                                if (slider_6_8_4 >= 3) {
+                                    logicArgument += (slider_6_8_4 - 2);
+                                }
+
+                                // Результаты вопроса 9
+                                // Получаем значения из ползунков и переводлим их в константы
+                                const slider_6_9_1 = parseInt(document.querySelector('#inp_count_6_9_1 input[type="range"]').value);
+                                const slider_6_9_2 = parseInt(document.querySelector('#inp_count_6_9_2 input[type="range"]').value);
+                                const slider_6_9_3 = parseInt(document.querySelector('#inp_count_6_9_3 input[type="range"]').value);
+                                const slider_6_9_4 = parseInt(document.querySelector('#inp_count_6_9_4 input[type="range"]').value);
+                                if (slider_6_9_1 >= 3) {
+                                    emotionsArgument += (slider_6_9_1 - 2);
+                                }
+                                if (slider_6_9_2 >= 3) {
+                                    logicArgument += (slider_6_9_2 - 2);
+                                }
+                                if (slider_6_9_3 >= 3) {
+                                    logicArgument += (slider_6_9_3 - 2);
+                                }
+                                if (slider_6_9_4 >= 3) {
+                                    emotionsArgument += (slider_6_9_4 - 2);
+                                }
+
+                                // Результаты вопроса 10
+                                // Получаем значения из ползунков и переводлим их в константы
+                                const slider_6_10_1 = parseInt(document.querySelector('#inp_count_6_10_1 input[type="range"]').value);
+                                const slider_6_10_2 = parseInt(document.querySelector('#inp_count_6_10_2 input[type="range"]').value);
+                                const slider_6_10_3 = parseInt(document.querySelector('#inp_count_6_10_3 input[type="range"]').value);
+                                const slider_6_10_4 = parseInt(document.querySelector('#inp_count_6_10_4 input[type="range"]').value);
+                                if (slider_6_10_1 >= 3) {
+                                    emotionsArgument += (slider_6_10_1 - 2);
+                                }
+                                if (slider_6_10_2 >= 3) {
+                                    logicArgument += (slider_6_10_2 - 2);
+                                }
+                                if (slider_6_10_3 >= 3) {
+                                    emotionsArgument += (slider_6_10_3 - 2);
+                                }
+                                if (slider_6_10_4 >= 3) {
+                                    logicArgument += (slider_6_10_4 - 2);
+                                }
+
+
+                                // Выводим значения в alert (тест)
+                                alert(`Логика как аргумент: ${logicArgument}\n` +
+                                    `Эмоции как аргумент: ${emotionsArgument}`);
+
 
                                 // Переход на новую страницу после окончания анимации
                                 window.location.href = 'results.html';
@@ -1571,7 +1771,7 @@
                 });
             </script>
         </div>
-        
+
     </main>
 
 </body>
