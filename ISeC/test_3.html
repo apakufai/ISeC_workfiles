@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    
+
     <section class="vertical_lines">
         <img class="line_1" src="./images/line.svg"></img>
         <img class="line_2" src="./images/line.svg"></img>
@@ -1269,7 +1269,64 @@
                                 from.style.display = 'none';
                                 from.classList.remove('animBlockDisappear_next');
 
-                                                                                                               // !!!!! Сделать код для подсчёта баллов!
+                                // Инициализация переменных      
+                                let adaptation = 0;// Приспособление
+                                let rivalry = 0;// Соперничество
+                                let cooperation = 0;// Сотрудничество
+
+                                // Результаты вопроса 1
+                                // Получаем значения из ползунков и инкрементируем их к общему значению
+                                adaptation += (parseInt(document.querySelector('#inp_count_3_1_1 input[type="range"]').value) - 1);
+                                rivalry += (parseInt(document.querySelector('#inp_count_3_1_2 input[type="range"]').value) - 1);
+                                cooperation += (parseInt(document.querySelector('#inp_count_3_1_3 input[type="range"]').value) - 1);
+
+                                // Результаты вопроса 2
+                                adaptation += (parseInt(document.querySelector('#inp_count_3_2_1 input[type="range"]').value) - 1);
+                                cooperation += (parseInt(document.querySelector('#inp_count_3_2_2 input[type="range"]').value) - 1);
+                                rivalry += (parseInt(document.querySelector('#inp_count_3_2_3 input[type="range"]').value) - 1);
+
+                                // Результаты вопроса 3
+                                rivalry += (parseInt(document.querySelector('#inp_count_3_3_1 input[type="range"]').value) - 1);
+                                cooperation += (parseInt(document.querySelector('#inp_count_3_3_2 input[type="range"]').value) - 1);
+                                adaptation += (parseInt(document.querySelector('#inp_count_3_3_3 input[type="range"]').value) - 1);
+
+                                // Результаты вопроса 4
+                                cooperation += (parseInt(document.querySelector('#inp_count_3_4_1 input[type="range"]').value) - 1);
+                                adaptation += (parseInt(document.querySelector('#inp_count_3_4_2 input[type="range"]').value) - 1);
+                                rivalry += (parseInt(document.querySelector('#inp_count_3_4_3 input[type="range"]').value) - 1);
+
+                                // Результаты вопроса 5
+                                adaptation += (parseInt(document.querySelector('#inp_count_3_5_1 input[type="range"]').value) - 1);
+                                cooperation += (parseInt(document.querySelector('#inp_count_3_5_2 input[type="range"]').value) - 1);
+                                rivalry += (parseInt(document.querySelector('#inp_count_3_5_3 input[type="range"]').value) - 1);
+
+                                // Результаты вопроса 6
+                                adaptation += (parseInt(document.querySelector('#inp_count_3_6_1 input[type="range"]').value) - 1);
+                                cooperation += (parseInt(document.querySelector('#inp_count_3_6_2 input[type="range"]').value) - 1);
+                                rivalry += (parseInt(document.querySelector('#inp_count_3_6_3 input[type="range"]').value) - 1);
+
+                                // Результаты вопроса 7
+                                adaptation += (parseInt(document.querySelector('#inp_count_3_7_1 input[type="range"]').value) - 1);
+                                rivalry += (parseInt(document.querySelector('#inp_count_3_7_2 input[type="range"]').value) - 1);
+                                cooperation += (parseInt(document.querySelector('#inp_count_3_7_3 input[type="range"]').value) - 1);
+
+                                // Результаты вопроса 8
+                                adaptation += (parseInt(document.querySelector('#inp_count_3_8_1 input[type="range"]').value) - 1);
+                                cooperation += (parseInt(document.querySelector('#inp_count_3_8_2 input[type="range"]').value) - 1);
+                                rivalry += (parseInt(document.querySelector('#inp_count_3_8_3 input[type="range"]').value) - 1);
+
+                                // Результаты вопроса 9
+                                cooperation += (parseInt(document.querySelector('#inp_count_3_9_1 input[type="range"]').value) - 1);
+                                adaptation += (parseInt(document.querySelector('#inp_count_3_9_2 input[type="range"]').value) - 1);
+                                rivalry += (parseInt(document.querySelector('#inp_count_3_9_3 input[type="range"]').value) - 1);
+
+
+
+                                // Выводим значения в alert
+                                alert(`Приспособление: ${adaptation}\n` +
+                                    `Соперничество: ${rivalry}\n` +
+                                    `Сотрудничество: ${cooperation}`);
+
 
                                 // Переход на новую страницу после окончания анимации
                                 window.location.href = 'test_4.html';
