@@ -6,7 +6,14 @@ import time  # Импортируем модуль time
 browser = webdriver.Chrome()
 
 try:
-    browser.get('file:///C:/Users/Admin/Desktop/ISeC/test_1.html')
+    browser.get('file:///C:/Users/Admin/Desktop/ISeC/index.html')
+
+# ВВОД КОДА
+    time.sleep(0.5)
+    inputField = browser.find_element(By.ID, 'inputCode')
+    inputField.send_keys("123")
+    btn_main_start = browser.find_element(By.ID, 'startTest')
+    btn_main_start.click()
 
 # СТАРТ БЛОКА 1
     time.sleep(0.5)

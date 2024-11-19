@@ -18,230 +18,6 @@ main {
    flex-direction: column;
 }
 
-/* Всплывающее окно */
-.popup {
-   display: none;
-   justify-content: center; /* Центрирование по горизонтали */
-   align-items: center; /* Центрирование по вертикали */
-   /* Скрыто по умолчанию */
-   position: fixed;
-   top: 0;
-   left: 0;
-   width: 100%;
-   height: 100%;
-   background-color: rgba(198,64,83, 0.25);
-   /* Полупрозрачный фон */
-   z-index: 1;
-}
-.popup-content {
-   width: 500px;
-   height: 200px;
-   background-color: rgba(255, 255, 255, 1);
-   padding: 20px;
-   border: 5px solid #e29fa9;
-   border-radius: 30px;
-   text-align: center;
-   z-index: 1;
-   font-size: 16pt;
-   font-weight: lighter;
-   font-family: "Bahnschrift", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-}
-
-.close-btn {
-   height: 60px;
-   width: 180px;
-   margin-top: 20px;
-   padding: 10px 15px;
-   background-color: #ffffff;
-   color: #7f7f7f;
-   border: 5px solid #e29fa9;
-   border-radius: 30px;
-   transition:
-      background-color 0.2s,
-      box-shadow 0.2s,
-      transform 0.2s,
-      border-color 0.2s,
-      color 0.2s;
-   cursor: pointer;
-   font-size: 16pt;
-   font-family: "Bahnschrift", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-   z-index: 1;
-   outline: none;
-   cursor: pointer;
-}
-.close-btn:hover {
-   border: 5px solid #c64053;
-   color: #c64053;
-   cursor: pointer;
-}
-.close-btn:active {
-   background-color: #e29fa9;
-   cursor: pointer;
-}
-.error_text {
-   font-size: 24pt;
-   font-weight: normal;
-   margin-bottom: 10px;
-   color: #c64053;
-}
-
-/* Логотип ИКС-файла */
-.logo {
-   display: flex;
-   justify-content: center;
-   height: 100%;
-   width: 760px;
-   margin: 40px auto 40px auto;
-   animation: animLogo 0.75s ease;
-   background-color: rgba(255, 255, 255, 0.7);
-   box-shadow: 0px 0px 20px 20px rgba(255, 255, 255, 0.7);
-   border-radius: 30px;
-}
-
-/* Модели влияния */
-.models_1,
-.models_2 {
-   text-align: center;
-   font-family: "Bahnschrift", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-   font-size: 16pt;
-
-   animation: animBlock_main_text 1s ease;
-}
-
-.models_1 *,
-.models_2 * {
-   padding: 10px 20px;
-   font-weight: normal;
-}
-
-.models_2 {
-   margin-top: 10px;
-}
-
-/* Табуляция текста */
-p,
-.models_1,
-.models_2 {
-   text-indent: 20px;
-}
-
-/* Окно с описанием блока */
-.descr {
-   position: static;
-   z-index: 0;
-   margin: 20px auto 0 auto;
-   width: 760px;
-   height: 490px;
-   background-color: rgba(255, 255, 255, 0.85);
-   border: 5px solid #ffffff;
-   border-radius: 30px;
-   box-shadow: 0px 0px 20px 20px rgba(255, 255, 255, 0.7);
-   text-align: justify;
-   animation: animBlock_main 1s ease;
-}
-
-/* Текст окна с описанием блока */
-.descr_text {
-   width: 720px;
-   align-self: center;
-   margin: 10px 15px;
-   font-family: "Bahnschrift", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-   font-size: 16pt;
-   animation: animBlock_main_text 1s ease;
-   font-weight: lighter;
-}
-
-/* "Знаете ли вы, что есть пять моделей влияния в коммуникациях:" */
-.descr_models {
-   text-indent: 0px;
-   text-align: center;
-   margin: 10px 20px;
-   padding: auto;
-   font-family: "Bahnschrift", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-   font-size: 16pt;
-   font-weight: lighter;
-   animation: animBlock_main_text 1s ease;
-}
-
-/* Ссылка на сайт "smart-skills" */
-.linkSmartSkills {
-   text-decoration: none;
-   color: #5b7ead;
-}
-
-/* Нижняя секция с кнопками и кодом */
-.low_section {
-   display: flex;
-   flex-direction: row;
-   align-items: center;
-   gap: 30px;
-   margin-top: 30px;
-   margin-bottom: 30px;
-   justify-content: center;
-}
-
-/* Кнопки на главной странице */
-.btn_startpage {
-   display: flex;
-   border: 5px solid #ffffff;
-   border-radius: 40px;
-   background-color: rgba(255, 255, 255, 0.85);
-   transition:
-      background-color 0.2s,
-      box-shadow 0.2s,
-      transform 0.2s,
-      border-color 0.2s,
-      color 0.2s;
-   font-size: 16pt;
-   font-family: "Bahnschrift", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-   color: #7F7F7F;
-   justify-content: center;
-   align-items: center;
-   animation: animButtons_main;
-   animation-duration: 1s;
-   height: 80px;
-   width: 240px;
-   cursor: pointer;
-}
-
-.btn_startpage:hover {
-   border: 5px solid #5b7ead;
-   color: #5b7ead;
-   background-color: rgba(255, 255, 255, 0.85);
-   cursor: pointer;
-}
-
-.btn_startpage:active {
-   border: 5px solid #5b7ead;
-   color: #5b7ead;
-   background-color: rgba(172, 189, 214, 0.85);
-   box-shadow: none;
-   cursor: pointer;
-}
-
-/* Поле ввода кода на главной странице */
-.inp_startpage {
-   display: flex;
-   border: 5px solid #ffffff;
-   border-radius: 15px;
-   background-color: rgba(255, 255, 255, 0.85);
-   font-size: 16pt;
-   font-family: "Bahnschrift", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-   color: #5b7ead;
-   animation: animButtons_main;
-   animation-duration: 1s;
-   height: 50px;
-   width: 220px;
-   padding: 10px;
-   outline: none;
-}
-
-.inp_startpage::placeholder {
-   color: #7F7F7F;
-   text-align: center;
-   font-weight: lighter;
-}
-
 /* Вертикальные бегущие линии */
 .vertical_lines img {
    z-index: -1;
@@ -391,6 +167,368 @@ p,
    margin-top: 2650px;
 }
 
+/* Всплывающее окно */
+.popup {
+   display: none;
+   justify-content: center; /* Центрирование по горизонтали */
+   align-items: center; /* Центрирование по вертикали */
+   /* Скрыто по умолчанию */
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background-color: rgba(198,64,83, 0.25);
+   /* Полупрозрачный фон */
+   z-index: 1;
+}
+.popup-content {
+   width: 500px;
+   height: 200px;
+   background-color: rgba(255, 255, 255, 1);
+   padding: 20px;
+   border: 5px solid #e29fa9;
+   border-radius: 30px;
+   text-align: center;
+   z-index: 1;
+   font-size: 16pt;
+   font-weight: lighter;
+   font-family: "Bahnschrift", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.close-btn {
+   height: 60px;
+   width: 180px;
+   margin-top: 20px;
+   padding: 10px 15px;
+   background-color: #ffffff;
+   color: #7f7f7f;
+   border: 5px solid #e29fa9;
+   border-radius: 30px;
+   transition:
+      background-color 0.2s,
+      box-shadow 0.2s,
+      transform 0.2s,
+      border-color 0.2s,
+      color 0.2s;
+   cursor: pointer;
+   font-size: 16pt;
+   font-family: "Bahnschrift", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+   z-index: 1;
+   outline: none;
+   cursor: pointer;
+}
+.close-btn:hover {
+   border: 5px solid #c64053;
+   color: #c64053;
+   cursor: pointer;
+}
+.close-btn:active {
+   background-color: #e29fa9;
+   cursor: pointer;
+}
+.error_text {
+   font-size: 24pt;
+   font-weight: normal;
+   margin-bottom: 10px;
+   color: #c64053;
+}
+
+/* Логотип ИКС-файла */
+.logo {
+   display: flex;
+   justify-content: center;
+   height: 100%;
+   width: 760px;
+   margin: 40px auto 40px auto;
+   animation: animLogo 0.75s ease;
+   background-color: rgba(255, 255, 255, 0.7);
+   box-shadow: 0px 0px 20px 20px rgba(255, 255, 255, 0.7);
+   border-radius: 30px;
+}
+
+/* Модели влияния */
+.models_1,
+.models_2 {
+   text-align: center;
+   font-family: "Bahnschrift", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+   font-size: 16pt;
+
+   animation: animBlock_main_text 1s ease;
+}
+
+.models_1 *,
+.models_2 * {
+   padding: 10px 20px;
+   font-weight: normal;
+}
+
+.models_2 {
+   margin-top: 10px;
+}
+
+/* Табуляция текста */
+p,
+.models_1,
+.models_2 {
+   text-indent: 20px;
+}
+
+/* Окно с описанием блока */
+.descr_main {
+   position: static;
+   margin: 20px auto 0 auto;
+   width: 760px;
+   background-color: rgba(255, 255, 255, 0.85);
+   border: 5px solid #ffffff;
+   border-radius: 30px;
+   box-shadow: 0px 0px 20px 20px rgba(255, 255, 255, 0.7);
+   text-align: justify;
+   animation: animBlock_main 1s ease;
+}
+
+/* Текст окна с описанием блока */
+.descr_main_text {
+   align-self: center;
+   margin: 10px 15px;
+   font-family: "Bahnschrift", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+   font-size: 16pt;
+   animation: animBlock_main_text 1s ease;
+   font-weight: lighter;
+}
+
+/* "Знаете ли вы, что есть пять моделей влияния в коммуникациях:" */
+.descr_main_models {
+   text-align: center;
+   margin: 10px 20px;
+   padding: auto;
+   font-family: "Bahnschrift", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+   font-size: 16pt;
+   font-weight: lighter;
+   animation: animBlock_main_text 1s ease;
+}
+
+/* Ссылка на сайт "smart-skills" */
+.linkSmartSkills {
+   text-decoration: none;
+   color: #5b7ead;
+}
+
+/* Окно с вводом данных пользователя */
+.descr_dataInput {
+   position: static;
+   margin: 20px auto 0 auto;
+   width: 760px;
+   background-color: rgba(255, 255, 255, 0.85);
+   border: 5px solid #ffffff;
+   border-radius: 30px;
+   box-shadow: 0px 0px 20px 20px rgba(255, 255, 255, 0.7);
+   text-align: justify;
+   animation: animBlock_main 1s ease;
+}
+
+/* Заголовок окна с описанием блоков */
+.descr_dataInput_title {
+   text-indent: 0;
+   align-self: center;
+   margin: 15px auto 0 auto;
+   font-family: "Bahnschrift", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+   font-size: 20pt;
+   font-weight: normal;
+   text-align: center;
+   animation: animBlock_main_text 1s ease;
+}
+
+/* Текст с вводом данных пользователя */
+.descr_dataInput_text {
+   align-self: center;
+   margin: 10px 15px;
+   font-family: "Bahnschrift", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+   font-size: 16pt;
+   animation: animBlock_main_text 1s ease;
+   font-weight: lighter;
+}
+
+/* Текст с вводом данных пользователя (мелкий шрифт) */
+.descr_dataInput_textSmall {
+   align-self: center;
+   margin-left: 5px;
+   margin-right: 50px;
+   font-family: "Bahnschrift", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+   font-size: 12pt;
+   animation: animBlock_main_text 1s ease;
+   font-weight: lighter;
+}
+
+.radiosData {
+}
+
+/* Окно с описанием блока теста */
+.descr_test {
+   position: static;
+   margin: 50px auto 0 auto;
+   width: 760px;
+   background-color: rgba(255, 255, 255, 0.85);
+   border: 5px solid #ffffff;
+   border-radius: 30px;
+   box-shadow: 0px 0px 20px 20px rgba(255, 255, 255, 0.7);
+   text-align: justify;
+   animation: animBlock_main 1s ease;
+   font-weight: lighter;
+}
+
+/* Заголовок окна с описанием блоков */
+.descr_test_title {
+   width: 720px;
+   align-self: center;
+   margin: 15px auto 0 auto;
+   font-family: "Bahnschrift", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+   font-size: 20pt;
+   font-weight: normal;
+   text-align: center;
+   animation: animBlock_main_text 1s ease;
+}
+
+/* Текст окна с описанием блока */
+.descr_test_text {
+   width: 720px;
+   align-self: center;
+   margin: 10px 15px;
+   font-family: "Bahnschrift", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+   font-size: 16pt;
+   animation: animBlock_main_text 1s ease;
+}
+
+/* Поля ввода кода на главной странице */
+.inp_code {
+   display: flex;
+   border: 5px solid #ffffff;
+   border-radius: 15px;
+   background-color: rgba(255, 255, 255, 0);
+   font-size: 16pt;
+   font-family: "Bahnschrift", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+   color: #5b7ead;
+   animation: animButtons_main;
+   animation-duration: 1s;
+   height: 50px;
+   width: 220px;
+   padding: 10px;
+   outline: none;
+}
+
+/* Поля ввода текста на странице данных пользователя */
+.inp_text {
+   display: flex;
+   border: 5px solid #ffffff;
+   border-radius: 15px;
+   background-color: rgba(255, 255, 255, 0);
+   font-size: 16pt;
+   font-family: "Bahnschrift", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+   color: #5b7ead;
+   animation: animButtons_main;
+   animation-duration: 1s;
+   height: 50px;
+   width: 300px;
+   padding: 10px;
+   outline: none;
+}
+
+/* Поля ввода даты на странице данных пользователя */
+.inp_date {
+   display: flex;
+   border: 5px solid #ffffff;
+   border-radius: 15px;
+   background-color: rgba(255, 255, 255, 0);
+   font-size: 16pt;
+   font-family: "Bahnschrift", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+   color: #5b7ead;
+   animation: animButtons_main;
+   animation-duration: 1s;
+   height: 50px;
+   width: 300px;
+   padding: 10px;
+   outline: none;
+}
+
+.inp_text::placeholder {
+   color: #7F7F7F;
+   text-align: center;
+   font-weight: lighter;
+}
+
+/* Нижняя секция с кнопками и кодом */
+.low_section {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   gap: 30px;
+   margin-top: 30px;
+   margin-bottom: 30px;
+   justify-content: center;
+}
+
+/* Кнопки на главной странице */
+.btn_startpage {
+   display: flex;
+   border: 5px solid #ffffff;
+   border-radius: 40px;
+   background-color: rgba(255, 255, 255, 0.85);
+   transition:
+      background-color 0.2s,
+      box-shadow 0.2s,
+      transform 0.2s,
+      border-color 0.2s,
+      color 0.2s;
+   font-size: 16pt;
+   font-family: "Bahnschrift", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+   color: #7F7F7F;
+   justify-content: center;
+   align-items: center;
+   animation: animButtons_main;
+   animation-duration: 1s;
+   height: 80px;
+   width: 240px;
+   cursor: pointer;
+}
+
+.btn_startpage:hover {
+   border: 5px solid #5b7ead;
+   color: #5b7ead;
+   background-color: rgba(255, 255, 255, 0.85);
+   cursor: pointer;
+}
+
+.btn_startpage:active {
+   border: 5px solid #5b7ead;
+   color: #5b7ead;
+   background-color: rgba(172, 189, 214, 0.85);
+   box-shadow: none;
+   cursor: pointer;
+}
+
+/* Поле ввода кода на главной странице */
+.inp_startpage {
+   display: flex;
+   border: 5px solid #ffffff;
+   border-radius: 15px;
+   background-color: rgba(255, 255, 255, 0.85);
+   font-size: 16pt;
+   font-family: "Bahnschrift", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+   color: #5b7ead;
+   animation: animButtons_main;
+   animation-duration: 1s;
+   height: 50px;
+   width: 220px;
+   padding: 10px;
+   outline: none;
+}
+
+.inp_startpage::placeholder {
+   color: #7F7F7F;
+   text-align: center;
+   font-weight: lighter;
+}
+
 /* Кнопки на страницах теста */
 .btn_test {
    display: flex;
@@ -469,44 +607,6 @@ p,
    background-color: rgba(172, 189, 214, 0.85);
    box-shadow: none;
    cursor: pointer;
-}
-
-
-/* Окно с описанием блока */
-.descr_test {
-   position: static;
-   z-index: 0;
-   margin: 50px auto 0 auto;
-   width: 760px;
-   background-color: rgba(255, 255, 255, 0.85);
-   border: 5px solid #ffffff;
-   border-radius: 30px;
-   box-shadow: 0px 0px 20px 20px rgba(255, 255, 255, 0.7);
-   text-align: justify;
-   animation: animBlock_main 1s ease;
-   font-weight: lighter;
-}
-
-/* Заголовок окна с описанием блока */
-.descr_test_title {
-   width: 720px;
-   align-self: center;
-   margin: 15px auto 0 auto;
-   font-family: "Bahnschrift", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-   font-size: 20pt;
-   font-weight: normal;
-   text-align: center;
-   animation: animBlock_main_text 1s ease;
-}
-
-/* Текст окна с описанием блока */
-.descr_test_text {
-   width: 720px;
-   align-self: center;
-   margin: 10px 15px;
-   font-family: "Bahnschrift", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-   font-size: 16pt;
-   animation: animBlock_main_text 1s ease;
 }
 
 /* Окно вопроса для всех блоков 1-5 */
@@ -699,8 +799,6 @@ p,
 .quest_1 {
    display: none;
    position: static;
-   top: -620px;
-   z-index: 0;
    margin: 50px auto 0 auto;
    width: 760px;
    background-color: rgba(255, 255, 255, 0.85);
@@ -758,8 +856,6 @@ p,
 .quest_2 {
    display: none;
    position: static;
-   top: -620px;
-   z-index: 0;
    margin: 50px auto 0 auto;
    width: 760px;
    background-color: rgba(255, 255, 255, 0.85);
@@ -818,8 +914,6 @@ p,
 .quest_3 {
    display: none;
    position: static;
-   top: -620px;
-   z-index: 0;
    margin: 50px auto 0 auto;
    width: 760px;
    background-color: rgba(255, 255, 255, 0.85);
@@ -937,8 +1031,6 @@ p,
 .quest_4 {
    display: none;
    position: static;
-   top: -620px;
-   z-index: 0;
    margin: 50px auto 0 auto;
    width: 760px;
    background-color: rgba(255, 255, 255, 0.85);
@@ -998,8 +1090,6 @@ p,
 .quest_5 {
    display: none;
    position: static;
-   top: -620px;
-   z-index: 0;
    margin: 50px auto 0 auto;
    width: 760px;
    background-color: rgba(255, 255, 255, 0.85);
@@ -1093,8 +1183,6 @@ p,
 .quest_6 {
    display: none;
    position: static;
-   top: -620px;
-   z-index: 0;
    margin: 50px auto 0 auto;
    width: 760px;
    background-color: rgba(255, 255, 255, 0.85);
@@ -1200,8 +1288,6 @@ p,
 .end_test {
    display: none;
    position: static;
-   top: -620px;
-   z-index: 0;
    margin: 50px auto 0 auto;
    width: 760px;
    background-color: rgba(255, 255, 255, 0.85);
@@ -1423,6 +1509,10 @@ p,
    animation: animBlockDisappear_next 0.35s forwards;
 }
 
+.animBlockDisappear_end {
+   animation: animBlockDisappear_end 0.35s forwards;
+}
+
 .animBlockAppear_next {
    animation: animBlockAppear_next 0.35s forwards;
 }
@@ -1435,6 +1525,16 @@ p,
 
    to {
       transform: translateX(-100px);
+      opacity: 0;
+   }
+}
+
+@keyframes animBlockDisappear_end {
+   from {
+      opacity: 1;
+   }
+
+   to {
       opacity: 0;
    }
 }

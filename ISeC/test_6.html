@@ -1515,11 +1515,6 @@
             </section>
 
             <script>
-                window.addEventListener('load', function () {
-                    // Скрываем всплывающее окно при загрузке страницы
-                    const popup = document.getElementById('popup_6_end');
-                    popup.style.display = 'none';
-                });
                 // Перелистывание назад
                 document.getElementById('end_test_prev').addEventListener('click', function () {
                     var from = document.querySelector('[name="end_test_6"]');
@@ -1551,10 +1546,10 @@
                         } else {
                             // Переход на другую страницу при нажатии на кнопку
                             const from = document.querySelector('[name="end_test_6"]');
-                            from.classList.add('animBlockDisappear_next');
+                            from.classList.add('animBlockDisappear_end');
                             from.addEventListener('animationend', function handler() {
                                 from.style.display = 'none';
-                                from.classList.remove('animBlockDisappear_next');
+                                from.classList.remove('animBlockDisappear_end');
 
                                 // Инициализация переменных
                                 let logicArgument = 0;// Логика как аргумент
