@@ -42,43 +42,43 @@
 			<p class="descr_dataInput_title">Представьтесь<br></p>
 
 			<span class="descr_dataInput_text">Ваше имя</span>
-			<input type="text" class="inp_text" id="user_firstname" name="user_firstname" required><br><br>
+			<input type="text" class="inp_text" id="user_firstname" name="user_firstname" required placeholder="Имя"><br>
 
 			<span class="descr_dataInput_text">Ваша фамилия</span>
-			<input type="text" class="inp_text" id="user_firstname" name="user_firstname" required><br><br>
+			<input type="text" class="inp_text" id="user_firstname" name="user_firstname" required placeholder="Фамилия"><br>
 
 			<span class="descr_dataInput_text">Ваш пол</span>
-			<div>
+			<div class="inp_sex">
 				<label class="radiosData" required>
 					<input type="radio" id="user_sex_male" class="inpRadio" name="user_sex">
-					<span class="descr_dataInput_textSmall">Муж</span>
+					<span class="sexText">Мужской</span>
 				</label>
-				<label>
+				<div class="dataInputSexSpace"></div>
+				<label class="radiosData">
 					<input type="radio" id="user_sex_female" class="inpRadio" name="user_sex">
-					<span class="descr_dataInput_textSmall">Жен</span>
+					<span class="sexText">Женский</span>
 				</label>
-			</div><br><br>
+			</div><br>
 
 			<span class="descr_dataInput_text">Ваша дата рождения</span>
-			<input type="date" class="inp_date" required><br><br>
+			<input type="date" class="inp_date" required><br>
 
-		
 			<span class="descr_dataInput_text">Ваша компания</span>
-			<input type="text" class="inp_text" required><br><br>
-		
-			<span class="descr_dataInput_text">Ваша должность</span>
-			<input type="text" class="inp_text"><br><br>
-		
-			<span class="descr_dataInput_text">Ваша эл. почта</span>
-			<input type="email" class="inp_text"><br><br>
-				
-			<div>
-				Соглашение на обработку введённых данных
-				<input type="checkbox">
-			</div><br><br>
-		
-			<input type="submit" value="Ввод">
+			<input type="text" class="inp_text" required placeholder="Компания"><br>
 
+			<span class="descr_dataInput_text">Ваша должность</span>
+			<input type="text" class="inp_text" required placeholder="Должность"><br>
+
+			<span class="descr_dataInput_text">Ваша эл. почта</span>
+			<input type="email" class="inp_text" required placeholder="Эл. почта"><br><br>
+
+			<div class="dataAgreement">
+				<span class="descr_dataInput_text">Я соглашаюсь на обработку введённых данных</span>
+				<div class="dataAgreementSpace"></div>
+				<input type="checkbox" class="inpRadio">
+			</div><br>
+
+			<input type="submit" class="btn_sendUserData" value="Ввод">
 
 
 
@@ -100,10 +100,10 @@
 <form>
 
 	Имя
-	<input type="text" id="user_firstname" name="user_firstname" required><br><br>
+	<input type="text" id="user_firstname" name="user_firstname" required><br>
 
 	Фамилия
-	<input type="text" id="user_lastname" name="user_firstname" required><br><br>
+	<input type="text" id="user_lastname" name="user_firstname" required><br>
 
 	<div>
 		Пол
@@ -114,22 +114,22 @@
 		<label>
 			<input type="radio" id="user_sex_female" name="user_sex">Жен
 		</label>
-	</div><br><br>
+	</div><br>
 
 	Дата рождения
-	<input type="date" required><br><br>
+	<input type="date" required><br>
 
 	Компания
-	<input type="text" required><br><br>
+	<input type="text" required><br>
 
 	Должность
-	<input type="text"><br><br>
+	<input type="text"><br>
 
 	E-mail
-	<input type="email"><br><br>
+	<input type="email"><br>
 
 	Входной код
-	<input type="text"><br><br>
+	<input type="text"><br>
 
 	id, генерируется случайно
 	<input type="hidden">
@@ -137,7 +137,7 @@
 	<div>
 		Соглашение на обработку введённых данных
 		<input type="checkbox">
-	</div><br><br>
+	</div><br>
 
 	<input type="submit" value="Ввод">
 

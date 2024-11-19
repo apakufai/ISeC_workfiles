@@ -170,18 +170,21 @@ main {
 /* Всплывающее окно */
 .popup {
    display: none;
-   justify-content: center; /* Центрирование по горизонтали */
-   align-items: center; /* Центрирование по вертикали */
+   justify-content: center;
+   /* Центрирование по горизонтали */
+   align-items: center;
+   /* Центрирование по вертикали */
    /* Скрыто по умолчанию */
    position: fixed;
    top: 0;
    left: 0;
    width: 100%;
    height: 100%;
-   background-color: rgba(198,64,83, 0.25);
+   background-color: rgba(198, 64, 83, 0.25);
    /* Полупрозрачный фон */
    z-index: 1;
 }
+
 .popup-content {
    width: 500px;
    height: 200px;
@@ -218,15 +221,18 @@ main {
    outline: none;
    cursor: pointer;
 }
+
 .close-btn:hover {
    border: 5px solid #c64053;
    color: #c64053;
    cursor: pointer;
 }
+
 .close-btn:active {
    background-color: #e29fa9;
    cursor: pointer;
 }
+
 .error_text {
    font-size: 24pt;
    font-weight: normal;
@@ -289,7 +295,6 @@ p,
 
 /* Текст окна с описанием блока */
 .descr_main_text {
-   align-self: center;
    margin: 10px 15px;
    font-family: "Bahnschrift", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
    font-size: 16pt;
@@ -316,6 +321,9 @@ p,
 
 /* Окно с вводом данных пользователя */
 .descr_dataInput {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
    position: static;
    margin: 20px auto 0 auto;
    width: 760px;
@@ -330,8 +338,7 @@ p,
 /* Заголовок окна с описанием блоков */
 .descr_dataInput_title {
    text-indent: 0;
-   align-self: center;
-   margin: 15px auto 0 auto;
+   margin: 15px auto 15px auto;
    font-family: "Bahnschrift", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
    font-size: 20pt;
    font-weight: normal;
@@ -341,8 +348,7 @@ p,
 
 /* Текст с вводом данных пользователя */
 .descr_dataInput_text {
-   align-self: center;
-   margin: 10px 15px;
+   margin: 10px 0;
    font-family: "Bahnschrift", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
    font-size: 16pt;
    animation: animBlock_main_text 1s ease;
@@ -350,17 +356,38 @@ p,
 }
 
 /* Текст с вводом данных пользователя (мелкий шрифт) */
-.descr_dataInput_textSmall {
-   align-self: center;
+.sexText {
    margin-left: 5px;
-   margin-right: 50px;
    font-family: "Bahnschrift", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
    font-size: 12pt;
    animation: animBlock_main_text 1s ease;
    font-weight: lighter;
 }
 
+/* Расположение кнопок выбора пола */
+.inp_sex {
+   display: flex;
+   flex-direction: row;
+}
+
+/* Расстояние между кнопками выбора пола в окне ввода данных пользователя */
+.dataInputSexSpace {
+   width: 150px;
+}
+
+/* Расположение блока соглашения на обработку введённых данных*/
+.dataAgreement {
+   display: flex;
+   align-items: center;
+}
+
+/* Расстояние между текстом и кнопкой соглашения на обработку введённых данных*/
+.dataAgreementSpace {
+width: 15px;
+}
+
 .radiosData {
+   display: flex;
 }
 
 /* Окно с описанием блока теста */
@@ -380,7 +407,6 @@ p,
 /* Заголовок окна с описанием блоков */
 .descr_test_title {
    width: 720px;
-   align-self: center;
    margin: 15px auto 0 auto;
    font-family: "Bahnschrift", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
    font-size: 20pt;
@@ -392,7 +418,6 @@ p,
 /* Текст окна с описанием блока */
 .descr_test_text {
    width: 720px;
-   align-self: center;
    margin: 10px 15px;
    font-family: "Bahnschrift", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
    font-size: 16pt;
@@ -418,34 +443,19 @@ p,
 
 /* Поля ввода текста на странице данных пользователя */
 .inp_text {
+   /* text-align: center; Центрирование текста */
    display: flex;
    border: 5px solid #ffffff;
    border-radius: 15px;
    background-color: rgba(255, 255, 255, 0);
    font-size: 16pt;
    font-family: "Bahnschrift", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+   font-weight: lighter;
    color: #5b7ead;
    animation: animButtons_main;
    animation-duration: 1s;
    height: 50px;
-   width: 300px;
-   padding: 10px;
-   outline: none;
-}
-
-/* Поля ввода даты на странице данных пользователя */
-.inp_date {
-   display: flex;
-   border: 5px solid #ffffff;
-   border-radius: 15px;
-   background-color: rgba(255, 255, 255, 0);
-   font-size: 16pt;
-   font-family: "Bahnschrift", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-   color: #5b7ead;
-   animation: animButtons_main;
-   animation-duration: 1s;
-   height: 50px;
-   width: 300px;
+   width: 500px;
    padding: 10px;
    outline: none;
 }
@@ -454,6 +464,25 @@ p,
    color: #7F7F7F;
    text-align: center;
    font-weight: lighter;
+}
+
+/* Поля ввода даты на странице данных пользователя */
+.inp_date {
+   justify-content: end;
+   display: flex;
+   border: 5px solid #ffffff;
+   border-radius: 15px;
+   background-color: rgba(255, 255, 255, 0);
+   font-size: 16pt;
+   font-family: "Bahnschrift", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+   font-weight: lighter;
+   color: #5b7ead;
+   animation: animButtons_main;
+   animation-duration: 1s;
+   height: 50px;
+   width: 250px;
+   padding: 10px;
+   outline: none;
 }
 
 /* Нижняя секция с кнопками и кодом */
@@ -529,12 +558,51 @@ p,
    font-weight: lighter;
 }
 
+/* Кнопка подтверждения ввода данных */
+.btn_sendUserData {
+   display: flex;
+   border: 5px solid #ffffff;
+   border-radius: 30px;
+   background-color: rgba(172, 189, 214, 0);
+   transition:
+      background-color 0.2s,
+      box-shadow 0.2s,
+      transform 0.2s,
+      border-color 0.2s,
+      color 0.2s;
+   font-size: 16pt;
+   font-family: "Bahnschrift", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+   color: #7F7F7F;
+   justify-content: center;
+   align-items: center;
+   height: 60px;
+   width: 180px;
+   margin: 10px auto 20px auto;
+   outline: none;
+   cursor: pointer;
+}
+
+.btn_sendUserData:hover {
+   border: 5px solid #5b7ead;
+   color: #5b7ead;
+   background-color: rgba(172, 189, 214, 0);
+   cursor: pointer;
+}
+
+.btn_sendUserData:active {
+   border: 5px solid #5b7ead;
+   color: #5b7ead;
+   background-color: rgba(172, 189, 214, 0.85);
+   box-shadow: none;
+   cursor: pointer;
+}
+
 /* Кнопки на страницах теста */
 .btn_test {
    display: flex;
    border: 5px solid #ffffff;
    border-radius: 30px;
-   background-color: rgba(255, 255, 255, 0);
+   background-color: rgba(172, 189, 214, 0);
    transition:
       background-color 0.2s,
       box-shadow 0.2s,
@@ -558,7 +626,7 @@ p,
 .btn_test:hover {
    border: 5px solid #5b7ead;
    color: #5b7ead;
-   background-color: rgba(255, 255, 255, 0);
+   background-color: rgba(172, 189, 214, 0);
    cursor: pointer;
 }
 
@@ -827,7 +895,6 @@ p,
    display: flex;
    flex-direction: column;
    width: 720px;
-   align-self: center;
    margin: 10px 15px;
    font-family: "Bahnschrift", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
    font-size: 16pt;
@@ -871,7 +938,6 @@ p,
    display: flex;
    justify-content: center;
    width: 720px;
-   align-self: center;
    margin: 15px auto 0 auto;
    font-family: "Bahnschrift", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
    font-size: 18pt;
@@ -885,7 +951,6 @@ p,
    display: flex;
    flex-direction: column;
    width: 720px;
-   align-self: center;
    margin: 10px 15px;
    font-family: "Bahnschrift", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
    font-size: 16pt;
@@ -929,7 +994,6 @@ p,
    display: flex;
    justify-content: center;
    width: 720px;
-   align-self: center;
    margin: 15px auto 0 auto;
    font-family: "Bahnschrift", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
    font-size: 18pt;
@@ -943,7 +1007,6 @@ p,
    display: flex;
    flex-direction: column;
    width: 720px;
-   align-self: center;
    margin: 10px 15px;
    font-family: "Bahnschrift", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
    font-size: 16pt;
@@ -1046,7 +1109,6 @@ p,
    display: flex;
    justify-content: center;
    width: 720px;
-   align-self: center;
    margin: 15px auto 0 auto;
    font-family: "Bahnschrift", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
    font-size: 18pt;
@@ -1060,7 +1122,6 @@ p,
    display: flex;
    flex-direction: column;
    width: 720px;
-   align-self: center;
    margin: 10px 15px;
    font-family: "Bahnschrift", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
    font-size: 16pt;
@@ -1105,7 +1166,6 @@ p,
    display: flex;
    justify-content: center;
    width: 720px;
-   align-self: center;
    margin: 15px auto 0 auto;
    font-family: "Bahnschrift", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
    font-size: 18pt;
@@ -1119,7 +1179,6 @@ p,
    display: flex;
    flex-direction: column;
    width: 720px;
-   align-self: center;
    margin: 10px 15px;
    font-family: "Bahnschrift", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
    font-size: 16pt;
@@ -1198,7 +1257,6 @@ p,
    display: flex;
    justify-content: center;
    width: 720px;
-   align-self: center;
    margin: 15px auto 0 auto;
    font-family: "Bahnschrift", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
    font-size: 18pt;
@@ -1212,7 +1270,6 @@ p,
    display: flex;
    flex-direction: column;
    width: 720px;
-   align-self: center;
    margin: 10px 15px;
    font-family: "Bahnschrift", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
    font-size: 16pt;
