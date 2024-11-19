@@ -71,6 +71,60 @@
 			<input id="inputCode" class="inp_startpage" type="text" required placeholder="Введите код">
 			<button id="passTest" class="btn_startpage" type="button">Пройти тест</button>
 		</section>
+		<script>
+			window.addEventListener('load', function () {
+				// Скрываем всплывающее окно при загрузке страницы
+				const popup = document.getElementById('popup_1_end');
+				popup.style.display = 'none';
+			});
+			// Перелистывание назад
+			document.getElementById('end_test_prev').addEventListener('click', function () {
+				var from = document.querySelector('[name="end_test_1"]');
+				var to = document.querySelector('[name="quest_1_15"]');
+				from.classList.add('animBlockDisappear_prev');
+				from.addEventListener('animationend', function handler() {
+					from.style.display = 'none';
+					from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
+					to.style.display = 'block';
+					to.classList.add('animBlockAppear_prev');
+					to.addEventListener('animationend', function appearHandler() {
+						to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
+						to.removeEventListener('animationend', appearHandler);
+					});
+					from.removeEventListener('animationend', handler);
+				});
+			});
+			// Переменные всплывающего окна
+			const popup_1_end = document.getElementById('popup_1_end');
+			const closeBtn_1_end = document.getElementById('closeBtn_1_end');
+			// Переменные и функция перелистывания вперед
+			const nextButton_1_end = document.getElementById("end_test_next_1");
+			document.addEventListener("DOMContentLoaded", function () {
+				nextButton_1_end.addEventListener("click", function () {
+					// Если переключатель не выбран
+					const checkbox = document.getElementById('confirm_1_end');
+					if (!checkbox.checked) {
+						popup_1_end.style.display = 'flex'; // Показываем всплывающее окно
+					} else {
+						// Переход на другую страницу при нажатии на кнопку
+						const from = document.querySelector('[name="end_test_1"]');
+						from.classList.add('animBlockDisappear_next');
+						from.addEventListener('animationend', function handler() {
+							from.style.display = 'none';
+							from.classList.remove('animBlockDisappear_next');
+
+							// Переход на новую страницу после окончания анимации
+							window.location.href = 'test_1.html';
+							from.removeEventListener('animationend', handler);
+						});
+					}
+				});
+				// Закрытие всплывающего окна
+				closeBtn_1_end.addEventListener('click', function () {
+					popup_1_end.style.display = 'none'; // Скрываем всплывающее окно
+				});
+			});
+		</script>
 
 	</main>
 
