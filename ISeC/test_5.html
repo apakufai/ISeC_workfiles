@@ -1646,11 +1646,11 @@
                                 from.classList.remove('animBlockDisappear_next');
 
                                 // Инициализация переменных      
-                                let adaptation = 0;// Приспособление
-                                let bidding = 0;// Торги
-                                let logicArgument = 0;// Логика как аргумент
-                                let emotionsArgument = 0;// Эмоции как аргумент
-                                let avoidance = 0;// Избегание
+                                let adaptation = 0; // Приспособление
+                                let bidding = 0; // Торги
+                                let logicArgument = 0; // Логика как аргумент
+                                let emotionsArgument = 0; // Эмоции как аргумент
+                                let avoidance = 0; // Избегание
 
                                 // Результаты вопроса 1
                                 // Получаем значения из ползунков и инкрементируем их к общему значению
@@ -1713,7 +1713,6 @@
                                 avoidance += (parseInt(document.querySelector('#inp_count_5_12_2 input[type="range"]').value) - 1);
                                 logicArgument += (parseInt(document.querySelector('#inp_count_5_12_3 input[type="range"]').value) - 1);
 
-
                                 // Выводим значения в alert (тест)
                                 // alert(`Приспособление: ${adaptation}\n` +
                                 //     `Торги: ${bidding}\n` +
@@ -1721,6 +1720,12 @@
                                 //     `Эмоции как аргумент: ${emotionsArgument}\n` +
                                 //     `Избегание: ${avoidance}`);
 
+                                // Сохранение значений в sessionStorage
+                                sessionStorage.setItem("resAdaptation_5", adaptation); // Приспособление
+                                sessionStorage.setItem("resBidding_5", bidding); // Торги
+                                sessionStorage.setItem("resLogicArgument_5", logicArgument); // Логика как аргумент
+                                sessionStorage.setItem("resEmotionsArgument_5", emotionsArgument); // Эмоции как аргумент
+                                sessionStorage.setItem("resAvoidance_5", avoidance); // Избегание
 
                                 // Переход на новую страницу после окончания анимации
                                 window.location.href = 'test_6.html';

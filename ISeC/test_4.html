@@ -1823,7 +1823,6 @@
                                 from.style.display = 'none';
                                 from.classList.remove('animBlockDisappear_next');
 
-
                                 // Инициализация переменных
                                 let understandingOfStyles = 0; // Понимание стилей
                                 let strengthInstallation = 0; // Установка на силу
@@ -2054,14 +2053,17 @@
                                     negotiationsInstallation += 1;
                                 }
 
-
                                 // Выводим значения в alert (тест)
                                 // alert(`Понимание стилей: ${understandingOfStyles}\n` +
                                 //     `Установка на силу: ${strengthInstallation}\n` +
                                 //     `Установка на манипуляцию: ${manipulationInstallation}\n` +
                                 //     `Установка на деловые переговоры: ${negotiationsInstallation}`);
 
-
+                                // Сохранение значений в sessionStorage
+                                sessionStorage.setItem("resUnderstandingOfStyles_4", understandingOfStyles); // Понимание стилей
+                                sessionStorage.setItem("resStrengthInstallation_4", strengthInstallation); // Установка на силу
+                                sessionStorage.setItem("resManipulationInstallation_4", manipulationInstallation); // Установка на манипуляцию
+                                sessionStorage.setItem("resNegotiationsInstallation_4", negotiationsInstallation); // Установка на деловые переговоры
 
                                 // Переход на новую страницу после окончания анимации
                                 window.location.href = 'test_5.html';

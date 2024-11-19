@@ -37,7 +37,6 @@
 
     <main>
 
-
         <script>
 
             // Инициализация переменных      
@@ -54,7 +53,6 @@
             let resCooperation = 0;// Сотрудничество
             let resAvoidance = 0;// Избегание
 
-
             // Получение значений из sessionStorage блока 1 и их инкрементация к общему результату
             resAdaptation += parseInt(sessionStorage.getItem("resAdaptation_1")); // Приспособление
             resCompromise += parseInt(sessionStorage.getItem("resCompromise_1")); // Компромисс
@@ -64,11 +62,33 @@
             resEmotionsArgument += parseInt(sessionStorage.getItem("resEmotionsArgument_1")); // Эмоции как аргумент
 
             // Получение значений из sessionStorage блока 2 и их инкрементация к общему результату
+            resAdaptation += parseInt(sessionStorage.getItem("resAdaptation_2")); // Приспособление (ДЧ)
+            resCompromise += parseInt(sessionStorage.getItem("resCompromise_2")); // Компромисс (П)
             resRivalry += parseInt(sessionStorage.getItem("resRivalry_2")); // Соперничество (Б)
             resCooperation += parseInt(sessionStorage.getItem("resCooperation_2")); // Сотрудничество (В)
-            resCompromise += parseInt(sessionStorage.getItem("resCompromise_2")); // Компромисс (П)
             resAvoidance += parseInt(sessionStorage.getItem("resAvoidance_2")); // Избегание (Р)
-            resAdaptation += parseInt(sessionStorage.getItem("resAdaptation_2")); // Приспособление (ДЧ)
+
+            // Получение значений из sessionStorage блока 3 и их инкрементация к общему результату
+            resAdaptation += parseInt(sessionStorage.getItem("resAdaptation_3")); // Приспособление
+            resRivalry += parseInt(sessionStorage.getItem("resRivalry_3")); // Соперничество
+            resCooperation += parseInt(sessionStorage.getItem("resCooperation_3")); // Сотрудничество
+
+            // Получение значений из sessionStorage блока 4 и их инкрементация к общему результату
+            resUnderstandingOfStyles += parseInt(sessionStorage.getItem("resUnderstandingOfStyles_4")); // Понимание стилей
+            resStrengthInstallation += parseInt(sessionStorage.getItem("resStrengthInstallation_4")); // Установка на силу
+            resManipulationInstallation += parseInt(sessionStorage.getItem("resManipulationInstallation_4")); // Установка на манипуляцию
+            resNegotiationsInstallation += parseInt(sessionStorage.getItem("resNegotiationsInstallation_4")); // Установка на деловые переговоры
+
+            // Получение значений из sessionStorage блока 5 и их инкрементация к общему результату
+            resAdaptation += parseInt(sessionStorage.getItem("resAdaptation_5")); // Приспособление
+            resBidding += parseInt(sessionStorage.getItem("resBidding_5")); // Торги
+            resLogicArgument += parseInt(sessionStorage.getItem("resLogicArgument_5")); // Логика как аргумент
+            resEmotionsArgument += parseInt(sessionStorage.getItem("resEmotionsArgument_5")); // Эмоции как аргумент
+            resAvoidance += parseInt(sessionStorage.getItem("resAvoidance_5")); // Избегание
+
+            // Получение значений из sessionStorage блока 6 и их инкрементация к общему результату
+            resLogicArgument += parseInt(sessionStorage.getItem("resLogicArgument_6")); // Логика как аргумент
+            resEmotionsArgument += parseInt(sessionStorage.getItem("resEmotionsArgument_6")); // Эмоции как аргумент
 
         </script>
 

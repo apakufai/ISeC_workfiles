@@ -1556,8 +1556,6 @@
                                 from.style.display = 'none';
                                 from.classList.remove('animBlockDisappear_next');
 
-
-
                                 // Инициализация переменных
                                 let logicArgument = 0;// Логика как аргумент
                                 let emotionsArgument = 0;// Эмоции как аргумент
@@ -1752,11 +1750,13 @@
                                     logicArgument += (slider_6_10_4 - 2);
                                 }
 
-
                                 // Выводим значения в alert (тест)
                                 // alert(`Логика как аргумент: ${logicArgument}\n` +
                                 //     `Эмоции как аргумент: ${emotionsArgument}`);
 
+                                // Сохранение значений в sessionStorage
+                                sessionStorage.setItem("resLogicArgument_6", logicArgument); // Логика как аргумент
+                                sessionStorage.setItem("resEmotionsArgument_6", emotionsArgument); // Эмоции как аргумент
 
                                 // Переход на новую страницу после окончания анимации
                                 window.location.href = 'results.html';

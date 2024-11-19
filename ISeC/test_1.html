@@ -2791,12 +2791,12 @@
                                 from.classList.remove('animBlockDisappear_next');
 
                                 // Инициализация переменных
-                                let adaptation = 0;// Приспособление
-                                let compromise = 0;// Компромисс
-                                let bidding = 0;// Торги
-                                let rivalry = 0;// Соперничество
-                                let logicArgument = 0;// Логика как аргумент
-                                let emotionsArgument = 0;// Эмоции как аргумент
+                                let adaptation = 0; // Приспособление
+                                let compromise = 0; // Компромисс
+                                let bidding = 0; // Торги
+                                let rivalry = 0; // Соперничество
+                                let logicArgument = 0; // Логика как аргумент
+                                let emotionsArgument = 0; // Эмоции как аргумент
 
                                 // Результаты вопроса 1
                                 const radios_1_1 = document.getElementsByName("1_1_top");
@@ -3143,7 +3143,6 @@
                                     }
                                 });
 
-
                                 // Выводим значения в alert (тест)
                                 // alert(`Компромисс: ${compromise}\n` +
                                 //     `Приспособление: ${adaptation}\n` +
@@ -3159,7 +3158,6 @@
                                 sessionStorage.setItem("resRivalry_1", rivalry); // Соперничество
                                 sessionStorage.setItem("resLogicArgument_1", logicArgument); // Логика как аргумент
                                 sessionStorage.setItem("resEmotionsArgument_1", emotionsArgument); // Эмоции как аргумент
-
 
                                 // Переход на новую страницу после окончания анимации
                                 window.location.href = 'test_2.html';

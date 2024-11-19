@@ -5431,11 +5431,11 @@
                                 from.classList.remove('animBlockDisappear_next');
 
                                 // Инициализация переменных      
-                                let rivalry = 0;// Соперничество (Б)
-                                let cooperation = 0;// Сотрудничество (В)
-                                let compromise = 0;// Компромисс (П)
-                                let avoidance = 0;// Избегание (Р)
-                                let adaptation = 0;// Приспособление (ДЧ)
+                                let adaptation = 0; // Приспособление (ДЧ)
+                                let compromise = 0; // Компромисс (П)
+                                let rivalry = 0; // Соперничество (Б)
+                                let cooperation = 0; // Сотрудничество (В)
+                                let avoidance = 0; // Избегание (Р)
 
                                 // Результаты вопроса 1
                                 const radios_2_1 = document.getElementsByName("2_1_top");
@@ -6127,22 +6127,19 @@
                                     }
                                 });
 
-
                                 // Выводим значения в alert (тест)
-                                // alert(`Соперничество: ${rivalry}\n` +
-                                //     `Сотрудничество: ${cooperation}\n` +
+                                // alert(`Приспособление: ${adaptation}\n` +
                                 //     `Компромисс: ${compromise}\n` +
-                                //     `Избегание: ${avoidance}\n` +
-                                //     `Приспособление: ${adaptation}`);
-
+                                //     `Соперничество: ${rivalry}\n` +
+                                //     `Сотрудничество: ${cooperation}\n` +
+                                //     `Избегание: ${avoidance}`);
 
                                 // Сохранение значений в sessionStorage
+                                sessionStorage.setItem("resAdaptation_2", adaptation); // Приспособление (ДЧ)
+                                sessionStorage.setItem("resCompromise_2", compromise); // Компромисс (П)
                                 sessionStorage.setItem("resRivalry_2", rivalry); // Соперничество (Б)
                                 sessionStorage.setItem("resCooperation_2", cooperation); // Сотрудничество (В)
-                                sessionStorage.setItem("resCompromise_2", compromise); // Компромисс (П)
                                 sessionStorage.setItem("resAvoidance_2", rivalry); // Избегание (Р)
-                                sessionStorage.setItem("resAdaptation_2", adaptation); // Приспособление (ДЧ)
-                                
 
                                 // Переход на новую страницу после окончания анимации
                                 window.location.href = 'test_3.html';

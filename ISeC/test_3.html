@@ -1270,9 +1270,9 @@
                                 from.classList.remove('animBlockDisappear_next');
 
                                 // Инициализация переменных      
-                                let adaptation = 0;// Приспособление
-                                let rivalry = 0;// Соперничество
-                                let cooperation = 0;// Сотрудничество
+                                let adaptation = 0; // Приспособление
+                                let rivalry = 0; // Соперничество
+                                let cooperation = 0; // Сотрудничество
 
                                 // Результаты вопроса 1
                                 // Получаем значения из ползунков и инкрементируем их к общему значению
@@ -1320,13 +1320,15 @@
                                 adaptation += (parseInt(document.querySelector('#inp_count_3_9_2 input[type="range"]').value) - 1);
                                 rivalry += (parseInt(document.querySelector('#inp_count_3_9_3 input[type="range"]').value) - 1);
 
-
-
                                 // Выводим значения в alert (тест)
                                 // alert(`Приспособление: ${adaptation}\n` +
                                 //     `Соперничество: ${rivalry}\n` +
                                 //     `Сотрудничество: ${cooperation}`);
 
+                                // Сохранение значений в sessionStorage
+                                sessionStorage.setItem("resAdaptation_3", adaptation); // Приспособление
+                                sessionStorage.setItem("resRivalry_3", rivalry); // Соперничество
+                                sessionStorage.setItem("resCooperation_3", cooperation); // Сотрудничество
 
                                 // Переход на новую страницу после окончания анимации
                                 window.location.href = 'test_4.html';
