@@ -14,7 +14,7 @@ try:
     # Ожидание 0,1 секунды
     time.sleep(0.5)
     # Выбор отвера на вопрос 1
-    ans_1_1 = browser.find_element(By.ID, '1_1_bottom_3')
+    ans_1_1 = browser.find_element(By.ID, '1_1_top_0')
     ans_1_1.click()
     # Нажатие на кнопку "Далее" вопроса 1
     btn_1_1_next = browser.find_element(By.ID, 'btn_1_1_next')
@@ -132,4 +132,3 @@ finally:
     # Ожидание ввода от пользователя, чтобы браузер не закрылся
     input("Нажмите Enter, чтобы закрыть браузер...")
     browser.quit()
-

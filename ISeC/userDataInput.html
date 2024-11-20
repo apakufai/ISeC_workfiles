@@ -42,45 +42,87 @@
 			<p class="descr_dataInput_title">Представьтесь<br></p>
 
 			<span class="descr_dataInput_text">Ваше имя</span>
-			<input type="text" class="inp_text" id="user_firstname" name="user_firstname" required placeholder="Имя"><br>
+			<input type="text" class="inp_text" id="user_name" required placeholder="Имя"><br>
 
 			<span class="descr_dataInput_text">Ваша фамилия</span>
-			<input type="text" class="inp_text" id="user_firstname" name="user_firstname" required placeholder="Фамилия"><br>
+			<input type="text" class="inp_text" id="user_surname" required placeholder="Фамилия"><br>
 
 			<span class="descr_dataInput_text">Ваш пол</span>
 			<div class="inp_sex">
 				<label class="radiosData" required>
-					<input type="radio" id="user_sex_male" class="inpRadio" name="user_sex">
+					<input type="radio" id="user_sex_male" class="inpRadio_UDI" name="user_sex">
 					<span class="sexText">Мужской</span>
 				</label>
 				<div class="dataInputSexSpace"></div>
 				<label class="radiosData">
-					<input type="radio" id="user_sex_female" class="inpRadio" name="user_sex">
+					<input type="radio" id="user_sex_female" class="inpRadio_UDI" name="user_sex">
 					<span class="sexText">Женский</span>
 				</label>
 			</div><br>
 
 			<span class="descr_dataInput_text">Ваша дата рождения</span>
-			<input type="date" class="inp_date" required><br>
+			<input type="date" class="inp_date" id="user_birthdate" required><br>
 
 			<span class="descr_dataInput_text">Ваша компания</span>
-			<input type="text" class="inp_text" required placeholder="Компания"><br>
+			<input type="text" class="inp_text" id="user_company" required placeholder="Компания"><br>
 
 			<span class="descr_dataInput_text">Ваша должность</span>
-			<input type="text" class="inp_text" required placeholder="Должность"><br>
+			<input type="text" class="inp_text" id="user_position" required placeholder="Должность"><br>
 
 			<span class="descr_dataInput_text">Ваша эл. почта</span>
-			<input type="email" class="inp_text" required placeholder="Эл. почта"><br><br>
+			<input type="email" class="inp_text" id="user_email" required placeholder="Эл. почта"><br><br>
 
 			<div class="dataAgreement">
 				<span class="descr_dataInput_text">Я соглашаюсь на обработку введённых данных</span>
 				<div class="dataAgreementSpace"></div>
-				<input type="checkbox" class="inpRadio">
+				<input type="checkbox" class="inpRadio_UDI" id="user_confirmation">
 			</div><br>
 
-			<input type="submit" class="btn_sendUserData" value="Ввод">
+			<input type="submit" class="btn_sendUserData" id="user_nextBtn" value="Продолжить">
+
+			<script>
+				document.addEventListener("DOMContentLoaded", function () {
+					let errorCounter = 0; // Счётчик ошибок
+					const submitButton = document.querySelector('.btn_sendUserData'); // Кнопка подтверждения ввода
+					const nameInput = document.getElementById('user_name'); // Поле ввода имени
+					const surnameInput = document.getElementById('user_surname'); // Поле ввода фамилии
+
+					submitButton.addEventListener('click', function (event) {
+
+						const nameValue = nameInput.value.trim();
+						if (nameValue === '' || nameValue != nameValue.replace(/[^a-zA-Zа-яА-ЯёЁ]/g, '')) {
+							// Если поле пустое или содержит небуквенные символы
+							nameInput.style.border = '5px solid #e29fa9';
+							errorCounter += 1;
+							const input = document.getElementById('user_name');
+							input.value = nameInput.value.trim();
+						} else {
+							// Если все в порядке
+							nameInput.style.border = '5px solid #ffffff';
+							const input = document.getElementById('user_name');
+							input.value = nameValue.charAt(0).toUpperCase() + nameValue.slice(1).toLowerCase();;
+						}
+
+						const surnameValue = surnameInput.value.trim();
+						if (surnameValue === '' || surnameValue != surnameValue.replace(/[^a-zA-Zа-яА-ЯёЁ]/g, '')) {
+							// Если поле пустое или содержит небуквенные символы
+							surnameInput.style.border = '5px solid #e29fa9';
+							errorCounter += 1;
+							const input = document.getElementById('user_name');
+							input.value = nameInsurnameInputput.value.trim();
+						} else {
+							// Если все в порядке
+							surnameInput.style.border = '5px solid #ffffff';
+							const input = document.getElementById('user_surname');
+							input.value = surnameValue.charAt(0).toUpperCase() + surnameValue.slice(1).toLowerCase();;
+						}
 
 
+
+
+					});
+				});
+			</script>
 
 		</div>
 
