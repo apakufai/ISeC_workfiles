@@ -37,6 +37,16 @@
 
 	<main>
 
+
+		<!-- ВСПЛЫВАЮЩЕЕ ОКНО -->
+		<div class="popup" id="popup_UDI">
+			<div class="popup-content">
+				<p class="error_text">Ошибка</p>
+				<p>Выберите один из вариантов ответа</p>
+				<button class="close-btn" id="closeBtn_UDI">Закрыть</button>
+			</div>
+		</div>
+
 		<div class="descr_dataInput">
 
 			<p class="descr_dataInput_title">Представьтесь<br></p>
@@ -78,49 +88,161 @@
 				<input type="checkbox" class="inpRadio_UDI" id="user_confirmation">
 			</div><br>
 
-			<input type="submit" class="btn_sendUserData" id="user_nextBtn" value="Продолжить">
+			<input type="submit" class="btn_sendUserData" id="btn_UDI_next" value="Продолжить">
 
 			<script>
 				document.addEventListener("DOMContentLoaded", function () {
+					// Переменные всплывающего окна
+					const popup_UDI = document.getElementById('popup_UDI');
+					const closeBtn_UDI = document.getElementById('closeBtn_UDI');
+					// Переменные окна заполнения данных
 					let errorCounter = 0; // Счётчик ошибок
-					const submitButton = document.querySelector('.btn_sendUserData'); // Кнопка подтверждения ввода
-					const nameInput = document.getElementById('user_name'); // Поле ввода имени
-					const surnameInput = document.getElementById('user_surname'); // Поле ввода фамилии
+					const submitButton = document.getElementById('btn_UDI_next'); // Кнопка подтверждения ввода
+					const inputName = document.getElementById('user_name'); // Поле ввода имени
+					const inputSurname = document.getElementById('user_surname'); // Поле ввода фамилии
+					const radioSexMale = document.getElementById('user_sex_male'); // Кнопка выбора пола (Муж)
+					const radioSexFemale = document.getElementById('user_sex_female'); // Кнопка выбора пола (Жен)
+					const inputBirthdate = document.getElementById('user_birthdate'); // Поле ввода даты рождения
+					const inputCompany = document.getElementById('user_company'); // Поле ввода компании
+					const inputPosition = document.getElementById('user_position'); // Поле ввода должности
+					const inputEmail = document.getElementById('user_email'); // Поле ввода эл.почты
+					const radioConfirmation = document.getElementById('user_confirmation'); // Кнопка подтверждения обработки данных (Муж)
 
 					submitButton.addEventListener('click', function (event) {
 
-						const nameValue = nameInput.value.trim();
-						if (nameValue === '' || nameValue != nameValue.replace(/[^a-zA-Zа-яА-ЯёЁ]/g, '')) {
+						// Проверка имени
+						const nameValue = inputName.value.trim()
+						if (!nameValue || nameValue != nameValue.replace(/[^a-zA-Zа-яА-ЯёЁ]/g, '')) {
 							// Если поле пустое или содержит небуквенные символы
-							nameInput.style.border = '5px solid #e29fa9';
-							errorCounter += 1;
-							const input = document.getElementById('user_name');
-							input.value = nameInput.value.trim();
+							inputName.style.border = '5px solid #e29fa9';
+							errorCounter += 1; // Увеличиваем счётчик ошибок, если ни один пол не выбран
+							const inputHandler = document.getElementById('user_name');
+							inputHandler.value = inputName.value.trim();
 						} else {
-							// Если все в порядке
-							nameInput.style.border = '5px solid #ffffff';
-							const input = document.getElementById('user_name');
-							input.value = nameValue.charAt(0).toUpperCase() + nameValue.slice(1).toLowerCase();;
+							inputName.style.border = '5px solid #ffffff';
+							const inputHandler = document.getElementById('user_name');
+							inputHandler.value = nameValue.charAt(0).toUpperCase() + nameValue.slice(1).toLowerCase();
 						}
 
-						const surnameValue = surnameInput.value.trim();
-						if (surnameValue === '' || surnameValue != surnameValue.replace(/[^a-zA-Zа-яА-ЯёЁ]/g, '')) {
+						// Проверка фамилии
+						const surnameValue = inputSurname.value.trim();
+						if (!surnameValue || surnameValue != surnameValue.replace(/[^a-zA-Zа-яА-ЯёЁ]/g, '')) {
 							// Если поле пустое или содержит небуквенные символы
-							surnameInput.style.border = '5px solid #e29fa9';
-							errorCounter += 1;
-							const input = document.getElementById('user_name');
-							input.value = nameInsurnameInputput.value.trim();
+							inputSurname.style.border = '5px solid #e29fa9';
+							errorCounter += 1; // Увеличиваем счётчик ошибок, если ни один пол не выбран
+							const inputHandler = document.getElementById('user_surname');
+							inputHandler.value = inputSurname.value.trim();
 						} else {
-							// Если все в порядке
-							surnameInput.style.border = '5px solid #ffffff';
-							const input = document.getElementById('user_surname');
-							input.value = surnameValue.charAt(0).toUpperCase() + surnameValue.slice(1).toLowerCase();;
+							inputSurname.style.border = '5px solid #ffffff';
+							const inputHandler = document.getElementById('user_surname');
+							inputHandler.value = surnameValue.charAt(0).toUpperCase() + surnameValue.slice(1).toLowerCase();
 						}
 
+						// Проверка пола
+						if (!radioSexMale.checked && !radioSexFemale.checked) {
+							// Если ни один кружок не выбран							
+							radioSexMale.style.webkitBoxShadow = '0px 0px 0px 4px rgba(226, 159, 169, 1)';
+							radioSexMale.style.mozBoxShadow = '0px 0px 0px 4px rgba(226, 159, 169, 1)';
+							radioSexMale.style.boxShadow = '0px 0px 0px 4px rgba(226, 159, 169, 1)';
+							radioSexFemale.style.webkitBoxShadow = '0px 0px 0px 4px rgba(226, 159, 169, 1)';
+							radioSexFemale.style.mozBoxShadow = '0px 0px 0px 4px rgba(226, 159, 169, 1)';
+							radioSexFemale.style.boxShadow = '0px 0px 0px 4px rgba(226, 159, 169, 1)';
+							errorCounter += 1; // Увеличиваем счётчик ошибок, если ни один кружок не выбран
+						} else {
+							radioSexMale.style.webkitBoxShadow = '0px 0px 0px 0px rgba(226, 159, 169, 1)';
+							radioSexMale.style.mozBoxShadow = '0px 0px 0px 0px rgba(226, 159, 169, 1)';
+							radioSexMale.style.boxShadow = '0px 0px 0px 0px rgba(226, 159, 169, 1)';
+							radioSexFemale.style.webkitBoxShadow = '0px 0px 0px 0px rgba(226, 159, 169, 1)';
+							radioSexFemale.style.mozBoxShadow = '0px 0px 0px 0px rgba(226, 159, 169, 1)';
+							radioSexFemale.style.boxShadow = '0px 0px 0px 0px rgba(226, 159, 169, 1)';
+						}
 
+						// Проверка даты рождения
+						const birthdateValue = inputBirthdate.value;
+						const birthdateYear = new Date(birthdateValue).getFullYear(); // Получаем год из введенной даты
+						// Проверяка на пустоту поля и валидация введённого года
+						if (!inputBirthdate.value || birthdateYear < 1920) {
+							inputBirthdate.style.border = "5px solid #e29fa9";
+							errorCounter += 1; // Увеличиваем счётчик ошибок, если ввод неверен
+						} else {
+							inputBirthdate.style.border = "5px solid #ffffff";
+						}
 
+						// Проверка компании
+						const companyValue = inputCompany.value.trim();
+						// Если поле пустое; Если поле содержит небуквенные символы; Если поле не содержит буквы
+						if (!companyValue || companyValue != companyValue.replace(/[^a-zA-Zа-яА-ЯёЁ0-9 "'«»]/g, '') || !/[a-zA-Zа-яА-ЯёЁ]/.test(companyValue)) {
+							inputCompany.style.border = '5px solid #e29fa9';
+							errorCounter += 1; // Увеличиваем счётчик ошибок, если ввод неверен
+							const inputHandler = document.getElementById('user_company');
+							inputHandler.value = inputCompany.value.trim();
+						} else {
+							inputCompany.style.border = '5px solid #ffffff';
+							const inputHandler = document.getElementById('user_company');
+							inputHandler.value = companyValue.charAt(0).toUpperCase() + companyValue.slice(1).toLowerCase();
+						}
+
+						// Проверка должности
+						const positionValue = inputPosition.value.trim();
+						// Если поле пустое или содержит небуквенные символы (кроме пробела и тире)
+						if (!positionValue || positionValue != positionValue.replace(/[^a-zA-Zа-яА-ЯёЁ -]/g, '')) {
+							inputPosition.style.border = '5px solid #e29fa9';
+							errorCounter += 1; // Увеличиваем счётчик ошибок, если ввод неверен
+							const inputHandler = document.getElementById('user_position');
+							inputHandler.value = inputPosition.value.trim();
+						} else {
+							inputPosition.style.border = '5px solid #ffffff';
+							const inputHandler = document.getElementById('user_position');
+							inputHandler.value = positionValue.charAt(0).toUpperCase() + positionValue.slice(1).toLowerCase();
+						}
+
+						// Проверка эл.почты
+						const emailValue = inputEmail.value.trim();
+						const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/; // Паттерн проверки эл.почты
+						// ^ — начало строки.
+						// [a-zA-Z0-9._-]+ — одна или более букв, цифр или специальных символов (точка, подчеркивание, дефис).
+						// @ — символ "собака", который разделяет локальную часть и домен.
+						// [a-zA-Z0-9.-]+ — одна или более букв или цифр, которые могут содержать точки или дефисы (доменная часть).
+						// \. — символ точки, который отделяет доменное имя от доменной зоны.
+						// [a-zA-Z]{2,} — одна или более букв (минимум 2) для доменной зоны (например, .com, .ru и т.д.).
+						// $ — конец строки.
+						if (!emailPattern.test(emailValue)) {
+							inputEmail.style.border = '5px solid #e29fa9';
+							errorCounter += 1; // Увеличиваем счётчик ошибок, если ввод неверен
+							const inputHandler = document.getElementById('user_email');
+							inputHandler.value = inputEmail.value.trim();
+						} else {
+							inputEmail.style.border = '5px solid #ffffff';
+							const inputHandler = document.getElementById('user_email');
+							inputHandler.value = inputEmail.value.trim();
+						}
+
+						// Проверка подтверждения обработки введённых данных
+						if (!radioConfirmation.checked) {
+							// Если ни один кружок не выбран							
+							radioConfirmation.style.webkitBoxShadow = '0px 0px 0px 4px rgba(226, 159, 169, 1)';
+							radioConfirmation.style.mozBoxShadow = '0px 0px 0px 4px rgba(226, 159, 169, 1)';
+							radioConfirmation.style.boxShadow = '0px 0px 0px 4px rgba(226, 159, 169, 1)';
+							errorCounter += 1; // Увеличиваем счётчик ошибок, если ни один кружок не выбран
+						} else {
+							radioConfirmation.style.webkitBoxShadow = '0px 0px 0px 0px rgba(226, 159, 169, 1)';
+							radioConfirmation.style.mozBoxShadow = '0px 0px 0px 0px rgba(226, 159, 169, 1)';
+							radioConfirmation.style.boxShadow = '0px 0px 0px 0px rgba(226, 159, 169, 1)';
+						}
+
+						if (errorCounter > 0) {
+							popup_UDI.style.display = 'flex'; // Показываем всплывающее окно
+						} else {
+							
+						}
 
 					});
+
+					// Закрытие всплывающего окна
+					closeBtn_UDI.addEventListener('click', function () {
+						popup_UDI.style.display = 'none'; // Скрываем всплывающее окно
+					});
+					
 				});
 			</script>
 
@@ -134,54 +256,3 @@
 </body>
 
 </html>
-
-
-
-
-<!--  ФОРМА ЗАПОЛНЕНИЯ ДАННЫХ
-<form>
-
-	Имя
-	<input type="text" id="user_firstname" name="user_firstname" required><br>
-
-	Фамилия
-	<input type="text" id="user_lastname" name="user_firstname" required><br>
-
-	<div>
-		Пол
-		<label required>
-			<input type="radio" id="user_sex_male" name="user_sex">Муж
-		</label>
-
-		<label>
-			<input type="radio" id="user_sex_female" name="user_sex">Жен
-		</label>
-	</div><br>
-
-	Дата рождения
-	<input type="date" required><br>
-
-	Компания
-	<input type="text" required><br>
-
-	Должность
-	<input type="text"><br>
-
-	E-mail
-	<input type="email"><br>
-
-	Входной код
-	<input type="text"><br>
-
-	id, генерируется случайно
-	<input type="hidden">
-
-	<div>
-		Соглашение на обработку введённых данных
-		<input type="checkbox">
-	</div><br>
-
-	<input type="submit" value="Ввод">
-
-
-</form> -->

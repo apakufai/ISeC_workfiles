@@ -102,7 +102,7 @@
 			const nextButton_start = document.getElementById("startTest");
 			document.addEventListener("DOMContentLoaded", function () {
 				nextButton_start.addEventListener("click", function () {
-					var inputCode = document.getElementById('inputCode').value;
+					const inputCode = document.getElementById('inp_code').value;
 					// Если код не введён
 					if (inputCode.length === 0) {
 						popup_start_empty.style.display = 'flex'; // Показываем всплывающее окно
@@ -117,7 +117,7 @@
 							from.style.display = 'none';
 							from.classList.remove('animBlockDisappear_end');
 							// Переход на новую страницу после окончания анимации
-							window.location.href = 'test_1.html';
+							window.location.href = 'userDataInput.html';
 							// window.location.href = 'userDataInput.html';
 							from.removeEventListener('animationend', handler);
 						});
