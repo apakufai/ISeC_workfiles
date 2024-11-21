@@ -39,7 +39,15 @@
 
         <script>
 
-            // Инициализация переменных      
+            // Инициализация переменных
+            let resName; // Имя
+            let resSurname; // Фамилия
+            let resSex; // Пол
+            let resBirthdate; // Дата рождения
+            let resCompany; // Компания
+            let resPosition; // Должность
+            let resEmail; // Эл.почта
+            let resId; // Id
             let resUnderstandingOfStyles = 0; // Понимание стилей
             let resAdaptation = 0; // Приспособление
             let resCompromise = 0; // Компромисс
@@ -52,6 +60,17 @@
             let resNegotiationsInstallation = 0; // Установка на деловые переговоры
             let resCooperation = 0;// Сотрудничество
             let resAvoidance = 0;// Избегание
+
+
+            // Ввод значений из sessionStorage блока UDI
+            resName = sessionStorage.getItem("userName"); // Имя
+            resSurname = sessionStorage.getItem("userSurname"); // Фамилия
+            resSex = sessionStorage.getItem("userSex"); // Пол
+            resBirthdate = sessionStorage.getItem("userBirthdate"); // Дата рождения
+            resCompany = sessionStorage.getItem("userCompany"); // Компания
+            resPosition = sessionStorage.getItem("userPosition"); // Должность
+            resEmail = sessionStorage.getItem("userEmail"); // Эл.почта
+            resId = sessionStorage.getItem("userId"); // Id
 
             // Получение значений из sessionStorage блока 1 и их инкрементация к общему результату
             resAdaptation += parseInt(sessionStorage.getItem("resAdaptation_1")); // Приспособление
@@ -93,11 +112,20 @@
         </script>
 
 
-
         <!-- БЛОК РЕЗУЛЬТАТОВ -->
 
         <div class="descr_test" name="testEnding">
             <p class="end_test_title">Итоги теста<br></p>
+
+            <p id="strName" class="end_test_text">&emsp;Имя<br></p>
+            <p id="strSurname" class="end_test_text">&emsp;Фамилия<br></p>
+            <p id="strSex" class="end_test_text">&emsp;Пол<br></p>
+            <p id="strBirthdate" class="end_test_text">&emsp;Дата рождения<br></p>
+            <p id="strCompany" class="end_test_text">&emsp;Компания<br></p>
+            <p id="strPosition" class="end_test_text">&emsp;Должность<br></p>
+            <p id="strEmail" class="end_test_text">&emsp;Эл.почта<br></p>
+            <p id="strId" class="end_test_text">&emsp;Id<br></p>
+
             <p id="strUnderstandingOfStyles" class="end_test_text">&emsp;Понимание стилей<br></p>
             <p id="strAdaptation" class="end_test_text">&emsp;Приспособление<br></p>
             <p id="strCompromise" class="end_test_text">&emsp;Компромисс<br></p>
@@ -112,9 +140,17 @@
             <p id="strAvoidance" class="end_test_text">&emsp;Избегание<br></p>
         </div>
 
-
-
         <script>
+
+            document.getElementById("strName").innerText = "Имя: " + resName;
+            document.getElementById("strSurname").innerText = "Фамилия: " + resSurname;
+            document.getElementById("strSex").innerText = "Пол: " + resSex;
+            document.getElementById("strBirthdate").innerText = "Дата рождения: " + resBirthdate;
+            document.getElementById("strCompany").innerText = "Компания: " + resCompany;
+            document.getElementById("strPosition").innerText = "Должность: " + resPosition;
+            document.getElementById("strEmail").innerText = "Эл.почта: " + resEmail;
+            document.getElementById("strId").innerText = "Id: " + resId;
+
             document.getElementById("strUnderstandingOfStyles").innerText = "Понимание стилей: " + resUnderstandingOfStyles;
             document.getElementById("strAdaptation").innerText = "Приспособление: " + resAdaptation;
             document.getElementById("strCompromise").innerText = "Компромисс: " + resCompromise;
@@ -128,11 +164,6 @@
             document.getElementById("strCooperation").innerText = "Сотрудничество: " + resCooperation;
             document.getElementById("strAvoidance").innerText = "Избегание: " + resAvoidance;
         </script>
-
-
-
-
-
 
     </main>
 

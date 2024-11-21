@@ -116,12 +116,13 @@
 							// Если поле пустое или содержит небуквенные символы
 							inputName.style.border = '5px solid #e29fa9';
 							errorCounter += 1; // Увеличиваем счётчик ошибок, если ни один пол не выбран
-							const inputHandler = document.getElementById('user_name');
-							inputHandler.value = inputName.value.trim();
+							const inputHandlerName = document.getElementById('user_name');
+							inputHandlerName.value = inputName.value.trim();
 						} else {
 							inputName.style.border = '5px solid #ffffff';
-							const inputHandler = document.getElementById('user_name');
-							inputHandler.value = inputName.value.trim();
+							const inputHandlerName = document.getElementById('user_name');
+							inputHandlerName.value = inputName.value.trim();
+							selectedName = inputName.value.trim();
 						}
 
 						// Проверка фамилии
@@ -130,12 +131,12 @@
 							// Если поле пустое или содержит небуквенные символы
 							inputSurname.style.border = '5px solid #e29fa9';
 							errorCounter += 1; // Увеличиваем счётчик ошибок, если ни один пол не выбран
-							const inputHandler = document.getElementById('user_surname');
-							inputHandler.value = inputSurname.value.trim();
+							const inputHandlerSurname = document.getElementById('user_surname');
+							inputHandlerSurname.value = inputSurname.value.trim();
 						} else {
 							inputSurname.style.border = '5px solid #ffffff';
-							const inputHandler = document.getElementById('user_surname');
-							inputHandler.value = inputSurname.value.trim();
+							const inputHandlerSurname = document.getElementById('user_surname');
+							inputHandlerSurname.value = inputSurname.value.trim();
 						}
 
 						// Проверка пола
@@ -155,6 +156,13 @@
 							radioSexFemale.style.webkitBoxShadow = '0px 0px 0px 0px rgba(226, 159, 169, 1)';
 							radioSexFemale.style.mozBoxShadow = '0px 0px 0px 0px rgba(226, 159, 169, 1)';
 							radioSexFemale.style.boxShadow = '0px 0px 0px 0px rgba(226, 159, 169, 1)';
+							// Если выбран один из кружков, сохраняем значение в переменную
+							if (radioSexMale.checked) {
+								selectedSex = "Мужской";
+							}
+							if (radioSexFemale.checked) {
+								selectedSex = "Женский";
+							}
 						}
 
 						// Проверка даты рождения
@@ -174,12 +182,12 @@
 						if (!companyValue || companyValue != companyValue.replace(/[^a-zA-Zа-яА-ЯёЁ0-9 "'«»-]/g, '') || !/[a-zA-Zа-яА-ЯёЁ]/.test(companyValue)) {
 							inputCompany.style.border = '5px solid #e29fa9';
 							errorCounter += 1; // Увеличиваем счётчик ошибок, если ввод неверен
-							const inputHandler = document.getElementById('user_company');
-							inputHandler.value = inputCompany.value.trim();
+							const inputHandlerCompany = document.getElementById('user_company');
+							inputHandlerCompany.value = inputCompany.value.trim();
 						} else {
 							inputCompany.style.border = '5px solid #ffffff';
-							const inputHandler = document.getElementById('user_company');
-							inputHandler.value = inputCompany.value.trim();
+							const inputHandlerCompany = document.getElementById('user_company');
+							inputHandlerCompany.value = inputCompany.value.trim();
 						}
 
 						// Проверка должности
@@ -188,12 +196,12 @@
 						if (!positionValue || positionValue != positionValue.replace(/[^a-zA-Zа-яА-ЯёЁ -]/g, '')) {
 							inputPosition.style.border = '5px solid #e29fa9';
 							errorCounter += 1; // Увеличиваем счётчик ошибок, если ввод неверен
-							const inputHandler = document.getElementById('user_position');
-							inputHandler.value = inputPosition.value.trim();
+							const inputHandlerPosition = document.getElementById('user_position');
+							inputHandlerPosition.value = inputPosition.value.trim();
 						} else {
 							inputPosition.style.border = '5px solid #ffffff';
-							const inputHandler = document.getElementById('user_position');
-							inputHandler.value = inputPosition.value.trim();
+							const inputHandlerPosition = document.getElementById('user_position');
+							inputHandlerPosition.value = inputPosition.value.trim();
 						}
 
 						// Проверка эл.почты
@@ -209,12 +217,12 @@
 						if (!emailPattern.test(emailValue)) {
 							inputEmail.style.border = '5px solid #e29fa9';
 							errorCounter += 1; // Увеличиваем счётчик ошибок, если ввод неверен
-							const inputHandler = document.getElementById('user_email');
-							inputHandler.value = inputEmail.value.trim();
+							const inputHandlerEmail = document.getElementById('user_email');
+							inputHandlerEmail.value = inputEmail.value.trim();
 						} else {
 							inputEmail.style.border = '5px solid #ffffff';
-							const inputHandler = document.getElementById('user_email');
-							inputHandler.value = inputEmail.value.trim();
+							const inputHandlerEmail = document.getElementById('user_email');
+							inputHandlerEmail.value = inputEmail.value.trim();
 						}
 
 						// Проверка подтверждения обработки введённых данных
@@ -240,6 +248,50 @@
 							from.addEventListener('animationend', function handler() {
 								from.style.display = 'none';
 								from.classList.remove('animBlockDisappear_end');
+
+								// Функция создания уникального id
+								function generateRandomID(length) {
+									const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+									let randomId = '';
+									for (let i = 0; i < length; i++) {
+										const randomIndex = Math.floor(Math.random() * characters.length);
+										randomId += characters[randomIndex];
+									}
+									return randomId;
+								}
+
+								// Получаем значения из полей ввода
+								const userName = document.getElementById('user_name').value; // Имя
+								const userSurname = document.getElementById('user_surname').value; // Фамилия
+								const userSexMale = document.getElementById('user_sex_male').checked; // Состояние кнопки пола (муж)
+								const userSexFemale = document.getElementById('user_sex_female').checked; // Состояние кнопки пола (жен)
+								const userSex = userSexMale ? 'Мужской' : userSexFemale ? 'Женский' : 'Не указан'; // Тернарный оператор, отображающий выбранный пол
+								const userBirthdate = document.getElementById('user_birthdate').value.split('-').reverse().join('.'); // Дата рождения, переведённая из формата гггг-мм-дд в формат дд.мм.гггг
+								const userCompany = document.getElementById('user_company').value; // Компания
+								const userPosition = document.getElementById('user_position').value; // Должность
+								const userEmail = document.getElementById('user_email').value; // Эл.почта
+								const userId = generateRandomID(8); // Сгенерированный id. В скобках задаётся его длина
+
+								// Вывод значения в alert (тест)
+								// alert(`Имя: ${userName}\n` +
+								// `Фамилия: ${userSurname}\n` +
+								// `Пол: ${userSex}\n` +
+								// `Дата рождения: ${userBirthdate}\n` +
+								// `Компания: ${userCompany}\n` +
+								// `Должность: ${userPosition}\n` +
+								// `Email: ${userEmail}\n` +
+								// `Id: ${userId}\n`);
+
+								// Сохранение значений в sessionStorage
+								sessionStorage.setItem("userName", userName); // Имя
+								sessionStorage.setItem("userSurname", userSurname); // Фамилия
+								sessionStorage.setItem("userSex", userSex); // Пол
+								sessionStorage.setItem("userBirthdate", userBirthdate); // Дата рождения
+								sessionStorage.setItem("userCompany", userCompany); // Компания
+								sessionStorage.setItem("userPosition", userPosition); // Должность
+								sessionStorage.setItem("userEmail", userEmail); // Эл.почта
+								sessionStorage.setItem("userId", userId); // Id
+
 								// Переход на новую страницу после окончания анимации
 								window.location.href = 'test_1.html';
 								// window.location.href = 'userDataInput.html';
@@ -254,18 +306,9 @@
 					});
 				});
 			</script>
-
-
-
-
-
-
 		</div>
 
 	</main>
-
-
-
 
 </body>
 

@@ -69,7 +69,7 @@ try:
     time.sleep(0.1)
     inputSexFemale.click()
     time.sleep(0.1)
-    inputBirthdate.send_keys("01012000")
+    inputBirthdate.send_keys("01022000")
     time.sleep(0.1)
     inputCompany.send_keys("ООО «Компания '\"Агрохим-cuprum\" и сыновья'»")
     time.sleep(0.1)
