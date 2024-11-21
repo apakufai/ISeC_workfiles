@@ -9,37 +9,55 @@ try:
     browser.get('file:///C:/Users/Admin/Desktop/ISeC/index.html')
 
 # ВВОД КОДА
-    time.sleep(0.5)
-    inputCode = browser.find_element(By.ID, 'inp_code')
+    time.sleep(1.5)
+    inputCode = browser.find_element(By.ID, 'inp_code') # ОКНО ВВОДА КОДА
     inputCode.send_keys("123")
-    btn_main_start = browser.find_element(By.ID, 'startTest')
+    time.sleep(0.8)
+    btn_main_start = browser.find_element(By.ID, 'startTest') # КНОПКА "ПРОЙТИ ТЕСТ"
     btn_main_start.click()
 
+
 # ВВОД ДАННЫХ ПОЛЬЗОВАТЕЛЯ
-    btn_UDI_next = browser.find_element(By.ID, 'btn_UDI_next')
-    closeBtn_UDI = browser.find_element(By.ID, 'closeBtn_UDI') # ПРОДОЛЖИТЬ
+    time.sleep(1.5)
+    btn_UDI_next = browser.find_element(By.ID, 'btn_UDI_next') # КНОПКА "ПРОДОЛЖИТЬ"
+    closeBtn_UDI = browser.find_element(By.ID, 'closeBtn_UDI') # ЗАКРЫТИЕ ВСПЛЫВАЮЩЕГО ОКНА
     inputName = browser.find_element(By.ID, 'user_name') # ИМЯ
     inputSurname = browser.find_element(By.ID, 'user_surname') # ФАМИЛИЯ
-    inputSexMale = browser.find_element(By.ID, 'user_sex_male') # ПОЛ
-    inputSexBirthdate = browser.find_element(By.ID, 'user_birthdate') # ДАТА РОЖДЕНИЯ
+    inputSexFemale = browser.find_element(By.ID, 'user_sex_female') # ПОЛ
+    inputBirthdate = browser.find_element(By.ID, 'user_birthdate') # ДАТА РОЖДЕНИЯ
     inputCompany = browser.find_element(By.ID, 'user_company') # ПОЛ
     inputPosition = browser.find_element(By.ID, 'user_position') # ДОЛЖНОСТЬ
     inputEmail = browser.find_element(By.ID, 'user_email') # ЭЛ.ПОЧТА
     inputAgreement = browser.find_element(By.ID, 'user_confirmation') # ЭЛ.ПОЧТА
 
-    time.sleep(0.5)
+    # ВВЕДЕНЫ ВЕРНЫЕ ДАННЫЕ
+    inputName.send_keys("Анна-Мария")
+    time.sleep(0.1)
+    inputSurname.send_keys("Мамина-Алексеева")
+    time.sleep(0.1)
+    inputSexFemale.click()
+    time.sleep(0.1)
+    inputBirthdate.send_keys("01012000")
+    time.sleep(0.1)
+    inputCompany.send_keys("ООО «Компания '\"Агрохим-cuprum\" и сыновья'»")
+    time.sleep(0.1)
+    inputPosition.send_keys("Оператор станка CNC")
+    time.sleep(0.1)
+    inputEmail.send_keys("Mamina-Alek_jr.@tr-ili.ax.com")
+    time.sleep(0.1)
+    inputAgreement.click()
+    time.sleep(0.8)
     btn_UDI_next.click()
 
 
-
 # СТАРТ БЛОКА 1
-    time.sleep(0.5)
+    time.sleep(1.5)
     btn_1_start = browser.find_element(By.ID, 'test_1_start')
     btn_1_start.click()
 
 # ВОПРОС 1_1
     # Ожидание 0,1 секунды
-    time.sleep(0.5)
+    time.sleep(0.8)
     # Выбор отвера на вопрос 1
     ans_1_1 = browser.find_element(By.ID, '1_1_top_0')
     ans_1_1.click()
@@ -48,105 +66,105 @@ try:
     btn_1_1_next.click()
 
 # ВОПРОС 1_2
-    time.sleep(0.5)
+    time.sleep(0.8)
     ans_1_2 = browser.find_element(By.ID, '1_2_top_0')
     ans_1_2.click()
     btn_1_2_next = browser.find_element(By.ID, 'btn_1_2_next')
     btn_1_2_next.click()
 
 # ВОПРОС 1_3
-    time.sleep(0.5)
+    time.sleep(0.8)
     ans_1_3 = browser.find_element(By.ID, '1_3_top_0')
     ans_1_3.click()
     btn_1_3_next = browser.find_element(By.ID, 'btn_1_3_next')
     btn_1_3_next.click()
 
 # ВОПРОС 1_4
-    time.sleep(0.5)
+    time.sleep(0.8)
     ans_1_4 = browser.find_element(By.ID, '1_4_top_0')
     ans_1_4.click()
     btn_1_4_next = browser.find_element(By.ID, 'btn_1_4_next')
     btn_1_4_next.click()
 
 # ВОПРОС 1_5
-    time.sleep(0.5)
+    time.sleep(0.8)
     ans_1_5 = browser.find_element(By.ID, '1_5_top_0')
     ans_1_5.click()
     btn_1_5_next = browser.find_element(By.ID, 'btn_1_5_next')
     btn_1_5_next.click()
 
 # ВОПРОС 1_6
-    time.sleep(0.5)
+    time.sleep(0.8)
     ans_1_6 = browser.find_element(By.ID, '1_6_top_0')
     ans_1_6.click()
     btn_1_6_next = browser.find_element(By.ID, 'btn_1_6_next')
     btn_1_6_next.click()
 
 # ВОПРОС 1_7
-    time.sleep(0.5)
+    time.sleep(0.8)
     ans_1_7 = browser.find_element(By.ID, '1_7_top_0')
     ans_1_7.click()
     btn_1_7_next = browser.find_element(By.ID, 'btn_1_7_next')
     btn_1_7_next.click()
 
 # ВОПРОС 1_8
-    time.sleep(0.5)
+    time.sleep(0.8)
     ans_1_8 = browser.find_element(By.ID, '1_8_top_0')
     ans_1_8.click()
     btn_1_8_next = browser.find_element(By.ID, 'btn_1_8_next')
     btn_1_8_next.click()
 
 # ВОПРОС 1_9
-    time.sleep(0.5)
+    time.sleep(0.8)
     ans_1_9 = browser.find_element(By.ID, '1_9_top_0')
     ans_1_9.click()
     btn_1_9_next = browser.find_element(By.ID, 'btn_1_9_next')
     btn_1_9_next.click()
 
 # ВОПРОС 1_10
-    time.sleep(0.5)
+    time.sleep(0.8)
     ans_1_10 = browser.find_element(By.ID, '1_10_top_0')
     ans_1_10.click()
     btn_1_10_next = browser.find_element(By.ID, 'btn_1_10_next')
     btn_1_10_next.click()
 
 # ВОПРОС 1_11
-    time.sleep(0.5)
+    time.sleep(0.8)
     ans_1_11 = browser.find_element(By.ID, '1_11_top_0')
     ans_1_11.click()
     btn_1_11_next = browser.find_element(By.ID, 'btn_1_11_next')
     btn_1_11_next.click()
 
 # ВОПРОС 1_12
-    time.sleep(0.5)
+    time.sleep(0.8)
     ans_1_12 = browser.find_element(By.ID, '1_12_top_0')
     ans_1_12.click()
     btn_1_12_next = browser.find_element(By.ID, 'btn_1_12_next')
     btn_1_12_next.click()
 
 # ВОПРОС 1_13
-    time.sleep(0.5)
+    time.sleep(0.8)
     ans_1_13 = browser.find_element(By.ID, '1_13_top_0')
     ans_1_13.click()
     btn_1_13_next = browser.find_element(By.ID, 'btn_1_13_next')
     btn_1_13_next.click()
 
 # ВОПРОС 1_14
-    time.sleep(0.5)
+    time.sleep(0.8)
     ans_1_14 = browser.find_element(By.ID, '1_14_top_0')
     ans_1_14.click()
     btn_1_14_next = browser.find_element(By.ID, 'btn_1_14_next')
     btn_1_14_next.click()
 
 # ВОПРОС 1_15
-    time.sleep(0.5)
+    time.sleep(0.8)
     ans_1_15 = browser.find_element(By.ID, '1_15_top_0')
     ans_1_15.click()
     btn_1_15_next = browser.find_element(By.ID, 'btn_1_15_next')
     btn_1_15_next.click()
 
 # КОНЕЦ БЛОКА 1
-    time.sleep(0.5)
+    time.sleep(0.8)
     ans_1_end = browser.find_element(By.ID, 'confirm_1_end')
     ans_1_end.click()
     btn_1_end_next = browser.find_element(By.ID, 'end_test_next_1')
@@ -154,222 +172,222 @@ try:
 
 
 # СТАРТ БЛОКА 2
-    time.sleep(0.5)
+    time.sleep(1.5)
     btn_2_start = browser.find_element(By.ID, 'test_2_start')
     btn_2_start.click()
 
 # ВОПРОС 2_1
-    time.sleep(0.5)
+    time.sleep(0.8)
     ans_2_1 = browser.find_element(By.ID, '2_1_top_0')
     ans_2_1.click()
     btn_2_1_next = browser.find_element(By.ID, 'btn_2_1_next')
     btn_2_1_next.click()
 
 # ВОПРОС 2_2
-    time.sleep(0.5)
+    time.sleep(0.8)
     ans_2_2 = browser.find_element(By.ID, '2_2_top_0')
     ans_2_2.click()
     btn_2_2_next = browser.find_element(By.ID, 'btn_2_2_next')
     btn_2_2_next.click()
 
 # ВОПРОС 2_3
-    time.sleep(0.5)
+    time.sleep(0.8)
     ans_2_3 = browser.find_element(By.ID, '2_3_top_0')
     ans_2_3.click()
     btn_2_3_next = browser.find_element(By.ID, 'btn_2_3_next')
     btn_2_3_next.click()
 
 # ВОПРОС 2_4
-    time.sleep(0.5)
+    time.sleep(0.8)
     ans_2_4 = browser.find_element(By.ID, '2_4_top_0')
     ans_2_4.click()
     btn_2_4_next = browser.find_element(By.ID, 'btn_2_4_next')
     btn_2_4_next.click()
 
 # ВОПРОС 2_5
-    time.sleep(0.5)
+    time.sleep(0.8)
     ans_2_5 = browser.find_element(By.ID, '2_5_top_0')
     ans_2_5.click()
     btn_2_5_next = browser.find_element(By.ID, 'btn_2_5_next')
     btn_2_5_next.click()
 
 # ВОПРОС 2_6
-    time.sleep(0.5)
+    time.sleep(0.8)
     ans_2_6 = browser.find_element(By.ID, '2_6_top_0')
     ans_2_6.click()
     btn_2_6_next = browser.find_element(By.ID, 'btn_2_6_next')
     btn_2_6_next.click()
 
 # ВОПРОС 2_7
-    time.sleep(0.5)
+    time.sleep(0.8)
     ans_2_7 = browser.find_element(By.ID, '2_7_top_0')
     ans_2_7.click()
     btn_2_7_next = browser.find_element(By.ID, 'btn_2_7_next')
     btn_2_7_next.click()
 
 # ВОПРОС 2_8
-    time.sleep(0.5)
+    time.sleep(0.8)
     ans_2_8 = browser.find_element(By.ID, '2_8_top_0')
     ans_2_8.click()
     btn_2_8_next = browser.find_element(By.ID, 'btn_2_8_next')
     btn_2_8_next.click()
 
 # ВОПРОС 2_9
-    time.sleep(0.5)
+    time.sleep(0.8)
     ans_2_9 = browser.find_element(By.ID, '2_9_top_0')
     ans_2_9.click()
     btn_2_9_next = browser.find_element(By.ID, 'btn_2_9_next')
     btn_2_9_next.click()
 
 # ВОПРОС 2_10
-    time.sleep(0.5)
+    time.sleep(0.8)
     ans_2_10 = browser.find_element(By.ID, '2_10_top_0')
     ans_2_10.click()
     btn_2_10_next = browser.find_element(By.ID, 'btn_2_10_next')
     btn_2_10_next.click()
 
 # ВОПРОС 2_11
-    time.sleep(0.5)
+    time.sleep(0.8)
     ans_2_11 = browser.find_element(By.ID, '2_11_top_0')
     ans_2_11.click()
     btn_2_11_next = browser.find_element(By.ID, 'btn_2_11_next')
     btn_2_11_next.click()
 
 # ВОПРОС 2_12
-    time.sleep(0.5)
+    time.sleep(0.8)
     ans_2_12 = browser.find_element(By.ID, '2_12_top_0')
     ans_2_12.click()
     btn_2_12_next = browser.find_element(By.ID, 'btn_2_12_next')
     btn_2_12_next.click()
 
 # ВОПРОС 2_13
-    time.sleep(0.5)
+    time.sleep(0.8)
     ans_2_13 = browser.find_element(By.ID, '2_13_top_0')
     ans_2_13.click()
     btn_2_13_next = browser.find_element(By.ID, 'btn_2_13_next')
     btn_2_13_next.click()
 
 # ВОПРОС 2_14
-    time.sleep(0.5)
+    time.sleep(0.8)
     ans_2_14 = browser.find_element(By.ID, '2_14_top_0')
     ans_2_14.click()
     btn_2_14_next = browser.find_element(By.ID, 'btn_2_14_next')
     btn_2_14_next.click()
 
 # ВОПРОС 2_15
-    time.sleep(0.5)
+    time.sleep(0.8)
     ans_2_15 = browser.find_element(By.ID, '2_15_top_0')
     ans_2_15.click()
     btn_2_15_next = browser.find_element(By.ID, 'btn_2_15_next')
     btn_2_15_next.click()
 
 # ВОПРОС 2_16
-    time.sleep(0.5)
+    time.sleep(0.8)
     ans_2_16 = browser.find_element(By.ID, '2_16_top_0')
     ans_2_16.click()
     btn_2_16_next = browser.find_element(By.ID, 'btn_2_16_next')
     btn_2_16_next.click()
 
 # ВОПРОС 2_17
-    time.sleep(0.5)
+    time.sleep(0.8)
     ans_2_17 = browser.find_element(By.ID, '2_17_top_0')
     ans_2_17.click()
     btn_2_17_next = browser.find_element(By.ID, 'btn_2_17_next')
     btn_2_17_next.click()
 
 # ВОПРОС 2_18
-    time.sleep(0.5)
+    time.sleep(0.8)
     ans_2_18 = browser.find_element(By.ID, '2_18_top_0')
     ans_2_18.click()
     btn_2_18_next = browser.find_element(By.ID, 'btn_2_18_next')
     btn_2_18_next.click()
 
 # ВОПРОС 2_19
-    time.sleep(0.5)
+    time.sleep(0.8)
     ans_2_19 = browser.find_element(By.ID, '2_19_top_0')
     ans_2_19.click()
     btn_2_19_next = browser.find_element(By.ID, 'btn_2_19_next')
     btn_2_19_next.click()
 
 # ВОПРОС 2_20
-    time.sleep(0.5)
+    time.sleep(0.8)
     ans_2_20 = browser.find_element(By.ID, '2_20_top_0')
     ans_2_20.click()
     btn_2_20_next = browser.find_element(By.ID, 'btn_2_20_next')
     btn_2_20_next.click()
 
 # ВОПРОС 2_21
-    time.sleep(0.5)
+    time.sleep(0.8)
     ans_2_21 = browser.find_element(By.ID, '2_21_top_0')
     ans_2_21.click()
     btn_2_21_next = browser.find_element(By.ID, 'btn_2_21_next')
     btn_2_21_next.click()
 
 # ВОПРОС 2_22
-    time.sleep(0.5)
+    time.sleep(0.8)
     ans_2_22 = browser.find_element(By.ID, '2_22_top_0')
     ans_2_22.click()
     btn_2_22_next = browser.find_element(By.ID, 'btn_2_22_next')
     btn_2_22_next.click()
 
 # ВОПРОС 2_23
-    time.sleep(0.5)
+    time.sleep(0.8)
     ans_2_23 = browser.find_element(By.ID, '2_23_top_0')
     ans_2_23.click()
     btn_2_23_next = browser.find_element(By.ID, 'btn_2_23_next')
     btn_2_23_next.click()
 
 # ВОПРОС 2_24
-    time.sleep(0.5)
+    time.sleep(0.8)
     ans_2_24 = browser.find_element(By.ID, '2_24_top_0')
     ans_2_24.click()
     btn_2_24_next = browser.find_element(By.ID, 'btn_2_24_next')
     btn_2_24_next.click()
 
 # ВОПРОС 2_25
-    time.sleep(0.5)
+    time.sleep(0.8)
     ans_2_25 = browser.find_element(By.ID, '2_25_top_0')
     ans_2_25.click()
     btn_2_25_next = browser.find_element(By.ID, 'btn_2_25_next')
     btn_2_25_next.click()
 
 # ВОПРОС 2_26
-    time.sleep(0.5)
+    time.sleep(0.8)
     ans_2_26 = browser.find_element(By.ID, '2_26_top_0')
     ans_2_26.click()
     btn_2_26_next = browser.find_element(By.ID, 'btn_2_26_next')
     btn_2_26_next.click()
 
 # ВОПРОС 2_27
-    time.sleep(0.5)
+    time.sleep(0.8)
     ans_2_27 = browser.find_element(By.ID, '2_27_top_0')
     ans_2_27.click()
     btn_2_27_next = browser.find_element(By.ID, 'btn_2_27_next')
     btn_2_27_next.click()
 
 # ВОПРОС 2_28
-    time.sleep(0.5)
+    time.sleep(0.8)
     ans_2_28 = browser.find_element(By.ID, '2_28_top_0')
     ans_2_28.click()
     btn_2_28_next = browser.find_element(By.ID, 'btn_2_28_next')
     btn_2_28_next.click()
 
 # ВОПРОС 2_29
-    time.sleep(0.5)
+    time.sleep(0.8)
     ans_2_29 = browser.find_element(By.ID, '2_29_top_0')
     ans_2_29.click()
     btn_2_29_next = browser.find_element(By.ID, 'btn_2_29_next')
     btn_2_29_next.click()
 
 # ВОПРОС 2_30
-    time.sleep(0.5)
+    time.sleep(0.8)
     ans_2_30 = browser.find_element(By.ID, '2_30_top_0')
     ans_2_30.click()
     btn_2_30_next = browser.find_element(By.ID, 'btn_2_30_next')
     btn_2_30_next.click()
 
 # КОНЕЦ БЛОКА 2
-    time.sleep(0.5)
+    time.sleep(0.8)
     ans_2_end = browser.find_element(By.ID, 'confirm_2_end')
     ans_2_end.click()
     btn_2_end_next = browser.find_element(By.ID, 'end_test_next_2')
@@ -377,12 +395,12 @@ try:
 
 
 # СТАРТ БЛОКА 3
-    time.sleep(0.5)
+    time.sleep(1.5)
     btn_3_start = browser.find_element(By.ID, 'test_3_start')
     btn_3_start.click()
 
 # ВОПРОС 3_1
-    time.sleep(0.5)
+    time.sleep(0.8)
 
     # Находим элементы input type="range" для каждого ползунка
     range_input_3_1_1 = browser.find_element(
@@ -424,7 +442,7 @@ try:
     btn_3_1_next.click()
 
 # ВОПРОС 3_2
-    time.sleep(0.5)
+    time.sleep(0.8)
     range_input_3_2_1 = browser.find_element(
         By.CSS_SELECTOR, '#inp_count_3_2_1 input[type="range"]')
     range_input_3_2_2 = browser.find_element(
@@ -450,7 +468,7 @@ try:
     btn_3_2_next.click()
 
 # ВОПРОС 3_3
-    time.sleep(0.5)
+    time.sleep(0.8)
     range_input_3_3_1 = browser.find_element(
         By.CSS_SELECTOR, '#inp_count_3_3_1 input[type="range"]')
     range_input_3_3_2 = browser.find_element(
@@ -476,7 +494,7 @@ try:
     btn_3_3_next.click()
 
 # ВОПРОС 3_4
-    time.sleep(0.5)
+    time.sleep(0.8)
     range_input_3_4_1 = browser.find_element(
         By.CSS_SELECTOR, '#inp_count_3_4_1 input[type="range"]')
     range_input_3_4_2 = browser.find_element(
@@ -502,7 +520,7 @@ try:
     btn_3_4_next.click()
 
 # ВОПРОС 3_5
-    time.sleep(0.5)
+    time.sleep(0.8)
     range_input_3_5_1 = browser.find_element(
         By.CSS_SELECTOR, '#inp_count_3_5_1 input[type="range"]')
     range_input_3_5_2 = browser.find_element(
@@ -528,7 +546,7 @@ try:
     btn_3_5_next.click()
 
 # ВОПРОС 3_6
-    time.sleep(0.5)
+    time.sleep(0.8)
     range_input_3_6_1 = browser.find_element(
         By.CSS_SELECTOR, '#inp_count_3_6_1 input[type="range"]')
     range_input_3_6_2 = browser.find_element(
@@ -554,7 +572,7 @@ try:
     btn_3_6_next.click()
 
 # ВОПРОС 3_7
-    time.sleep(0.5)
+    time.sleep(0.8)
     range_input_3_7_1 = browser.find_element(
         By.CSS_SELECTOR, '#inp_count_3_7_1 input[type="range"]')
     range_input_3_7_2 = browser.find_element(
@@ -580,7 +598,7 @@ try:
     btn_3_7_next.click()
 
 # ВОПРОС 3_8
-    time.sleep(0.5)
+    time.sleep(0.8)
     range_input_3_8_1 = browser.find_element(
         By.CSS_SELECTOR, '#inp_count_3_8_1 input[type="range"]')
     range_input_3_8_2 = browser.find_element(
@@ -606,7 +624,7 @@ try:
     btn_3_8_next.click()
 
 # ВОПРОС 3_9
-    time.sleep(0.5)
+    time.sleep(0.8)
     range_input_3_9_1 = browser.find_element(
         By.CSS_SELECTOR, '#inp_count_3_9_1 input[type="range"]')
     range_input_3_9_2 = browser.find_element(
@@ -632,7 +650,7 @@ try:
     btn_3_9_next.click()
 
 # КОНЕЦ БЛОКА 3
-    time.sleep(0.5)
+    time.sleep(0.8)
     ans_3_end = browser.find_element(By.ID, 'confirm_3_end')
     ans_3_end.click()
     btn_3_end_next = browser.find_element(By.ID, 'end_test_next_3')
@@ -640,124 +658,124 @@ try:
 
 
 # СТАРТ БЛОКА 4
-    time.sleep(0.5)
+    time.sleep(1.5)
     btn_4_start = browser.find_element(By.ID, 'test_4_start')
     btn_4_start.click()
 
 # ВОПРОС 4_1
-    time.sleep(0.5)
+    time.sleep(0.8)
     ans_4_1 = browser.find_element(By.ID, '4_1_1')
     ans_4_1.click()
     btn_4_1_next = browser.find_element(By.ID, 'btn_4_1_next')
     btn_4_1_next.click()
 
 # ВОПРОС 4_2
-    time.sleep(0.5)
+    time.sleep(0.8)
     ans_4_2 = browser.find_element(By.ID, '4_2_1')
     ans_4_2.click()
     btn_4_2_next = browser.find_element(By.ID, 'btn_4_2_next')
     btn_4_2_next.click()
 
 # ВОПРОС 4_3
-    time.sleep(0.5)
+    time.sleep(0.8)
     ans_4_3 = browser.find_element(By.ID, '4_3_1')
     ans_4_3.click()
     btn_4_3_next = browser.find_element(By.ID, 'btn_4_3_next')
     btn_4_3_next.click()
 
 # ВОПРОС 4_4
-    time.sleep(0.5)
+    time.sleep(0.8)
     ans_4_4 = browser.find_element(By.ID, '4_4_1')
     ans_4_4.click()
     btn_4_4_next = browser.find_element(By.ID, 'btn_4_4_next')
     btn_4_4_next.click()
 
 # ВОПРОС 4_5
-    time.sleep(0.5)
+    time.sleep(0.8)
     ans_4_5 = browser.find_element(By.ID, '4_5_1')
     ans_4_5.click()
     btn_4_5_next = browser.find_element(By.ID, 'btn_4_5_next')
     btn_4_5_next.click()
 
 # ВОПРОС 4_6
-    time.sleep(0.5)
+    time.sleep(0.8)
     ans_4_6 = browser.find_element(By.ID, '4_6_1')
     ans_4_6.click()
     btn_4_6_next = browser.find_element(By.ID, 'btn_4_6_next')
     btn_4_6_next.click()
 
 # ВОПРОС 4_7
-    time.sleep(0.5)
+    time.sleep(0.8)
     ans_4_7 = browser.find_element(By.ID, '4_7_1')
     ans_4_7.click()
     btn_4_7_next = browser.find_element(By.ID, 'btn_4_7_next')
     btn_4_7_next.click()
 
 # ВОПРОС 4_8
-    time.sleep(0.5)
+    time.sleep(0.8)
     ans_4_8 = browser.find_element(By.ID, '4_8_1')
     ans_4_8.click()
     btn_4_8_next = browser.find_element(By.ID, 'btn_4_8_next')
     btn_4_8_next.click()
 
 # ВОПРОС 4_9
-    time.sleep(0.5)
+    time.sleep(0.8)
     ans_4_9 = browser.find_element(By.ID, '4_9_1')
     ans_4_9.click()
     btn_4_9_next = browser.find_element(By.ID, 'btn_4_9_next')
     btn_4_9_next.click()
 
 # ВОПРОС 4_10
-    time.sleep(0.5)
+    time.sleep(0.8)
     ans_4_10 = browser.find_element(By.ID, '4_10_1')
     ans_4_10.click()
     btn_4_10_next = browser.find_element(By.ID, 'btn_4_10_next')
     btn_4_10_next.click()
 
 # ВОПРОС 4_11
-    time.sleep(0.5)
+    time.sleep(0.8)
     ans_4_11 = browser.find_element(By.ID, '4_11_1')
     ans_4_11.click()
     btn_4_11_next = browser.find_element(By.ID, 'btn_4_11_next')
     btn_4_11_next.click()
 
 # ВОПРОС 4_12
-    time.sleep(0.5)
+    time.sleep(0.8)
     ans_4_12 = browser.find_element(By.ID, '4_12_1')
     ans_4_12.click()
     btn_4_12_next = browser.find_element(By.ID, 'btn_4_12_next')
     btn_4_12_next.click()
 
 # ВОПРОС 4_13
-    time.sleep(0.5)
+    time.sleep(0.8)
     ans_4_13 = browser.find_element(By.ID, '4_13_1')
     ans_4_13.click()
     btn_4_13_next = browser.find_element(By.ID, 'btn_4_13_next')
     btn_4_13_next.click()
 
 # ВОПРОС 4_14
-    time.sleep(0.5)
+    time.sleep(0.8)
     ans_4_14 = browser.find_element(By.ID, '4_14_1')
     ans_4_14.click()
     btn_4_14_next = browser.find_element(By.ID, 'btn_4_14_next')
     btn_4_14_next.click()
 
 # ВОПРОС 4_15
-    time.sleep(0.5)
+    time.sleep(0.8)
     ans_4_15 = browser.find_element(By.ID, '4_15_1')
     ans_4_15.click()
     btn_4_15_next = browser.find_element(By.ID, 'btn_4_15_next')
     btn_4_15_next.click()
 
 # ВОПРОС 4_16
-    time.sleep(0.5)
+    time.sleep(0.8)
     ans_4_16 = browser.find_element(By.ID, '4_16_1')
     ans_4_16.click()
     btn_4_16_next = browser.find_element(By.ID, 'btn_4_16_next')
     btn_4_16_next.click()
 
 # КОНЕЦ БЛОКА 4
-    time.sleep(0.5)
+    time.sleep(0.8)
     ans_4_end = browser.find_element(By.ID, 'confirm_4_end')
     ans_4_end.click()
     btn_4_end_next = browser.find_element(By.ID, 'end_test_next_4')
@@ -765,12 +783,12 @@ try:
 
 
 # СТАРТ БЛОКА 5
-    time.sleep(0.5)
+    time.sleep(1.5)
     btn_5_start = browser.find_element(By.ID, 'test_5_start')
     btn_5_start.click()
 
 # ВОПРОС 5_1
-    time.sleep(0.5)
+    time.sleep(0.8)
 
     # Находим элементы input type="range" для каждого ползунка
     range_input_5_1_1 = browser.find_element(
@@ -812,7 +830,7 @@ try:
     btn_5_1_next.click()
 
 # ВОПРОС 5_2
-    time.sleep(0.5)
+    time.sleep(0.8)
     range_input_5_2_1 = browser.find_element(
         By.CSS_SELECTOR, '#inp_count_5_2_1 input[type="range"]')
     range_input_5_2_2 = browser.find_element(
@@ -838,7 +856,7 @@ try:
     btn_5_2_next.click()
 
 # ВОПРОС 5_3
-    time.sleep(0.5)
+    time.sleep(0.8)
     range_input_5_3_1 = browser.find_element(
         By.CSS_SELECTOR, '#inp_count_5_3_1 input[type="range"]')
     range_input_5_3_2 = browser.find_element(
@@ -864,7 +882,7 @@ try:
     btn_5_3_next.click()
 
 # ВОПРОС 5_4
-    time.sleep(0.5)
+    time.sleep(0.8)
     range_input_5_4_1 = browser.find_element(
         By.CSS_SELECTOR, '#inp_count_5_4_1 input[type="range"]')
     range_input_5_4_2 = browser.find_element(
@@ -890,7 +908,7 @@ try:
     btn_5_4_next.click()
 
 # ВОПРОС 5_5
-    time.sleep(0.5)
+    time.sleep(0.8)
     range_input_5_5_1 = browser.find_element(
         By.CSS_SELECTOR, '#inp_count_5_5_1 input[type="range"]')
     range_input_5_5_2 = browser.find_element(
@@ -916,7 +934,7 @@ try:
     btn_5_5_next.click()
 
 # ВОПРОС 5_6
-    time.sleep(0.5)
+    time.sleep(0.8)
     range_input_5_6_1 = browser.find_element(
         By.CSS_SELECTOR, '#inp_count_5_6_1 input[type="range"]')
     range_input_5_6_2 = browser.find_element(
@@ -942,7 +960,7 @@ try:
     btn_5_6_next.click()
 
 # ВОПРОС 5_7
-    time.sleep(0.5)
+    time.sleep(0.8)
     range_input_5_7_1 = browser.find_element(
         By.CSS_SELECTOR, '#inp_count_5_7_1 input[type="range"]')
     range_input_5_7_2 = browser.find_element(
@@ -968,7 +986,7 @@ try:
     btn_5_7_next.click()
 
 # ВОПРОС 5_8
-    time.sleep(0.5)
+    time.sleep(0.8)
     range_input_5_8_1 = browser.find_element(
         By.CSS_SELECTOR, '#inp_count_5_8_1 input[type="range"]')
     range_input_5_8_2 = browser.find_element(
@@ -994,7 +1012,7 @@ try:
     btn_5_8_next.click()
 
 # ВОПРОС 5_9
-    time.sleep(0.5)
+    time.sleep(0.8)
     range_input_5_9_1 = browser.find_element(
         By.CSS_SELECTOR, '#inp_count_5_9_1 input[type="range"]')
     range_input_5_9_2 = browser.find_element(
@@ -1020,7 +1038,7 @@ try:
     btn_5_9_next.click()
 
 # ВОПРОС 5_10
-    time.sleep(0.5)
+    time.sleep(0.8)
     range_input_5_10_1 = browser.find_element(
         By.CSS_SELECTOR, '#inp_count_5_10_1 input[type="range"]')
     range_input_5_10_2 = browser.find_element(
@@ -1046,7 +1064,7 @@ try:
     btn_5_10_next.click()
 
 # ВОПРОС 5_11
-    time.sleep(0.5)
+    time.sleep(0.8)
     range_input_5_11_1 = browser.find_element(
         By.CSS_SELECTOR, '#inp_count_5_11_1 input[type="range"]')
     range_input_5_11_2 = browser.find_element(
@@ -1072,7 +1090,7 @@ try:
     btn_5_11_next.click()
 
 # ВОПРОС 5_12
-    time.sleep(0.5)
+    time.sleep(0.8)
     range_input_5_12_1 = browser.find_element(
         By.CSS_SELECTOR, '#inp_count_5_12_1 input[type="range"]')
     range_input_5_12_2 = browser.find_element(
@@ -1098,7 +1116,7 @@ try:
     btn_5_12_next.click()
 
 # КОНЕЦ БЛОКА 5
-    time.sleep(0.5)
+    time.sleep(0.8)
     ans_5_end = browser.find_element(By.ID, 'confirm_5_end')
     ans_5_end.click()
     btn_5_end_next = browser.find_element(By.ID, 'end_test_next_5')
@@ -1106,12 +1124,12 @@ try:
 
 
 # СТАРТ БЛОКА 6
-    time.sleep(0.5)
+    time.sleep(1.5)
     btn_6_start = browser.find_element(By.ID, 'test_6_start')
     btn_6_start.click()
 
 # ВОПРОС 6_1
-    time.sleep(0.5)
+    time.sleep(0.8)
 
     # Находим элементы input type="range" для каждого ползунка
     range_input_6_1_1 = browser.find_element(
@@ -1164,7 +1182,7 @@ try:
     btn_6_1_next.click()
 
 # ВОПРОС 6_2
-    time.sleep(0.5)
+    time.sleep(0.8)
     range_input_6_2_1 = browser.find_element(
         By.CSS_SELECTOR, '#inp_count_6_2_1 input[type="range"]')
     range_input_6_2_2 = browser.find_element(
@@ -1197,7 +1215,7 @@ try:
     btn_6_2_next.click()
 
 # ВОПРОС 6_3
-    time.sleep(0.5)
+    time.sleep(0.8)
     range_input_6_3_1 = browser.find_element(
         By.CSS_SELECTOR, '#inp_count_6_3_1 input[type="range"]')
     range_input_6_3_2 = browser.find_element(
@@ -1230,7 +1248,7 @@ try:
     btn_6_3_next.click()
 
 # ВОПРОС 6_4
-    time.sleep(0.5)
+    time.sleep(0.8)
     range_input_6_4_1 = browser.find_element(
         By.CSS_SELECTOR, '#inp_count_6_4_1 input[type="range"]')
     range_input_6_4_2 = browser.find_element(
@@ -1263,7 +1281,7 @@ try:
     btn_6_4_next.click()
 
 # ВОПРОС 6_5
-    time.sleep(0.5)
+    time.sleep(0.8)
     range_input_6_5_1 = browser.find_element(
         By.CSS_SELECTOR, '#inp_count_6_5_1 input[type="range"]')
     range_input_6_5_2 = browser.find_element(
@@ -1296,7 +1314,7 @@ try:
     btn_6_5_next.click()
 
 # ВОПРОС 6_6
-    time.sleep(0.5)
+    time.sleep(0.8)
     range_input_6_6_1 = browser.find_element(
         By.CSS_SELECTOR, '#inp_count_6_6_1 input[type="range"]')
     range_input_6_6_2 = browser.find_element(
@@ -1329,7 +1347,7 @@ try:
     btn_6_6_next.click()
 
 # ВОПРОС 6_7
-    time.sleep(0.5)
+    time.sleep(0.8)
     range_input_6_7_1 = browser.find_element(
         By.CSS_SELECTOR, '#inp_count_6_7_1 input[type="range"]')
     range_input_6_7_2 = browser.find_element(
@@ -1362,7 +1380,7 @@ try:
     btn_6_7_next.click()
 
 # ВОПРОС 6_8
-    time.sleep(0.5)
+    time.sleep(0.8)
     range_input_6_8_1 = browser.find_element(
         By.CSS_SELECTOR, '#inp_count_6_8_1 input[type="range"]')
     range_input_6_8_2 = browser.find_element(
@@ -1395,7 +1413,7 @@ try:
     btn_6_8_next.click()
 
 # ВОПРОС 6_9
-    time.sleep(0.5)
+    time.sleep(0.8)
     range_input_6_9_1 = browser.find_element(
         By.CSS_SELECTOR, '#inp_count_6_9_1 input[type="range"]')
     range_input_6_9_2 = browser.find_element(
@@ -1428,7 +1446,7 @@ try:
     btn_6_9_next.click()
 
 # ВОПРОС 6_10
-    time.sleep(0.5)
+    time.sleep(0.8)
     range_input_6_10_1 = browser.find_element(
         By.CSS_SELECTOR, '#inp_count_6_10_1 input[type="range"]')
     range_input_6_10_2 = browser.find_element(
@@ -1462,7 +1480,7 @@ try:
 
 
 # КОНЕЦ БЛОКА 6
-    time.sleep(0.5)
+    time.sleep(0.8)
     ans_6_end = browser.find_element(By.ID, 'confirm_6_end')
     ans_6_end.click()
     btn_6_end_next = browser.find_element(By.ID, 'end_test_next_6')

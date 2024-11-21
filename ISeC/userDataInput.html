@@ -35,14 +35,14 @@
 		<img class="line_20" src="./images/line.svg"></img>
 	</section>
 
-	<main>
+	<main name="descr_UDI">
 
 
 		<!-- ВСПЛЫВАЮЩЕЕ ОКНО -->
 		<div class="popup" id="popup_UDI">
 			<div class="popup-content">
 				<p class="error_text">Ошибка</p>
-				<p>Выберите один из вариантов ответа</p>
+				<p>Проверьте введённые данные</p>
 				<button class="close-btn" id="closeBtn_UDI">Закрыть</button>
 			</div>
 		</div>
@@ -108,11 +108,11 @@
 					const inputEmail = document.getElementById('user_email'); // Поле ввода эл.почты
 					const radioConfirmation = document.getElementById('user_confirmation'); // Кнопка подтверждения обработки данных (Муж)
 
-					submitButton.addEventListener('click', function (event) {
+					submitButton.addEventListener('click', function () {
 
 						// Проверка имени
 						const nameValue = inputName.value.trim()
-						if (!nameValue || nameValue != nameValue.replace(/[^a-zA-Zа-яА-ЯёЁ]/g, '')) {
+						if (!nameValue || nameValue != nameValue.replace(/[^а-яА-ЯёЁ-]/g, '')) {
 							// Если поле пустое или содержит небуквенные символы
 							inputName.style.border = '5px solid #e29fa9';
 							errorCounter += 1; // Увеличиваем счётчик ошибок, если ни один пол не выбран
@@ -121,12 +121,12 @@
 						} else {
 							inputName.style.border = '5px solid #ffffff';
 							const inputHandler = document.getElementById('user_name');
-							inputHandler.value = nameValue.charAt(0).toUpperCase() + nameValue.slice(1).toLowerCase();
+							inputHandler.value = inputName.value.trim();
 						}
 
 						// Проверка фамилии
 						const surnameValue = inputSurname.value.trim();
-						if (!surnameValue || surnameValue != surnameValue.replace(/[^a-zA-Zа-яА-ЯёЁ]/g, '')) {
+						if (!surnameValue || surnameValue != surnameValue.replace(/[^а-яА-ЯёЁ-]/g, '')) {
 							// Если поле пустое или содержит небуквенные символы
 							inputSurname.style.border = '5px solid #e29fa9';
 							errorCounter += 1; // Увеличиваем счётчик ошибок, если ни один пол не выбран
@@ -135,7 +135,7 @@
 						} else {
 							inputSurname.style.border = '5px solid #ffffff';
 							const inputHandler = document.getElementById('user_surname');
-							inputHandler.value = surnameValue.charAt(0).toUpperCase() + surnameValue.slice(1).toLowerCase();
+							inputHandler.value = inputSurname.value.trim();
 						}
 
 						// Проверка пола
@@ -171,7 +171,7 @@
 						// Проверка компании
 						const companyValue = inputCompany.value.trim();
 						// Если поле пустое; Если поле содержит небуквенные символы; Если поле не содержит буквы
-						if (!companyValue || companyValue != companyValue.replace(/[^a-zA-Zа-яА-ЯёЁ0-9 "'«»]/g, '') || !/[a-zA-Zа-яА-ЯёЁ]/.test(companyValue)) {
+						if (!companyValue || companyValue != companyValue.replace(/[^a-zA-Zа-яА-ЯёЁ0-9 "'«»-]/g, '') || !/[a-zA-Zа-яА-ЯёЁ]/.test(companyValue)) {
 							inputCompany.style.border = '5px solid #e29fa9';
 							errorCounter += 1; // Увеличиваем счётчик ошибок, если ввод неверен
 							const inputHandler = document.getElementById('user_company');
@@ -179,7 +179,7 @@
 						} else {
 							inputCompany.style.border = '5px solid #ffffff';
 							const inputHandler = document.getElementById('user_company');
-							inputHandler.value = companyValue.charAt(0).toUpperCase() + companyValue.slice(1).toLowerCase();
+							inputHandler.value = inputCompany.value.trim();
 						}
 
 						// Проверка должности
@@ -193,7 +193,7 @@
 						} else {
 							inputPosition.style.border = '5px solid #ffffff';
 							const inputHandler = document.getElementById('user_position');
-							inputHandler.value = positionValue.charAt(0).toUpperCase() + positionValue.slice(1).toLowerCase();
+							inputHandler.value = inputPosition.value.trim();
 						}
 
 						// Проверка эл.почты
@@ -232,19 +232,33 @@
 
 						if (errorCounter > 0) {
 							popup_UDI.style.display = 'flex'; // Показываем всплывающее окно
+							errorCounter = 0;
 						} else {
-							
+							// Переход на другую страницу при нажатии на кнопку
+							const from = document.querySelector('[name="descr_UDI"]');
+							from.classList.add('animBlockDisappear_end');
+							from.addEventListener('animationend', function handler() {
+								from.style.display = 'none';
+								from.classList.remove('animBlockDisappear_end');
+								// Переход на новую страницу после окончания анимации
+								window.location.href = 'test_1.html';
+								// window.location.href = 'userDataInput.html';
+								from.removeEventListener('animationend', handler);
+							});
 						}
-
 					});
 
 					// Закрытие всплывающего окна
 					closeBtn_UDI.addEventListener('click', function () {
 						popup_UDI.style.display = 'none'; // Скрываем всплывающее окно
 					});
-					
 				});
 			</script>
+
+
+
+
+
 
 		</div>
 

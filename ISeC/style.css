@@ -386,6 +386,11 @@ p,
    display: flex;
 }
 
+/* Подгонка кнопки подтверждения введённых данных*/
+#user_confirmation {
+   margin: 20px 0 10px 0;
+}
+
 /* Окно с описанием блока теста */
 .descr_test {
    position: static;

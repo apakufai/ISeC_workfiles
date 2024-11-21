@@ -9,12 +9,12 @@ try:
     browser.get('file:///C:/Users/Admin/Desktop/ISeC/test_6.html')
 
 # СТАРТ БЛОКА 6
-    time.sleep(0.5)
+    time.sleep(1.5)
     btn_6_start = browser.find_element(By.ID, 'test_6_start')
     btn_6_start.click()
 
 # ВОПРОС 6_1
-    time.sleep(0.5)
+    time.sleep(0.8)
 
     # Находим элементы input type="range" для каждого ползунка
     range_input_6_1_1 = browser.find_element(
@@ -67,7 +67,7 @@ try:
     btn_6_1_next.click()
 
 # ВОПРОС 6_2
-    time.sleep(0.5)
+    time.sleep(0.8)
     range_input_6_2_1 = browser.find_element(
         By.CSS_SELECTOR, '#inp_count_6_2_1 input[type="range"]')
     range_input_6_2_2 = browser.find_element(
@@ -100,7 +100,7 @@ try:
     btn_6_2_next.click()
 
 # ВОПРОС 6_3
-    time.sleep(0.5)
+    time.sleep(0.8)
     range_input_6_3_1 = browser.find_element(
         By.CSS_SELECTOR, '#inp_count_6_3_1 input[type="range"]')
     range_input_6_3_2 = browser.find_element(
@@ -133,7 +133,7 @@ try:
     btn_6_3_next.click()
 
 # ВОПРОС 6_4
-    time.sleep(0.5)
+    time.sleep(0.8)
     range_input_6_4_1 = browser.find_element(
         By.CSS_SELECTOR, '#inp_count_6_4_1 input[type="range"]')
     range_input_6_4_2 = browser.find_element(
@@ -166,7 +166,7 @@ try:
     btn_6_4_next.click()
 
 # ВОПРОС 6_5
-    time.sleep(0.5)
+    time.sleep(0.8)
     range_input_6_5_1 = browser.find_element(
         By.CSS_SELECTOR, '#inp_count_6_5_1 input[type="range"]')
     range_input_6_5_2 = browser.find_element(
@@ -199,7 +199,7 @@ try:
     btn_6_5_next.click()
 
 # ВОПРОС 6_6
-    time.sleep(0.5)
+    time.sleep(0.8)
     range_input_6_6_1 = browser.find_element(
         By.CSS_SELECTOR, '#inp_count_6_6_1 input[type="range"]')
     range_input_6_6_2 = browser.find_element(
@@ -232,7 +232,7 @@ try:
     btn_6_6_next.click()
 
 # ВОПРОС 6_7
-    time.sleep(0.5)
+    time.sleep(0.8)
     range_input_6_7_1 = browser.find_element(
         By.CSS_SELECTOR, '#inp_count_6_7_1 input[type="range"]')
     range_input_6_7_2 = browser.find_element(
@@ -265,7 +265,7 @@ try:
     btn_6_7_next.click()
 
 # ВОПРОС 6_8
-    time.sleep(0.5)
+    time.sleep(0.8)
     range_input_6_8_1 = browser.find_element(
         By.CSS_SELECTOR, '#inp_count_6_8_1 input[type="range"]')
     range_input_6_8_2 = browser.find_element(
@@ -298,7 +298,7 @@ try:
     btn_6_8_next.click()
 
 # ВОПРОС 6_9
-    time.sleep(0.5)
+    time.sleep(0.8)
     range_input_6_9_1 = browser.find_element(
         By.CSS_SELECTOR, '#inp_count_6_9_1 input[type="range"]')
     range_input_6_9_2 = browser.find_element(
@@ -331,7 +331,7 @@ try:
     btn_6_9_next.click()
 
 # ВОПРОС 6_10
-    time.sleep(0.5)
+    time.sleep(0.8)
     range_input_6_10_1 = browser.find_element(
         By.CSS_SELECTOR, '#inp_count_6_10_1 input[type="range"]')
     range_input_6_10_2 = browser.find_element(
@@ -365,7 +365,7 @@ try:
 
 
 # КОНЕЦ БЛОКА 6
-    time.sleep(0.5)
+    time.sleep(0.8)
     ans_6_end = browser.find_element(By.ID, 'confirm_6_end')
     ans_6_end.click()
     btn_6_end_next = browser.find_element(By.ID, 'end_test_next_6')
