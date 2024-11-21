@@ -1,0 +1,5 @@
+- Тесты для каждого заполнения (пусто-неверно-верно) для userDataInput.html
+
+- Переход userDataInput -> test_1
+
+- Отображение введённых данных из userDataInput.html на results.html

@@ -6,14 +6,31 @@ import time  # Импортируем модуль time
 browser = webdriver.Chrome()
 
 try:
-    browser.get('file:///C:/Users/Admin/Desktop/ISeC/test_1.html')
+    browser.get('file:///C:/Users/Admin/Desktop/ISeC/index.html')
 
 # ВВОД КОДА
-    # time.sleep(0.5)
-    # inputField = browser.find_element(By.ID, 'inputCode')
-    # inputField.send_keys("123")
-    # btn_main_start = browser.find_element(By.ID, 'startTest')
-    # btn_main_start.click()
+    time.sleep(0.5)
+    inputCode = browser.find_element(By.ID, 'inp_code')
+    inputCode.send_keys("123")
+    btn_main_start = browser.find_element(By.ID, 'startTest')
+    btn_main_start.click()
+
+# ВВОД ДАННЫХ ПОЛЬЗОВАТЕЛЯ
+    btn_UDI_next = browser.find_element(By.ID, 'btn_UDI_next')
+    closeBtn_UDI = browser.find_element(By.ID, 'closeBtn_UDI') # ПРОДОЛЖИТЬ
+    inputName = browser.find_element(By.ID, 'user_name') # ИМЯ
+    inputSurname = browser.find_element(By.ID, 'user_surname') # ФАМИЛИЯ
+    inputSexMale = browser.find_element(By.ID, 'user_sex_male') # ПОЛ
+    inputSexBirthdate = browser.find_element(By.ID, 'user_birthdate') # ДАТА РОЖДЕНИЯ
+    inputCompany = browser.find_element(By.ID, 'user_company') # ПОЛ
+    inputPosition = browser.find_element(By.ID, 'user_position') # ДОЛЖНОСТЬ
+    inputEmail = browser.find_element(By.ID, 'user_email') # ЭЛ.ПОЧТА
+    inputAgreement = browser.find_element(By.ID, 'user_confirmation') # ЭЛ.ПОЧТА
+
+    time.sleep(0.5)
+    btn_UDI_next.click()
+
+
 
 # СТАРТ БЛОКА 1
     time.sleep(0.5)
