@@ -334,7 +334,7 @@ p,
 /* Заголовок окна с описанием блоков */
 .descr_dataInput_title {
    text-indent: 0;
-   margin: 15px auto 15px auto;
+   margin: 15px auto 0 auto;
    font-family: "Bahnschrift", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
    font-size: 20pt;
    font-weight: normal;
@@ -344,7 +344,7 @@ p,
 
 /* Текст с вводом данных пользователя */
 .descr_dataInput_text {
-   margin: 10px 0;
+   margin: 20px 0 10px 0;
    font-family: "Bahnschrift", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
    font-size: 16pt;
    animation: animBlocks_text 1s ease;
