@@ -145,7 +145,7 @@
             document.getElementById("strName").innerText = "Имя: " + resName;
             document.getElementById("strSurname").innerText = "Фамилия: " + resSurname;
             document.getElementById("strSex").innerText = "Пол: " + resSex;
-            document.getElementById("strBirthdate").innerText = "Дата рождения: " + resBirthdate;
+            document.getElementById("strBirthdate").innerText = "Дата рождения: " + resBirthdate.split('-').reverse().join('.'); // Дата рождения, переведённая из формата гггг-мм-дд в формат дд.мм.гггг
             document.getElementById("strCompany").innerText = "Компания: " + resCompany;
             document.getElementById("strPosition").innerText = "Должность: " + resPosition;
             document.getElementById("strEmail").innerText = "Эл.почта: " + resEmail;

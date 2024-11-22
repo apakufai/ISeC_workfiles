@@ -266,7 +266,7 @@
 								const userSexMale = document.getElementById('user_sex_male').checked; // Состояние кнопки пола (муж)
 								const userSexFemale = document.getElementById('user_sex_female').checked; // Состояние кнопки пола (жен)
 								const userSex = userSexMale ? 'Мужской' : userSexFemale ? 'Женский' : 'Не указан'; // Тернарный оператор, отображающий выбранный пол
-								const userBirthdate = document.getElementById('user_birthdate').value.split('-').reverse().join('.'); // Дата рождения, переведённая из формата гггг-мм-дд в формат дд.мм.гггг
+								const userBirthdate = document.getElementById('user_birthdate').value; // Дата рождения
 								const userCompany = document.getElementById('user_company').value; // Компания
 								const userPosition = document.getElementById('user_position').value; // Должность
 								const userEmail = document.getElementById('user_email').value; // Эл.почта
