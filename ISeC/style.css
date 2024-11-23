@@ -1152,6 +1152,10 @@ p,
    font-weight: lighter;
 }
 
+.quest_4_dialogue {
+   text-align: left;
+}
+
 /* Утверждения вопроса из блока 4 */
 .affirm_4 {
    font-weight: normal;
