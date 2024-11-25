@@ -4,3 +4,6 @@
 cmd
 python --version
 pip install selenium
+
+pip install reportlab
+^для создания pdf-файла
