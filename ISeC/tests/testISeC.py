@@ -7,7 +7,7 @@ import time  # Импортируем модуль time
 browser = webdriver.Chrome()
 
 try:
-    browser.get('file:///C:/Users/Admin/Desktop/ISeC/index.html')
+    browser.get('file:///C:/Users/Admin/Desktop/Individual_Self-exploration_Card-main/ISeC/index.html')
 
 # ВВОД КОДА
     time.sleep(1.5)

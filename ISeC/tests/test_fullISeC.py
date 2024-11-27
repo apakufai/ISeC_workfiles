@@ -1,12 +1,13 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-import time  # Импортируем модуль time
+from selenium.webdriver.support.ui import Select
+import time
 
 # Инициализация веб-драйвера
 browser = webdriver.Chrome()
 
 try:
-    browser.get('file:///C:/Users/Admin/Desktop/ISeC/index.html')
+    browser.get('file:///C:/Users/Admin/Desktop/Individual_Self-exploration_Card-main/ISeC/index.html')
 
 # ВВОД КОДА
     time.sleep(1.5)
@@ -26,7 +27,7 @@ try:
     inputSexFemale = browser.find_element(By.ID, 'user_sex_female') # ПОЛ
     inputBirthdate = browser.find_element(By.ID, 'user_birthdate') # ДАТА РОЖДЕНИЯ
     inputCompany = browser.find_element(By.ID, 'user_company') # ПОЛ
-    inputPosition = browser.find_element(By.ID, 'user_position') # ДОЛЖНОСТЬ
+    inputCategory = Select(browser.find_element(By.ID, 'user_category')) # КАТЕГОРИЯ
     inputEmail = browser.find_element(By.ID, 'user_email') # ЭЛ.ПОЧТА
     inputAgreement = browser.find_element(By.ID, 'user_confirmation') # ЭЛ.ПОЧТА
 

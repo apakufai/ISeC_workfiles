@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>Главная. ИКС-файл</title>
+	<title>Ввод данных. ИКС-файл</title>
 	<script type="text/javascript"></script>
 	<link rel="stylesheet" href="style.css">
 </head>
@@ -72,19 +72,44 @@
 
 			<span class="descr_dataInput_text">Ваша дата рождения</span>
 			<input type="date" class="inp_date" id="user_birthdate" required>
+			<script>
+				const dateInput = document.getElementById('user_birthdate');
+				dateInput.addEventListener('input', function () {
+					// Проверяем, заполнено ли поле
+					if (dateInput.value) {
+						// Изменяем цвет текста, если значение не пустое
+						dateInput.style.color = '#5b7ead';
+					} else {
+						// Возвращаем цвет по умолчанию, если поле пустое
+						dateInput.style.color = '#7F7F7F';
+					}
+				});
+			</script>
 
 			<span class="descr_dataInput_text">Ваша компания</span>
 			<input type="text" class="inp_text" id="user_company" required placeholder="Компания">
 
 			<span class="descr_dataInput_text">Ваша категория</span>
 			<select class="inp_dropdown" id="user_category" required>
-				<option value="" disabled selected hidden>Выберите категорию</option>
+				<option value="Выберите категорию" disabled selected hidden>Выберите категорию</option>
 				<option value="-">-</option>
 				<option value="Стр 1">Стр 1</option>
 				<option value="Стр 2">Стр 2</option>
 				<option value="Стр 3">Стр 3</option>
 				<option value="Стр 4">Стр 4</option>
 			</select>
+			<script>
+				const selectedElement = document.getElementById('user_category');
+				selectedElement.addEventListener('change', function () {
+					if (selectedElement.value !== "Выберите категорию") {
+						// Изменяем цвет текста при выборе другого элемента
+						selectedElement.style.color = '#5b7ead';
+					} else {
+						// Возвращаем цвет текста к исходному, если выбран "Выберите категорию"
+						selectedElement.style.color = 'black'; // Цвет по умолчанию
+					}
+				});
+			</script>
 
 			<span class="descr_dataInput_text">Ваша эл. почта</span>
 			<input type="email" class="inp_text" id="user_email" required placeholder="Эл. почта">
@@ -199,8 +224,8 @@
 
 						// Проверка категории
 						const categoryValue = inputCategory.value;
-						// Если поле пустое или содержит небуквенные символы (кроме пробела и тире)
-						if (categoryValue === "") {
+						// Если в поле остался выбор по умолчанию
+						if (categoryValue === "Выберите категорию") {
 							inputCategory.style.border = '5px solid #e29fa9';
 							errorCounter += 1; // Увеличиваем счётчик ошибок, если ввод неверен
 						} else {

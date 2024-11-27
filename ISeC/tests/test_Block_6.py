@@ -1,12 +1,12 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-import time  # Импортируем модуль time
+import time
 
 # Инициализация веб-драйвера
 browser = webdriver.Chrome()
 
 try:
-    browser.get('file:///C:/Users/Admin/Desktop/ISeC/test_6.html')
+    browser.get('file:///C:/Users/Admin/Desktop/Individual_Self-exploration_Card-main/ISeC/test_6.html')
 
 # СТАРТ БЛОКА 6
     time.sleep(1.5)

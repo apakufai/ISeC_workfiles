@@ -1,13 +1,13 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
-import time  # Импортируем модуль time
+import time
 
 # Инициализация веб-драйвера
 browser = webdriver.Chrome()
 
 try:
-    browser.get('file:///C:/Users/Admin/Desktop/ISeC/userDataInput.html')
+    browser.get('file:///C:/Users/Admin/Desktop/Individual_Self-exploration_Card-main/ISeC/userDataInput.html')
 
 # ВВОД ДАННЫХ ПОЛЬЗОВАТЕЛЯ
     time.sleep(1)
