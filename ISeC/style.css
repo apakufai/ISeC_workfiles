@@ -517,7 +517,6 @@ p,
 
 /* Поля ввода текста на странице данных пользователя */
 .inp_text {
-   /* text-align: center; Центрирование текста */
    display: flex;
    border: 5px solid #ffffff;
    border-radius: 15px;
@@ -526,7 +525,7 @@ p,
    font-family: "Bahnschrift", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
    font-weight: lighter;
    color: #5b7ead;
-   animation: animButtons 1s ease;
+   animation: animBlocks_text 1s ease;
    animation-duration: 1s;
    height: 50px;
    width: 500px;
@@ -551,12 +550,38 @@ p,
    font-family: "Bahnschrift", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
    font-weight: lighter;
    color: #5b7ead;
-   animation: animButtons 1s ease;
+   animation: animBlocks_text 1s ease;
    animation-duration: 1s;
    height: 50px;
    width: 250px;
    padding: 10px;
    outline: none;
+}
+
+/* Выпадающее меню на странице данных пользователя */
+.inp_dropdown {
+   appearance: none; /* Убираем стандартный стиль */
+   -moz-appearance: none; /* Для Firefox */
+   -webkit-appearance: none; /* Для Safari */
+   display: flex;
+   border: 5px solid #ffffff;
+   border-radius: 15px;
+   background-color: rgba(255, 255, 255, 0);
+   font-size: 16pt;
+   font-family: "Bahnschrift", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+   font-weight: lighter;
+   color: #5b7ead;
+   animation: animBlocks_text 1s ease;
+   animation-duration: 1s;
+   height: 50px;
+   width: 500px;
+   padding: 10px;
+   outline: none;
+   cursor: pointer;
+}
+
+.inp_dropdown option {
+   font-size: 12pt;
 }
 
 /* Кнопка подтверждения ввода данных */
@@ -571,7 +596,7 @@ p,
       transform 0.2s,
       border-color 0.2s,
       color 0.2s;
-      animation: animButtons 1s ease;
+      animation: animBlocks_text 1s ease;
    font-size: 16pt;
    font-family: "Bahnschrift", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
    color: #7F7F7F;

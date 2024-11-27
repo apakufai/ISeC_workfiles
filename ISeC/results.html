@@ -44,8 +44,8 @@
             let resSurname = "П"; // Фамилия
             let resSex = "П"; // Пол
             let resBirthdate = "01.01.2000"; // Дата рождения
-            let resCompany = "ООО"; // Компания
-            let resPosition = "П"; // Должность
+            let resCompany = "П"; // Компания
+            let resCategory = "П"; // Категория
             let resEmail = "P"; // Эл.почта
             let resId = "0aP1oS02"; // Id
             let resUnderstandingOfStyles = 0; // Понимание стилей
@@ -68,7 +68,7 @@
             resSex = sessionStorage.getItem("userSex"); // Пол
             resBirthdate = sessionStorage.getItem("userBirthdate"); // Дата рождения
             resCompany = sessionStorage.getItem("userCompany"); // Компания
-            resPosition = sessionStorage.getItem("userPosition"); // Должность
+            resCategory = sessionStorage.getItem("userCategory"); // Категория
             resEmail = sessionStorage.getItem("userEmail"); // Эл.почта
             resId = sessionStorage.getItem("userId"); // Id
 
@@ -122,7 +122,7 @@
             <p id="strSex" class="end_test_text">&emsp;Пол<br></p>
             <p id="strBirthdate" class="end_test_text">&emsp;Дата рождения<br></p>
             <p id="strCompany" class="end_test_text">&emsp;Компания<br></p>
-            <p id="strPosition" class="end_test_text">&emsp;Должность<br></p>
+            <p id="strCategory" class="end_test_text">&emsp;Категория<br></p>
             <p id="strEmail" class="end_test_text">&emsp;Эл.почта<br></p>
             <p id="strId" class="end_test_text">&emsp;Id<br></p>
 
@@ -147,7 +147,7 @@
             document.getElementById("strSex").innerText = "Пол: " + resSex;
             document.getElementById("strBirthdate").innerText = "Дата рождения: " + resBirthdate.split('-').reverse().join('.'); // Дата рождения, переведённая из формата гггг-мм-дд в формат дд.мм.гггг
             document.getElementById("strCompany").innerText = "Компания: " + resCompany;
-            document.getElementById("strPosition").innerText = "Должность: " + resPosition;
+            document.getElementById("strCategory").innerText = "Категория: " + resCategory;
             document.getElementById("strEmail").innerText = "Эл.почта: " + resEmail;
             document.getElementById("strId").innerText = "Id: " + resId;
 

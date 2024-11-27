@@ -1,5 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import Select
 import time  # Импортируем модуль time
 
 # Инициализация веб-драйвера
@@ -17,9 +18,9 @@ try:
     inputSexFemale = browser.find_element(By.ID, 'user_sex_female') # ПОЛ
     inputBirthdate = browser.find_element(By.ID, 'user_birthdate') # ДАТА РОЖДЕНИЯ
     inputCompany = browser.find_element(By.ID, 'user_company') # ПОЛ
-    inputPosition = browser.find_element(By.ID, 'user_position') # ДОЛЖНОСТЬ
+    inputCategory = Select(browser.find_element(By.ID, 'user_category')) # КАТЕГОРИЯ
     inputEmail = browser.find_element(By.ID, 'user_email') # ЭЛ.ПОЧТА
-    inputAgreement = browser.find_element(By.ID, 'user_confirmation') # ЭЛ.ПОЧТА
+    inputAgreement = browser.find_element(By.ID, 'user_confirmation') # СОГЛАСИЕ НА ОБРАБОТКУ ДАННЫХ
 
 
     # ДАННЫЕ НЕ ВВЕДЕНЫ
@@ -38,8 +39,6 @@ try:
     time.sleep(0.1)
     inputCompany.send_keys("!!!")
     time.sleep(0.1)
-    inputPosition.send_keys("!!!")
-    time.sleep(0.1)
     inputEmail.send_keys("!!!")
     time.sleep(0.5)
     
@@ -56,8 +55,6 @@ try:
     time.sleep(0.1)
     inputCompany.clear()
     time.sleep(0.1)
-    inputPosition.clear()
-    time.sleep(0.1)
     inputEmail.clear()
     time.sleep(0.5)
 
@@ -73,7 +70,7 @@ try:
     time.sleep(0.1)
     inputCompany.send_keys("ООО «Компания '\"Агрохим-cuprum\" и сыновья'»")
     time.sleep(0.1)
-    inputPosition.send_keys("Оператор станка CNC")
+    inputCategory.select_by_value("-")
     time.sleep(0.1)
     inputEmail.send_keys("Mamina-Alek_jr.@tr-ili.ax.com")
     time.sleep(0.1)

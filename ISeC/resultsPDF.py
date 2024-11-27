@@ -43,7 +43,7 @@ resSurname = extract_value_from_html(html_file, 'resSurname', expected_type=str)
 resSex = extract_value_from_html(html_file, 'resSex', expected_type=str)
 resBirthdate = extract_value_from_html(html_file, 'resBirthdate', expected_type=str)
 resCompany = extract_value_from_html(html_file, 'resCompany', expected_type=str)
-resPosition = extract_value_from_html(html_file, 'resPosition', expected_type=str)
+resCategory = extract_value_from_html(html_file, 'resCategory', expected_type=str)
 resEmail = extract_value_from_html(html_file, 'resEmail', expected_type=str)
 resId = extract_value_from_html(html_file, 'resId', expected_type=str)
 resUnderstandingOfStyles = extract_value_from_html(html_file, 'resUnderstandingOfStyles', expected_type=int)
@@ -87,10 +87,10 @@ if resCompany is None:
 else:
     print(f"Значение resCompany: {resCompany}")
 
-if resPosition is None:
-    print("Не удалось найти значение resPosition.")
+if resCategory is None:
+    print("Не удалось найти значение resCategory.")
 else:
-    print(f"Значение resPosition: {resPosition}")
+    print(f"Значение resCategory: {resCategory}")
 
 if resEmail is None:
     print("Не удалось найти значение resEmail.")

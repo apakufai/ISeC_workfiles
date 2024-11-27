@@ -76,8 +76,15 @@
 			<span class="descr_dataInput_text">Ваша компания</span>
 			<input type="text" class="inp_text" id="user_company" required placeholder="Компания">
 
-			<span class="descr_dataInput_text">Ваша должность</span>
-			<input type="text" class="inp_text" id="user_position" required placeholder="Должность">
+			<span class="descr_dataInput_text">Ваша категория</span>
+			<select class="inp_dropdown" id="user_category" required>
+				<option value="" disabled selected hidden>Выберите категорию</option>
+				<option value="-">-</option>
+				<option value="Стр 1">Стр 1</option>
+				<option value="Стр 2">Стр 2</option>
+				<option value="Стр 3">Стр 3</option>
+				<option value="Стр 4">Стр 4</option>
+			</select>
 
 			<span class="descr_dataInput_text">Ваша эл. почта</span>
 			<input type="email" class="inp_text" id="user_email" required placeholder="Эл. почта">
@@ -104,7 +111,7 @@
 					const radioSexFemale = document.getElementById('user_sex_female'); // Кнопка выбора пола (Жен)
 					const inputBirthdate = document.getElementById('user_birthdate'); // Поле ввода даты рождения
 					const inputCompany = document.getElementById('user_company'); // Поле ввода компании
-					const inputPosition = document.getElementById('user_position'); // Поле ввода должности
+					const inputCategory = document.getElementById('user_category'); // Поле выбора категории
 					const inputEmail = document.getElementById('user_email'); // Поле ввода эл.почты
 					const radioConfirmation = document.getElementById('user_confirmation'); // Кнопка подтверждения обработки данных (Муж)
 
@@ -190,18 +197,14 @@
 							inputHandlerCompany.value = inputCompany.value.trim();
 						}
 
-						// Проверка должности
-						const positionValue = inputPosition.value.trim();
+						// Проверка категории
+						const categoryValue = inputCategory.value;
 						// Если поле пустое или содержит небуквенные символы (кроме пробела и тире)
-						if (!positionValue || positionValue != positionValue.replace(/[^a-zA-Zа-яА-ЯёЁ -]/g, '')) {
-							inputPosition.style.border = '5px solid #e29fa9';
+						if (categoryValue === "") {
+							inputCategory.style.border = '5px solid #e29fa9';
 							errorCounter += 1; // Увеличиваем счётчик ошибок, если ввод неверен
-							const inputHandlerPosition = document.getElementById('user_position');
-							inputHandlerPosition.value = inputPosition.value.trim();
 						} else {
-							inputPosition.style.border = '5px solid #ffffff';
-							const inputHandlerPosition = document.getElementById('user_position');
-							inputHandlerPosition.value = inputPosition.value.trim();
+							inputCategory.style.border = '5px solid #ffffff';
 						}
 
 						// Проверка эл.почты
@@ -268,7 +271,7 @@
 								const userSex = userSexMale ? 'Мужской' : userSexFemale ? 'Женский' : 'Не указан'; // Тернарный оператор, отображающий выбранный пол
 								const userBirthdate = document.getElementById('user_birthdate').value; // Дата рождения
 								const userCompany = document.getElementById('user_company').value; // Компания
-								const userPosition = document.getElementById('user_position').value; // Должность
+								const userCategory = document.getElementById('user_category').value; // Категория
 								const userEmail = document.getElementById('user_email').value; // Эл.почта
 								const userId = generateRandomID(8); // Сгенерированный id. В скобках задаётся его длина
 
@@ -278,7 +281,7 @@
 								// `Пол: ${userSex}\n` +
 								// `Дата рождения: ${userBirthdate}\n` +
 								// `Компания: ${userCompany}\n` +
-								// `Должность: ${userPosition}\n` +
+								// `Категория: ${userCategory}\n` +
 								// `Email: ${userEmail}\n` +
 								// `Id: ${userId}\n`);
 
@@ -288,7 +291,7 @@
 								sessionStorage.setItem("userSex", userSex); // Пол
 								sessionStorage.setItem("userBirthdate", userBirthdate); // Дата рождения
 								sessionStorage.setItem("userCompany", userCompany); // Компания
-								sessionStorage.setItem("userPosition", userPosition); // Должность
+								sessionStorage.setItem("userCategory", userCategory); // Категория
 								sessionStorage.setItem("userEmail", userEmail); // Эл.почта
 								sessionStorage.setItem("userId", userId); // Id
 
