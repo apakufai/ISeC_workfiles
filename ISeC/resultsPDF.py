@@ -38,28 +38,141 @@ def extract_value_from_html(file_path, variable_name, expected_type=str):
 
 # Извлечение значений переменных
 html_file = os.path.join("ISeC", "results.html")
-resName = extract_value_from_html(html_file, 'resName', expected_type=str)  # Строка
-resAdaptation = extract_value_from_html(html_file, 'resAdaptation', expected_type=int)  # Число
+resName = extract_value_from_html(html_file, 'resName', expected_type=str)
+resSurname = extract_value_from_html(html_file, 'resSurname', expected_type=str)
+resSex = extract_value_from_html(html_file, 'resSex', expected_type=str)
+resBirthdate = extract_value_from_html(html_file, 'resBirthdate', expected_type=str)
+resCompany = extract_value_from_html(html_file, 'resCompany', expected_type=str)
+resPosition = extract_value_from_html(html_file, 'resPosition', expected_type=str)
+resEmail = extract_value_from_html(html_file, 'resEmail', expected_type=str)
+resId = extract_value_from_html(html_file, 'resId', expected_type=str)
+resUnderstandingOfStyles = extract_value_from_html(html_file, 'resUnderstandingOfStyles', expected_type=int)
+resAdaptation = extract_value_from_html(html_file, 'resAdaptation', expected_type=int)
+resCompromise = extract_value_from_html(html_file, 'resCompromise', expected_type=int)
+resBidding = extract_value_from_html(html_file, 'resBidding', expected_type=int)
+resRivalry = extract_value_from_html(html_file, 'resRivalry', expected_type=int)
+resLogicArgument = extract_value_from_html(html_file, 'resLogicArgument', expected_type=int)
+resEmotionsArgument = extract_value_from_html(html_file, 'resEmotionsArgument', expected_type=int)
+resStrengthInstallation = extract_value_from_html(html_file, 'resStrengthInstallation', expected_type=int)
+resManipulationInstallation = extract_value_from_html(html_file, 'resManipulationInstallation', expected_type=int)
+resNegotiationsInstallation = extract_value_from_html(html_file, 'resNegotiationsInstallation', expected_type=int)
+resCooperation = extract_value_from_html(html_file, 'resCooperation', expected_type=int)
+resAvoidance = extract_value_from_html(html_file, 'resAvoidance', expected_type=int)
 
+
+# ПРОВЕРКИ!!!
 
 if resName is None:
     print("Не удалось найти значение resName.")
 else:
     print(f"Значение resName: {resName}")
 
+if resSurname is None:
+    print("Не удалось найти значение resSurname.")
+else:
+    print(f"Значение resSurname: {resSurname}")
+
+if resSex is None:
+    print("Не удалось найти значение resSex.")
+else:
+    print(f"Значение resSex: {resSex}")
+
+if resBirthdate is None:
+    print("Не удалось найти значение resBirthdate.")
+else:
+    print(f"Значение resBirthdate: {resBirthdate}")
+
+if resCompany is None:
+    print("Не удалось найти значение resCompany.")
+else:
+    print(f"Значение resCompany: {resCompany}")
+
+if resPosition is None:
+    print("Не удалось найти значение resPosition.")
+else:
+    print(f"Значение resPosition: {resPosition}")
+
+if resEmail is None:
+    print("Не удалось найти значение resEmail.")
+else:
+    print(f"Значение resEmail: {resEmail}")
+
+if resId is None:
+    print("Не удалось найти значение resId.")
+else:
+    print(f"Значение resId: {resId}") 
+
+
+if resUnderstandingOfStyles is None:
+    print("Не удалось найти значение resUnderstandingOfStyles.")
+else:
+    print(f"Значение resUnderstandingOfStyles: {resUnderstandingOfStyles}")
+
 if resAdaptation is None:
     print("Не удалось найти значение resAdaptation.")
 else:
     print(f"Значение resAdaptation: {resAdaptation}")
 
+if resCompromise is None:
+    print("Не удалось найти значение resCompromise.")
+else:
+    print(f"Значение resCompromise: {resCompromise}")
+
+if resBidding is None:
+    print("Не удалось найти значение resBidding.")
+else:
+    print(f"Значение resBidding: {resBidding}")
+
+if resRivalry is None:
+    print("Не удалось найти значение resRivalry.")
+else:
+    print(f"Значение resRivalry: {resRivalry}")
+
+if resLogicArgument is None:
+    print("Не удалось найти значение resLogicArgument.")
+else:
+    print(f"Значение resLogicArgument: {resLogicArgument}")
+
+if resEmotionsArgument is None:
+    print("Не удалось найти значение resEmotionsArgument.")
+else:
+    print(f"Значение resEmotionsArgument: {resEmotionsArgument}")
+
+if resStrengthInstallation is None:
+    print("Не удалось найти значение resStrengthInstallation.")
+else:
+    print(f"Значение resStrengthInstallation: {resStrengthInstallation}")
+
+if resManipulationInstallation is None:
+    print("Не удалось найти значение resManipulationInstallation.")
+else:
+    print(f"Значение resManipulationInstallation: {resManipulationInstallation}")
+
+if resNegotiationsInstallation is None:
+    print("Не удалось найти значение resNegotiationsInstallation.")
+else:
+    print(f"Значение resNegotiationsInstallation: {resNegotiationsInstallation}")
+
+if resCooperation is None:
+    print("Не удалось найти значение resCooperation.")
+else:
+    print(f"Значение resCooperation: {resCooperation}")
+
+if resAvoidance is None:
+    print("Не удалось найти значение resAvoidance.")
+else:
+    print(f"Значение resAvoidance: {resAvoidance}")
+
+
+
 # Функция для создания PDF-файла
-
-
 def create_pdf(filename):
     can = canvas.Canvas(filename, pagesize=A4)
     width, height = A4  # Получаем размеры страницы
 
-    # Загрузка и отрисовка первой страницы
+
+
+    # СТРАНИЦА 1
     image_path_1 = os.path.join("ISeC", "pagesPDF", "page_1.png")
     if not os.path.exists(image_path_1):
         print(f"Изображение {image_path_1} не найдено.")
@@ -75,7 +188,9 @@ def create_pdf(filename):
         print("resName пустое или None, текст не будет напечатан.")
     can.showPage()  # Завершение первой страницы
 
-    # Загрузка и отрисовка второй страницы
+
+
+    # СТРАНИЦА 2
     image_path_2 = os.path.join("ISeC", "pagesPDF", "page_2.png")
     if not os.path.exists(image_path_2):
         print(f"Изображение {image_path_2} не найдено.")
@@ -86,10 +201,15 @@ def create_pdf(filename):
     if resAdaptation is not None:
         # Вычисляем координаты X для "палочки"
         x_start = 61.978 + (((527.481 - 61.978) / 17) * resAdaptation)
-        y_start = height - 768.614  # Фиксированная Y
+        y_start = height - 768.614
+        xLeft = -5
+        xRight = 5
+        yTop = 40
+        yCenter = 35
+        yBottom = 30
 
         # Рисуем круг диаметром 1 пункт
-        can.setFillColorRGB(0, 0, 0)  # Устанавливаем цвет заливки (черный)
+        can.setFillColorRGB(0, 0, 0) # Устанавливаем цвет заливки (черный)
         circle_radius = 0.5  # Радиус круга в пунктах
         can.circle(x_start, y_start, circle_radius,
                    stroke=0, fill=1)  # Рисуем круг
@@ -98,16 +218,101 @@ def create_pdf(filename):
         can.setStrokeColorRGB(0, 0, 0)  # Устанавливаем цвет линии (черный)
         can.setLineWidth(1)  # Устанавливаем ширину линии
         # Рисуем линию (палочку)
-        can.line(x_start, y_start, x_start, y_start + 30)
+        can.line(x_start, y_start, x_start, y_start + yBottom)
 
         # Рисуем остальные элементы
-        can.line(x_start, y_start + 30, x_start - 5, y_start + 35)
-        can.circle(x_start - 5, y_start + 35, circle_radius, stroke=0, fill=1)
-        can.line(x_start - 5, y_start + 35, x_start, y_start + 40)
-        can.circle(x_start, y_start + 40, circle_radius, stroke=0, fill=1)
-        can.line(x_start, y_start + 40, x_start + 5, y_start + 35)
-        can.circle(x_start + 5, y_start + 35, circle_radius, stroke=0, fill=1)
-        can.line(x_start + 5, y_start + 35, x_start, y_start + 30)
+        can.line(x_start, y_start + yBottom, x_start + xLeft, y_start + yCenter)
+        can.circle(x_start + xLeft, y_start + yCenter, circle_radius, stroke=0, fill=1)
+        can.line(x_start + xLeft, y_start + yCenter, x_start, y_start + yTop)
+        can.circle(x_start, y_start + yTop, circle_radius, stroke=0, fill=1)
+        can.line(x_start, y_start + yTop, x_start + xRight, y_start + yCenter)
+        can.circle(x_start + xRight, y_start + yCenter, circle_radius, stroke=0, fill=1)
+        can.line(x_start + xRight, y_start + yCenter, x_start, y_start + yBottom)
+    can.showPage()  # Завершение второй страницы
+
+
+
+    # СТРАНИЦА 3
+    image_path_3 = os.path.join("ISeC", "pagesPDF", "page_3.png")
+    if not os.path.exists(image_path_3):
+        print(f"Изображение {image_path_3} не найдено.")
+        return
+
+    can.drawImage(image_path_3, 0, 0, width=width, height=height)
+
+    if resCompromise is not None:
+        # Вычисляем координаты X для "палочки"
+        x_start = 63.907  + (((531.386 - 63.907) / 27) * resCompromise)
+        y_start = height - 768.614
+        xLeft = -5
+        xRight = 5
+        yTop = 40
+        yCenter = 35
+        yBottom = 30
+
+        # Рисуем круг диаметром 1 пункт
+        can.setFillColorRGB(0, 0, 0) # Устанавливаем цвет заливки (черный)
+        circle_radius = 0.5  # Радиус круга в пунктах
+        can.circle(x_start, y_start, circle_radius,
+                   stroke=0, fill=1)  # Рисуем круг
+
+        # Рисуем "палочку"
+        can.setStrokeColorRGB(0, 0, 0)  # Устанавливаем цвет линии (черный)
+        can.setLineWidth(1)  # Устанавливаем ширину линии
+        # Рисуем линию (палочку)
+        can.line(x_start, y_start, x_start, y_start + yBottom)
+
+        # Рисуем остальные элементы
+        can.line(x_start, y_start + yBottom, x_start + xLeft, y_start + yCenter)
+        can.circle(x_start + xLeft, y_start + yCenter, circle_radius, stroke=0, fill=1)
+        can.line(x_start + xLeft, y_start + yCenter, x_start, y_start + yTop)
+        can.circle(x_start, y_start + yTop, circle_radius, stroke=0, fill=1)
+        can.line(x_start, y_start + yTop, x_start + xRight, y_start + yCenter)
+        can.circle(x_start + xRight, y_start + yCenter, circle_radius, stroke=0, fill=1)
+        can.line(x_start + xRight, y_start + yCenter, x_start, y_start + yBottom)
+    can.showPage()  # Завершение третьей страницы
+
+
+
+    # СТРАНИЦА 4
+    image_path_4 = os.path.join("ISeC", "pagesPDF", "page_4.png")
+    if not os.path.exists(image_path_4):
+        print(f"Изображение {image_path_4} не найдено.")
+        return
+
+    can.drawImage(image_path_4, 0, 0, width=width, height=height)
+
+    if resBidding is not None:
+        # Вычисляем координаты X для "палочки"
+        x_start = 63.296  + (((532.039 - 63.296) / 30) * resBidding)
+        y_start = height - 768.614
+        xLeft = -5
+        xRight = 5
+        yTop = 40
+        yCenter = 35
+        yBottom = 30
+
+        # Рисуем круг диаметром 1 пункт
+        can.setFillColorRGB(0, 0, 0) # Устанавливаем цвет заливки (черный)
+        circle_radius = 0.5  # Радиус круга в пунктах
+        can.circle(x_start, y_start, circle_radius,
+                   stroke=0, fill=1)  # Рисуем круг
+
+        # Рисуем "палочку"
+        can.setStrokeColorRGB(0, 0, 0)  # Устанавливаем цвет линии (черный)
+        can.setLineWidth(1)  # Устанавливаем ширину линии
+        # Рисуем линию (палочку)
+        can.line(x_start, y_start, x_start, y_start + yBottom)
+
+        # Рисуем остальные элементы
+        can.line(x_start, y_start + yBottom, x_start + xLeft, y_start + yCenter)
+        can.circle(x_start + xLeft, y_start + yCenter, circle_radius, stroke=0, fill=1)
+        can.line(x_start + xLeft, y_start + yCenter, x_start, y_start + yTop)
+        can.circle(x_start, y_start + yTop, circle_radius, stroke=0, fill=1)
+        can.line(x_start, y_start + yTop, x_start + xRight, y_start + yCenter)
+        can.circle(x_start + xRight, y_start + yCenter, circle_radius, stroke=0, fill=1)
+        can.line(x_start + xRight, y_start + yCenter, x_start, y_start + yBottom)
+    can.showPage()  # Завершение четвёртой страницы
 
     # Сохраняем документ
     can.save()
