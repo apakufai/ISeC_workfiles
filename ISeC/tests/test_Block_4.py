@@ -6,7 +6,7 @@ import time
 browser = webdriver.Chrome()
 
 try:
-    browser.get('file:///C:/Users/Admin/Desktop/Individual_Self-exploration_Card-main/ISeC/test_4.html')
+    browser.get('file:///C:/Users/Admin/Desktop/ISeC/test_4.html')
 
 # СТАРТ БЛОКА 4
     time.sleep(1.5)

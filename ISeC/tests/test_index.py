@@ -6,13 +6,13 @@ import time
 browser = webdriver.Chrome()
 
 try:
-    browser.get('file:///C:/Users/Admin/Desktop/Individual_Self-exploration_Card-main/ISeC/index.html')
+    browser.get('file:///C:/Users/Admin/Desktop/ISeC/index.html')
 
 # ВВОД КОДА
     time.sleep(1.5)
     inputCode = browser.find_element(By.ID, 'inp_code') # ОКНО ВВОДА КОДА
     closeBtn_main_empty = browser.find_element(By.ID, 'closeBtn_start_empty') # ЗАКРЫТИЕ ВСПЛЫВАЮЩЕГО ОКНА С ПУСТЫМ ПОЛЕМ
-    closeBtn_main_error = browser.find_element(By.ID, 'closeBtn_start_error') # ЗАКРЫТИЕ ВСПЛЫВАЮЩЕГО ОКНА С ПУСТЫМ ПОЛЕМ
+    closeBtn_main_error = browser.find_element(By.ID, 'closeBtn_start_error') # ЗАКРЫТИЕ ВСПЛЫВАЮЩЕГО ОКНА С ОШИБКОЙ
     btn_main_start = browser.find_element(By.ID, 'startTest') # КНОПКА "ПРОЙТИ ТЕСТ"
 
     # ПОЛЕ ВВОДА ПУСТО

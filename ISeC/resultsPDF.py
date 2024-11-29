@@ -37,7 +37,7 @@ def extract_value_from_html(file_path, variable_name, expected_type=str):
     return None
 
 # Извлечение значений переменных
-html_file = os.path.join("ISeC", "results.html")
+html_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), "results.html")
 resName = extract_value_from_html(html_file, 'resName', expected_type=str)
 resSurname = extract_value_from_html(html_file, 'resSurname', expected_type=str)
 resSex = extract_value_from_html(html_file, 'resSex', expected_type=str)
@@ -173,7 +173,7 @@ def create_pdf(filename):
 
 
     # СТРАНИЦА 1
-    image_path_1 = os.path.join("ISeC", "pagesPDF", "page_1.png")
+    image_path_1 = os.path.join(os.path.dirname(os.path.abspath(__file__)), "pagesPDF", "page_1.png")
     if not os.path.exists(image_path_1):
         print(f"Изображение {image_path_1} не найдено.")
         return
@@ -191,7 +191,7 @@ def create_pdf(filename):
 
 
     # СТРАНИЦА 2
-    image_path_2 = os.path.join("ISeC", "pagesPDF", "page_2.png")
+    image_path_2 = os.path.join(os.path.dirname(os.path.abspath(__file__)), "pagesPDF", "page_2.png")
     if not os.path.exists(image_path_2):
         print(f"Изображение {image_path_2} не найдено.")
         return
@@ -204,9 +204,9 @@ def create_pdf(filename):
         y_start = height - 768.614
         xLeft = -5
         xRight = 5
-        yTop = 40
-        yCenter = 35
-        yBottom = 30
+        yTop = 25
+        yCenter = 20
+        yBottom = 15
 
         # Рисуем круг диаметром 1 пункт
         can.setFillColorRGB(0, 0, 0) # Устанавливаем цвет заливки (черный)
@@ -233,7 +233,7 @@ def create_pdf(filename):
 
 
     # СТРАНИЦА 3
-    image_path_3 = os.path.join("ISeC", "pagesPDF", "page_3.png")
+    image_path_3 = os.path.join(os.path.dirname(os.path.abspath(__file__)), "pagesPDF", "page_3.png")
     if not os.path.exists(image_path_3):
         print(f"Изображение {image_path_3} не найдено.")
         return
@@ -246,9 +246,9 @@ def create_pdf(filename):
         y_start = height - 768.614
         xLeft = -5
         xRight = 5
-        yTop = 40
-        yCenter = 35
-        yBottom = 30
+        yTop = 25
+        yCenter = 20
+        yBottom = 15
 
         # Рисуем круг диаметром 1 пункт
         can.setFillColorRGB(0, 0, 0) # Устанавливаем цвет заливки (черный)
@@ -275,7 +275,7 @@ def create_pdf(filename):
 
 
     # СТРАНИЦА 4
-    image_path_4 = os.path.join("ISeC", "pagesPDF", "page_4.png")
+    image_path_4 = os.path.join(os.path.dirname(os.path.abspath(__file__)), "pagesPDF", "page_4.png")
     if not os.path.exists(image_path_4):
         print(f"Изображение {image_path_4} не найдено.")
         return
@@ -288,9 +288,9 @@ def create_pdf(filename):
         y_start = height - 768.614
         xLeft = -5
         xRight = 5
-        yTop = 40
-        yCenter = 35
-        yBottom = 30
+        yTop = 25
+        yCenter = 20
+        yBottom = 15
 
         # Рисуем круг диаметром 1 пункт
         can.setFillColorRGB(0, 0, 0) # Устанавливаем цвет заливки (черный)

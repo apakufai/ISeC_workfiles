@@ -7,7 +7,7 @@ import time
 browser = webdriver.Chrome()
 
 try:
-    browser.get('file:///C:/Users/Admin/Desktop/Individual_Self-exploration_Card-main/ISeC/userDataInput.html')
+    browser.get('file:///C:/Users/Admin/Desktop/ISeC/userDataInput.html')
 
 # ВВОД ДАННЫХ ПОЛЬЗОВАТЕЛЯ
     time.sleep(1)
