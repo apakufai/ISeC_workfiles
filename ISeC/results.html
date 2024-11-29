@@ -1,0 +1,172 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Итоги. ИКС-файл</title>
+    <script type="text/javascript"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <section class="vertical_lines">
+        <img class="line_1" src="./images/line.svg"></img>
+        <img class="line_2" src="./images/line.svg"></img>
+        <img class="line_3" src="./images/line.svg"></img>
+        <img class="line_4" src="./images/line.svg"></img>
+        <img class="line_5" src="./images/line.svg"></img>
+        <img class="line_6" src="./images/line.svg"></img>
+        <img class="line_7" src="./images/line.svg"></img>
+        <img class="line_8" src="./images/line.svg"></img>
+    </section>
+    <section class="horizontal_lines">
+        <img class="line_9" src="./images/line.svg"></img>
+        <img class="line_10" src="./images/line.svg"></img>
+        <img class="line_11" src="./images/line.svg"></img>
+        <img class="line_12" src="./images/line.svg"></img>
+        <img class="line_13" src="./images/line.svg"></img>
+        <img class="line_14" src="./images/line.svg"></img>
+        <img class="line_15" src="./images/line.svg"></img>
+        <img class="line_16" src="./images/line.svg"></img>
+        <img class="line_17" src="./images/line.svg"></img>
+        <img class="line_18" src="./images/line.svg"></img>
+        <img class="line_19" src="./images/line.svg"></img>
+        <img class="line_20" src="./images/line.svg"></img>
+    </section>
+
+    <main>
+
+        <script>
+
+            // Инициализация переменных
+            let resName = "Ппп"; // Имя
+            let resSurname = "П"; // Фамилия
+            let resSex = "П"; // Пол
+            let resBirthdate = "01.01.2000"; // Дата рождения
+            let resCompany = "П"; // Компания
+            let resCategory = "П"; // Категория
+            let resEmail = "P"; // Эл.почта
+            let resId = "0aP1oS02"; // Id
+            let resUnderstandingOfStyles = 0; // Понимание стилей
+            let resAdaptation = 0; // Приспособление
+            let resCompromise = 0; // Компромисс
+            let resBidding = 0; // Торги
+            let resRivalry = 0; // Соперничество
+            let resLogicArgument = 0; // Логика как аргумент
+            let resEmotionsArgument = 0; // Эмоции как аргумент
+            let resStrengthInstallation = 0; // Установка на силу
+            let resManipulationInstallation = 0; // Установка на манипуляцию
+            let resNegotiationsInstallation = 0; // Установка на деловые переговоры
+            let resCooperation = 0;// Сотрудничество
+            let resAvoidance = 0;// Избегание
+
+
+            // Ввод значений из sessionStorage блока UDI
+            resName = sessionStorage.getItem("userName"); // Имя
+            resSurname = sessionStorage.getItem("userSurname"); // Фамилия
+            resSex = sessionStorage.getItem("userSex"); // Пол
+            resBirthdate = sessionStorage.getItem("userBirthdate"); // Дата рождения
+            resCompany = sessionStorage.getItem("userCompany"); // Компания
+            resCategory = sessionStorage.getItem("userCategory"); // Категория
+            resEmail = sessionStorage.getItem("userEmail"); // Эл.почта
+            resId = sessionStorage.getItem("userId"); // Id
+
+            // Получение значений из sessionStorage блока 1 и их инкрементация к общему результату
+            resAdaptation += parseInt(sessionStorage.getItem("resAdaptation_1")); // Приспособление
+            resCompromise += parseInt(sessionStorage.getItem("resCompromise_1")); // Компромисс
+            resBidding += parseInt(sessionStorage.getItem("resBidding_1")); // Торги
+            resRivalry += parseInt(sessionStorage.getItem("resRivalry_1")); // Соперничество
+            resLogicArgument += parseInt(sessionStorage.getItem("resLogicArgument_1")); // Логика как аргумент
+            resEmotionsArgument += parseInt(sessionStorage.getItem("resEmotionsArgument_1")); // Эмоции как аргумент
+
+            // Получение значений из sessionStorage блока 2 и их инкрементация к общему результату
+            resAdaptation += parseInt(sessionStorage.getItem("resAdaptation_2")); // Приспособление (ДЧ)
+            resCompromise += parseInt(sessionStorage.getItem("resCompromise_2")); // Компромисс (П)
+            resRivalry += parseInt(sessionStorage.getItem("resRivalry_2")); // Соперничество (Б)
+            resCooperation += parseInt(sessionStorage.getItem("resCooperation_2")); // Сотрудничество (В)
+            resAvoidance += parseInt(sessionStorage.getItem("resAvoidance_2")); // Избегание (Р)
+
+            // Получение значений из sessionStorage блока 3 и их инкрементация к общему результату
+            resAdaptation += parseInt(sessionStorage.getItem("resAdaptation_3")); // Приспособление
+            resRivalry += parseInt(sessionStorage.getItem("resRivalry_3")); // Соперничество
+            resCooperation += parseInt(sessionStorage.getItem("resCooperation_3")); // Сотрудничество
+
+            // Получение значений из sessionStorage блока 4 и их инкрементация к общему результату
+            resUnderstandingOfStyles += parseInt(sessionStorage.getItem("resUnderstandingOfStyles_4")); // Понимание стилей
+            resStrengthInstallation += parseInt(sessionStorage.getItem("resStrengthInstallation_4")); // Установка на силу
+            resManipulationInstallation += parseInt(sessionStorage.getItem("resManipulationInstallation_4")); // Установка на манипуляцию
+            resNegotiationsInstallation += parseInt(sessionStorage.getItem("resNegotiationsInstallation_4")); // Установка на деловые переговоры
+
+            // Получение значений из sessionStorage блока 5 и их инкрементация к общему результату
+            resAdaptation += parseInt(sessionStorage.getItem("resAdaptation_5")); // Приспособление
+            resBidding += parseInt(sessionStorage.getItem("resBidding_5")); // Торги
+            resLogicArgument += parseInt(sessionStorage.getItem("resLogicArgument_5")); // Логика как аргумент
+            resEmotionsArgument += parseInt(sessionStorage.getItem("resEmotionsArgument_5")); // Эмоции как аргумент
+            resAvoidance += parseInt(sessionStorage.getItem("resAvoidance_5")); // Избегание
+
+            // Получение значений из sessionStorage блока 6 и их инкрементация к общему результату
+            resLogicArgument += parseInt(sessionStorage.getItem("resLogicArgument_6")); // Логика как аргумент
+            resEmotionsArgument += parseInt(sessionStorage.getItem("resEmotionsArgument_6")); // Эмоции как аргумент
+
+        </script>
+
+
+        <!-- БЛОК РЕЗУЛЬТАТОВ -->
+
+        <div class="descr_test" name="testEnding">
+            <p class="end_test_title">Итоги теста<br></p>
+
+            <p id="strName" class="end_test_text">&emsp;Имя<br></p>
+            <p id="strSurname" class="end_test_text">&emsp;Фамилия<br></p>
+            <p id="strSex" class="end_test_text">&emsp;Пол<br></p>
+            <p id="strBirthdate" class="end_test_text">&emsp;Дата рождения<br></p>
+            <p id="strCompany" class="end_test_text">&emsp;Компания<br></p>
+            <p id="strCategory" class="end_test_text">&emsp;Категория<br></p>
+            <p id="strEmail" class="end_test_text">&emsp;Эл.почта<br></p>
+            <p id="strId" class="end_test_text">&emsp;Id<br></p>
+
+            <p id="strUnderstandingOfStyles" class="end_test_text">&emsp;Понимание стилей<br></p>
+            <p id="strAdaptation" class="end_test_text">&emsp;Приспособление<br></p>
+            <p id="strCompromise" class="end_test_text">&emsp;Компромисс<br></p>
+            <p id="strBidding" class="end_test_text">&emsp;Торги<br></p>
+            <p id="strRivalry" class="end_test_text">&emsp;Соперничество <br></p>
+            <p id="strLogicArgument" class="end_test_text">&emsp;Логика как аргумент<br></p>
+            <p id="strEmotionsArgument" class="end_test_text">&emsp;Эмоции как аргумент<br></p>
+            <p id="strStrengthInstallation" class="end_test_text">&emsp;Установка на силу<br></p>
+            <p id="strManipulationInstallation" class="end_test_text">&emsp;Установка на манипуляцию<br></p>
+            <p id="strNegotiationsInstallation" class="end_test_text">&emsp;Установка на деловые переговоры<br></p>
+            <p id="strCooperation" class="end_test_text">&emsp;Сотрудничество<br></p>
+            <p id="strAvoidance" class="end_test_text">&emsp;Избегание<br></p>
+        </div>
+
+        <script>
+
+            document.getElementById("strName").innerText = "Имя: " + resName;
+            document.getElementById("strSurname").innerText = "Фамилия: " + resSurname;
+            document.getElementById("strSex").innerText = "Пол: " + resSex;
+            document.getElementById("strBirthdate").innerText = "Дата рождения: " + resBirthdate.split('-').reverse().join('.'); // Дата рождения, переведённая из формата гггг-мм-дд в формат дд.мм.гггг
+            document.getElementById("strCompany").innerText = "Компания: " + resCompany;
+            document.getElementById("strCategory").innerText = "Категория: " + resCategory;
+            document.getElementById("strEmail").innerText = "Эл.почта: " + resEmail;
+            document.getElementById("strId").innerText = "Id: " + resId;
+
+            document.getElementById("strUnderstandingOfStyles").innerText = "Понимание стилей: " + resUnderstandingOfStyles;
+            document.getElementById("strAdaptation").innerText = "Приспособление: " + resAdaptation;
+            document.getElementById("strCompromise").innerText = "Компромисс: " + resCompromise;
+            document.getElementById("strBidding").innerText = "Торги: " + resBidding;
+            document.getElementById("strRivalry").innerText = "Соперничество: " + resRivalry;
+            document.getElementById("strLogicArgument").innerText = "Логика как аргумент: " + resLogicArgument;
+            document.getElementById("strEmotionsArgument").innerText = "Эмоции как аргумент: " + resEmotionsArgument;
+            document.getElementById("strStrengthInstallation").innerText = "Установка на силу: " + resStrengthInstallation;
+            document.getElementById("strManipulationInstallation").innerText = "Установка на манипуляцию: " + resManipulationInstallation;
+            document.getElementById("strNegotiationsInstallation").innerText = "Установка на деловые переговоры: " + resNegotiationsInstallation;
+            document.getElementById("strCooperation").innerText = "Сотрудничество: " + resCooperation;
+            document.getElementById("strAvoidance").innerText = "Избегание: " + resAvoidance;
+        </script>
+
+    </main>
+
+</body>
+
+</html>
