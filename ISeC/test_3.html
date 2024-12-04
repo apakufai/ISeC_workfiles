@@ -88,7 +88,7 @@
                 <span class="affirm_3">Вариант 1</span>...стремлюсь к соглашению на любых условиях.<br>
             </p>
             <p class="quest_3_text">
-                <span class="affirm_3">Вариант 2</span>...настаиваю на своем решении.<br>
+                <span class="affirm_3">Вариант 2</span>...настаиваю на своём решении.<br>
             </p>
             <p class="quest_3_text">
                 <span class="affirm_3">Вариант 3</span>...настаиваю на использовании объективных критериев при выборе решения.<br>
@@ -1176,63 +1176,63 @@
 
                                 // Инициализация переменных      
                                 let adaptation = 0; // Приспособление
-                                let rivalry = 0; // Соперничество
+                                let threat = 0; // Угроза
                                 let cooperation = 0; // Сотрудничество
 
                                 // Результаты вопроса 1
                                 // Получаем значения из ползунков и инкрементируем их к общему значению
                                 adaptation += (parseInt(document.querySelector('#inp_count_3_1_1 input[type="range"]').value) - 1);
-                                rivalry += (parseInt(document.querySelector('#inp_count_3_1_2 input[type="range"]').value) - 1);
+                                threat += (parseInt(document.querySelector('#inp_count_3_1_2 input[type="range"]').value) - 1);
                                 cooperation += (parseInt(document.querySelector('#inp_count_3_1_3 input[type="range"]').value) - 1);
 
                                 // Результаты вопроса 2
                                 adaptation += (parseInt(document.querySelector('#inp_count_3_2_1 input[type="range"]').value) - 1);
                                 cooperation += (parseInt(document.querySelector('#inp_count_3_2_2 input[type="range"]').value) - 1);
-                                rivalry += (parseInt(document.querySelector('#inp_count_3_2_3 input[type="range"]').value) - 1);
+                                threat += (parseInt(document.querySelector('#inp_count_3_2_3 input[type="range"]').value) - 1);
 
                                 // Результаты вопроса 3
-                                rivalry += (parseInt(document.querySelector('#inp_count_3_3_1 input[type="range"]').value) - 1);
+                                threat += (parseInt(document.querySelector('#inp_count_3_3_1 input[type="range"]').value) - 1);
                                 cooperation += (parseInt(document.querySelector('#inp_count_3_3_2 input[type="range"]').value) - 1);
                                 adaptation += (parseInt(document.querySelector('#inp_count_3_3_3 input[type="range"]').value) - 1);
 
                                 // Результаты вопроса 4
                                 cooperation += (parseInt(document.querySelector('#inp_count_3_4_1 input[type="range"]').value) - 1);
                                 adaptation += (parseInt(document.querySelector('#inp_count_3_4_2 input[type="range"]').value) - 1);
-                                rivalry += (parseInt(document.querySelector('#inp_count_3_4_3 input[type="range"]').value) - 1);
+                                threat += (parseInt(document.querySelector('#inp_count_3_4_3 input[type="range"]').value) - 1);
 
                                 // Результаты вопроса 5
                                 adaptation += (parseInt(document.querySelector('#inp_count_3_5_1 input[type="range"]').value) - 1);
                                 cooperation += (parseInt(document.querySelector('#inp_count_3_5_2 input[type="range"]').value) - 1);
-                                rivalry += (parseInt(document.querySelector('#inp_count_3_5_3 input[type="range"]').value) - 1);
+                                threat += (parseInt(document.querySelector('#inp_count_3_5_3 input[type="range"]').value) - 1);
 
                                 // Результаты вопроса 6
                                 adaptation += (parseInt(document.querySelector('#inp_count_3_6_1 input[type="range"]').value) - 1);
                                 cooperation += (parseInt(document.querySelector('#inp_count_3_6_2 input[type="range"]').value) - 1);
-                                rivalry += (parseInt(document.querySelector('#inp_count_3_6_3 input[type="range"]').value) - 1);
+                                threat += (parseInt(document.querySelector('#inp_count_3_6_3 input[type="range"]').value) - 1);
 
                                 // Результаты вопроса 7
                                 adaptation += (parseInt(document.querySelector('#inp_count_3_7_1 input[type="range"]').value) - 1);
-                                rivalry += (parseInt(document.querySelector('#inp_count_3_7_2 input[type="range"]').value) - 1);
+                                threat += (parseInt(document.querySelector('#inp_count_3_7_2 input[type="range"]').value) - 1);
                                 cooperation += (parseInt(document.querySelector('#inp_count_3_7_3 input[type="range"]').value) - 1);
 
                                 // Результаты вопроса 8
                                 adaptation += (parseInt(document.querySelector('#inp_count_3_8_1 input[type="range"]').value) - 1);
                                 cooperation += (parseInt(document.querySelector('#inp_count_3_8_2 input[type="range"]').value) - 1);
-                                rivalry += (parseInt(document.querySelector('#inp_count_3_8_3 input[type="range"]').value) - 1);
+                                threat += (parseInt(document.querySelector('#inp_count_3_8_3 input[type="range"]').value) - 1);
 
                                 // Результаты вопроса 9
                                 cooperation += (parseInt(document.querySelector('#inp_count_3_9_1 input[type="range"]').value) - 1);
                                 adaptation += (parseInt(document.querySelector('#inp_count_3_9_2 input[type="range"]').value) - 1);
-                                rivalry += (parseInt(document.querySelector('#inp_count_3_9_3 input[type="range"]').value) - 1);
+                                threat += (parseInt(document.querySelector('#inp_count_3_9_3 input[type="range"]').value) - 1);
 
                                 // Вывод значения в alert (тест)
                                 // alert(`Приспособление: ${adaptation}\n` +
-                                //     `Соперничество: ${rivalry}\n` +
+                                //     `Угроза: ${threat}\n` +
                                 //     `Сотрудничество: ${cooperation}`);
 
                                 // Сохранение значений в sessionStorage
                                 sessionStorage.setItem("resAdaptation_3", adaptation); // Приспособление
-                                sessionStorage.setItem("resRivalry_3", rivalry); // Соперничество
+                                sessionStorage.setItem("resThreat_3", threat); // Угроза
                                 sessionStorage.setItem("resCooperation_3", cooperation); // Сотрудничество
 
                                 // Переход на новую страницу после окончания анимации

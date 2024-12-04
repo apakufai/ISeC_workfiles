@@ -52,7 +52,7 @@
             let resAdaptation = 0; // Приспособление
             let resCompromise = 0; // Компромисс
             let resBidding = 0; // Торги
-            let resRivalry = 0; // Соперничество
+            let resThreat = 0; // Угроза
             let resLogicArgument = 0; // Логика как аргумент
             let resEmotionsArgument = 0; // Эмоции как аргумент
             let resStrengthInstallation = 0; // Установка на силу
@@ -76,20 +76,20 @@
             resAdaptation += parseInt(sessionStorage.getItem("resAdaptation_1")); // Приспособление
             resCompromise += parseInt(sessionStorage.getItem("resCompromise_1")); // Компромисс
             resBidding += parseInt(sessionStorage.getItem("resBidding_1")); // Торги
-            resRivalry += parseInt(sessionStorage.getItem("resRivalry_1")); // Соперничество
+            resThreat += parseInt(sessionStorage.getItem("resThreat_1")); // Угроза
             resLogicArgument += parseInt(sessionStorage.getItem("resLogicArgument_1")); // Логика как аргумент
             resEmotionsArgument += parseInt(sessionStorage.getItem("resEmotionsArgument_1")); // Эмоции как аргумент
 
             // Получение значений из sessionStorage блока 2 и их инкрементация к общему результату
             resAdaptation += parseInt(sessionStorage.getItem("resAdaptation_2")); // Приспособление (ДЧ)
             resCompromise += parseInt(sessionStorage.getItem("resCompromise_2")); // Компромисс (П)
-            resRivalry += parseInt(sessionStorage.getItem("resRivalry_2")); // Соперничество (Б)
+            resThreat += parseInt(sessionStorage.getItem("resThreat_2")); // Угроза (Б)
             resCooperation += parseInt(sessionStorage.getItem("resCooperation_2")); // Сотрудничество (В)
             resAvoidance += parseInt(sessionStorage.getItem("resAvoidance_2")); // Избегание (Р)
 
             // Получение значений из sessionStorage блока 3 и их инкрементация к общему результату
             resAdaptation += parseInt(sessionStorage.getItem("resAdaptation_3")); // Приспособление
-            resRivalry += parseInt(sessionStorage.getItem("resRivalry_3")); // Соперничество
+            resThreat += parseInt(sessionStorage.getItem("resThreat_3")); // Угроза
             resCooperation += parseInt(sessionStorage.getItem("resCooperation_3")); // Сотрудничество
 
             // Получение значений из sessionStorage блока 4 и их инкрементация к общему результату
@@ -130,7 +130,7 @@
             <p id="strAdaptation" class="end_test_text">&emsp;Приспособление<br></p>
             <p id="strCompromise" class="end_test_text">&emsp;Компромисс<br></p>
             <p id="strBidding" class="end_test_text">&emsp;Торги<br></p>
-            <p id="strRivalry" class="end_test_text">&emsp;Соперничество <br></p>
+            <p id="strThreat" class="end_test_text">&emsp;Угроза <br></p>
             <p id="strLogicArgument" class="end_test_text">&emsp;Логика как аргумент<br></p>
             <p id="strEmotionsArgument" class="end_test_text">&emsp;Эмоции как аргумент<br></p>
             <p id="strStrengthInstallation" class="end_test_text">&emsp;Установка на силу<br></p>
@@ -155,7 +155,7 @@
             document.getElementById("strAdaptation").innerText = "Приспособление: " + resAdaptation;
             document.getElementById("strCompromise").innerText = "Компромисс: " + resCompromise;
             document.getElementById("strBidding").innerText = "Торги: " + resBidding;
-            document.getElementById("strRivalry").innerText = "Соперничество: " + resRivalry;
+            document.getElementById("strThreat").innerText = "Угроза: " + resThreat;
             document.getElementById("strLogicArgument").innerText = "Логика как аргумент: " + resLogicArgument;
             document.getElementById("strEmotionsArgument").innerText = "Эмоции как аргумент: " + resEmotionsArgument;
             document.getElementById("strStrengthInstallation").innerText = "Установка на силу: " + resStrengthInstallation;

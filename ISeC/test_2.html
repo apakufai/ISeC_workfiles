@@ -727,7 +727,7 @@
                 <span class="affirm_2">Вариант 1</span>Улаживая спорную ситуацию, я всё время пытаюсь найти поддержку у другого.<br>
             </p>
             <p class="quest_2_text">
-                <span class="affirm_2">Вариант 2</span>Я стараюсь делать всё, чтобы избежать бесполезной напряженности.<br>
+                <span class="affirm_2">Вариант 2</span>Я стараюсь делать всё, чтобы избежать бесполезной напряжённости.<br>
             </p>
             <section class="quest_2_sect">
                 <button id="btn_2_5_prev" class="btn_nextprev">Назад</button>
@@ -1847,7 +1847,7 @@
                 <span class="affirm_2">Вариант 1</span>Зачастую я избегаю обозначать позицию, которая может вызвать споры.<br>
             </p>
             <p class="quest_2_text">
-                <span class="affirm_2">Вариант 2</span>Я дам возможность другому остаться при своем, если он также идет навстречу.<br>
+                <span class="affirm_2">Вариант 2</span>Я дам возможность другому остаться при своём, если он также идёт навстречу.<br>
             </p>
             <section class="quest_2_sect">
                 <button id="btn_2_12_prev" class="btn_nextprev">Назад</button>
@@ -4247,7 +4247,7 @@
                 <span class="affirm_2">Вариант 1</span>Я стремлюсь избегать споров и напряжения в отношениях.<br>
             </p>
             <p class="quest_2_text">
-                <span class="affirm_2">Вариант 2</span>Я дам другому настоять на своем, если это доставит ему радость.<br>
+                <span class="affirm_2">Вариант 2</span>Я дам другому настоять на своём, если это доставит ему радость.<br>
             </p>
             <section class="quest_2_sect">
                 <button id="btn_2_27_prev" class="btn_nextprev">Назад</button>
@@ -4948,7 +4948,7 @@
                                 // Инициализация переменных      
                                 let adaptation = 0; // Приспособление (ДЧ)
                                 let compromise = 0; // Компромисс (П)
-                                let rivalry = 0; // Соперничество (Б)
+                                let threat = 0; // Угроза (Б)
                                 let cooperation = 0; // Сотрудничество (В)
                                 let avoidance = 0; // Избегание (Р)
 
@@ -5004,14 +5004,14 @@
                                     if (radio.checked) {
                                         switch (radio.id) {
                                             case "2_3_top_0":
-                                                rivalry += 3;
+                                                threat += 3;
                                                 break;
                                             case "2_3_top_1":
-                                                rivalry += 2;
+                                                threat += 2;
                                                 adaptation += 1;
                                                 break;
                                             case "2_3_top_2":
-                                                rivalry += 1;
+                                                threat += 1;
                                                 adaptation += 2;
                                                 break;
                                             case "2_3_top_3":
@@ -5077,14 +5077,14 @@
                                                 break;
                                             case "2_6_top_1":
                                                 avoidance += 2;
-                                                rivalry += 1;
+                                                threat += 1;
                                                 break;
                                             case "2_6_top_2":
                                                 avoidance += 1;
-                                                rivalry += 2;
+                                                threat += 2;
                                                 break;
                                             case "2_6_top_3":
-                                                rivalry += 3;
+                                                threat += 3;
                                                 break;
                                         }
                                     }
@@ -5119,14 +5119,14 @@
                                     if (radio.checked) {
                                         switch (radio.id) {
                                             case "2_8_top_0":
-                                                rivalry += 3;
+                                                threat += 3;
                                                 break;
                                             case "2_8_top_1":
-                                                rivalry += 2;
+                                                threat += 2;
                                                 cooperation += 1;
                                                 break;
                                             case "2_8_top_2":
-                                                rivalry += 1;
+                                                threat += 1;
                                                 cooperation += 2;
                                                 break;
                                             case "2_8_top_3":
@@ -5146,14 +5146,14 @@
                                                 break;
                                             case "2_9_top_1":
                                                 avoidance += 2;
-                                                rivalry += 1;
+                                                threat += 1;
                                                 break;
                                             case "2_9_top_2":
                                                 avoidance += 1;
-                                                rivalry += 2;
+                                                threat += 2;
                                                 break;
                                             case "2_9_top_3":
-                                                rivalry += 3;
+                                                threat += 3;
                                                 break;
                                         }
                                     }
@@ -5165,14 +5165,14 @@
                                     if (radio.checked) {
                                         switch (radio.id) {
                                             case "2_10_top_0":
-                                                rivalry += 3;
+                                                threat += 3;
                                                 break;
                                             case "2_10_top_1":
-                                                rivalry += 2;
+                                                threat += 2;
                                                 compromise += 1;
                                                 break;
                                             case "2_10_top_2":
-                                                rivalry += 1;
+                                                threat += 1;
                                                 compromise += 2;
                                                 break;
                                             case "2_10_top_3":
@@ -5238,14 +5238,14 @@
                                                 break;
                                             case "2_13_top_1":
                                                 compromise += 2;
-                                                rivalry += 1;
+                                                threat += 1;
                                                 break;
                                             case "2_13_top_2":
                                                 compromise += 1;
-                                                rivalry += 2;
+                                                threat += 2;
                                                 break;
                                             case "2_13_top_3":
-                                                rivalry += 3;
+                                                threat += 3;
                                                 break;
                                         }
                                     }
@@ -5261,14 +5261,14 @@
                                                 break;
                                             case "2_14_top_1":
                                                 cooperation += 2;
-                                                rivalry += 1;
+                                                threat += 1;
                                                 break;
                                             case "2_14_top_2":
                                                 cooperation += 1;
-                                                rivalry += 2;
+                                                threat += 2;
                                                 break;
                                             case "2_14_top_3":
-                                                rivalry += 3;
+                                                threat += 3;
                                                 break;
                                         }
                                     }
@@ -5307,14 +5307,14 @@
                                                 break;
                                             case "2_16_top_1":
                                                 adaptation += 2;
-                                                rivalry += 1;
+                                                threat += 1;
                                                 break;
                                             case "2_16_top_2":
                                                 adaptation += 1;
-                                                rivalry += 2;
+                                                threat += 2;
                                                 break;
                                             case "2_16_top_3":
-                                                rivalry += 3;
+                                                threat += 3;
                                                 break;
                                         }
                                     }
@@ -5326,14 +5326,14 @@
                                     if (radio.checked) {
                                         switch (radio.id) {
                                             case "2_17_top_0":
-                                                rivalry += 3;
+                                                threat += 3;
                                                 break;
                                             case "2_17_top_1":
-                                                rivalry += 2;
+                                                threat += 2;
                                                 avoidance += 1;
                                                 break;
                                             case "2_17_top_2":
-                                                rivalry += 1;
+                                                threat += 1;
                                                 avoidance += 2;
                                                 break;
                                             case "2_17_top_3":
@@ -5445,14 +5445,14 @@
                                                 break;
                                             case "2_22_top_1":
                                                 compromise += 2;
-                                                rivalry += 1;
+                                                threat += 1;
                                                 break;
                                             case "2_22_top_2":
                                                 compromise += 1;
-                                                rivalry += 2;
+                                                threat += 2;
                                                 break;
                                             case "2_22_top_3":
-                                                rivalry += 3;
+                                                threat += 3;
                                                 break;
                                         }
                                     }
@@ -5510,14 +5510,14 @@
                                     if (radio.checked) {
                                         switch (radio.id) {
                                             case "2_25_top_0":
-                                                rivalry += 3;
+                                                threat += 3;
                                                 break;
                                             case "2_25_top_1":
-                                                rivalry += 2;
+                                                threat += 2;
                                                 adaptation += 1;
                                                 break;
                                             case "2_25_top_2":
-                                                rivalry += 1;
+                                                threat += 1;
                                                 adaptation += 2;
                                                 break;
                                             case "2_25_top_3":
@@ -5579,14 +5579,14 @@
                                     if (radio.checked) {
                                         switch (radio.id) {
                                             case "2_28_top_0":
-                                                rivalry += 3;
+                                                threat += 3;
                                                 break;
                                             case "2_28_top_1":
-                                                rivalry += 2;
+                                                threat += 2;
                                                 cooperation += 1;
                                                 break;
                                             case "2_28_top_2":
-                                                rivalry += 1;
+                                                threat += 1;
                                                 cooperation += 2;
                                                 break;
                                             case "2_28_top_3":
@@ -5645,16 +5645,16 @@
                                 // Вывод значения в alert (тест)
                                 // alert(`Приспособление: ${adaptation}\n` +
                                 //     `Компромисс: ${compromise}\n` +
-                                //     `Соперничество: ${rivalry}\n` +
+                                //     `Угроза: ${threat}\n` +
                                 //     `Сотрудничество: ${cooperation}\n` +
                                 //     `Избегание: ${avoidance}`);
 
                                 // Сохранение значений в sessionStorage
                                 sessionStorage.setItem("resAdaptation_2", adaptation); // Приспособление (ДЧ)
                                 sessionStorage.setItem("resCompromise_2", compromise); // Компромисс (П)
-                                sessionStorage.setItem("resRivalry_2", rivalry); // Соперничество (Б)
+                                sessionStorage.setItem("resThreat_2", threat); // Угроза (Б)
                                 sessionStorage.setItem("resCooperation_2", cooperation); // Сотрудничество (В)
-                                sessionStorage.setItem("resAvoidance_2", rivalry); // Избегание (Р)
+                                sessionStorage.setItem("resAvoidance_2", threat); // Избегание (Р)
 
                                 // Переход на новую страницу после окончания анимации
                                 window.location.href = 'test_3.html';

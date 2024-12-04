@@ -50,7 +50,7 @@ resUnderstandingOfStyles = extract_value_from_html(html_file, 'resUnderstandingO
 resAdaptation = extract_value_from_html(html_file, 'resAdaptation', expected_type=int)
 resCompromise = extract_value_from_html(html_file, 'resCompromise', expected_type=int)
 resBidding = extract_value_from_html(html_file, 'resBidding', expected_type=int)
-resRivalry = extract_value_from_html(html_file, 'resRivalry', expected_type=int)
+resThreat = extract_value_from_html(html_file, 'resThreat', expected_type=int)
 resLogicArgument = extract_value_from_html(html_file, 'resLogicArgument', expected_type=int)
 resEmotionsArgument = extract_value_from_html(html_file, 'resEmotionsArgument', expected_type=int)
 resStrengthInstallation = extract_value_from_html(html_file, 'resStrengthInstallation', expected_type=int)
@@ -123,10 +123,10 @@ if resBidding is None:
 else:
     print(f"Значение resBidding: {resBidding}")
 
-if resRivalry is None:
-    print("Не удалось найти значение resRivalry.")
+if resThreat is None:
+    print("Не удалось найти значение resThreat.")
 else:
-    print(f"Значение resRivalry: {resRivalry}")
+    print(f"Значение resThreat: {resThreat}")
 
 if resLogicArgument is None:
     print("Не удалось найти значение resLogicArgument.")
