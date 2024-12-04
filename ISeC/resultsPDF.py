@@ -182,10 +182,42 @@ def create_pdf(filename):
 
     # Печать текста на PDF
     can.setFont("Bahnschrift", 14)  # Устанавливаем шрифт и размер
+
+    if resId:  # Проверяем, что resId не None и не пустая строка
+        can.drawString(75, (height - 679.55), str(resId))  # Печатаем текст
+    else:
+        print("resId пустое или None, текст не будет напечатан.")
+
     if resName:  # Проверяем, что resName не None и не пустая строка
-        can.drawString(89.738, (height - 556.072), str(resName))  # Печатаем текст
+        can.drawString(89.7, (height - 696.345), str(resName))  # Печатаем текст
     else:
         print("resName пустое или None, текст не будет напечатан.")
+
+    if resSurname:  # Проверяем, что resSurname не None и не пустая строка
+        can.drawString(122.5, (height - 713.149), str(resSurname))  # Печатаем текст
+    else:
+        print("resSurname пустое или None, текст не будет напечатан.")
+
+    if resBirthdate:  # Проверяем, что resBirthdate не None и не пустая строка
+        can.drawString(163.838, (height - 730.049), str(resBirthdate))  # Печатаем текст
+    else:
+        print("resBirthdate пустое или None, текст не будет напечатан.")
+
+    if resCompany:  # Проверяем, что resCompany не None и не пустая строка
+        can.drawString(128.02, (height - 746.764), str(resCompany))  # Печатаем текст
+    else:
+        print("resCompany пустое или None, текст не будет напечатан.")
+
+    if resCategory:  # Проверяем, что resCategory не None и не пустая строка
+        can.drawString(129.7, (height - 763.5), str(resCategory))  # Печатаем текст
+    else:
+        print("resCategory пустое или None, текст не будет напечатан.")
+
+    if resEmail:  # Проверяем, что resEmail не None и не пустая строка
+        can.drawString(124.2, (height - 780.3), str(resEmail))  # Печатаем текст
+    else:
+        print("resEmail пустое или None, текст не будет напечатан.")
+
     can.showPage()  # Завершение первой страницы
 
 
