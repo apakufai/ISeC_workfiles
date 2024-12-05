@@ -61,6 +61,36 @@
             let resCooperation = 0;// Сотрудничество
             let resAvoidance = 0;// Избегание
 
+            let resAdaptation_1 = 0; // Приспособление_1
+            let resCompromise_1 = 0; // Компромисс_1
+            let resBidding_1 = 0; // Торги_1
+            let resThreat_1 = 0; // Угроза_1
+            let resLogicArgument_1 = 0; // Логика как аргумент_1
+            let resEmotionsArgument_1 = 0; // Эмоции как аргумент_1
+
+            let resAdaptation_2 = 0; // Приспособление_2 (ДЧ)
+            let resCompromise_2 = 0; // Компромисс_2 (П)
+            let resThreat_2 = 0; // Угроза_2 (Б)
+            let resCooperation_2 = 0; // Сотрудничество_2 (В)
+            let resAvoidance_2 = 0; // Избегание_2 (Р)
+
+            let resAdaptation_3  = 0; // Приспособление_3
+            let resThreat_3  = 0; // Угроза_3
+            let resCooperation_3  = 0; // Сотрудничество_3
+
+            let resStrengthInstallation_4 = 0; // Установка на силу_4
+            let resManipulationInstallation_4 = 0; // Установка на манипуляцию_4
+            let resNegotiationsInstallation_4 = 0; // Установка на деловые переговоры_4
+
+            let resAdaptation_5 = 0; // Приспособление
+            let resBidding_5 = 0; // Торги
+            let resLogicArgument_5 = 0; // Логика как аргумент
+            let resEmotionsArgument_5 = 0; // Эмоции как аргумент
+            let resAvoidance_5 = 0; // Избегание
+
+            let resLogicArgument_6 = 0; // Логика как аргумент
+            let resEmotionsArgument_6 = 0; // Эмоции как аргумент
+            
 
             // Ввод значений из sessionStorage блока UDI
             resName = sessionStorage.getItem("userName"); // Имя
@@ -72,42 +102,91 @@
             resEmail = sessionStorage.getItem("userEmail"); // Эл.почта
             resId = sessionStorage.getItem("userId"); // Id
 
+
             // Получение значений из sessionStorage блока 1 и их инкрементация к общему результату
-            resAdaptation += parseInt(sessionStorage.getItem("resAdaptation_1")); // Приспособление
-            resCompromise += parseInt(sessionStorage.getItem("resCompromise_1")); // Компромисс
-            resBidding += parseInt(sessionStorage.getItem("resBidding_1")); // Торги
-            resThreat += parseInt(sessionStorage.getItem("resThreat_1")); // Угроза
-            resLogicArgument += parseInt(sessionStorage.getItem("resLogicArgument_1")); // Логика как аргумент
-            resEmotionsArgument += parseInt(sessionStorage.getItem("resEmotionsArgument_1")); // Эмоции как аргумент
+
+            // resAdaptation_1 = parseInt(sessionStorage.getItem("resAdaptation_1")); // Приспособление
+            // resCompromise_1 = parseInt(sessionStorage.getItem("resCompromise_1")); // Компромисс
+            // resBidding_1 = parseInt(sessionStorage.getItem("resBidding_1")); // Торги
+            // resThreat_1 = parseInt(sessionStorage.getItem("resThreat_1")); // Угроза
+            // resLogicArgument_1 = parseInt(sessionStorage.getItem("resLogicArgument_1")); // Логика как аргумент
+            // resEmotionsArgument_1 = parseInt(sessionStorage.getItem("resEmotionsArgument_1")); // Эмоции как аргумент
+
+            resAdaptation_1 = 5; // Приспособление
+            resCompromise_1 = 5; // Компромисс
+            resBidding_1 = 5; // Торги
+            resThreat_1 = 10; // Угроза
+            resLogicArgument_1 = 10; // Логика как аргумент
+            resEmotionsArgument_1 = 10; // Эмоции как аргумент
+
+            resAdaptation += resAdaptation_1; // Приспособление
+            resCompromise += resCompromise_1; // Компромисс
+            resBidding += resBidding_1; // Торги
+            resThreat += resThreat_1; // Угроза
+            resLogicArgument += resLogicArgument_1; // Логика как аргумент
+            resEmotionsArgument += resEmotionsArgument_1; // Эмоции как аргумент
+
 
             // Получение значений из sessionStorage блока 2 и их инкрементация к общему результату
-            resAdaptation += parseInt(sessionStorage.getItem("resAdaptation_2")); // Приспособление (ДЧ)
-            resCompromise += parseInt(sessionStorage.getItem("resCompromise_2")); // Компромисс (П)
-            resThreat += parseInt(sessionStorage.getItem("resThreat_2")); // Угроза (Б)
-            resCooperation += parseInt(sessionStorage.getItem("resCooperation_2")); // Сотрудничество (В)
-            resAvoidance += parseInt(sessionStorage.getItem("resAvoidance_2")); // Избегание (Р)
+
+            resAdaptation_2 = parseInt(sessionStorage.getItem("resAdaptation_2")); // Приспособление_2 (ДЧ)
+            resCompromise_2 = parseInt(sessionStorage.getItem("resCompromise_2")); // Компромисс_2 (П)
+            resThreat_2 = parseInt(sessionStorage.getItem("resThreat_2")); // Угроза_2 (Б)
+            resCooperation_2 = parseInt(sessionStorage.getItem("resCooperation_2")); // Сотрудничество_2 (В)
+            resAvoidance_2 = parseInt(sessionStorage.getItem("resAvoidance_2")); // Избегание_2 (Р)
+
+            resAdaptation += resAdaptation_2; // Приспособление
+            resCompromise += resCompromise_2; // Компромисс
+            resThreat += resThreat_2; // Угроза
+            resCooperation += resCooperation_2; // Сотрудничество
+            resAvoidance += resAvoidance_2; // Избегание
+
 
             // Получение значений из sessionStorage блока 3 и их инкрементация к общему результату
-            resAdaptation += parseInt(sessionStorage.getItem("resAdaptation_3")); // Приспособление
-            resThreat += parseInt(sessionStorage.getItem("resThreat_3")); // Угроза
-            resCooperation += parseInt(sessionStorage.getItem("resCooperation_3")); // Сотрудничество
+
+            resAdaptation_3 = parseInt(sessionStorage.getItem("resAdaptation_3")); // Приспособление_3
+            resThreat_3 = parseInt(sessionStorage.getItem("resThreat_3")); // Угроза_3
+            resCooperation_3 = parseInt(sessionStorage.getItem("resCooperation_3")); // Сотрудничество_3
+
+            resAdaptation += resAdaptation_3; // Приспособление
+            resThreat += resThreat_3; // Угроза
+            resCooperation += resCooperation_3; // Сотрудничество
+
 
             // Получение значений из sessionStorage блока 4 и их инкрементация к общему результату
+
+            resStrengthInstallation_4 = parseInt(sessionStorage.getItem("resStrengthInstallation_4")); // Установка на силу_4
+            resManipulationInstallation_4 = parseInt(sessionStorage.getItem("resManipulationInstallation_4")); // Установка на манипуляцию_4
+            resNegotiationsInstallation_4 = parseInt(sessionStorage.getItem("resNegotiationsInstallation_4")); // Установка на деловые переговоры_4
+            
             resUnderstandingOfStyles += parseInt(sessionStorage.getItem("resUnderstandingOfStyles_4")); // Понимание стилей
-            resStrengthInstallation += parseInt(sessionStorage.getItem("resStrengthInstallation_4")); // Установка на силу
-            resManipulationInstallation += parseInt(sessionStorage.getItem("resManipulationInstallation_4")); // Установка на манипуляцию
-            resNegotiationsInstallation += parseInt(sessionStorage.getItem("resNegotiationsInstallation_4")); // Установка на деловые переговоры
+            resStrengthInstallation += resStrengthInstallation_4; // Установка на силу
+            resManipulationInstallation += resManipulationInstallation_4; // Установка на манипуляцию
+            resNegotiationsInstallation += resNegotiationsInstallation_4; // Установка на деловые переговоры
+
 
             // Получение значений из sessionStorage блока 5 и их инкрементация к общему результату
-            resAdaptation += parseInt(sessionStorage.getItem("resAdaptation_5")); // Приспособление
-            resBidding += parseInt(sessionStorage.getItem("resBidding_5")); // Торги
-            resLogicArgument += parseInt(sessionStorage.getItem("resLogicArgument_5")); // Логика как аргумент
-            resEmotionsArgument += parseInt(sessionStorage.getItem("resEmotionsArgument_5")); // Эмоции как аргумент
-            resAvoidance += parseInt(sessionStorage.getItem("resAvoidance_5")); // Избегание
+
+            resAdaptation_5 = parseInt(sessionStorage.getItem("resAdaptation_5")); // Приспособление_5
+            resBidding_5 = parseInt(sessionStorage.getItem("resBidding_5")); // Торги_5
+            resLogicArgument_5 = parseInt(sessionStorage.getItem("resLogicArgument_5")); // Логика как аргумент_5
+            resEmotionsArgument_5 = parseInt(sessionStorage.getItem("resEmotionsArgument_5")); // Эмоции как аргумент_5
+            resAvoidance_5 = parseInt(sessionStorage.getItem("resAvoidance_5")); // Избегание_5
+            
+            resAdaptation += resAdaptation_5; // Приспособление
+            resBidding += resBidding_5; // Торги
+            resLogicArgument += resLogicArgument_5; // Логика как аргумент
+            resEmotionsArgument += resEmotionsArgument_5; // Эмоции как аргумент
+            resAvoidance += resAvoidance_5; // Избегание
+
 
             // Получение значений из sessionStorage блока 6 и их инкрементация к общему результату
-            resLogicArgument += parseInt(sessionStorage.getItem("resLogicArgument_6")); // Логика как аргумент
-            resEmotionsArgument += parseInt(sessionStorage.getItem("resEmotionsArgument_6")); // Эмоции как аргумент
+
+            resLogicArgument_6 = parseInt(sessionStorage.getItem("resLogicArgument_6")); // Логика как аргумент
+            resEmotionsArgument_6 = parseInt(sessionStorage.getItem("resEmotionsArgument_6")); // Эмоции как аргумент
+
+            resLogicArgument += resLogicArgument_6; // Логика как аргумент
+            resEmotionsArgument += resEmotionsArgument_6; // Эмоции как аргумент
 
         </script>
 
@@ -163,6 +242,7 @@
             document.getElementById("strNegotiationsInstallation").innerText = "Установка на деловые переговоры: " + resNegotiationsInstallation;
             document.getElementById("strCooperation").innerText = "Сотрудничество: " + resCooperation;
             document.getElementById("strAvoidance").innerText = "Избегание: " + resAvoidance;
+            
         </script>
 
     </main>

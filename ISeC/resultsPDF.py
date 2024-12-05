@@ -1,3 +1,7 @@
+from reportlab.lib import colors
+# from reportlab.lib.pagesizes import letter
+# from reportlab.lib.units import inch
+
 from reportlab.lib.pagesizes import A4
 from reportlab.pdfgen import canvas
 from reportlab.pdfbase import pdfmetrics
@@ -38,6 +42,7 @@ def extract_value_from_html(file_path, variable_name, expected_type=str):
 
 # Извлечение значений переменных
 html_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), "results.html")
+
 resName = extract_value_from_html(html_file, 'resName', expected_type=str)
 resSurname = extract_value_from_html(html_file, 'resSurname', expected_type=str)
 resSex = extract_value_from_html(html_file, 'resSex', expected_type=str)
@@ -58,6 +63,63 @@ resManipulationInstallation = extract_value_from_html(html_file, 'resManipulatio
 resNegotiationsInstallation = extract_value_from_html(html_file, 'resNegotiationsInstallation', expected_type=int)
 resCooperation = extract_value_from_html(html_file, 'resCooperation', expected_type=int)
 resAvoidance = extract_value_from_html(html_file, 'resAvoidance', expected_type=int)
+
+resAdaptation_1 = extract_value_from_html(html_file, 'resAdaptation_1', expected_type=int)
+resCompromise_1 = extract_value_from_html(html_file, 'resCompromise_1', expected_type=int)
+resBidding_1 = extract_value_from_html(html_file, 'resBidding_1', expected_type=int)
+resThreat_1 = extract_value_from_html(html_file, 'resThreat_1', expected_type=int)
+resLogicArgument_1 = extract_value_from_html(html_file, 'resLogicArgument_1', expected_type=int)
+resEmotionsArgument_1 = extract_value_from_html(html_file, 'resEmotionsArgument_1', expected_type=int)
+
+resAdaptation_2 = extract_value_from_html(html_file, 'resAdaptation_2', expected_type=int)
+resCompromise_2 = extract_value_from_html(html_file, 'resCompromise_2', expected_type=int)
+resThreat_2 = extract_value_from_html(html_file, 'resThreat_2', expected_type=int)
+resCooperation_2 = extract_value_from_html(html_file, 'resCooperation_2', expected_type=int)
+resAvoidance_2 = extract_value_from_html(html_file, 'resAvoidance_2', expected_type=int)
+
+resAdaptation_3 = extract_value_from_html(html_file, 'resAdaptation_3', expected_type=int)
+resThreat_3 = extract_value_from_html(html_file, 'resThreat_3', expected_type=int)
+resCooperation_3 = extract_value_from_html(html_file, 'resCooperation_3', expected_type=int)
+
+resStrengthInstallation_4 = extract_value_from_html(html_file, 'resStrengthInstallation_4', expected_type=int)
+resManipulationInstallation_4 = extract_value_from_html(html_file, 'resManipulationInstallation_4', expected_type=int)
+resNegotiationsInstallation_4 = extract_value_from_html(html_file, 'resNegotiationsInstallation_4', expected_type=int)
+
+resAdaptation_5 = extract_value_from_html(html_file, 'resAdaptation_5', expected_type=int)
+resBidding_5 = extract_value_from_html(html_file, 'resBidding_5', expected_type=int)
+resLogicArgument_5 = extract_value_from_html(html_file, 'resLogicArgument_5', expected_type=int)
+resEmotionsArgument_5 = extract_value_from_html(html_file, 'resEmotionsArgument_5', expected_type=int)
+resAvoidance_5 = extract_value_from_html(html_file, 'resAvoidance_5', expected_type=int)
+
+resLogicArgument_6 = extract_value_from_html(html_file, 'resLogicArgument_6', expected_type=int)
+resEmotionsArgument_6 = extract_value_from_html(html_file, 'resEmotionsArgument_6', expected_type=int)
+
+
+
+if resAdaptation_2 is None:
+    print("Не удалось найти значение resAdaptation_2.")
+else:
+    print(f"Значение resAdaptation_2: {resAdaptation_2}")
+
+if resCompromise_2 is None:
+    print("Не удалось найти значение resCompromise_2.")
+else:
+    print(f"Значение resCompromise_2: {resCompromise_2}")
+
+if resThreat_2 is None:
+    print("Не удалось найти значение resThreat_2.")
+else:
+    print(f"Значение resThreat_2: {resThreat_2}")
+
+if resCooperation_2 is None:
+    print("Не удалось найти значение resCooperation_2.")
+else:
+    print(f"Значение resCooperation_2: {resCooperation_2}")
+
+if resAvoidance_2 is None:
+    print("Не удалось найти значение resAvoidance_2.")
+else:
+    print(f"Значение resAvoidance_2: {resAvoidance_2}")
 
 
 # ПРОВЕРКИ!!!
@@ -101,6 +163,7 @@ if resId is None:
     print("Не удалось найти значение resId.")
 else:
     print(f"Значение resId: {resId}") 
+
 
 
 if resUnderstandingOfStyles is None:
@@ -162,6 +225,139 @@ if resAvoidance is None:
     print("Не удалось найти значение resAvoidance.")
 else:
     print(f"Значение resAvoidance: {resAvoidance}")
+
+
+
+if resAdaptation_1 is None:
+    print("Не удалось найти значение resAdaptation_1.")
+else:
+    print(f"Значение resAdaptation_1: {resAdaptation_1}")
+
+if resCompromise_1 is None:
+    print("Не удалось найти значение resCompromise_1.")
+else:
+    print(f"Значение resCompromise_1: {resCompromise_1}")
+
+if resBidding_1 is None:
+    print("Не удалось найти значение resBidding_1.")
+else:
+    print(f"Значение resBidding_1: {resBidding_1}")
+
+if resThreat_1 is None:
+    print("Не удалось найти значение resThreat_1.")
+else:
+    print(f"Значение resThreat_1: {resThreat_1}")
+
+if resLogicArgument_1 is None:
+    print("Не удалось найти значение resLogicArgument_1.")
+else:
+    print(f"Значение resLogicArgument_1: {resLogicArgument_1}")
+
+if resEmotionsArgument_1 is None:
+    print("Не удалось найти значение resEmotionsArgument_1.")
+else:
+    print(f"Значение resEmotionsArgument_1: {resEmotionsArgument_1}")
+
+
+
+if resAdaptation_2 is None:
+    print("Не удалось найти значение resAdaptation_2.")
+else:
+    print(f"Значение resAdaptation_2: {resAdaptation_2}")
+
+if resCompromise_2 is None:
+    print("Не удалось найти значение resCompromise_2.")
+else:
+    print(f"Значение resCompromise_2: {resCompromise_2}")
+
+if resThreat_2 is None:
+    print("Не удалось найти значение resThreat_2.")
+else:
+    print(f"Значение resThreat_2: {resThreat_2}")
+
+if resCooperation_2 is None:
+    print("Не удалось найти значение resCooperation_2.")
+else:
+    print(f"Значение resCooperation_2: {resCooperation_2}")
+
+if resAvoidance_2 is None:
+    print("Не удалось найти значение resAvoidance_2.")
+else:
+    print(f"Значение resAvoidance_2: {resAvoidance_2}")
+
+
+
+if resAdaptation_3 is None:
+    print("Не удалось найти значение resAdaptation_3.")
+else:
+    print(f"Значение resAdaptation_3: {resAdaptation_3}")
+
+if resThreat_3 is None:
+    print("Не удалось найти значение resThreat_3.")
+else:
+    print(f"Значение resThreat_3: {resThreat_3}")
+
+if resCooperation_3 is None:
+    print("Не удалось найти значение resCooperation_3.")
+else:
+    print(f"Значение resCooperation_3: {resCooperation_3}")
+
+
+
+if resStrengthInstallation_4 is None:
+    print("Не удалось найти значение resStrengthInstallation_4.")
+else:
+    print(f"Значение resStrengthInstallation_4: {resStrengthInstallation_4}")
+
+if resManipulationInstallation_4 is None:
+    print("Не удалось найти значение resManipulationInstallation_4.")
+else:
+    print(f"Значение resManipulationInstallation_4: {resManipulationInstallation_4}")
+
+if resNegotiationsInstallation_4 is None:
+    print("Не удалось найти значение resNegotiationsInstallation_4.")
+else:
+    print(f"Значение resNegotiationsInstallation_4: {resNegotiationsInstallation_4}")
+
+
+
+if resAdaptation_5 is None:
+    print("Не удалось найти значение resAdaptation_5.")
+else:
+    print(f"Значение resAdaptation_5: {resAdaptation_5}")
+
+if resBidding_5 is None:
+    print("Не удалось найти значение resBidding_5.")
+else:
+    print(f"Значение resBidding_5: {resBidding_5}")
+
+if resLogicArgument_5 is None:
+    print("Не удалось найти значение resLogicArgument_5.")
+else:
+    print(f"Значение resLogicArgument_5: {resLogicArgument_5}")
+
+if resEmotionsArgument_5 is None:
+    print("Не удалось найти значение resEmotionsArgument_5.")
+else:
+    print(f"Значение resEmotionsArgument_5: {resEmotionsArgument_5}")
+
+if resAvoidance_5 is None:
+    print("Не удалось найти значение resAvoidance_5.")
+else:
+    print(f"Значение resAvoidance_5: {resAvoidance_5}")
+
+
+
+if resLogicArgument_6 is None:
+    print("Не удалось найти значение resLogicArgument_6.")
+else:
+    print(f"Значение resLogicArgument_6: {resLogicArgument_6}")
+
+if resEmotionsArgument_6 is None:
+    print("Не удалось найти значение resEmotionsArgument_6.")
+else:
+    print(f"Значение resEmotionsArgument_6: {resEmotionsArgument_6}")
+
 
 
 
@@ -230,28 +426,25 @@ def create_pdf(filename):
 
     can.drawImage(image_path_2, 0, 0, width=width, height=height)
 
-    if resAdaptation is not None:
+    if resAdaptation_1 is not None:
         # Вычисляем координаты X для "палочки"
-        x_start = 61.978 + (((527.481 - 61.978) / 17) * resAdaptation)
-        y_start = height - 768.614
-        xLeft = -5
-        xRight = 5
-        yTop = 25
-        yCenter = 20
-        yBottom = 15
-
+        x_start = 69.033 + (((526.35 - 69.033) / 15) * resAdaptation_1)
+        y_start = height - 517.673
+        xLeft = -4
+        xRight = 4
+        yTop = 20
+        yCenter = 16
+        yBottom = 12
         # Рисуем круг диаметром 1 пункт
         can.setFillColorRGB(0, 0, 0) # Устанавливаем цвет заливки (черный)
         circle_radius = 0.5  # Радиус круга в пунктах
         can.circle(x_start, y_start, circle_radius,
                    stroke=0, fill=1)  # Рисуем круг
-
         # Рисуем "палочку"
         can.setStrokeColorRGB(0, 0, 0)  # Устанавливаем цвет линии (черный)
         can.setLineWidth(1)  # Устанавливаем ширину линии
         # Рисуем линию (палочку)
         can.line(x_start, y_start, x_start, y_start + yBottom)
-
         # Рисуем остальные элементы
         can.line(x_start, y_start + yBottom, x_start + xLeft, y_start + yCenter)
         can.circle(x_start + xLeft, y_start + yCenter, circle_radius, stroke=0, fill=1)
@@ -260,6 +453,35 @@ def create_pdf(filename):
         can.line(x_start, y_start + yTop, x_start + xRight, y_start + yCenter)
         can.circle(x_start + xRight, y_start + yCenter, circle_radius, stroke=0, fill=1)
         can.line(x_start + xRight, y_start + yCenter, x_start, y_start + yBottom)
+
+    if resCompromise_1 is not None:
+        # Вычисляем координаты X для "палочки"
+        x_start = 69.033 + (((526.35 - 69.033) / 15) * resCompromise_1)
+        y_start = height - 754.016
+        xLeft = -4
+        xRight = 4
+        yTop = 20
+        yCenter = 16
+        yBottom = 12
+        # Рисуем круг диаметром 1 пункт
+        can.setFillColorRGB(0, 0, 0) # Устанавливаем цвет заливки (черный)
+        circle_radius = 0.5  # Радиус круга в пунктах
+        can.circle(x_start, y_start, circle_radius,
+                   stroke=0, fill=1)  # Рисуем круг
+        # Рисуем "палочку"
+        can.setStrokeColorRGB(0, 0, 0)  # Устанавливаем цвет линии (черный)
+        can.setLineWidth(1)  # Устанавливаем ширину линии
+        # Рисуем линию (палочку)
+        can.line(x_start, y_start, x_start, y_start + yBottom)
+        # Рисуем остальные элементы
+        can.line(x_start, y_start + yBottom, x_start + xLeft, y_start + yCenter)
+        can.circle(x_start + xLeft, y_start + yCenter, circle_radius, stroke=0, fill=1)
+        can.line(x_start + xLeft, y_start + yCenter, x_start, y_start + yTop)
+        can.circle(x_start, y_start + yTop, circle_radius, stroke=0, fill=1)
+        can.line(x_start, y_start + yTop, x_start + xRight, y_start + yCenter)
+        can.circle(x_start + xRight, y_start + yCenter, circle_radius, stroke=0, fill=1)
+        can.line(x_start + xRight, y_start + yCenter, x_start, y_start + yBottom)
+
     can.showPage()  # Завершение второй страницы
 
 
@@ -272,28 +494,25 @@ def create_pdf(filename):
 
     can.drawImage(image_path_3, 0, 0, width=width, height=height)
 
-    if resCompromise is not None:
+    if resBidding_1 is not None:
         # Вычисляем координаты X для "палочки"
-        x_start = 63.907  + (((531.386 - 63.907) / 27) * resCompromise)
-        y_start = height - 768.614
-        xLeft = -5
-        xRight = 5
-        yTop = 25
-        yCenter = 20
-        yBottom = 15
-
+        x_start = 69.033 + (((526.35 - 69.033) / 15) * resBidding_1)
+        y_start = height - 187.427
+        xLeft = -4
+        xRight = 4
+        yTop = 20
+        yCenter = 16
+        yBottom = 12
         # Рисуем круг диаметром 1 пункт
         can.setFillColorRGB(0, 0, 0) # Устанавливаем цвет заливки (черный)
         circle_radius = 0.5  # Радиус круга в пунктах
         can.circle(x_start, y_start, circle_radius,
                    stroke=0, fill=1)  # Рисуем круг
-
         # Рисуем "палочку"
         can.setStrokeColorRGB(0, 0, 0)  # Устанавливаем цвет линии (черный)
         can.setLineWidth(1)  # Устанавливаем ширину линии
         # Рисуем линию (палочку)
         can.line(x_start, y_start, x_start, y_start + yBottom)
-
         # Рисуем остальные элементы
         can.line(x_start, y_start + yBottom, x_start + xLeft, y_start + yCenter)
         can.circle(x_start + xLeft, y_start + yCenter, circle_radius, stroke=0, fill=1)
@@ -302,6 +521,63 @@ def create_pdf(filename):
         can.line(x_start, y_start + yTop, x_start + xRight, y_start + yCenter)
         can.circle(x_start + xRight, y_start + yCenter, circle_radius, stroke=0, fill=1)
         can.line(x_start + xRight, y_start + yCenter, x_start, y_start + yBottom)
+
+    if resThreat_1 is not None:
+        # Вычисляем координаты X для "палочки"
+        x_start = 69.033 + (((526.35 - 69.033) / 15) * resThreat_1)
+        y_start = height - 406.91
+        xLeft = -4
+        xRight = 4
+        yTop = 20
+        yCenter = 16
+        yBottom = 12
+        # Рисуем круг диаметром 1 пункт
+        can.setFillColorRGB(0, 0, 0) # Устанавливаем цвет заливки (черный)
+        circle_radius = 0.5  # Радиус круга в пунктах
+        can.circle(x_start, y_start, circle_radius,
+                   stroke=0, fill=1)  # Рисуем круг
+        # Рисуем "палочку"
+        can.setStrokeColorRGB(0, 0, 0)  # Устанавливаем цвет линии (черный)
+        can.setLineWidth(1)  # Устанавливаем ширину линии
+        # Рисуем линию (палочку)
+        can.line(x_start, y_start, x_start, y_start + yBottom)
+        # Рисуем остальные элементы
+        can.line(x_start, y_start + yBottom, x_start + xLeft, y_start + yCenter)
+        can.circle(x_start + xLeft, y_start + yCenter, circle_radius, stroke=0, fill=1)
+        can.line(x_start + xLeft, y_start + yCenter, x_start, y_start + yTop)
+        can.circle(x_start, y_start + yTop, circle_radius, stroke=0, fill=1)
+        can.line(x_start, y_start + yTop, x_start + xRight, y_start + yCenter)
+        can.circle(x_start + xRight, y_start + yCenter, circle_radius, stroke=0, fill=1)
+        can.line(x_start + xRight, y_start + yCenter, x_start, y_start + yBottom)
+
+    if resLogicArgument_1 is not None:
+        # Вычисляем координаты X для "палочки"
+        x_start = 69.033 + (((526.35 - 69.033) / 15) * resLogicArgument_1)
+        y_start = height - 626.394
+        xLeft = -4
+        xRight = 4
+        yTop = 20
+        yCenter = 16
+        yBottom = 12
+        # Рисуем круг диаметром 1 пункт
+        can.setFillColorRGB(0, 0, 0) # Устанавливаем цвет заливки (черный)
+        circle_radius = 0.5  # Радиус круга в пунктах
+        can.circle(x_start, y_start, circle_radius,
+                   stroke=0, fill=1)  # Рисуем круг
+        # Рисуем "палочку"
+        can.setStrokeColorRGB(0, 0, 0)  # Устанавливаем цвет линии (черный)
+        can.setLineWidth(1)  # Устанавливаем ширину линии
+        # Рисуем линию (палочку)
+        can.line(x_start, y_start, x_start, y_start + yBottom)
+        # Рисуем остальные элементы
+        can.line(x_start, y_start + yBottom, x_start + xLeft, y_start + yCenter)
+        can.circle(x_start + xLeft, y_start + yCenter, circle_radius, stroke=0, fill=1)
+        can.line(x_start + xLeft, y_start + yCenter, x_start, y_start + yTop)
+        can.circle(x_start, y_start + yTop, circle_radius, stroke=0, fill=1)
+        can.line(x_start, y_start + yTop, x_start + xRight, y_start + yCenter)
+        can.circle(x_start + xRight, y_start + yCenter, circle_radius, stroke=0, fill=1)
+        can.line(x_start + xRight, y_start + yCenter, x_start, y_start + yBottom)
+
     can.showPage()  # Завершение третьей страницы
 
 
@@ -314,28 +590,25 @@ def create_pdf(filename):
 
     can.drawImage(image_path_4, 0, 0, width=width, height=height)
 
-    if resBidding is not None:
+    if resEmotionsArgument_1 is not None:
         # Вычисляем координаты X для "палочки"
-        x_start = 63.296  + (((532.039 - 63.296) / 30) * resBidding)
-        y_start = height - 768.614
-        xLeft = -5
-        xRight = 5
-        yTop = 25
-        yCenter = 20
-        yBottom = 15
-
+        x_start = 69.033 + (((526.35 - 69.033) / 15) * resEmotionsArgument_1)
+        y_start = height - 237.834
+        xLeft = -4
+        xRight = 4
+        yTop = 20
+        yCenter = 16
+        yBottom = 12
         # Рисуем круг диаметром 1 пункт
         can.setFillColorRGB(0, 0, 0) # Устанавливаем цвет заливки (черный)
         circle_radius = 0.5  # Радиус круга в пунктах
         can.circle(x_start, y_start, circle_radius,
                    stroke=0, fill=1)  # Рисуем круг
-
         # Рисуем "палочку"
         can.setStrokeColorRGB(0, 0, 0)  # Устанавливаем цвет линии (черный)
         can.setLineWidth(1)  # Устанавливаем ширину линии
         # Рисуем линию (палочку)
         can.line(x_start, y_start, x_start, y_start + yBottom)
-
         # Рисуем остальные элементы
         can.line(x_start, y_start + yBottom, x_start + xLeft, y_start + yCenter)
         can.circle(x_start + xLeft, y_start + yCenter, circle_radius, stroke=0, fill=1)
@@ -344,7 +617,88 @@ def create_pdf(filename):
         can.line(x_start, y_start + yTop, x_start + xRight, y_start + yCenter)
         can.circle(x_start + xRight, y_start + yCenter, circle_radius, stroke=0, fill=1)
         can.line(x_start + xRight, y_start + yCenter, x_start, y_start + yBottom)
+
+
+    # Идеальный профиль
+
+        # Устанавливаем начальные и конечные координаты
+        start_x_left = 141.732
+        start_y_left = height - 785.197
+        end_y_left = height - 484.996
+        width_left = 141.732
+
+        # Определяем высоту графика, которую мы будем использовать
+        fullHeight_left = start_y_left - end_y_left
+
+        # Определяем значения для каждой части графика
+        values_left = [
+            {"name": "Эмоции", "color": (133/255, 85/255, 85/255), "value": 14},
+            {"name": "Логика", "color": (118/255, 102/255, 171/255), "value": 84},
+            {"name": "Угроза", "color": (138/255, 171/255, 78/255), "value": 54},
+            {"name": "Торги", "color": (200/255, 65/255, 85/255), "value": 63},
+            {"name": "Компромисс", "color": (90/255, 127/255, 174/255), "value": 33},
+            {"name": "Приспособление", "color": (235/255, 188/255, 109/255), "value": 33},
+        ]
+
+        # Начальная позиция по Y для рисования в цикле for каждой части графика
+        current_y_left = start_y_left
+
+        # Рисуем график
+        for part_left in values_left:
+            if part_left["value"] > 0:  # Проверяем, что значение больше 0
+                # Рассчитываем высоту на основе значения
+                height_left = (fullHeight_left * part_left["value"]) / sum(part["value"] for part in values_left)
+                can.setStrokeColor(colors.Color(*part_left["color"]))
+                can.setLineWidth(width_left)
+                can.line(start_x_left, current_y_left, start_x_left, current_y_left - height_left)
+                current_y_left -= height_left
+
+
+    # Ваш профиль
+
+        # Устанавливаем начальные и конечные координаты
+        start_x_right = 453.543
+        start_y_right = height - 785.197
+        end_y_right = height - 484.996
+        width_right = 141.732
+
+        # Определяем высоту графика, которую мы будем использовать
+        fullHeight_right = start_y_right - end_y_right
+
+        # Определяем значения для каждой части графика
+        values_right = [
+            {"name": "Эмоции", "color": (133/255, 85/255, 85/255), "value": resEmotionsArgument_1},
+            {"name": "Логика", "color": (118/255, 102/255, 171/255), "value": resLogicArgument_1},
+            {"name": "Угроза", "color": (138/255, 171/255, 78/255), "value": resThreat_1},
+            {"name": "Торги", "color": (200/255, 65/255, 85/255), "value": resBidding_1},
+            {"name": "Компромисс", "color": (90/255, 127/255, 174/255), "value": resCompromise_1},
+            {"name": "Приспособление", "color": (235/255, 188/255, 109/255), "value": resAdaptation_1},
+        ]
+
+        # Начальная позиция по Y для рисования в цикле for каждой части графика
+        current_y_right = start_y_right
+
+        # Рисуем график
+        for part_right in values_right:
+            if part_right["value"] > 0:  # Проверяем, что значение больше 0
+                # Рассчитываем высоту на основе значения
+                height_right = (fullHeight_right * part_right["value"]) / sum(part["value"] for part in values_right)
+                can.setStrokeColor(colors.Color(*part_right["color"]))
+                can.setLineWidth(width_right)
+                can.line(start_x_right, current_y_right, start_x_right, current_y_right - height_right)
+                current_y_right -= height_right
+
+
+
+
+
+
+
     can.showPage()  # Завершение четвёртой страницы
+
+
+
+
 
     # Сохраняем документ
     can.save()
