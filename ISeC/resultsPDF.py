@@ -96,32 +96,6 @@ resEmotionsArgument_6 = extract_value_from_html(html_file, 'resEmotionsArgument_
 
 
 
-if resAdaptation_2 is None:
-    print("Не удалось найти значение resAdaptation_2.")
-else:
-    print(f"Значение resAdaptation_2: {resAdaptation_2}")
-
-if resCompromise_2 is None:
-    print("Не удалось найти значение resCompromise_2.")
-else:
-    print(f"Значение resCompromise_2: {resCompromise_2}")
-
-if resThreat_2 is None:
-    print("Не удалось найти значение resThreat_2.")
-else:
-    print(f"Значение resThreat_2: {resThreat_2}")
-
-if resCooperation_2 is None:
-    print("Не удалось найти значение resCooperation_2.")
-else:
-    print(f"Значение resCooperation_2: {resCooperation_2}")
-
-if resAvoidance_2 is None:
-    print("Не удалось найти значение resAvoidance_2.")
-else:
-    print(f"Значение resAvoidance_2: {resAvoidance_2}")
-
-
 # ПРОВЕРКИ!!!
 
 if resName is None:
@@ -379,37 +353,37 @@ def create_pdf(filename):
     # Печать текста на PDF
     can.setFont("Bahnschrift", 14)  # Устанавливаем шрифт и размер
 
-    if resId:  # Проверяем, что resId не None и не пустая строка
+    if resId is not None:  # Проверяем, что resId не None и не пустая строка
         can.drawString(75, (height - 679.55), str(resId))  # Печатаем текст
     else:
         print("resId пустое или None, текст не будет напечатан.")
 
-    if resName:  # Проверяем, что resName не None и не пустая строка
+    if resName is not None:  # Проверяем, что resName не None и не пустая строка
         can.drawString(89.7, (height - 696.345), str(resName))  # Печатаем текст
     else:
         print("resName пустое или None, текст не будет напечатан.")
 
-    if resSurname:  # Проверяем, что resSurname не None и не пустая строка
+    if resSurname is not None:  # Проверяем, что resSurname не None и не пустая строка
         can.drawString(122.5, (height - 713.149), str(resSurname))  # Печатаем текст
     else:
         print("resSurname пустое или None, текст не будет напечатан.")
 
-    if resBirthdate:  # Проверяем, что resBirthdate не None и не пустая строка
+    if resBirthdate is not None:  # Проверяем, что resBirthdate не None и не пустая строка
         can.drawString(163.838, (height - 730.049), str(resBirthdate))  # Печатаем текст
     else:
         print("resBirthdate пустое или None, текст не будет напечатан.")
 
-    if resCompany:  # Проверяем, что resCompany не None и не пустая строка
+    if resCompany is not None:  # Проверяем, что resCompany не None и не пустая строка
         can.drawString(128.02, (height - 746.764), str(resCompany))  # Печатаем текст
     else:
         print("resCompany пустое или None, текст не будет напечатан.")
 
-    if resCategory:  # Проверяем, что resCategory не None и не пустая строка
+    if resCategory is not None:  # Проверяем, что resCategory не None и не пустая строка
         can.drawString(129.7, (height - 763.5), str(resCategory))  # Печатаем текст
     else:
         print("resCategory пустое или None, текст не будет напечатан.")
 
-    if resEmail:  # Проверяем, что resEmail не None и не пустая строка
+    if resEmail is not None:  # Проверяем, что resEmail не None и не пустая строка
         can.drawString(124.2, (height - 780.3), str(resEmail))  # Печатаем текст
     else:
         print("resEmail пустое или None, текст не будет напечатан.")
@@ -688,13 +662,49 @@ def create_pdf(filename):
                 can.line(start_x_right, current_y_right, start_x_right, current_y_right - height_right)
                 current_y_right -= height_right
 
-
-
-
-
-
-
     can.showPage()  # Завершение четвёртой страницы
+
+
+
+    # СТРАНИЦА 5
+    image_path_5 = os.path.join(os.path.dirname(os.path.abspath(__file__)), "pagesPDF", "page_5.png")
+    if not os.path.exists(image_path_5):
+        print(f"Изображение {image_path_5} не найдено.")
+        return
+
+    can.drawImage(image_path_5, 0, 0, width=width, height=height)
+
+    # Печать текста на PDF
+    can.setFont("Bahnschrift", 14)  # Устанавливаем шрифт и размер
+
+    if resAdaptation_2 is not None:  # Проверяем, что resAdaptation_2 не None
+        can.drawString(75, (height - 100), str(resAdaptation_2))  # Печатаем текст
+    else:
+        print("resAdaptation_2 пустое или None, текст не будет напечатан.")
+
+    if resCompromise_2 is not None:  # Проверяем, что resCompromise_2 не None
+        can.drawString(75, (height - 200), str(resCompromise_2))  # Печатаем текст
+    else:
+        print("resCompromise_2 пустое или None, текст не будет напечатан.")
+
+    if resThreat_2 is not None:  # Проверяем, что resThreat_2 не None
+        can.drawString(75, (height - 300), str(resThreat_2))  # Печатаем текст
+    else:
+        print("resThreat_2 пустое или None, текст не будет напечатан.")
+
+    if resCooperation_2 is not None:  # Проверяем, что resCooperation_2 не None
+        can.drawString(75, (height - 400), str(resCooperation_2))  # Печатаем текст
+    else:
+        print("resCooperation_2 пустое или None, текст не будет напечатан.")
+
+    if resAvoidance_2 is not None:  # Проверяем, что resAvoidance_2 не None
+        can.drawString(75, (height - 500), str(resAvoidance_2))  # Печатаем текст
+    else:
+        print("resAvoidance_2 пустое или None, текст не будет напечатан.")
+
+
+
+    can.showPage()  # Завершение пятой страницы
 
 
 
