@@ -1,0 +1,1946 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Блок 4. ИКС-файл</title>
+    <script type="text/javascript"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <section class="vertical_lines">
+        <img class="line_1" src="./images/line.svg"></img>
+        <img class="line_2" src="./images/line.svg"></img>
+        <img class="line_3" src="./images/line.svg"></img>
+        <img class="line_4" src="./images/line.svg"></img>
+        <img class="line_5" src="./images/line.svg"></img>
+        <img class="line_6" src="./images/line.svg"></img>
+        <img class="line_7" src="./images/line.svg"></img>
+        <img class="line_8" src="./images/line.svg"></img>
+    </section>
+    <section class="horizontal_lines">
+        <img class="line_9" src="./images/line.svg"></img>
+        <img class="line_10" src="./images/line.svg"></img>
+        <img class="line_11" src="./images/line.svg"></img>
+        <img class="line_12" src="./images/line.svg"></img>
+        <img class="line_13" src="./images/line.svg"></img>
+        <img class="line_14" src="./images/line.svg"></img>
+        <img class="line_15" src="./images/line.svg"></img>
+        <img class="line_16" src="./images/line.svg"></img>
+        <img class="line_17" src="./images/line.svg"></img>
+        <img class="line_18" src="./images/line.svg"></img>
+        <img class="line_19" src="./images/line.svg"></img>
+        <img class="line_20" src="./images/line.svg"></img>
+    </section>
+
+    <main>
+
+        <!-- ОПИСАНИЕ БЛОКА -->
+
+        <div class="descr_test" name="descr_test_4">
+            <p class="descr_test_title">Блок 4. Интерпретация ситуаций<br>
+            </p>
+            <p class="descr_test_text">Вам будут представлены 16 переговорных ситуаций. Для каждой из них выберите
+                верную, на Ваш взгляд, интерпретацию.<br>
+            </p>
+            <button id="test_4_start" class="btn_test" type="button">Приступить к выполнению блока</button>
+        </div>
+
+        <script>
+            document.getElementById('test_4_start').addEventListener('click', function () {
+                var from = document.querySelector('[name="descr_test_4"]');
+                var to = document.querySelector('[name="quest_4_1"]');
+                from.classList.add('animBlockDisappear_next');
+                from.addEventListener('animationend', function handler() {
+                    from.style.display = 'none';
+                    from.classList.remove('animBlockDisappear_next'); // Удаляем класс анимации
+                    to.style.display = 'block';
+                    to.classList.add('animBlockAppear_next');
+                    to.addEventListener('animationend', function appearHandler() {
+                        to.classList.remove('animBlockAppear_next'); // Удаляем класс анимации
+                        to.removeEventListener('animationend', appearHandler);
+                    });
+                    from.removeEventListener('animationend', handler);
+                });
+            });
+        </script>
+
+        <!-- ВСПЛЫВАЮЩЕЕ ОКНО -->
+        <div class="popup" id="popup_4">
+            <div class="popup_content">
+                <p class="error_title">Ошибка</p>
+                <p>Выберите один из вариантов ответа</p>
+                <button class="close_btn" id="closeBtn_4">Закрыть</button>
+            </div>
+        </div>
+
+
+        <!-- ВОПРОС 1 -->
+
+        <div class="quest_4" name="quest_4_1">
+            <p class="quest_4_title">Диалог 1 из 16</p>
+            <p class="quest_4_text">
+                <i>Оцените стиль ведения переговоров стороной «А»</i>
+            </p>
+            <span class="quest_4_text">
+                <p class="quest_4_dialogue">А: «Так мы заключаем контракт?»</p>
+                <p class="quest_4_dialogue">Б: «Да, решено».</p>
+                <p class="quest_4_dialogue">А: «Замечательно. Теперь, чтобы быть честным, я должен сообщить Вам о небольших изменениях...»</p>
+                <p class="quest_4_dialogue">Б: «Да?»</p>
+                <p class="quest_4_dialogue">А: «Мы немного снизили срок гарантийного ремонта».</p>
+                <p class="quest_4_dialogue">Б: «Вот как...»</p><br>
+            </span>
+            <p class="quest_4_text">
+                <span class="affirm_4">Мнение 1</span>Это обычная тактика в работе продавцов. Только «А» применил её некорректно, дав оппоненту повод для подтверждения его сомнений и отказа от сделки.<br>
+            </p>
+            <p class="quest_4_text">
+                <span class="affirm_4">Мнение 2</span>Со стороны «А» это просто выкручивание рук и давление: расчёт на то, что В не станет отказываться от только что сказанных слов.<br>
+            </p>
+            <p class="quest_4_text">
+                <span class="affirm_4">Мнение 3</span>Это типичная манипуляция: получить согласие, после чего начать говорить о недостатках. Упоминание своей «честности» - это тоже часть игры.<br>
+            </p>
+            <section class="quest_4_sect">
+                <button id="btn_4_1_prev" class="btn_nextprev">Назад</button>
+                <div class="inpBlock_4">
+                    <div class="inp_top_4">
+                        <span>Мнение 1</span>
+                        <span>Мнение 2</span>
+                        <span>Мнение 3</span>
+                    </div>
+                    <div class="inp_bottom_4">
+                        <input type="radio" id="4_1_1" class="inpRadio" name="4_1">
+                        <input type="radio" id="4_1_2" class="inpRadio" name="4_1">
+                        <input type="radio" id="4_1_3" class="inpRadio" name="4_1">
+                    </div>
+                </div>
+                <button id="btn_4_1_next" class="btn_nextprev">Далее</button>
+            </section>
+
+            <script>
+                // Перелистывание назад
+                document.getElementById('btn_4_1_prev').addEventListener('click', function () {
+                    var from = document.querySelector('[name="quest_4_1"]');
+                    var to = document.querySelector('[name="descr_test_4"]');
+                    from.classList.add('animBlockDisappear_prev');
+                    from.addEventListener('animationend', function handler() {
+                        from.style.display = 'none';
+                        from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
+                        to.style.display = 'block'; // Просто показываем элемент без анимации
+                        from.removeEventListener('animationend', handler);
+                    });
+                });
+                // Переменные всплывающего окна
+                const popup_4_1 = document.getElementById('popup_4');
+                const closeBtn_4_1 = document.getElementById('closeBtn_4');
+                // Кнопка и функция перелистывания вперед
+                const nextButton_4_1 = document.getElementById("btn_4_1_next");
+                document.addEventListener("DOMContentLoaded", function () {
+                    nextButton_4_1.addEventListener("click", function () {
+                        // Получаем радио-кнопки по их id
+                        const radio_4_1_1 = document.getElementById('4_1_1');
+                        const radio_4_1_2 = document.getElementById('4_1_2');
+                        const radio_4_1_3 = document.getElementById('4_1_3');
+                        // Проверяем, есть ли значения 1, 2 и 3 среди ползунков
+                        if (!(radio_4_1_1.checked || radio_4_1_2.checked || radio_4_1_3.checked)) {
+                            // Если все три уникальных значения отсутствуют, показываем всплывающее окно
+                            popup_4_1.style.display = 'flex';
+                        } else {
+                            // Логика перелистывания вперед
+                            const from = document.querySelector('[name="quest_4_1"]');
+                            const to = document.querySelector('[name="quest_4_2"]'); // Предполагается, что этот элемент существует
+                            from.classList.add('animBlockDisappear_next');
+                            from.addEventListener('animationend', function handler() {
+                                from.style.display = 'none';
+                                from.classList.remove('animBlockDisappear_next');
+                                to.style.display = 'block';
+                                to.classList.add('animBlockAppear_next');
+                                to.addEventListener('animationend', function appearHandler() {
+                                    to.classList.remove('animBlockAppear_next');
+                                    to.removeEventListener('animationend', appearHandler);
+                                });
+                                from.removeEventListener('animationend', handler);
+                            });
+                        }
+                    });
+                    // Закрытие всплывающего окна
+                    closeBtn_4_1.addEventListener('click', function () {
+                        popup_4_1.style.display = 'none'; // Скрываем всплывающее окно
+                    });
+                });
+            </script>
+        </div>
+
+
+        <!-- ВОПРОС 2 -->
+
+        <div class="quest_4" name="quest_4_2">
+            <p class="quest_4_title">Диалог 2 из 16</p>
+            <p class="quest_4_text">
+                <i>Оцените стиль ведения переговоров стороны «А»</i>
+            </p>
+            <span class="quest_4_text">
+                    <p class="quest_4_dialogue">А: «Честно говоря, меня устраивают условия. Но условия Ваших конкурентов не менее выгодны. Что ещё Вы можете сказать о Вашей фирме?»</p>
+                    <p class="quest_4_dialogue">Б: «Хм... Мы гарантируем честность, надёжность, быстроту исполнения».</p>
+                    <p class="quest_4_dialogue">А: «Проблема в том, что и Ваши конкуренты гарантируют всё то же самое».</p>
+            </span>
+            <p class="quest_4_text">
+                <span class="affirm_4">Мнение 1</span>«А» демонстрирует нормальный деловой подход: он использует своё право знать больше о партнёре и делать выбор на основе достоверной информации. К тому же эта информация позволит ему защитить свой выбор перед партнёрами и инвесторами.<br>
+            </p>
+            <p class="quest_4_text">
+                <span class="affirm_4">Мнение 2</span>Это хитрый ход, чтобы заставить оппонента немного понервничать: он может ошибиться и сделать пару мелких послаблений.<br>
+            </p>
+            <p class="quest_4_text">
+                <span class="affirm_4">Мнение 3</span>Постоянно возвращаясь к одному и тому же вопросу, «А», по сути, заставляет оппонента обороняться, ставит его в неудобное положение. Это жёсткая тактика.<br>
+            </p>
+            <section class="quest_4_sect">
+                <button id="btn_4_2_prev" class="btn_nextprev">Назад</button>
+                <div class="inpBlock_4">
+                    <div class="inp_top_4">
+                        <span>Мнение 1</span>
+                        <span>Мнение 2</span>
+                        <span>Мнение 3</span>
+                    </div>
+                    <div class="inp_bottom_4">
+                        <input type="radio" id="4_2_1" class="inpRadio" name="4_2">
+                        <input type="radio" id="4_2_2" class="inpRadio" name="4_2">
+                        <input type="radio" id="4_2_3" class="inpRadio" name="4_2">
+                    </div>
+                </div>
+                <button id="btn_4_2_next" class="btn_nextprev">Далее</button>
+            </section>
+
+            <script>
+                // Перелистывание назад
+                document.getElementById('btn_4_2_prev').addEventListener('click', function () {
+                    var from = document.querySelector('[name="quest_4_2"]');
+                    var to = document.querySelector('[name="quest_4_1"]');
+                    from.classList.add('animBlockDisappear_prev');
+                    from.addEventListener('animationend', function handler() {
+                        from.style.display = 'none';
+                        from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
+                        to.style.display = 'block';
+                        to.classList.add('animBlockAppear_prev'); // Добавляем класс анимации для появления
+                        to.addEventListener('animationend', function appearHandler() {
+                            to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
+                            to.removeEventListener('animationend', appearHandler);
+                        });
+                        from.removeEventListener('animationend', handler);
+                    });
+                });
+                // Переменные всплывающего окна
+                const popup_4_2 = document.getElementById('popup_4');
+                const closeBtn_4_2 = document.getElementById('closeBtn_4');
+                // Кнопка и функция перелистывания вперед
+                const nextButton_4_2 = document.getElementById("btn_4_2_next");
+                document.addEventListener("DOMContentLoaded", function () {
+                    nextButton_4_2.addEventListener("click", function () {
+                        // Получаем радио-кнопки по их id
+                        const radio_4_2_1 = document.getElementById('4_2_1');
+                        const radio_4_2_2 = document.getElementById('4_2_2');
+                        const radio_4_2_3 = document.getElementById('4_2_3');
+                        // Проверяем, есть ли значения 1, 2 и 3 среди ползунков
+                        if (!(radio_4_2_1.checked || radio_4_2_2.checked || radio_4_2_3.checked)) {
+                            // Если все три уникальных значения отсутствуют, показываем всплывающее окно
+                            popup_4_2.style.display = 'flex';
+                        } else {
+                            // Логика перелистывания вперед
+                            const from = document.querySelector('[name="quest_4_2"]');
+                            const to = document.querySelector('[name="quest_4_3"]'); // Предполагается, что этот элемент существует
+                            from.classList.add('animBlockDisappear_next');
+                            from.addEventListener('animationend', function handler() {
+                                from.style.display = 'none';
+                                from.classList.remove('animBlockDisappear_next');
+                                to.style.display = 'block';
+                                to.classList.add('animBlockAppear_next');
+                                to.addEventListener('animationend', function appearHandler() {
+                                    to.classList.remove('animBlockAppear_next');
+                                    to.removeEventListener('animationend', appearHandler);
+                                });
+                                from.removeEventListener('animationend', handler);
+                            });
+                        }
+                    });
+                    // Закрытие всплывающего окна
+                    closeBtn_4_2.addEventListener('click', function () {
+                        popup_4_2.style.display = 'none'; // Скрываем всплывающее окно
+                    });
+                });
+            </script>
+        </div>
+
+
+        <!-- ВОПРОС 3 -->
+
+        <div class="quest_4" name="quest_4_3">
+            <p class="quest_4_title">Диалог 3 из 16</p>
+            <p class="quest_4_text">
+                <i>Оцените позицию «А» в переговорах</i>
+            </p>
+            <span class="quest_4_text">
+                &emsp;Б: «Мы Вам доверяем, но знаем о ситуации, когда Вы не выполнили свои обязательства перед компанией N».<br>
+                &emsp;А: «Тогда была иная ситуация. Наш бывший партнёр нас подвел. Теперь мы крепко стоим на ногах, и сотрудничество с нами может быть выгодным».<br>
+                &emsp;Б: «Не знаю, не знаю... Получается, у Вас не столь надёжная репутация».<br>
+                &emsp;А: «Как хотите. Мы легко найдем какого-нибудь другого партнёра».<br>
+            </span>
+            <p class="quest_4_text">
+                <span class="affirm_4">Мнение 1</span>В истории каждой компании есть взлёты и падения. Открыто признавать ошибки и двигаться дальше, не останавливаясь - достойное умение переговорщика.<br>
+            </p>
+            <p class="quest_4_text">
+                <span class="affirm_4">Мнение 2</span>Сначала расслабить оппонента оправданием, а затем усилить напряжение - это значит управлять эмоциональным фоном переговоров.<br>
+            </p>
+            <p class="quest_4_text">
+                <span class="affirm_4">Мнение 3</span>Готовность выйти из контакта - демонстрация автономности. Пусть оппонент сам решает, насколько его сомнения обоснованы.<br>
+            </p>
+            <section class="quest_4_sect">
+                <button id="btn_4_3_prev" class="btn_nextprev">Назад</button>
+                <div class="inpBlock_4">
+                    <div class="inp_top_4">
+                        <span>Мнение 1</span>
+                        <span>Мнение 2</span>
+                        <span>Мнение 3</span>
+                    </div>
+                    <div class="inp_bottom_4">
+                        <input type="radio" id="4_3_1" class="inpRadio" name="4_3">
+                        <input type="radio" id="4_3_2" class="inpRadio" name="4_3">
+                        <input type="radio" id="4_3_3" class="inpRadio" name="4_3">
+                    </div>
+                </div>
+                <button id="btn_4_3_next" class="btn_nextprev">Далее</button>
+            </section>
+
+            <script>
+                // Перелистывание назад
+                document.getElementById('btn_4_3_prev').addEventListener('click', function () {
+                    var from = document.querySelector('[name="quest_4_3"]');
+                    var to = document.querySelector('[name="quest_4_2"]');
+                    from.classList.add('animBlockDisappear_prev');
+                    from.addEventListener('animationend', function handler() {
+                        from.style.display = 'none';
+                        from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
+                        to.style.display = 'block';
+                        to.classList.add('animBlockAppear_prev'); // Добавляем класс анимации для появления
+                        to.addEventListener('animationend', function appearHandler() {
+                            to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
+                            to.removeEventListener('animationend', appearHandler);
+                        });
+                        from.removeEventListener('animationend', handler);
+                    });
+                });
+                // Переменные всплывающего окна
+                const popup_4_3 = document.getElementById('popup_4');
+                const closeBtn_4_3 = document.getElementById('closeBtn_4');
+                // Кнопка и функция перелистывания вперед
+                const nextButton_4_3 = document.getElementById("btn_4_3_next");
+                document.addEventListener("DOMContentLoaded", function () {
+                    nextButton_4_3.addEventListener("click", function () {
+                        // Получаем радио-кнопки по их id
+                        const radio_4_3_1 = document.getElementById('4_3_1');
+                        const radio_4_3_2 = document.getElementById('4_3_2');
+                        const radio_4_3_3 = document.getElementById('4_3_3');
+                        // Проверяем, есть ли значения 1, 2 и 3 среди ползунков
+                        if (!(radio_4_3_1.checked || radio_4_3_2.checked || radio_4_3_3.checked)) {
+                            // Если все три уникальных значения отсутствуют, показываем всплывающее окно
+                            popup_4_3.style.display = 'flex';
+                        } else {
+                            // Логика перелистывания вперед
+                            const from = document.querySelector('[name="quest_4_3"]');
+                            const to = document.querySelector('[name="quest_4_4"]'); // Предполагается, что этот элемент существует
+                            from.classList.add('animBlockDisappear_next');
+                            from.addEventListener('animationend', function handler() {
+                                from.style.display = 'none';
+                                from.classList.remove('animBlockDisappear_next');
+                                to.style.display = 'block';
+                                to.classList.add('animBlockAppear_next');
+                                to.addEventListener('animationend', function appearHandler() {
+                                    to.classList.remove('animBlockAppear_next');
+                                    to.removeEventListener('animationend', appearHandler);
+                                });
+                                from.removeEventListener('animationend', handler);
+                            });
+                        }
+                    });
+                    // Закрытие всплывающего окна
+                    closeBtn_4_3.addEventListener('click', function () {
+                        popup_4_3.style.display = 'none'; // Скрываем всплывающее окно
+                    });
+                });
+            </script>
+        </div>
+
+
+        <!-- ВОПРОС 4 -->
+
+        <div class="quest_4" name="quest_4_4">
+            <p class="quest_4_title">Диалог 4 из 16</p>
+            <p class="quest_4_text">
+                <i>Дайте оценку подобному стилю</i>
+            </p>
+            <span class="quest_4_text">
+                &emsp;Известный государственный деятель весьма своеобразно общался с бизнесменами. Сначала он их выслушивал. А после... начинал крыть матом. Я, мол, мужик простой, выражаюсь, как умею... Он с ходу сбивал позицию бизнесмена, приводил того в полную растерянность, и в какой-то мере оскорблял. Вынуждал переходить на более простой и примитивный язык. Матерщина и прямолинейность шокировали и лишали дара речи. И устоять на своей позиции могли лишь те, кто по-настоящему мог держать удар.</span>
+            <p class="quest_4_text">
+                <span class="affirm_4">Мнение 1</span>Вряд ли это специальная тактика. Это может быть обычная манера разговора. Воспринимать это можно как знак доверия и приглашение быть естественными в общении.<br>
+            </p>
+            <p class="quest_4_text">
+                <span class="affirm_4">Мнение 2</span>Это манипуляция, целью которой является заставить оппонента нервничать, потерять контроль и предоставить максимум информации.<br>
+            </p>
+            <p class="quest_4_text">
+                <span class="affirm_4">Мнение 3</span>Подобные действия - жёсткая провокация с целью вывести оппонента из равновесия, либо заставить его выйти из контакта. Но сильный переговорщик должен уметь вести диалог и с таким партнёром тоже.<br>
+            </p>
+            <section class="quest_4_sect">
+                <button id="btn_4_4_prev" class="btn_nextprev">Назад</button>
+                <div class="inpBlock_4">
+                    <div class="inp_top_4">
+                        <span>Мнение 1</span>
+                        <span>Мнение 2</span>
+                        <span>Мнение 3</span>
+                    </div>
+                    <div class="inp_bottom_4">
+                        <input type="radio" id="4_4_1" class="inpRadio" name="4_4">
+                        <input type="radio" id="4_4_2" class="inpRadio" name="4_4">
+                        <input type="radio" id="4_4_3" class="inpRadio" name="4_4">
+                    </div>
+                </div>
+                <button id="btn_4_4_next" class="btn_nextprev">Далее</button>
+            </section>
+
+            <script>
+                // Перелистывание назад
+                document.getElementById('btn_4_4_prev').addEventListener('click', function () {
+                    var from = document.querySelector('[name="quest_4_4"]');
+                    var to = document.querySelector('[name="quest_4_3"]');
+                    from.classList.add('animBlockDisappear_prev');
+                    from.addEventListener('animationend', function handler() {
+                        from.style.display = 'none';
+                        from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
+                        to.style.display = 'block';
+                        to.classList.add('animBlockAppear_prev'); // Добавляем класс анимации для появления
+                        to.addEventListener('animationend', function appearHandler() {
+                            to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
+                            to.removeEventListener('animationend', appearHandler);
+                        });
+                        from.removeEventListener('animationend', handler);
+                    });
+                });
+                // Переменные всплывающего окна
+                const popup_4_4 = document.getElementById('popup_4');
+                const closeBtn_4_4 = document.getElementById('closeBtn_4');
+                // Кнопка и функция перелистывания вперед
+                const nextButton_4_4 = document.getElementById("btn_4_4_next");
+                document.addEventListener("DOMContentLoaded", function () {
+                    nextButton_4_4.addEventListener("click", function () {
+                        // Получаем радио-кнопки по их id
+                        const radio_4_4_1 = document.getElementById('4_4_1');
+                        const radio_4_4_2 = document.getElementById('4_4_2');
+                        const radio_4_4_3 = document.getElementById('4_4_3');
+                        // Проверяем, есть ли значения 1, 2 и 3 среди ползунков
+                        if (!(radio_4_4_1.checked || radio_4_4_2.checked || radio_4_4_3.checked)) {
+                            // Если все три уникальных значения отсутствуют, показываем всплывающее окно
+                            popup_4_4.style.display = 'flex';
+                        } else {
+                            // Логика перелистывания вперед
+                            const from = document.querySelector('[name="quest_4_4"]');
+                            const to = document.querySelector('[name="quest_4_5"]'); // Предполагается, что этот элемент существует
+                            from.classList.add('animBlockDisappear_next');
+                            from.addEventListener('animationend', function handler() {
+                                from.style.display = 'none';
+                                from.classList.remove('animBlockDisappear_next');
+                                to.style.display = 'block';
+                                to.classList.add('animBlockAppear_next');
+                                to.addEventListener('animationend', function appearHandler() {
+                                    to.classList.remove('animBlockAppear_next');
+                                    to.removeEventListener('animationend', appearHandler);
+                                });
+                                from.removeEventListener('animationend', handler);
+                            });
+                        }
+                    });
+                    // Закрытие всплывающего окна
+                    closeBtn_4_4.addEventListener('click', function () {
+                        popup_4_4.style.display = 'none'; // Скрываем всплывающее окно
+                    });
+                });
+            </script>
+        </div>
+
+
+        <!-- ВОПРОС 5 -->
+
+        <div class="quest_4" name="quest_4_5">
+            <p class="quest_4_title">Диалог 5 из 16</p>
+            <p class="quest_4_text">
+                <i>Дайте оценку подобному ходу</i>
+            </p>
+            <span class="quest_4_text">
+                &emsp;У бизнесмена был «шокирующий галстук», с которым он неизменно побеждал. На оборотной стороне предмета одежды была изображена... голая женщина. В определённый момент переговоров он, как бы невзначай, поворачивал эту сторону галстука к собеседнику. И продолжал говорить, как ни в чём не бывало.</span>
+            <p class="quest_4_text">
+                <span class="affirm_4">Мнение 1</span>Этот способ переключить внимание собеседника может использоваться в неблагоприятные моменты переговоров, чтобы перевести разговор в иное русло.<br>
+            </p>
+            <p class="quest_4_text">
+                <span class="affirm_4">Мнение 2</span>Это способ диагностики партнёра. Если он среагирует на провокацию - значит он управляем. Если силён - галстук можно и сменить.<br>
+            </p>
+            <p class="quest_4_text">
+                <span class="affirm_4">Мнение 3</span>Это некорректный приём в переговорах. Он свидетельствует о неуверенности бизнесмена использовать именно речевые инструменты. <br>
+            </p>
+            <section class="quest_4_sect">
+                <button id="btn_4_5_prev" class="btn_nextprev">Назад</button>
+                <div class="inpBlock_4">
+                    <div class="inp_top_4">
+                        <span>Мнение 1</span>
+                        <span>Мнение 2</span>
+                        <span>Мнение 3</span>
+                    </div>
+                    <div class="inp_bottom_4">
+                        <input type="radio" id="4_5_1" class="inpRadio" name="4_5">
+                        <input type="radio" id="4_5_2" class="inpRadio" name="4_5">
+                        <input type="radio" id="4_5_3" class="inpRadio" name="4_5">
+                    </div>
+                </div>
+                <button id="btn_4_5_next" class="btn_nextprev">Далее</button>
+            </section>
+
+            <script>
+                // Перелистывание назад
+                document.getElementById('btn_4_5_prev').addEventListener('click', function () {
+                    var from = document.querySelector('[name="quest_4_5"]');
+                    var to = document.querySelector('[name="quest_4_4"]');
+                    from.classList.add('animBlockDisappear_prev');
+                    from.addEventListener('animationend', function handler() {
+                        from.style.display = 'none';
+                        from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
+                        to.style.display = 'block';
+                        to.classList.add('animBlockAppear_prev'); // Добавляем класс анимации для появления
+                        to.addEventListener('animationend', function appearHandler() {
+                            to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
+                            to.removeEventListener('animationend', appearHandler);
+                        });
+                        from.removeEventListener('animationend', handler);
+                    });
+                });
+                // Переменные всплывающего окна
+                const popup_4_5 = document.getElementById('popup_4');
+                const closeBtn_4_5 = document.getElementById('closeBtn_4');
+                // Кнопка и функция перелистывания вперед
+                const nextButton_4_5 = document.getElementById("btn_4_5_next");
+                document.addEventListener("DOMContentLoaded", function () {
+                    nextButton_4_5.addEventListener("click", function () {
+                        // Получаем радио-кнопки по их id
+                        const radio_4_5_1 = document.getElementById('4_5_1');
+                        const radio_4_5_2 = document.getElementById('4_5_2');
+                        const radio_4_5_3 = document.getElementById('4_5_3');
+                        // Проверяем, есть ли значения 1, 2 и 3 среди ползунков
+                        if (!(radio_4_5_1.checked || radio_4_5_2.checked || radio_4_5_3.checked)) {
+                            // Если все три уникальных значения отсутствуют, показываем всплывающее окно
+                            popup_4_5.style.display = 'flex';
+                        } else {
+                            // Логика перелистывания вперед
+                            const from = document.querySelector('[name="quest_4_5"]');
+                            const to = document.querySelector('[name="quest_4_6"]'); // Предполагается, что этот элемент существует
+                            from.classList.add('animBlockDisappear_next');
+                            from.addEventListener('animationend', function handler() {
+                                from.style.display = 'none';
+                                from.classList.remove('animBlockDisappear_next');
+                                to.style.display = 'block';
+                                to.classList.add('animBlockAppear_next');
+                                to.addEventListener('animationend', function appearHandler() {
+                                    to.classList.remove('animBlockAppear_next');
+                                    to.removeEventListener('animationend', appearHandler);
+                                });
+                                from.removeEventListener('animationend', handler);
+                            });
+                        }
+                    });
+                    // Закрытие всплывающего окна
+                    closeBtn_4_5.addEventListener('click', function () {
+                        popup_4_5.style.display = 'none'; // Скрываем всплывающее окно
+                    });
+                });
+            </script>
+        </div>
+
+
+        <!-- ВОПРОС 6 -->
+
+        <div class="quest_4" name="quest_4_6">
+            <p class="quest_4_title">Диалог 6 из 16</p>
+            <p class="quest_4_text">
+                <i>Дайте оценку подобному ходу</i>
+            </p>
+            <span class="quest_4_text">
+                &emsp;У одного из предпринимателей на столе стояла настоящая старинная лампа в стиле «Аладдина»: казалось, ещё немного, и джинн вылетит. Пришедшему собеседнику он с самым серьёзным видом заявлял: «А Вы попробуйте её потереть...» Все мы любопытны, и, если собеседник начинал с детской непосредственностью тереть лампу, раздавался насмешливый возглас хозяина: «Ну что, ещё не устали играть?»</span>
+            <p class="quest_4_text">
+                <span class="affirm_4">Мнение 1</span>Это способ диагностики партнёра: если он реагирует на подобные провокации - значит он управляем.<br>
+            </p>
+            <p class="quest_4_text">
+                <span class="affirm_4">Мнение 2</span>Это способ завоевать лидерство в начале переговоров. После подобного «прокола» оппоненту трудно будет перехватить управление переговорами.<br>
+            </p>
+            <p class="quest_4_text">
+                <span class="affirm_4">Мнение 3</span>Это некорректный приём в переговорах, заставляющий оппонента «потерять лицо». После подобных приёмов о деловых переговорах речь не идёт.<br>
+            </p>
+            <section class="quest_4_sect">
+                <button id="btn_4_6_prev" class="btn_nextprev">Назад</button>
+                <div class="inpBlock_4">
+                    <div class="inp_top_4">
+                        <span>Мнение 1</span>
+                        <span>Мнение 2</span>
+                        <span>Мнение 3</span>
+                    </div>
+                    <div class="inp_bottom_4">
+                        <input type="radio" id="4_6_1" class="inpRadio" name="4_6">
+                        <input type="radio" id="4_6_2" class="inpRadio" name="4_6">
+                        <input type="radio" id="4_6_3" class="inpRadio" name="4_6">
+                    </div>
+                </div>
+                <button id="btn_4_6_next" class="btn_nextprev">Далее</button>
+            </section>
+
+            <script>
+                // Перелистывание назад
+                document.getElementById('btn_4_6_prev').addEventListener('click', function () {
+                    var from = document.querySelector('[name="quest_4_6"]');
+                    var to = document.querySelector('[name="quest_4_5"]');
+                    from.classList.add('animBlockDisappear_prev');
+                    from.addEventListener('animationend', function handler() {
+                        from.style.display = 'none';
+                        from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
+                        to.style.display = 'block';
+                        to.classList.add('animBlockAppear_prev'); // Добавляем класс анимации для появления
+                        to.addEventListener('animationend', function appearHandler() {
+                            to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
+                            to.removeEventListener('animationend', appearHandler);
+                        });
+                        from.removeEventListener('animationend', handler);
+                    });
+                });
+                // Переменные всплывающего окна
+                const popup_4_6 = document.getElementById('popup_4');
+                const closeBtn_4_6 = document.getElementById('closeBtn_4');
+                // Кнопка и функция перелистывания вперед
+                const nextButton_4_6 = document.getElementById("btn_4_6_next");
+                document.addEventListener("DOMContentLoaded", function () {
+                    nextButton_4_6.addEventListener("click", function () {
+                        // Получаем радио-кнопки по их id
+                        const radio_4_6_1 = document.getElementById('4_6_1');
+                        const radio_4_6_2 = document.getElementById('4_6_2');
+                        const radio_4_6_3 = document.getElementById('4_6_3');
+                        // Проверяем, есть ли значения 1, 2 и 3 среди ползунков
+                        if (!(radio_4_6_1.checked || radio_4_6_2.checked || radio_4_6_3.checked)) {
+                            // Если все три уникальных значения отсутствуют, показываем всплывающее окно
+                            popup_4_6.style.display = 'flex';
+                        } else {
+                            // Логика перелистывания вперед
+                            const from = document.querySelector('[name="quest_4_6"]');
+                            const to = document.querySelector('[name="quest_4_7"]'); // Предполагается, что этот элемент существует
+                            from.classList.add('animBlockDisappear_next');
+                            from.addEventListener('animationend', function handler() {
+                                from.style.display = 'none';
+                                from.classList.remove('animBlockDisappear_next');
+                                to.style.display = 'block';
+                                to.classList.add('animBlockAppear_next');
+                                to.addEventListener('animationend', function appearHandler() {
+                                    to.classList.remove('animBlockAppear_next');
+                                    to.removeEventListener('animationend', appearHandler);
+                                });
+                                from.removeEventListener('animationend', handler);
+                            });
+                        }
+                    });
+                    // Закрытие всплывающего окна
+                    closeBtn_4_6.addEventListener('click', function () {
+                        popup_4_6.style.display = 'none'; // Скрываем всплывающее окно
+                    });
+                });
+            </script>
+        </div>
+
+
+        <!-- ВОПРОС 7 -->
+
+        <div class="quest_4" name="quest_4_7">
+            <p class="quest_4_title">Диалог 7 из 16</p>
+            <p class="quest_4_text">
+                <i>Дайте оценку использованному приёму</i>
+            </p>
+            <span class="quest_4_text">
+                &emsp;Преуспевающий бизнесмен вспоминал: «Много лет назад пришёл я устраиваться в аспирантуру. Учёный секретарь, дама средних лет, явно была не в духе и в ответ только недовольно что-то бурчала. Тут-то я и приметил у неё на столе что-то вроде коллекции булыжников. Изобразил неподдельный интерес. Мы разговорились, она мне подробно рассказала, какие это безумно дорогие камни. Оказалось, некоторые из них были ей преподнесены известным академиком. Поговорили о камнях, и дама... не менее подробно поведала, что мне нужно сделать, чтобы всё-таки попасть в аспирантуру».</span>
+            <p class="quest_4_text">
+                <span class="affirm_4">Мнение 1</span>Известен принцип, согласно которому нормальное человеческое отношение к оппоненту не обеспечивает успех, но позволяет избежать неудачи.<br>
+            </p>
+            <p class="quest_4_text">
+                <span class="affirm_4">Мнение 2</span>Изображать интерес - уловка, которая часто срабатывает в переговорах, особенно с научными работниками и женщинами.<br>
+            </p>
+            <p class="quest_4_text">
+                <span class="affirm_4">Мнение 3</span>Расслабить оппонента, заставив его говорить о важных для него вещах - распространённый приём в переговорах. Без этого переговоры рискуют не состояться.<br>
+            </p>
+            <section class="quest_4_sect">
+                <button id="btn_4_7_prev" class="btn_nextprev">Назад</button>
+                <div class="inpBlock_4">
+                    <div class="inp_top_4">
+                        <span>Мнение 1</span>
+                        <span>Мнение 2</span>
+                        <span>Мнение 3</span>
+                    </div>
+                    <div class="inp_bottom_4">
+                        <input type="radio" id="4_7_1" class="inpRadio" name="4_7">
+                        <input type="radio" id="4_7_2" class="inpRadio" name="4_7">
+                        <input type="radio" id="4_7_3" class="inpRadio" name="4_7">
+                    </div>
+                </div>
+                <button id="btn_4_7_next" class="btn_nextprev">Далее</button>
+            </section>
+
+            <script>
+                // Перелистывание назад
+                document.getElementById('btn_4_7_prev').addEventListener('click', function () {
+                    var from = document.querySelector('[name="quest_4_7"]');
+                    var to = document.querySelector('[name="quest_4_6"]');
+                    from.classList.add('animBlockDisappear_prev');
+                    from.addEventListener('animationend', function handler() {
+                        from.style.display = 'none';
+                        from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
+                        to.style.display = 'block';
+                        to.classList.add('animBlockAppear_prev'); // Добавляем класс анимации для появления
+                        to.addEventListener('animationend', function appearHandler() {
+                            to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
+                            to.removeEventListener('animationend', appearHandler);
+                        });
+                        from.removeEventListener('animationend', handler);
+                    });
+                });
+                // Переменные всплывающего окна
+                const popup_4_7 = document.getElementById('popup_4');
+                const closeBtn_4_7 = document.getElementById('closeBtn_4');
+                // Кнопка и функция перелистывания вперед
+                const nextButton_4_7 = document.getElementById("btn_4_7_next");
+                document.addEventListener("DOMContentLoaded", function () {
+                    nextButton_4_7.addEventListener("click", function () {
+                        // Получаем радио-кнопки по их id
+                        const radio_4_7_1 = document.getElementById('4_7_1');
+                        const radio_4_7_2 = document.getElementById('4_7_2');
+                        const radio_4_7_3 = document.getElementById('4_7_3');
+                        // Проверяем, есть ли значения 1, 2 и 3 среди ползунков
+                        if (!(radio_4_7_1.checked || radio_4_7_2.checked || radio_4_7_3.checked)) {
+                            // Если все три уникальных значения отсутствуют, показываем всплывающее окно
+                            popup_4_7.style.display = 'flex';
+                        } else {
+                            // Логика перелистывания вперед
+                            const from = document.querySelector('[name="quest_4_7"]');
+                            const to = document.querySelector('[name="quest_4_8"]'); // Предполагается, что этот элемент существует
+                            from.classList.add('animBlockDisappear_next');
+                            from.addEventListener('animationend', function handler() {
+                                from.style.display = 'none';
+                                from.classList.remove('animBlockDisappear_next');
+                                to.style.display = 'block';
+                                to.classList.add('animBlockAppear_next');
+                                to.addEventListener('animationend', function appearHandler() {
+                                    to.classList.remove('animBlockAppear_next');
+                                    to.removeEventListener('animationend', appearHandler);
+                                });
+                                from.removeEventListener('animationend', handler);
+                            });
+                        }
+                    });
+                    // Закрытие всплывающего окна
+                    closeBtn_4_7.addEventListener('click', function () {
+                        popup_4_7.style.display = 'none'; // Скрываем всплывающее окно
+                    });
+                });
+            </script>
+        </div>
+
+
+        <!-- ВОПРОС 8 -->
+
+        <div class="quest_4" name="quest_4_8">
+            <p class="quest_4_title">Диалог 8 из 16</p>
+            <p class="quest_4_text">
+                <i>Дайте оценку действиям поставщика</i>
+            </p>
+            <span class="quest_4_text">
+                &emsp;Переговоры представителей двух фирм, одна из которых задержала на день доставку продукции. Представитель второй недоволен. Реакция «провинившейся» стороны: «Так это же хорошо, что товар не пришёл вовремя. Там как раз работала комиссия, она со своими проверками задержала бы дальнейшую доставку минимум на три недели. Мы опоздали на день, и комиссия уже ушла. Да мы Вам кучу времени сэкономили!»
+            </span>
+            <p class="quest_4_text">
+                <span class="affirm_4">Мнение 1</span>С точки зрения итоговой эффективности подобный ход вполне оправдан. А от задержки в поставках никто не застрахован.<br>
+            </p>
+            <p class="quest_4_text">
+                <span class="affirm_4">Мнение 2</span>В данном случае происходит подмена смысла: изначально разговор идёт об обязательности и доверии, а поставщик аргументирует к выгоде... Это манипуляция.<br>
+            </p>
+            <p class="quest_4_text">
+                <span class="affirm_4">Мнение 3</span>Подобные аргументы не выдерживают критики. Они свидетельствуют об агрессивности и нежелании поставщиков нести ответственность за свою необязательность.<br>
+            </p>
+            <section class="quest_4_sect">
+                <button id="btn_4_8_prev" class="btn_nextprev">Назад</button>
+                <div class="inpBlock_4">
+                    <div class="inp_top_4">
+                        <span>Мнение 1</span>
+                        <span>Мнение 2</span>
+                        <span>Мнение 3</span>
+                    </div>
+                    <div class="inp_bottom_4">
+                        <input type="radio" id="4_8_1" class="inpRadio" name="4_8">
+                        <input type="radio" id="4_8_2" class="inpRadio" name="4_8">
+                        <input type="radio" id="4_8_3" class="inpRadio" name="4_8">
+                    </div>
+                </div>
+                <button id="btn_4_8_next" class="btn_nextprev">Далее</button>
+            </section>
+
+            <script>
+                // Перелистывание назад
+                document.getElementById('btn_4_8_prev').addEventListener('click', function () {
+                    var from = document.querySelector('[name="quest_4_8"]');
+                    var to = document.querySelector('[name="quest_4_7"]');
+                    from.classList.add('animBlockDisappear_prev');
+                    from.addEventListener('animationend', function handler() {
+                        from.style.display = 'none';
+                        from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
+                        to.style.display = 'block';
+                        to.classList.add('animBlockAppear_prev'); // Добавляем класс анимации для появления
+                        to.addEventListener('animationend', function appearHandler() {
+                            to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
+                            to.removeEventListener('animationend', appearHandler);
+                        });
+                        from.removeEventListener('animationend', handler);
+                    });
+                });
+                // Переменные всплывающего окна
+                const popup_4_8 = document.getElementById('popup_4');
+                const closeBtn_4_8 = document.getElementById('closeBtn_4');
+                // Кнопка и функция перелистывания вперед
+                const nextButton_4_8 = document.getElementById("btn_4_8_next");
+                document.addEventListener("DOMContentLoaded", function () {
+                    nextButton_4_8.addEventListener("click", function () {
+                        // Получаем радио-кнопки по их id
+                        const radio_4_8_1 = document.getElementById('4_8_1');
+                        const radio_4_8_2 = document.getElementById('4_8_2');
+                        const radio_4_8_3 = document.getElementById('4_8_3');
+                        // Проверяем, есть ли значения 1, 2 и 3 среди ползунков
+                        if (!(radio_4_8_1.checked || radio_4_8_2.checked || radio_4_8_3.checked)) {
+                            // Если все три уникальных значения отсутствуют, показываем всплывающее окно
+                            popup_4_8.style.display = 'flex';
+                        } else {
+                            // Логика перелистывания вперед
+                            const from = document.querySelector('[name="quest_4_8"]');
+                            const to = document.querySelector('[name="quest_4_9"]'); // Предполагается, что этот элемент существует
+                            from.classList.add('animBlockDisappear_next');
+                            from.addEventListener('animationend', function handler() {
+                                from.style.display = 'none';
+                                from.classList.remove('animBlockDisappear_next');
+                                to.style.display = 'block';
+                                to.classList.add('animBlockAppear_next');
+                                to.addEventListener('animationend', function appearHandler() {
+                                    to.classList.remove('animBlockAppear_next');
+                                    to.removeEventListener('animationend', appearHandler);
+                                });
+                                from.removeEventListener('animationend', handler);
+                            });
+                        }
+                    });
+                    // Закрытие всплывающего окна
+                    closeBtn_4_8.addEventListener('click', function () {
+                        popup_4_8.style.display = 'none'; // Скрываем всплывающее окно
+                    });
+                });
+            </script>
+        </div>
+
+
+        <!-- ВОПРОС 9 -->
+
+        <div class="quest_4" name="quest_4_9">
+            <p class="quest_4_title">Диалог 9 из 16</p>
+            <p class="quest_4_text">
+                <i>Дайте оценку переговорному ходу</i>
+            </p>
+            <span class="quest_4_text">
+                &emsp;В ответ на заверения партнёра о надёжном партнёрстве с азиатскими компаниями переговорщик заявляет: «Да Вы смеётесь! Все азиаты - лентяи и разгильдяи, с ними нельзя работать».
+            </span>
+            <p class="quest_4_text">
+                <span class="affirm_4">Мнение 1</span>Это обычная эмоциональная реакция. Вероятно, у говорящего богатый опыт, который позволяет ему делать подобные заявления.<br>
+            </p>
+            <p class="quest_4_text">
+                <span class="affirm_4">Мнение 2</span>Иногда подобные высказывания позволяют «обнулить» аргументы оппонентов. Это манипуляция.<br>
+            </p>
+            <p class="quest_4_text">
+                <span class="affirm_4">Мнение 3</span>Подобные высказывания провоцируют оппонента предъявить более серьёзную аргументацию в защиту своего предложения.<br>
+            </p>
+            <section class="quest_4_sect">
+                <button id="btn_4_9_prev" class="btn_nextprev">Назад</button>
+                <div class="inpBlock_4">
+                    <div class="inp_top_4">
+                        <span>Мнение 1</span>
+                        <span>Мнение 2</span>
+                        <span>Мнение 3</span>
+                    </div>
+                    <div class="inp_bottom_4">
+                        <input type="radio" id="4_9_1" class="inpRadio" name="4_9">
+                        <input type="radio" id="4_9_2" class="inpRadio" name="4_9">
+                        <input type="radio" id="4_9_3" class="inpRadio" name="4_9">
+                    </div>
+                </div>
+                <button id="btn_4_9_next" class="btn_nextprev">Далее</button>
+            </section>
+
+            <script>
+                // Перелистывание назад
+                document.getElementById('btn_4_9_prev').addEventListener('click', function () {
+                    var from = document.querySelector('[name="quest_4_9"]');
+                    var to = document.querySelector('[name="quest_4_8"]');
+                    from.classList.add('animBlockDisappear_prev');
+                    from.addEventListener('animationend', function handler() {
+                        from.style.display = 'none';
+                        from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
+                        to.style.display = 'block';
+                        to.classList.add('animBlockAppear_prev'); // Добавляем класс анимации для появления
+                        to.addEventListener('animationend', function appearHandler() {
+                            to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
+                            to.removeEventListener('animationend', appearHandler);
+                        });
+                        from.removeEventListener('animationend', handler);
+                    });
+                });
+                // Переменные всплывающего окна
+                const popup_4_9 = document.getElementById('popup_4');
+                const closeBtn_4_9 = document.getElementById('closeBtn_4');
+                // Кнопка и функция перелистывания вперед
+                const nextButton_4_9 = document.getElementById("btn_4_9_next");
+                document.addEventListener("DOMContentLoaded", function () {
+                    nextButton_4_9.addEventListener("click", function () {
+                        // Получаем радио-кнопки по их id
+                        const radio_4_9_1 = document.getElementById('4_9_1');
+                        const radio_4_9_2 = document.getElementById('4_9_2');
+                        const radio_4_9_3 = document.getElementById('4_9_3');
+                        // Проверяем, есть ли значения 1, 2 и 3 среди ползунков
+                        if (!(radio_4_9_1.checked || radio_4_9_2.checked || radio_4_9_3.checked)) {
+                            // Если все три уникальных значения отсутствуют, показываем всплывающее окно
+                            popup_4_9.style.display = 'flex';
+                        } else {
+                            // Логика перелистывания вперед
+                            const from = document.querySelector('[name="quest_4_9"]');
+                            const to = document.querySelector('[name="quest_4_10"]'); // Предполагается, что этот элемент существует
+                            from.classList.add('animBlockDisappear_next');
+                            from.addEventListener('animationend', function handler() {
+                                from.style.display = 'none';
+                                from.classList.remove('animBlockDisappear_next');
+                                to.style.display = 'block';
+                                to.classList.add('animBlockAppear_next');
+                                to.addEventListener('animationend', function appearHandler() {
+                                    to.classList.remove('animBlockAppear_next');
+                                    to.removeEventListener('animationend', appearHandler);
+                                });
+                                from.removeEventListener('animationend', handler);
+                            });
+                        }
+                    });
+                    // Закрытие всплывающего окна
+                    closeBtn_4_9.addEventListener('click', function () {
+                        popup_4_9.style.display = 'none'; // Скрываем всплывающее окно
+                    });
+                });
+            </script>
+        </div>
+
+
+        <!-- ВОПРОС 10 -->
+
+        <div class="quest_4" name="quest_4_10">
+            <p class="quest_4_title">Диалог 10 из 16</p>
+            <p class="quest_4_text">
+                <i>Дайте оценку приёму</i>
+            </p>
+            <span class="quest_4_text">
+                &emsp;Один известный бизнесмен, встречая партнёра, радушно ему улыбался, поздравлял с успехом. Тот расслаблялся, а наш герой продолжал: «Только как же Вы так на той выставке обломались-то, а? Ведь обошли же Вас конкуренты, по всем статьям обошли!»</span>
+            <p class="quest_4_text">
+                <span class="affirm_4">Мнение 1</span>Если на вашей стороне сила - почему бы её не применить. Ещё Ричард Никсон пользовался подобным приёмом: бомбы, переговоры, потом опять бомбы...<br>
+            </p>
+            <p class="quest_4_text">
+                <span class="affirm_4">Мнение 2</span>Цель приёма - заставить оправдываться, потерять уверенность в себе. Таким приёмам надо уметь противостоять.<br>
+            </p>
+            <p class="quest_4_text">
+                <span class="affirm_4">Мнение 3</span>Нет никаких приёмов. Это простой неформальный трёп, к которому не нужно серьёзно относиться.<br>
+            </p>
+            <section class="quest_4_sect">
+                <button id="btn_4_10_prev" class="btn_nextprev">Назад</button>
+                <div class="inpBlock_4">
+                    <div class="inp_top_4">
+                        <span>Мнение 1</span>
+                        <span>Мнение 2</span>
+                        <span>Мнение 3</span>
+                    </div>
+                    <div class="inp_bottom_4">
+                        <input type="radio" id="4_10_1" class="inpRadio" name="4_10">
+                        <input type="radio" id="4_10_2" class="inpRadio" name="4_10">
+                        <input type="radio" id="4_10_3" class="inpRadio" name="4_10">
+                    </div>
+                </div>
+                <button id="btn_4_10_next" class="btn_nextprev">Далее</button>
+            </section>
+
+            <script>
+                // Перелистывание назад
+                document.getElementById('btn_4_10_prev').addEventListener('click', function () {
+                    var from = document.querySelector('[name="quest_4_10"]');
+                    var to = document.querySelector('[name="quest_4_9"]');
+                    from.classList.add('animBlockDisappear_prev');
+                    from.addEventListener('animationend', function handler() {
+                        from.style.display = 'none';
+                        from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
+                        to.style.display = 'block';
+                        to.classList.add('animBlockAppear_prev'); // Добавляем класс анимации для появления
+                        to.addEventListener('animationend', function appearHandler() {
+                            to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
+                            to.removeEventListener('animationend', appearHandler);
+                        });
+                        from.removeEventListener('animationend', handler);
+                    });
+                });
+                // Переменные всплывающего окна
+                const popup_4_10 = document.getElementById('popup_4');
+                const closeBtn_4_10 = document.getElementById('closeBtn_4');
+                // Кнопка и функция перелистывания вперед
+                const nextButton_4_10 = document.getElementById("btn_4_10_next");
+                document.addEventListener("DOMContentLoaded", function () {
+                    nextButton_4_10.addEventListener("click", function () {
+                        // Получаем радио-кнопки по их id
+                        const radio_4_10_1 = document.getElementById('4_10_1');
+                        const radio_4_10_2 = document.getElementById('4_10_2');
+                        const radio_4_10_3 = document.getElementById('4_10_3');
+                        // Проверяем, есть ли значения 1, 2 и 3 среди ползунков
+                        if (!(radio_4_10_1.checked || radio_4_10_2.checked || radio_4_10_3.checked)) {
+                            // Если все три уникальных значения отсутствуют, показываем всплывающее окно
+                            popup_4_10.style.display = 'flex';
+                        } else {
+                            // Логика перелистывания вперед
+                            const from = document.querySelector('[name="quest_4_10"]');
+                            const to = document.querySelector('[name="quest_4_11"]'); // Предполагается, что этот элемент существует
+                            from.classList.add('animBlockDisappear_next');
+                            from.addEventListener('animationend', function handler() {
+                                from.style.display = 'none';
+                                from.classList.remove('animBlockDisappear_next');
+                                to.style.display = 'block';
+                                to.classList.add('animBlockAppear_next');
+                                to.addEventListener('animationend', function appearHandler() {
+                                    to.classList.remove('animBlockAppear_next');
+                                    to.removeEventListener('animationend', appearHandler);
+                                });
+                                from.removeEventListener('animationend', handler);
+                            });
+                        }
+                    });
+                    // Закрытие всплывающего окна
+                    closeBtn_4_10.addEventListener('click', function () {
+                        popup_4_10.style.display = 'none'; // Скрываем всплывающее окно
+                    });
+                });
+            </script>
+        </div>
+
+
+        <!-- ВОПРОС 11 -->
+
+        <div class="quest_4" name="quest_4_11">
+            <p class="quest_4_title">Диалог 11 из 16</p>
+            <p class="quest_4_text">
+                <i>Дайте оценку действиям контактёра</i>
+            </p>
+            <span class="quest_4_text">
+                &emsp;В кросскультурных переговорах контактёр заявляет, что для заключения контракта необходимо предоставить бумаги согласно длинному перечню. В ответ на возражение, что «в нашей стране это невозможно, нам это три года собирать придётся...» он говорит: «Нет, так не пойдёт, у нас свои правила, их нельзя нарушать. Хотя... Ладно, только для Вас сделаем исключение. Разумеется, если Вы пойдёте на некоторые уступки и откажетесь от определённых ожиданий».
+            </span>
+            <p class="quest_4_text">
+                <span class="affirm_4">Мнение 1</span>Нелепые требования - вовсе не глупость. Добиваясь нереального, можно оставить за собой пространство для манёвра.<br>
+            </p>
+            <p class="quest_4_text">
+                <span class="affirm_4">Мнение 2</span>Подобный подход выгоден тактически: можно отказаться от некоторых заранее завышенных условий, представив это как серьёзную уступку.<br>
+            </p>
+            <p class="quest_4_text">
+                <span class="affirm_4">Мнение 3</span>Тактика тактикой, но стратегические договорённости с подобными партнёрами могут быть ненадёжны.<br>
+            </p>
+            <section class="quest_4_sect">
+                <button id="btn_4_11_prev" class="btn_nextprev">Назад</button>
+                <div class="inpBlock_4">
+                    <div class="inp_top_4">
+                        <span>Мнение 1</span>
+                        <span>Мнение 2</span>
+                        <span>Мнение 3</span>
+                    </div>
+                    <div class="inp_bottom_4">
+                        <input type="radio" id="4_11_1" class="inpRadio" name="4_11">
+                        <input type="radio" id="4_11_2" class="inpRadio" name="4_11">
+                        <input type="radio" id="4_11_3" class="inpRadio" name="4_11">
+                    </div>
+                </div>
+                <button id="btn_4_11_next" class="btn_nextprev">Далее</button>
+            </section>
+
+            <script>
+                // Перелистывание назад
+                document.getElementById('btn_4_11_prev').addEventListener('click', function () {
+                    var from = document.querySelector('[name="quest_4_11"]');
+                    var to = document.querySelector('[name="quest_4_10"]');
+                    from.classList.add('animBlockDisappear_prev');
+                    from.addEventListener('animationend', function handler() {
+                        from.style.display = 'none';
+                        from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
+                        to.style.display = 'block';
+                        to.classList.add('animBlockAppear_prev'); // Добавляем класс анимации для появления
+                        to.addEventListener('animationend', function appearHandler() {
+                            to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
+                            to.removeEventListener('animationend', appearHandler);
+                        });
+                        from.removeEventListener('animationend', handler);
+                    });
+                });
+                // Переменные всплывающего окна
+                const popup_4_11 = document.getElementById('popup_4');
+                const closeBtn_4_11 = document.getElementById('closeBtn_4');
+                // Кнопка и функция перелистывания вперед
+                const nextButton_4_11 = document.getElementById("btn_4_11_next");
+                document.addEventListener("DOMContentLoaded", function () {
+                    nextButton_4_11.addEventListener("click", function () {
+                        // Получаем радио-кнопки по их id
+                        const radio_4_11_1 = document.getElementById('4_11_1');
+                        const radio_4_11_2 = document.getElementById('4_11_2');
+                        const radio_4_11_3 = document.getElementById('4_11_3');
+                        // Проверяем, есть ли значения 1, 2 и 3 среди ползунков
+                        if (!(radio_4_11_1.checked || radio_4_11_2.checked || radio_4_11_3.checked)) {
+                            // Если все три уникальных значения отсутствуют, показываем всплывающее окно
+                            popup_4_11.style.display = 'flex';
+                        } else {
+                            // Логика перелистывания вперед
+                            const from = document.querySelector('[name="quest_4_11"]');
+                            const to = document.querySelector('[name="quest_4_12"]'); // Предполагается, что этот элемент существует
+                            from.classList.add('animBlockDisappear_next');
+                            from.addEventListener('animationend', function handler() {
+                                from.style.display = 'none';
+                                from.classList.remove('animBlockDisappear_next');
+                                to.style.display = 'block';
+                                to.classList.add('animBlockAppear_next');
+                                to.addEventListener('animationend', function appearHandler() {
+                                    to.classList.remove('animBlockAppear_next');
+                                    to.removeEventListener('animationend', appearHandler);
+                                });
+                                from.removeEventListener('animationend', handler);
+                            });
+                        }
+                    });
+                    // Закрытие всплывающего окна
+                    closeBtn_4_11.addEventListener('click', function () {
+                        popup_4_11.style.display = 'none'; // Скрываем всплывающее окно
+                    });
+                });
+            </script>
+        </div>
+
+
+        <!-- ВОПРОС 12 -->
+
+        <div class="quest_4" name="quest_4_12">
+            <p class="quest_4_title">Диалог 12 из 16</p>
+            <p class="quest_4_text">
+                <i>Оцените позицию переговорщика</i>
+            </p>
+            <span class="quest_4_text">
+                &emsp;В ответ на угрозу опубликовать «пикантную информацию» о личной жизни переговорщика в прессе, если тот откажется выполнять требования другой стороны, переговорщик заявляет: «Я повторяю, никакие Ваши угрозы и шантаж на меня не действуют. Либо мы ведём деловые переговоры, либо я прекращаю их! При таком подходе мне с Вами не о чем разговаривать!»
+            </span>
+            <p class="quest_4_text">
+                <span class="affirm_4">Мнение 1</span>Подобная позиция в переговорах с шантажистом неэффективна, поскольку однозначно запускает негативный сценарий его действий.<br>
+            </p>
+            <p class="quest_4_text">
+                <span class="affirm_4">Мнение 2</span>Переговоры - процесс длительный. В одном раунде можно проиграть, выиграв время для реванша позднее.<br>
+            </p>
+            <p class="quest_4_text">
+                <span class="affirm_4">Мнение 3</span>Только так и надо разговаривать с шантажистами. Не стоит давать кому-либо повода для давления.<br>
+            </p>
+            <section class="quest_4_sect">
+                <button id="btn_4_12_prev" class="btn_nextprev">Назад</button>
+                <div class="inpBlock_4">
+                    <div class="inp_top_4">
+                        <span>Мнение 1</span>
+                        <span>Мнение 2</span>
+                        <span>Мнение 3</span>
+                    </div>
+                    <div class="inp_bottom_4">
+                        <input type="radio" id="4_12_1" class="inpRadio" name="4_12">
+                        <input type="radio" id="4_12_2" class="inpRadio" name="4_12">
+                        <input type="radio" id="4_12_3" class="inpRadio" name="4_12">
+                    </div>
+                </div>
+                <button id="btn_4_12_next" class="btn_nextprev">Далее</button>
+            </section>
+
+            <script>
+                // Перелистывание назад
+                document.getElementById('btn_4_12_prev').addEventListener('click', function () {
+                    var from = document.querySelector('[name="quest_4_12"]');
+                    var to = document.querySelector('[name="quest_4_11"]');
+                    from.classList.add('animBlockDisappear_prev');
+                    from.addEventListener('animationend', function handler() {
+                        from.style.display = 'none';
+                        from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
+                        to.style.display = 'block';
+                        to.classList.add('animBlockAppear_prev'); // Добавляем класс анимации для появления
+                        to.addEventListener('animationend', function appearHandler() {
+                            to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
+                            to.removeEventListener('animationend', appearHandler);
+                        });
+                        from.removeEventListener('animationend', handler);
+                    });
+                });
+                // Переменные всплывающего окна
+                const popup_4_12 = document.getElementById('popup_4');
+                const closeBtn_4_12 = document.getElementById('closeBtn_4');
+                // Кнопка и функция перелистывания вперед
+                const nextButton_4_12 = document.getElementById("btn_4_12_next");
+                document.addEventListener("DOMContentLoaded", function () {
+                    nextButton_4_12.addEventListener("click", function () {
+                        // Получаем радио-кнопки по их id
+                        const radio_4_12_1 = document.getElementById('4_12_1');
+                        const radio_4_12_2 = document.getElementById('4_12_2');
+                        const radio_4_12_3 = document.getElementById('4_12_3');
+                        // Проверяем, есть ли значения 1, 2 и 3 среди ползунков
+                        if (!(radio_4_12_1.checked || radio_4_12_2.checked || radio_4_12_3.checked)) {
+                            // Если все три уникальных значения отсутствуют, показываем всплывающее окно
+                            popup_4_12.style.display = 'flex';
+                        } else {
+                            // Логика перелистывания вперед
+                            const from = document.querySelector('[name="quest_4_12"]');
+                            const to = document.querySelector('[name="quest_4_13"]'); // Предполагается, что этот элемент существует
+                            from.classList.add('animBlockDisappear_next');
+                            from.addEventListener('animationend', function handler() {
+                                from.style.display = 'none';
+                                from.classList.remove('animBlockDisappear_next');
+                                to.style.display = 'block';
+                                to.classList.add('animBlockAppear_next');
+                                to.addEventListener('animationend', function appearHandler() {
+                                    to.classList.remove('animBlockAppear_next');
+                                    to.removeEventListener('animationend', appearHandler);
+                                });
+                                from.removeEventListener('animationend', handler);
+                            });
+                        }
+                    });
+                    // Закрытие всплывающего окна
+                    closeBtn_4_12.addEventListener('click', function () {
+                        popup_4_12.style.display = 'none'; // Скрываем всплывающее окно
+                    });
+                });
+            </script>
+        </div>
+
+
+        <!-- ВОПРОС 13 -->
+
+        <div class="quest_4" name="quest_4_13">
+            <p class="quest_4_title">Диалог 13 из 16</p>
+            <p class="quest_4_text">
+                <i>Как следует поступить переговорщику?</i>
+            </p>
+            <span class="quest_4_text">
+                &emsp;После вопроса «Кого Вы представляете и имеете ли Вы полномочия на ведение переговоров?» переговорщик получил следующий ответ: «Видите ли, наш отдел занимается подготовкой переговорного процесса... Поэтому сегодня прямых полномочий принимать решения у нас нет».
+            </span>
+            <p class="quest_4_text">
+                <span class="affirm_4">Мнение 1</span>Переговорщик может получить максимальную выгоду из предварительных переговоров и выйти на лицо, принимающее решение, заинтересовав собой и своим предложением «промежуточное звено».<br>
+            </p>
+            <p class="quest_4_text">
+                <span class="affirm_4">Мнение 2</span>Переговорщик может максимально исследовать позицию оппонентов, не показывая свою, чтобы до переговоров с принимающим решение лицом поменять или уточнить свою позицию.<br>
+            </p>
+            <p class="quest_4_text">
+                <span class="affirm_4">Мнение 3</span>Вести переговоры с человеком, не принимающим решение - потеря времени. Переговорщику следует сформулировать сообщение для передачи ответственным лицам и покинуть переговоры.<br>
+            </p>
+            <section class="quest_4_sect">
+                <button id="btn_4_13_prev" class="btn_nextprev">Назад</button>
+                <div class="inpBlock_4">
+                    <div class="inp_top_4">
+                        <span>Мнение 1</span>
+                        <span>Мнение 2</span>
+                        <span>Мнение 3</span>
+                    </div>
+                    <div class="inp_bottom_4">
+                        <input type="radio" id="4_13_1" class="inpRadio" name="4_13">
+                        <input type="radio" id="4_13_2" class="inpRadio" name="4_13">
+                        <input type="radio" id="4_13_3" class="inpRadio" name="4_13">
+                    </div>
+                </div>
+                <button id="btn_4_13_next" class="btn_nextprev">Далее</button>
+            </section>
+
+            <script>
+                // Перелистывание назад
+                document.getElementById('btn_4_13_prev').addEventListener('click', function () {
+                    var from = document.querySelector('[name="quest_4_13"]');
+                    var to = document.querySelector('[name="quest_4_12"]');
+                    from.classList.add('animBlockDisappear_prev');
+                    from.addEventListener('animationend', function handler() {
+                        from.style.display = 'none';
+                        from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
+                        to.style.display = 'block';
+                        to.classList.add('animBlockAppear_prev'); // Добавляем класс анимации для появления
+                        to.addEventListener('animationend', function appearHandler() {
+                            to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
+                            to.removeEventListener('animationend', appearHandler);
+                        });
+                        from.removeEventListener('animationend', handler);
+                    });
+                });
+                // Переменные всплывающего окна
+                const popup_4_13 = document.getElementById('popup_4');
+                const closeBtn_4_13 = document.getElementById('closeBtn_4');
+                // Кнопка и функция перелистывания вперед
+                const nextButton_4_13 = document.getElementById("btn_4_13_next");
+                document.addEventListener("DOMContentLoaded", function () {
+                    nextButton_4_13.addEventListener("click", function () {
+                        // Получаем радио-кнопки по их id
+                        const radio_4_13_1 = document.getElementById('4_13_1');
+                        const radio_4_13_2 = document.getElementById('4_13_2');
+                        const radio_4_13_3 = document.getElementById('4_13_3');
+                        // Проверяем, есть ли значения 1, 2 и 3 среди ползунков
+                        if (!(radio_4_13_1.checked || radio_4_13_2.checked || radio_4_13_3.checked)) {
+                            // Если все три уникальных значения отсутствуют, показываем всплывающее окно
+                            popup_4_13.style.display = 'flex';
+                        } else {
+                            // Логика перелистывания вперед
+                            const from = document.querySelector('[name="quest_4_13"]');
+                            const to = document.querySelector('[name="quest_4_14"]'); // Предполагается, что этот элемент существует
+                            from.classList.add('animBlockDisappear_next');
+                            from.addEventListener('animationend', function handler() {
+                                from.style.display = 'none';
+                                from.classList.remove('animBlockDisappear_next');
+                                to.style.display = 'block';
+                                to.classList.add('animBlockAppear_next');
+                                to.addEventListener('animationend', function appearHandler() {
+                                    to.classList.remove('animBlockAppear_next');
+                                    to.removeEventListener('animationend', appearHandler);
+                                });
+                                from.removeEventListener('animationend', handler);
+                            });
+                        }
+                    });
+                    // Закрытие всплывающего окна
+                    closeBtn_4_13.addEventListener('click', function () {
+                        popup_4_13.style.display = 'none'; // Скрываем всплывающее окно
+                    });
+                });
+            </script>
+        </div>
+
+
+        <!-- ВОПРОС 14 -->
+
+        <div class="quest_4" name="quest_4_14">
+            <p class="quest_4_title">Диалог 14 из 16</p>
+            <p class="quest_4_text">
+                <i>Оцените действия переговорщика</i>
+            </p>
+            <span class="quest_4_text">
+                &emsp;В затянувшихся переговорах по дополнениям к контракту партнёр предлагает по новой обсудить все условия. На что переговорщик говорит: «Я, конечно, могу ошибаться, но мне кажется, что Вы умышленно затягиваете переговоры. Давайте будем честны друг с другом».
+            </span>
+            <p class="quest_4_text">
+                <span class="affirm_4">Мнение 1</span>Вынесение на обсуждение самого факта затягивания переговоров позволит перехватить управление и повлиять на тактику оппонентов.<br>
+            </p>
+            <p class="quest_4_text">
+                <span class="affirm_4">Мнение 2</span>Подобная реакция - это фактически обвинение партнёра в некорректном ведении переговоров. Теперь переговорщик несет ответственность за недоговорённость.<br>
+            </p>
+            <p class="quest_4_text">
+                <span class="affirm_4">Мнение 3</span>Действия переговорщика - игра, уловка, чтобы переключить внимание оппонентов и выиграть время для «подумать о выдвинутом предложении».<br>
+            </p>
+            <section class="quest_4_sect">
+                <button id="btn_4_14_prev" class="btn_nextprev">Назад</button>
+                <div class="inpBlock_4">
+                    <div class="inp_top_4">
+                        <span>Мнение 1</span>
+                        <span>Мнение 2</span>
+                        <span>Мнение 3</span>
+                    </div>
+                    <div class="inp_bottom_4">
+                        <input type="radio" id="4_14_1" class="inpRadio" name="4_14">
+                        <input type="radio" id="4_14_2" class="inpRadio" name="4_14">
+                        <input type="radio" id="4_14_3" class="inpRadio" name="4_14">
+                    </div>
+                </div>
+                <button id="btn_4_14_next" class="btn_nextprev">Далее</button>
+            </section>
+
+            <script>
+                // Перелистывание назад
+                document.getElementById('btn_4_14_prev').addEventListener('click', function () {
+                    var from = document.querySelector('[name="quest_4_14"]');
+                    var to = document.querySelector('[name="quest_4_13"]');
+                    from.classList.add('animBlockDisappear_prev');
+                    from.addEventListener('animationend', function handler() {
+                        from.style.display = 'none';
+                        from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
+                        to.style.display = 'block';
+                        to.classList.add('animBlockAppear_prev'); // Добавляем класс анимации для появления
+                        to.addEventListener('animationend', function appearHandler() {
+                            to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
+                            to.removeEventListener('animationend', appearHandler);
+                        });
+                        from.removeEventListener('animationend', handler);
+                    });
+                });
+                // Переменные всплывающего окна
+                const popup_4_14 = document.getElementById('popup_4');
+                const closeBtn_4_14 = document.getElementById('closeBtn_4');
+                // Кнопка и функция перелистывания вперед
+                const nextButton_4_14 = document.getElementById("btn_4_14_next");
+                document.addEventListener("DOMContentLoaded", function () {
+                    nextButton_4_14.addEventListener("click", function () {
+                        // Получаем радио-кнопки по их id
+                        const radio_4_14_1 = document.getElementById('4_14_1');
+                        const radio_4_14_2 = document.getElementById('4_14_2');
+                        const radio_4_14_3 = document.getElementById('4_14_3');
+                        // Проверяем, есть ли значения 1, 2 и 3 среди ползунков
+                        if (!(radio_4_14_1.checked || radio_4_14_2.checked || radio_4_14_3.checked)) {
+                            // Если все три уникальных значения отсутствуют, показываем всплывающее окно
+                            popup_4_14.style.display = 'flex';
+                        } else {
+                            // Логика перелистывания вперед
+                            const from = document.querySelector('[name="quest_4_14"]');
+                            const to = document.querySelector('[name="quest_4_15"]'); // Предполагается, что этот элемент существует
+                            from.classList.add('animBlockDisappear_next');
+                            from.addEventListener('animationend', function handler() {
+                                from.style.display = 'none';
+                                from.classList.remove('animBlockDisappear_next');
+                                to.style.display = 'block';
+                                to.classList.add('animBlockAppear_next');
+                                to.addEventListener('animationend', function appearHandler() {
+                                    to.classList.remove('animBlockAppear_next');
+                                    to.removeEventListener('animationend', appearHandler);
+                                });
+                                from.removeEventListener('animationend', handler);
+                            });
+                        }
+                    });
+                    // Закрытие всплывающего окна
+                    closeBtn_4_14.addEventListener('click', function () {
+                        popup_4_14.style.display = 'none'; // Скрываем всплывающее окно
+                    });
+                });
+            </script>
+        </div>
+
+
+        <!-- ВОПРОС 15 -->
+
+        <div class="quest_4" name="quest_4_15">
+            <p class="quest_4_title">Диалог 15 из 16</p>
+            <p class="quest_4_text">
+                <i>Дайте оценку высказыванию продавца</i>
+            </p>
+            <span class="quest_4_text">
+                &emsp;«Вы даёте за дом только пятьдесят? Это ваше последнее слово? А если я его покрашу и отремонтирую?»</span>
+            <p class="quest_4_text">
+                <span class="affirm_4">Мнение 1</span>Со стороны продавца это попытка поднять цену и узнать, насколько покупатели стеснены в средствах.<br>
+            </p>
+            <p class="quest_4_text">
+                <span class="affirm_4">Мнение 2</span>Это стандартный приём работы с ценовыми возражениями. Продавец пытается увеличить «размер пирога», предлагая покупателю дополнительную услугу.<br>
+            </p>
+            <p class="quest_4_text">
+                <span class="affirm_4">Мнение 3</span>Подобное можно воспринимать как «клоунство», неуместное в серьёзных переговорах, что свидетельствуют о слабости продавца.<br>
+            </p>
+            <section class="quest_4_sect">
+                <button id="btn_4_15_prev" class="btn_nextprev">Назад</button>
+                <div class="inpBlock_4">
+                    <div class="inp_top_4">
+                        <span>Мнение 1</span>
+                        <span>Мнение 2</span>
+                        <span>Мнение 3</span>
+                    </div>
+                    <div class="inp_bottom_4">
+                        <input type="radio" id="4_15_1" class="inpRadio" name="4_15">
+                        <input type="radio" id="4_15_2" class="inpRadio" name="4_15">
+                        <input type="radio" id="4_15_3" class="inpRadio" name="4_15">
+                    </div>
+                </div>
+                <button id="btn_4_15_next" class="btn_nextprev">Далее</button>
+            </section>
+
+            <script>
+                // Перелистывание назад
+                document.getElementById('btn_4_15_prev').addEventListener('click', function () {
+                    var from = document.querySelector('[name="quest_4_15"]');
+                    var to = document.querySelector('[name="quest_4_14"]');
+                    from.classList.add('animBlockDisappear_prev');
+                    from.addEventListener('animationend', function handler() {
+                        from.style.display = 'none';
+                        from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
+                        to.style.display = 'block';
+                        to.classList.add('animBlockAppear_prev'); // Добавляем класс анимации для появления
+                        to.addEventListener('animationend', function appearHandler() {
+                            to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
+                            to.removeEventListener('animationend', appearHandler);
+                        });
+                        from.removeEventListener('animationend', handler);
+                    });
+                });
+                // Переменные всплывающего окна
+                const popup_4_15 = document.getElementById('popup_4');
+                const closeBtn_4_15 = document.getElementById('closeBtn_4');
+                // Кнопка и функция перелистывания вперед
+                const nextButton_4_15 = document.getElementById("btn_4_15_next");
+                document.addEventListener("DOMContentLoaded", function () {
+                    nextButton_4_15.addEventListener("click", function () {
+                        // Получаем радио-кнопки по их id
+                        const radio_4_15_1 = document.getElementById('4_15_1');
+                        const radio_4_15_2 = document.getElementById('4_15_2');
+                        const radio_4_15_3 = document.getElementById('4_15_3');
+                        // Проверяем, есть ли значения 1, 2 и 3 среди ползунков
+                        if (!(radio_4_15_1.checked || radio_4_15_2.checked || radio_4_15_3.checked)) {
+                            // Если все три уникальных значения отсутствуют, показываем всплывающее окно
+                            popup_4_15.style.display = 'flex';
+                        } else {
+                            // Логика перелистывания вперед
+                            const from = document.querySelector('[name="quest_4_15"]');
+                            const to = document.querySelector('[name="quest_4_16"]'); // Предполагается, что этот элемент существует
+                            from.classList.add('animBlockDisappear_next');
+                            from.addEventListener('animationend', function handler() {
+                                from.style.display = 'none';
+                                from.classList.remove('animBlockDisappear_next');
+                                to.style.display = 'block';
+                                to.classList.add('animBlockAppear_next');
+                                to.addEventListener('animationend', function appearHandler() {
+                                    to.classList.remove('animBlockAppear_next');
+                                    to.removeEventListener('animationend', appearHandler);
+                                });
+                                from.removeEventListener('animationend', handler);
+                            });
+                        }
+                    });
+                    // Закрытие всплывающего окна
+                    closeBtn_4_15.addEventListener('click', function () {
+                        popup_4_15.style.display = 'none'; // Скрываем всплывающее окно
+                    });
+                });
+            </script>
+        </div>
+
+
+        <!-- ВОПРОС 16 -->
+
+        <div class="quest_4" name="quest_4_16">
+            <p class="quest_4_title">Диалог 16 из 16</p>
+            <p class="quest_4_text">
+                <i>Дайте оценку действиям менеджера</i>
+            </p>
+            <span class="quest_4_text">
+                &emsp;Компания поставляет оборудование для мойки посуды и стирки белья. Менеджер по работе с жалобами выехал на объект и тщательно собрал всю информацию: где, как, когда и что конкретно беспокоит клиента. Он с озабоченным видом запросил журнал регистрации данных о напоре воды в водопроводе и бланк регистрации перепадов напряжения в электросети. Жалобщик слыхом не слыхивал ни о чём подобном. Тогда менеджер заявил: «Вот в чём причина. Мы всегда предупреждаем, что эти факторы могут привести к ухудшению качества работы оборудования. Зовите того, кто отвечает за эти вопросы». В последующем разговоре с инженером он предложил поставить новые датчики для измерения колебания электрического тока и напора воды.</span>
+            <p class="quest_4_text">
+                <span class="affirm_4">Мнение 1</span>Менеджер фактически переложил ответственность на плечи покупателя. Теперь их обращения будут более обоснованными.<br>
+            </p>
+            <p class="quest_4_text">
+                <span class="affirm_4">Мнение 2</span>Менеджер - хороший продавец. Выехав на переговоры по факту рекламации, он договаривается о поставках дополнительного оборудования.<br>
+            </p>
+            <p class="quest_4_text">
+                <span class="affirm_4">Мнение 3</span>Менеджер грамотно выполнил свою работу. Он не только исследовал причины некачественной работы оборудования, но и предложил реальные способы профилактики.<br>
+            </p>
+            <section class="quest_4_sect">
+                <button id="btn_4_16_prev" class="btn_nextprev">Назад</button>
+                <div class="inpBlock_4">
+                    <div class="inp_top_4">
+                        <span>Мнение 1</span>
+                        <span>Мнение 2</span>
+                        <span>Мнение 3</span>
+                    </div>
+                    <div class="inp_bottom_4">
+                        <input type="radio" id="4_16_1" class="inpRadio" name="4_16">
+                        <input type="radio" id="4_16_2" class="inpRadio" name="4_16">
+                        <input type="radio" id="4_16_3" class="inpRadio" name="4_16">
+                    </div>
+                </div>
+                <button id="btn_4_16_next" class="btn_nextprev">Далее</button>
+            </section>
+
+            <script>
+                // Перелистывание назад
+                document.getElementById('btn_4_16_prev').addEventListener('click', function () {
+                    var from = document.querySelector('[name="quest_4_16"]');
+                    var to = document.querySelector('[name="quest_4_15"]');
+                    from.classList.add('animBlockDisappear_prev');
+                    from.addEventListener('animationend', function handler() {
+                        from.style.display = 'none';
+                        from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
+                        to.style.display = 'block';
+                        to.classList.add('animBlockAppear_prev'); // Добавляем класс анимации для появления
+                        to.addEventListener('animationend', function appearHandler() {
+                            to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
+                            to.removeEventListener('animationend', appearHandler);
+                        });
+                        from.removeEventListener('animationend', handler);
+                    });
+                });
+                // Переменные всплывающего окна
+                const popup_4_16 = document.getElementById('popup_4');
+                const closeBtn_4_16 = document.getElementById('closeBtn_4');
+                // Кнопка и функция перелистывания вперед
+                const nextButton_4_16 = document.getElementById("btn_4_16_next");
+                document.addEventListener("DOMContentLoaded", function () {
+                    nextButton_4_16.addEventListener("click", function () {
+                        // Получаем радио-кнопки по их id
+                        const radio_4_16_1 = document.getElementById('4_16_1');
+                        const radio_4_16_2 = document.getElementById('4_16_2');
+                        const radio_4_16_3 = document.getElementById('4_16_3');
+                        // Проверяем, есть ли значения 1, 2 и 3 среди ползунков
+                        if (!(radio_4_16_1.checked || radio_4_16_2.checked || radio_4_16_3.checked)) {
+                            // Если все три уникальных значения отсутствуют, показываем всплывающее окно
+                            popup_4_16.style.display = 'flex';
+                        } else {
+                            // Логика перелистывания вперед
+                            const from = document.querySelector('[name="quest_4_16"]');
+                            const to = document.querySelector('[name="end_test_4"]'); // Предполагается, что этот элемент существует
+                            from.classList.add('animBlockDisappear_next');
+                            from.addEventListener('animationend', function handler() {
+                                from.style.display = 'none';
+                                from.classList.remove('animBlockDisappear_next');
+                                to.style.display = 'block';
+                                to.classList.add('animBlockAppear_next');
+                                to.addEventListener('animationend', function appearHandler() {
+                                    to.classList.remove('animBlockAppear_next');
+                                    to.removeEventListener('animationend', appearHandler);
+                                });
+                                from.removeEventListener('animationend', handler);
+                            });
+                        }
+                    });
+                    // Закрытие всплывающего окна
+                    closeBtn_4_16.addEventListener('click', function () {
+                        popup_4_16.style.display = 'none'; // Скрываем всплывающее окно
+                    });
+                });
+            </script>
+        </div>
+
+
+        <!-- ВСПЛЫВАЮЩЕЕ ОКНО В КОНЦЕ БЛОКА -->
+        <div class="popup" id="popup_4_end">
+            <div class="popup_content">
+                <p class="error_title">Ошибка</p>
+                <p>Подтвердите свой выбор вариантов ответа</p>
+                <button class="close_btn" id="closeBtn_4_end">Закрыть</button>
+            </div>
+        </div>
+
+        <!-- КОНЕЦ БЛОКА -->
+
+        <div class="end_test" name="end_test_4">
+            <p class="end_test_title">Блок 4 пройден<br>
+            </p>
+            <p class="end_test_text">Вы завершаете прохождение блока 4. Если у Вас остались сомнения в выборе вариантов
+                ответа, перепроверьте их перед тем, как продолжить тест. После нажатия на кнопку "Продолжить" изменить
+                ответы уже не получится.<br>
+            </p>
+            <section class="end_sect">
+                <button class="btn_nextprev" id="end_test_prev">Назад</button>
+                <div class="confirm_answers">
+                    <div></div>
+                    <span>Подтвердить ответы</span>
+                    <input type="checkbox" id="confirm_4_end" class="inpRadio">
+                    <div></div>
+                </div>
+                <button class="btn_continue" id="end_test_next_4" type="button">Продолжить</button>
+            </section>
+
+            <script>
+                // Перелистывание назад
+                document.getElementById('end_test_prev').addEventListener('click', function () {
+                    var from = document.querySelector('[name="end_test_4"]');
+                    var to = document.querySelector('[name="quest_4_16"]');
+                    from.classList.add('animBlockDisappear_prev');
+                    from.addEventListener('animationend', function handler() {
+                        from.style.display = 'none';
+                        from.classList.remove('animBlockDisappear_prev'); // Удаляем класс анимации
+                        to.style.display = 'block';
+                        to.classList.add('animBlockAppear_prev');
+                        to.addEventListener('animationend', function appearHandler() {
+                            to.classList.remove('animBlockAppear_prev'); // Удаляем класс анимации
+                            to.removeEventListener('animationend', appearHandler);
+                        });
+                        from.removeEventListener('animationend', handler);
+                    });
+                });
+                // Переменные всплывающего окна
+                const popup_4_end = document.getElementById('popup_4_end');
+                const closeBtn_4_end = document.getElementById('closeBtn_4_end');
+                // Переменные и функция перелистывания вперед
+                const nextButton_4_end = document.getElementById("end_test_next_4");
+                document.addEventListener("DOMContentLoaded", function () {
+                    nextButton_4_end.addEventListener("click", function () {
+                        // Если переключатель не выбран
+                        const checkbox = document.getElementById('confirm_4_end');
+                        if (!checkbox.checked) {
+                            popup_4_end.style.display = 'flex'; // Показываем всплывающее окно
+                        } else {
+                            // Переход на другую страницу при нажатии на кнопку
+                            const from = document.querySelector('[name="end_test_4"]');
+                            from.classList.add('animBlockDisappear_end');
+                            from.addEventListener('animationend', function handler() {
+                                from.style.display = 'none';
+                                from.classList.remove('animBlockDisappear_end');
+
+                                // Инициализация переменных
+                                let understandingOfStyles = 0; // Понимание стилей
+                                let strengthInstallation = 0; // Установка на силу
+                                let manipulationInstallation = 0; // Установка на манипуляцию
+                                let negotiationsInstallation = 0; // Установка на деловые переговоры
+
+                                // Результаты вопроса 1
+                                if (document.getElementById('4_1_1').checked) {
+                                    understandingOfStyles += 1; // Инкремент "Понимание стилей"
+                                    negotiationsInstallation += 1; // Инкремент одной из трёх "установок"
+                                }
+                                if (document.getElementById('4_1_2').checked) {
+                                    understandingOfStyles += 0; // Инкремент "Понимание стилей"
+                                    strengthInstallation += 1; // Инкремент одной из трёх "установок"
+                                }
+                                if (document.getElementById('4_1_3').checked) {
+                                    understandingOfStyles += 2; // Инкремент "Понимание стилей"
+                                    manipulationInstallation += 1; // Инкремент одной из трёх "установок"
+                                }
+
+                                // Результаты вопроса 2
+                                if (document.getElementById('4_2_1').checked) {
+                                    understandingOfStyles += 1;
+                                    negotiationsInstallation += 1;
+                                }
+                                if (document.getElementById('4_2_2').checked) {
+                                    understandingOfStyles += 2;
+                                    manipulationInstallation += 1;
+                                }
+                                if (document.getElementById('4_2_3').checked) {
+                                    understandingOfStyles += 0;
+                                    strengthInstallation += 1;
+                                }
+
+                                // Результаты вопроса 3
+                                if (document.getElementById('4_3_1').checked) {
+                                    understandingOfStyles += 0;
+                                    negotiationsInstallation += 1;
+                                }
+                                if (document.getElementById('4_3_2').checked) {
+                                    understandingOfStyles += 2;
+                                    manipulationInstallation += 1;
+                                }
+                                if (document.getElementById('4_3_3').checked) {
+                                    understandingOfStyles += 1;
+                                    strengthInstallation += 1;
+                                }
+
+                                // Результаты вопроса 4
+                                if (document.getElementById('4_4_1').checked) {
+                                    understandingOfStyles += 0;
+                                    strengthInstallation += 1;
+                                }
+                                if (document.getElementById('4_4_2').checked) {
+                                    understandingOfStyles += 1;
+                                    manipulationInstallation += 1;
+                                }
+                                if (document.getElementById('4_4_3').checked) {
+                                    understandingOfStyles += 2;
+                                    negotiationsInstallation += 1;
+                                }
+
+                                // Результаты вопроса 5
+                                if (document.getElementById('4_5_1').checked) {
+                                    understandingOfStyles += 1;
+                                    negotiationsInstallation += 1;
+                                }
+                                if (document.getElementById('4_5_2').checked) {
+                                    understandingOfStyles += 2;
+                                    manipulationInstallation += 1;
+                                }
+                                if (document.getElementById('4_5_3').checked) {
+                                    understandingOfStyles += 0;
+                                    strengthInstallation += 1;
+                                }
+
+                                // Результаты вопроса 6
+                                if (document.getElementById('4_6_1').checked) {
+                                    understandingOfStyles += 1;
+                                    strengthInstallation += 1;
+                                }
+                                if (document.getElementById('4_6_2').checked) {
+                                    understandingOfStyles += 0;
+                                    manipulationInstallation += 1;
+                                }
+                                if (document.getElementById('4_6_3').checked) {
+                                    understandingOfStyles += 2;
+                                    negotiationsInstallation += 1;
+                                }
+
+                                // Результаты вопроса 7
+                                if (document.getElementById('4_7_1').checked) {
+                                    understandingOfStyles += 2;
+                                    negotiationsInstallation += 1;
+                                }
+                                if (document.getElementById('4_7_2').checked) {
+                                    understandingOfStyles += 1;
+                                    manipulationInstallation += 1;
+                                }
+                                if (document.getElementById('4_7_3').checked) {
+                                    understandingOfStyles += 0;
+                                    strengthInstallation += 1;
+                                }
+
+                                // Результаты вопроса 8
+                                if (document.getElementById('4_8_1').checked) {
+                                    understandingOfStyles += 1;
+                                    manipulationInstallation += 1;
+                                }
+                                if (document.getElementById('4_8_2').checked) {
+                                    understandingOfStyles += 2;
+                                    negotiationsInstallation += 1;
+                                }
+                                if (document.getElementById('4_8_3').checked) {
+                                    understandingOfStyles += 0;
+                                    strengthInstallation += 1;
+                                }
+
+                                // Результаты вопроса 9
+                                if (document.getElementById('4_9_1').checked) {
+                                    understandingOfStyles += 0;
+                                    strengthInstallation += 1;
+                                }
+                                if (document.getElementById('4_9_2').checked) {
+                                    understandingOfStyles += 2;
+                                    manipulationInstallation += 1;
+                                }
+                                if (document.getElementById('4_9_3').checked) {
+                                    understandingOfStyles += 1;
+                                    negotiationsInstallation += 1;
+                                }
+
+                                // Результаты вопроса 10
+                                if (document.getElementById('4_10_1').checked) {
+                                    understandingOfStyles += 1;
+                                    strengthInstallation += 1;
+                                }
+                                if (document.getElementById('4_10_2').checked) {
+                                    understandingOfStyles += 2;
+                                    negotiationsInstallation += 1;
+                                }
+                                if (document.getElementById('4_10_3').checked) {
+                                    understandingOfStyles += 0;
+                                    manipulationInstallation += 1;
+                                }
+
+                                // Результаты вопроса 11
+                                if (document.getElementById('4_11_1').checked) {
+                                    understandingOfStyles += 1;
+                                    strengthInstallation += 1;
+                                }
+                                if (document.getElementById('4_11_2').checked) {
+                                    understandingOfStyles += 2;
+                                    manipulationInstallation += 1;
+                                }
+                                if (document.getElementById('4_11_3').checked) {
+                                    understandingOfStyles += 0;
+                                    negotiationsInstallation += 1;
+                                }
+
+                                // Результаты вопроса 12
+                                if (document.getElementById('4_12_1').checked) {
+                                    understandingOfStyles += 2;
+                                    negotiationsInstallation += 1;
+                                }
+                                if (document.getElementById('4_12_2').checked) {
+                                    understandingOfStyles += 1;
+                                    manipulationInstallation += 1;
+                                }
+                                if (document.getElementById('4_12_3').checked) {
+                                    understandingOfStyles += 0;
+                                    strengthInstallation += 1;
+                                }
+
+                                // Результаты вопроса 13
+                                if (document.getElementById('4_13_1').checked) {
+                                    understandingOfStyles += 2;
+                                    negotiationsInstallation += 1;
+                                }
+                                if (document.getElementById('4_13_2').checked) {
+                                    understandingOfStyles += 1;
+                                    manipulationInstallation += 1;
+                                }
+                                if (document.getElementById('4_13_3').checked) {
+                                    understandingOfStyles += 0;
+                                    strengthInstallation += 1;
+                                }
+
+                                // Результаты вопроса 14
+                                if (document.getElementById('4_14_1').checked) {
+                                    understandingOfStyles += 1;
+                                    negotiationsInstallation += 1;
+                                }
+                                if (document.getElementById('4_14_2').checked) {
+                                    understandingOfStyles += 0;
+                                    strengthInstallation += 1;
+                                }
+                                if (document.getElementById('4_14_3').checked) {
+                                    understandingOfStyles += 2;
+                                    manipulationInstallation += 1;
+                                }
+
+                                // Результаты вопроса 15
+                                if (document.getElementById('4_15_1').checked) {
+                                    understandingOfStyles += 2;
+                                    manipulationInstallation += 1;
+                                }
+                                if (document.getElementById('4_15_2').checked) {
+                                    understandingOfStyles += 1;
+                                    negotiationsInstallation += 1;
+                                }
+                                if (document.getElementById('4_15_3').checked) {
+                                    understandingOfStyles += 0;
+                                    strengthInstallation += 1;
+                                }
+
+                                // Результаты вопроса 16
+                                if (document.getElementById('4_16_1').checked) {
+                                    understandingOfStyles += 2;
+                                    strengthInstallation += 1;
+                                }
+                                if (document.getElementById('4_16_2').checked) {
+                                    understandingOfStyles += 1;
+                                    manipulationInstallation += 1;
+                                }
+                                if (document.getElementById('4_16_3').checked) {
+                                    understandingOfStyles += 0;
+                                    negotiationsInstallation += 1;
+                                }
+
+                                // Вывод значения в alert (тест)
+                                // alert(`Понимание стилей: ${understandingOfStyles}\n` +
+                                //     `Установка на силу: ${strengthInstallation}\n` +
+                                //     `Установка на манипуляцию: ${manipulationInstallation}\n` +
+                                //     `Установка на деловые переговоры: ${negotiationsInstallation}`);
+
+                                // Сохранение значений в sessionStorage
+                                sessionStorage.setItem("resUnderstandingOfStyles_4", understandingOfStyles); // Понимание стилей
+                                sessionStorage.setItem("resStrengthInstallation_4", strengthInstallation); // Установка на силу
+                                sessionStorage.setItem("resManipulationInstallation_4", manipulationInstallation); // Установка на манипуляцию
+                                sessionStorage.setItem("resNegotiationsInstallation_4", negotiationsInstallation); // Установка на деловые переговоры
+
+                                // Переход на новую страницу после окончания анимации
+                                window.location.href = 'test_5.html';
+                                from.removeEventListener('animationend', handler);
+                            });
+                        }
+                    });
+                    // Закрытие всплывающего окна
+                    closeBtn_4_end.addEventListener('click', function () {
+                        popup_4_end.style.display = 'none'; // Скрываем всплывающее окно
+                    });
+                });
+            </script>
+        </div>
+
+
+
+
+
+
+
+    </main>
+
+</body>
+
+</html>
