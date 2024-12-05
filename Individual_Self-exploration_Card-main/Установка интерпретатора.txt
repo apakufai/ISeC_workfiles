@@ -1,9 +1,0 @@
-1. Установить python-3.13.0-amd64.exe
-
-2. Win + R
-cmd
-python --version
-pip install selenium
-
-pip install reportlab
-^для создания pdf-файла
