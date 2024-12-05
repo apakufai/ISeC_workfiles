@@ -1,7 +1,4 @@
 from reportlab.lib import colors
-# from reportlab.lib.pagesizes import letter
-# from reportlab.lib.units import inch
-
 from reportlab.lib.pagesizes import A4
 from reportlab.pdfgen import canvas
 from reportlab.pdfbase import pdfmetrics
@@ -576,8 +573,7 @@ def create_pdf(filename):
         # Рисуем круг диаметром 1 пункт
         can.setFillColorRGB(0, 0, 0) # Устанавливаем цвет заливки (черный)
         circle_radius = 0.5  # Радиус круга в пунктах
-        can.circle(x_start, y_start, circle_radius,
-                   stroke=0, fill=1)  # Рисуем круг
+        can.circle(x_start, y_start, circle_radius, stroke=0, fill=1)  # Рисуем круг
         # Рисуем "палочку"
         can.setStrokeColorRGB(0, 0, 0)  # Устанавливаем цвет линии (черный)
         can.setLineWidth(1)  # Устанавливаем ширину линии
@@ -704,7 +700,25 @@ def create_pdf(filename):
 
 
 
-    can.showPage()  # Завершение пятой страницы
+
+    # Устанавливаем цвет и толщину линии
+    can.setStrokeColorRGB(199 / 255, 65 / 255, 84 / 255)  # Приведем RGB к диапазону [0, 1]
+    can.setLineWidth(5)
+
+    # Устанавливаем цвет заливки для круга
+    can.setFillColorRGB(199 / 255, 65 / 255, 84 / 255)  # Приведем RGB к диапазону [0, 1]
+
+    # Координаты точек
+    soulman_x, soulman_y = 179.528, height - 424.016
+    virtuoso_x, virtuoso_y = 429.921, height - 424.016
+
+    # Рисуем линию
+    can.line(soulman_x, soulman_y, ((soulman_x + virtuoso_x) / 2) - 50, ((soulman_y + virtuoso_y) / 2) + 30)
+    can.circle(((soulman_x + virtuoso_x) / 2) - 50, ((soulman_y + virtuoso_y) / 2) + 30, 2.5, stroke=0, fill=1)  # Рисуем круг
+    can.line(((soulman_x + virtuoso_x) / 2) - 50, ((soulman_y + virtuoso_y) / 2) + 30, ((soulman_x + virtuoso_x) / 2) + 50, ((soulman_y + virtuoso_y) / 2) + 30)
+    can.circle(((soulman_x + virtuoso_x) / 2) + 50, ((soulman_y + virtuoso_y) / 2) + 30, 2.5, stroke=0, fill=1)  # Рисуем круг
+    can.line(((soulman_x + virtuoso_x) / 2) + 50, ((soulman_y + virtuoso_y) / 2) + 30, virtuoso_x, virtuoso_y)
+
 
 
 
