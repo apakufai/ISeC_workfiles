@@ -331,7 +331,6 @@ else:
 
 
 
-
 # Функция для создания PDF-файла
 def create_pdf(filename):
     can = canvas.Canvas(filename, pagesize=A4)
@@ -344,7 +343,6 @@ def create_pdf(filename):
     if not os.path.exists(image_path_1):
         print(f"Изображение {image_path_1} не найдено.")
         return
-
     can.drawImage(image_path_1, 0, 0, width=width, height=height)
 
     # Печать текста на PDF
@@ -394,177 +392,13 @@ def create_pdf(filename):
     if not os.path.exists(image_path_2):
         print(f"Изображение {image_path_2} не найдено.")
         return
-
     can.drawImage(image_path_2, 0, 0, width=width, height=height)
 
-    if resAdaptation_1 is not None:
+        # Функция рисования личного результата на горизонтальной шкале
+    def rangeResultHorizontal(range_name, range_x_start, range_x_end, range_y_start, range_divisionsCount):
         # Вычисляем координаты X для "палочки"
-        x_start = 69.033 + (((526.35 - 69.033) / 15) * resAdaptation_1)
-        y_start = height - 517.673
-        xLeft = -4
-        xRight = 4
-        yTop = 20
-        yCenter = 16
-        yBottom = 12
-        # Рисуем круг диаметром 1 пункт
-        can.setFillColorRGB(0, 0, 0) # Устанавливаем цвет заливки (черный)
-        circle_radius = 0.5  # Радиус круга в пунктах
-        can.circle(x_start, y_start, circle_radius,
-                   stroke=0, fill=1)  # Рисуем круг
-        # Рисуем "палочку"
-        can.setStrokeColorRGB(0, 0, 0)  # Устанавливаем цвет линии (черный)
-        can.setLineWidth(1)  # Устанавливаем ширину линии
-        # Рисуем линию (палочку)
-        can.line(x_start, y_start, x_start, y_start + yBottom)
-        # Рисуем остальные элементы
-        can.line(x_start, y_start + yBottom, x_start + xLeft, y_start + yCenter)
-        can.circle(x_start + xLeft, y_start + yCenter, circle_radius, stroke=0, fill=1)
-        can.line(x_start + xLeft, y_start + yCenter, x_start, y_start + yTop)
-        can.circle(x_start, y_start + yTop, circle_radius, stroke=0, fill=1)
-        can.line(x_start, y_start + yTop, x_start + xRight, y_start + yCenter)
-        can.circle(x_start + xRight, y_start + yCenter, circle_radius, stroke=0, fill=1)
-        can.line(x_start + xRight, y_start + yCenter, x_start, y_start + yBottom)
-
-    if resCompromise_1 is not None:
-        # Вычисляем координаты X для "палочки"
-        x_start = 69.033 + (((526.35 - 69.033) / 15) * resCompromise_1)
-        y_start = height - 754.016
-        xLeft = -4
-        xRight = 4
-        yTop = 20
-        yCenter = 16
-        yBottom = 12
-        # Рисуем круг диаметром 1 пункт
-        can.setFillColorRGB(0, 0, 0) # Устанавливаем цвет заливки (черный)
-        circle_radius = 0.5  # Радиус круга в пунктах
-        can.circle(x_start, y_start, circle_radius,
-                   stroke=0, fill=1)  # Рисуем круг
-        # Рисуем "палочку"
-        can.setStrokeColorRGB(0, 0, 0)  # Устанавливаем цвет линии (черный)
-        can.setLineWidth(1)  # Устанавливаем ширину линии
-        # Рисуем линию (палочку)
-        can.line(x_start, y_start, x_start, y_start + yBottom)
-        # Рисуем остальные элементы
-        can.line(x_start, y_start + yBottom, x_start + xLeft, y_start + yCenter)
-        can.circle(x_start + xLeft, y_start + yCenter, circle_radius, stroke=0, fill=1)
-        can.line(x_start + xLeft, y_start + yCenter, x_start, y_start + yTop)
-        can.circle(x_start, y_start + yTop, circle_radius, stroke=0, fill=1)
-        can.line(x_start, y_start + yTop, x_start + xRight, y_start + yCenter)
-        can.circle(x_start + xRight, y_start + yCenter, circle_radius, stroke=0, fill=1)
-        can.line(x_start + xRight, y_start + yCenter, x_start, y_start + yBottom)
-
-    can.showPage()  # Завершение второй страницы
-
-
-
-    # СТРАНИЦА 3
-    image_path_3 = os.path.join(os.path.dirname(os.path.abspath(__file__)), "pagesPDF", "page_3.png")
-    if not os.path.exists(image_path_3):
-        print(f"Изображение {image_path_3} не найдено.")
-        return
-
-    can.drawImage(image_path_3, 0, 0, width=width, height=height)
-
-    if resBidding_1 is not None:
-        # Вычисляем координаты X для "палочки"
-        x_start = 69.033 + (((526.35 - 69.033) / 15) * resBidding_1)
-        y_start = height - 187.427
-        xLeft = -4
-        xRight = 4
-        yTop = 20
-        yCenter = 16
-        yBottom = 12
-        # Рисуем круг диаметром 1 пункт
-        can.setFillColorRGB(0, 0, 0) # Устанавливаем цвет заливки (черный)
-        circle_radius = 0.5  # Радиус круга в пунктах
-        can.circle(x_start, y_start, circle_radius,
-                   stroke=0, fill=1)  # Рисуем круг
-        # Рисуем "палочку"
-        can.setStrokeColorRGB(0, 0, 0)  # Устанавливаем цвет линии (черный)
-        can.setLineWidth(1)  # Устанавливаем ширину линии
-        # Рисуем линию (палочку)
-        can.line(x_start, y_start, x_start, y_start + yBottom)
-        # Рисуем остальные элементы
-        can.line(x_start, y_start + yBottom, x_start + xLeft, y_start + yCenter)
-        can.circle(x_start + xLeft, y_start + yCenter, circle_radius, stroke=0, fill=1)
-        can.line(x_start + xLeft, y_start + yCenter, x_start, y_start + yTop)
-        can.circle(x_start, y_start + yTop, circle_radius, stroke=0, fill=1)
-        can.line(x_start, y_start + yTop, x_start + xRight, y_start + yCenter)
-        can.circle(x_start + xRight, y_start + yCenter, circle_radius, stroke=0, fill=1)
-        can.line(x_start + xRight, y_start + yCenter, x_start, y_start + yBottom)
-
-    if resThreat_1 is not None:
-        # Вычисляем координаты X для "палочки"
-        x_start = 69.033 + (((526.35 - 69.033) / 15) * resThreat_1)
-        y_start = height - 406.91
-        xLeft = -4
-        xRight = 4
-        yTop = 20
-        yCenter = 16
-        yBottom = 12
-        # Рисуем круг диаметром 1 пункт
-        can.setFillColorRGB(0, 0, 0) # Устанавливаем цвет заливки (черный)
-        circle_radius = 0.5  # Радиус круга в пунктах
-        can.circle(x_start, y_start, circle_radius,
-                   stroke=0, fill=1)  # Рисуем круг
-        # Рисуем "палочку"
-        can.setStrokeColorRGB(0, 0, 0)  # Устанавливаем цвет линии (черный)
-        can.setLineWidth(1)  # Устанавливаем ширину линии
-        # Рисуем линию (палочку)
-        can.line(x_start, y_start, x_start, y_start + yBottom)
-        # Рисуем остальные элементы
-        can.line(x_start, y_start + yBottom, x_start + xLeft, y_start + yCenter)
-        can.circle(x_start + xLeft, y_start + yCenter, circle_radius, stroke=0, fill=1)
-        can.line(x_start + xLeft, y_start + yCenter, x_start, y_start + yTop)
-        can.circle(x_start, y_start + yTop, circle_radius, stroke=0, fill=1)
-        can.line(x_start, y_start + yTop, x_start + xRight, y_start + yCenter)
-        can.circle(x_start + xRight, y_start + yCenter, circle_radius, stroke=0, fill=1)
-        can.line(x_start + xRight, y_start + yCenter, x_start, y_start + yBottom)
-
-    if resLogicArgument_1 is not None:
-        # Вычисляем координаты X для "палочки"
-        x_start = 69.033 + (((526.35 - 69.033) / 15) * resLogicArgument_1)
-        y_start = height - 626.394
-        xLeft = -4
-        xRight = 4
-        yTop = 20
-        yCenter = 16
-        yBottom = 12
-        # Рисуем круг диаметром 1 пункт
-        can.setFillColorRGB(0, 0, 0) # Устанавливаем цвет заливки (черный)
-        circle_radius = 0.5  # Радиус круга в пунктах
-        can.circle(x_start, y_start, circle_radius,
-                   stroke=0, fill=1)  # Рисуем круг
-        # Рисуем "палочку"
-        can.setStrokeColorRGB(0, 0, 0)  # Устанавливаем цвет линии (черный)
-        can.setLineWidth(1)  # Устанавливаем ширину линии
-        # Рисуем линию (палочку)
-        can.line(x_start, y_start, x_start, y_start + yBottom)
-        # Рисуем остальные элементы
-        can.line(x_start, y_start + yBottom, x_start + xLeft, y_start + yCenter)
-        can.circle(x_start + xLeft, y_start + yCenter, circle_radius, stroke=0, fill=1)
-        can.line(x_start + xLeft, y_start + yCenter, x_start, y_start + yTop)
-        can.circle(x_start, y_start + yTop, circle_radius, stroke=0, fill=1)
-        can.line(x_start, y_start + yTop, x_start + xRight, y_start + yCenter)
-        can.circle(x_start + xRight, y_start + yCenter, circle_radius, stroke=0, fill=1)
-        can.line(x_start + xRight, y_start + yCenter, x_start, y_start + yBottom)
-
-    can.showPage()  # Завершение третьей страницы
-
-
-
-    # СТРАНИЦА 4
-    image_path_4 = os.path.join(os.path.dirname(os.path.abspath(__file__)), "pagesPDF", "page_4.png")
-    if not os.path.exists(image_path_4):
-        print(f"Изображение {image_path_4} не найдено.")
-        return
-
-    can.drawImage(image_path_4, 0, 0, width=width, height=height)
-
-    if resEmotionsArgument_1 is not None:
-        # Вычисляем координаты X для "палочки"
-        x_start = 69.033 + (((526.35 - 69.033) / 15) * resEmotionsArgument_1)
-        y_start = height - 237.834
+        x_start = range_x_start + (((range_x_end - range_x_start) / range_divisionsCount) * range_name)
+        y_start = height - range_y_start
         xLeft = -4
         xRight = 4
         yTop = 20
@@ -588,9 +422,49 @@ def create_pdf(filename):
         can.circle(x_start + xRight, y_start + yCenter, circle_radius, stroke=0, fill=1)
         can.line(x_start + xRight, y_start + yCenter, x_start, y_start + yBottom)
 
+    if resAdaptation_1 is not None:
+        rangeResultHorizontal(resAdaptation_1, 69.033, 526.35, 517.673, 15)
+
+    if resCompromise_1 is not None:
+        rangeResultHorizontal(resCompromise_1, 69.033, 526.35, 754.016, 15)
+
+    can.showPage()  # Завершение второй страницы
+
+
+
+    # СТРАНИЦА 3
+    image_path_3 = os.path.join(os.path.dirname(os.path.abspath(__file__)), "pagesPDF", "page_3.png")
+    if not os.path.exists(image_path_3):
+        print(f"Изображение {image_path_3} не найдено.")
+        return
+    can.drawImage(image_path_3, 0, 0, width=width, height=height)
+
+    if resBidding_1 is not None:
+        rangeResultHorizontal(resBidding_1, 69.033, 526.35, 187.427, 15)
+
+    if resThreat_1 is not None:
+        rangeResultHorizontal(resThreat_1, 69.033, 526.35, 406.91, 15)
+
+    if resLogicArgument_1 is not None:
+        rangeResultHorizontal(resLogicArgument_1, 69.033, 526.35, 626.394, 15)
+
+
+    can.showPage()  # Завершение третьей страницы
+
+
+
+    # СТРАНИЦА 4
+    image_path_4 = os.path.join(os.path.dirname(os.path.abspath(__file__)), "pagesPDF", "page_4.png")
+    if not os.path.exists(image_path_4):
+        print(f"Изображение {image_path_4} не найдено.")
+        return
+    can.drawImage(image_path_4, 0, 0, width=width, height=height)
+
+    if resEmotionsArgument_1 is not None:
+        rangeResultHorizontal(resEmotionsArgument_1, 69.033, 526.35, 237.834, 15)
+
 
     # Идеальный профиль
-
         # Устанавливаем начальные и конечные координаты
         start_x_left = 141.732
         start_y_left = height - 785.197
@@ -623,9 +497,7 @@ def create_pdf(filename):
                 can.line(start_x_left, current_y_left, start_x_left, current_y_left - height_left)
                 current_y_left -= height_left
 
-
     # Ваш профиль
-
         # Устанавливаем начальные и конечные координаты
         start_x_right = 453.543
         start_y_right = height - 785.197
@@ -667,7 +539,6 @@ def create_pdf(filename):
     if not os.path.exists(image_path_5):
         print(f"Изображение {image_path_5} не найдено.")
         return
-
     can.drawImage(image_path_5, 0, 0, width=width, height=height)
 
     # Печать текста на PDF
@@ -894,10 +765,10 @@ def create_pdf(filename):
         # Сортируем ключи по значениям в порядке убывания
         sorted_keys_2 = sorted(variables, key=variables.get, reverse=True)
         
-        return sorted_keys_2
+        return sorted_keys_2, variables
 
     # Пример вызова функции
-    sorted_result = sort_variables_2(resAdaptation_2, resCompromise_2, resThreat_2, resCooperation_2, resAvoidance_2)
+    sorted_result, variables = sort_variables_2(resAdaptation_2, resCompromise_2, resThreat_2, resCooperation_2, resAvoidance_2)
 
     # Проверяем переходы между значениями
     transitions = [
@@ -952,6 +823,169 @@ def create_pdf(filename):
         if first == 'virtuoso' and second == 'resident':
             virtuoso_to_resident()
             
+    can.showPage()  # Завершение пятой страницы
+
+
+
+    # СТРАНИЦА 6
+    image_path_6 = os.path.join(os.path.dirname(os.path.abspath(__file__)), "pagesPDF", "page_6.png")
+    if not os.path.exists(image_path_6):
+        print(f"Изображение {image_path_6} не найдено.")
+        return
+    can.drawImage(image_path_6, 0, 0, width=width, height=height)
+
+    # Печать текста на PDF
+    can.setFont("Bahnschrift", 14)  # Устанавливаем шрифт и размер
+
+    if resAdaptation_2 is not None:
+        rangeResultHorizontal(resAdaptation_2, 62.242, 532.995, 406.29, 36)
+
+    if resCompromise_2 is not None:
+        rangeResultHorizontal(resCompromise_2, 62.242, 532.995, 763.228, 36)
+            
+    can.showPage()  # Завершение шестой страницы
+
+
+
+    # СТРАНИЦА 7
+    image_path_7 = os.path.join(os.path.dirname(os.path.abspath(__file__)), "pagesPDF", "page_7.png")
+    if not os.path.exists(image_path_7):
+        print(f"Изображение {image_path_7} не найдено.")
+        return
+    can.drawImage(image_path_7, 0, 0, width=width, height=height)
+
+    if resThreat_2 is not None:
+        rangeResultHorizontal(resThreat_2, 62.242, 532.995, 372.274, 36)
+
+    if resCooperation_2 is not None:
+        rangeResultHorizontal(resCooperation_2, 62.242, 532.995, 759.969, 36)
+            
+    can.showPage()  # Завершение седьмой страницы
+
+
+
+    # СТРАНИЦА 8
+    image_path_8 = os.path.join(os.path.dirname(os.path.abspath(__file__)), "pagesPDF", "page_8.png")
+    if not os.path.exists(image_path_8):
+        print(f"Изображение {image_path_8} не найдено.")
+        return
+    can.drawImage(image_path_8, 0, 0, width=width, height=height)
+
+    if resAvoidance_2 is not None:
+        rangeResultHorizontal(resAvoidance_2, 62.242, 532.995, 405.865, 36)
+            
+    can.showPage()  # Завершение восьмой страницы
+
+
+
+    # СТРАНИЦА 9
+    image_path_9 = os.path.join(os.path.dirname(os.path.abspath(__file__)), "pagesPDF", "page_9.png")
+    if not os.path.exists(image_path_9):
+        print(f"Изображение {image_path_9} не найдено.")
+        return
+    can.drawImage(image_path_9, 0, 0, width=width, height=height)
+
+    # Печать текста на PDF
+    can.setFont("Bahnschrift", 14)  # Устанавливаем шрифт и размер
+
+    # Вычленяем значения из sorted_result[0] и sorted_result[4] для подсчёта разницы между минимумом и максимумом
+    value_2_highest = variables[sorted_result[0]]
+    value_2_lowest = variables[sorted_result[4]]
+    value_2_subtraction = value_2_highest - value_2_lowest
+
+    if value_2_subtraction < 10:
+        can.drawString(257, height - 407.777, str(" " + str(value_2_subtraction)))  # Печатаем текст
+    else:
+        can.drawString(257, height - 407.777, str(value_2_subtraction))  # Печатаем текст
+      
+    can.showPage()  # Завершение девятой страницы
+
+
+
+    # СТРАНИЦА 10
+    image_path_10 = os.path.join(os.path.dirname(os.path.abspath(__file__)), "pagesPDF", "page_10.png")
+    if not os.path.exists(image_path_10):
+        print(f"Изображение {image_path_10} не найдено.")
+        return
+    can.drawImage(image_path_10, 0, 0, width=width, height=height)
+
+        # Функция рисования личного результата на вертикальной шкале
+    def rangeResultVertical(range_name, range_y_start, range_y_end, range_x_start, range_divisionsCount):
+        # Вычисляем координаты Y для "палочки"
+        y_start = height - (range_y_start + (((range_y_end - range_y_start) / range_divisionsCount) * range_name))
+        x_start = range_x_start
+        yTop = 4
+        yBottom = -4
+        xLeft = -20
+        xCenter = -16
+        xRight = -12
+        # Рисуем круг диаметром 1 пункт
+        can.setFillColorRGB(0, 0, 0) # Устанавливаем цвет заливки (черный)
+        circle_radius = 0.5  # Радиус круга в пунктах
+        can.circle(x_start, y_start, circle_radius, stroke=0, fill=1)  # Рисуем круг
+        # Рисуем "палочку"
+        can.setStrokeColorRGB(0, 0, 0)  # Устанавливаем цвет линии (черный)
+        can.setLineWidth(1)  # Устанавливаем ширину линии
+        # Рисуем линию (палочку)
+        can.line(x_start, y_start, x_start + xRight, y_start)
+        # Рисуем остальные элементы
+        can.line(x_start + xRight, y_start, x_start + xCenter, y_start + yBottom)
+        can.circle(x_start + xCenter, y_start + yBottom, circle_radius, stroke=0, fill=1)
+        can.line(x_start + xCenter, y_start + yBottom, x_start + xLeft, y_start)
+        can.circle(x_start + xLeft, y_start, circle_radius, stroke=0, fill=1)
+        can.line(x_start + xLeft, y_start, x_start + xCenter, y_start + yTop)
+        can.circle(x_start + xCenter, y_start + yTop, circle_radius, stroke=0, fill=1)
+        can.line(x_start + xCenter, y_start + yTop, x_start + xRight, y_start)
+
+    if resAdaptation_3 is not None:
+        rangeResultVertical(resAdaptation_3, 779.91, 312.05, 377.157, 27)
+
+    if resThreat_3 is not None:
+        rangeResultVertical(resThreat_3, 779.91, 312.05, 440.937, 27)
+
+    if resCooperation_3 is not None:
+        rangeResultVertical(resCooperation_3, 779.91, 312.05, 504.716, 27)
+
+    can.showPage()  # Завершение десятой страницы
+
+
+
+    # СТРАНИЦА 11
+    image_path_11 = os.path.join(os.path.dirname(os.path.abspath(__file__)), "pagesPDF", "page_11.png")
+    if not os.path.exists(image_path_11):
+        print(f"Изображение {image_path_11} не найдено.")
+        return
+    can.drawImage(image_path_11, 0, 0, width=width, height=height)
+
+    can.showPage()  # Завершение одиннадцатой страницы
+
+
+
+    # СТРАНИЦА 12
+    image_path_12 = os.path.join(os.path.dirname(os.path.abspath(__file__)), "pagesPDF", "page_12.png")
+    if not os.path.exists(image_path_12):
+        print(f"Изображение {image_path_12} не найдено.")
+        return
+    can.drawImage(image_path_12, 0, 0, width=width, height=height)
+
+    can.showPage()  # Завершение двенадцатой страницы
+
+
+
+    # СТРАНИЦА 13
+    image_path_13 = os.path.join(os.path.dirname(os.path.abspath(__file__)), "pagesPDF", "page_13.png")
+    if not os.path.exists(image_path_13):
+        print(f"Изображение {image_path_13} не найдено.")
+        return
+    can.drawImage(image_path_13, 0, 0, width=width, height=height)
+
+    if resLogicArgument_6 is not None:
+        rangeResultHorizontal(resLogicArgument_6, 63.27, 532, 458.646, 30)
+
+    if resEmotionsArgument_6 is not None:
+        rangeResultHorizontal(resEmotionsArgument_6, 63.27, 532, 762.315, 30)
+
+    can.showPage()  # Завершение тринадцатой страницы
 
 
 
@@ -962,5 +996,5 @@ def create_pdf(filename):
 
 # Указываем путь к рабочему столу и создаем PDF-файл
 desktop_path = os.path.expanduser("~/Desktop")
-ISeCRes = os.path.join(desktop_path, "ИКС-файл ФИО.pdf")
+ISeCRes = os.path.join(desktop_path, "ИКС-файл " + resId + ".pdf")
 create_pdf(ISeCRes)
