@@ -674,39 +674,36 @@ def create_pdf(filename):
     can.setFont("Bahnschrift", 14)  # Устанавливаем шрифт и размер
 
     if resAdaptation_2 is not None:  # Проверяем, что resAdaptation_2 не None
-        can.drawString(75, (height - 100), str(resAdaptation_2))  # Печатаем текст
+        can.drawString(230, (height - 254.286), str(resAdaptation_2))  # Печатаем текст (ДЧ)
     else:
         print("resAdaptation_2 пустое или None, текст не будет напечатан.")
 
     if resCompromise_2 is not None:  # Проверяем, что resCompromise_2 не None
-        can.drawString(75, (height - 200), str(resCompromise_2))  # Печатаем текст
+        can.drawString(190.113, (height - 287.886), str(resCompromise_2))  # Печатаем текст (П)
     else:
         print("resCompromise_2 пустое или None, текст не будет напечатан.")
 
     if resThreat_2 is not None:  # Проверяем, что resThreat_2 не None
-        can.drawString(75, (height - 300), str(resThreat_2))  # Печатаем текст
+        can.drawString(189, (height - 321.5), str(resThreat_2))  # Печатаем текст (Б)
     else:
         print("resThreat_2 пустое или None, текст не будет напечатан.")
 
     if resCooperation_2 is not None:  # Проверяем, что resCooperation_2 не None
-        can.drawString(75, (height - 400), str(resCooperation_2))  # Печатаем текст
+        can.drawString(187.463, (height - 271.111), str(resCooperation_2))  # Печатаем текст (В)
     else:
         print("resCooperation_2 пустое или None, текст не будет напечатан.")
 
     if resAvoidance_2 is not None:  # Проверяем, что resAvoidance_2 не None
-        can.drawString(75, (height - 500), str(resAvoidance_2))  # Печатаем текст
+        can.drawString(196.658, (height - 304.686), str(resAvoidance_2))  # Печатаем текст (Р)
     else:
         print("resAvoidance_2 пустое или None, текст не будет напечатан.")
 
-
-
-
     # Устанавливаем цвет и толщину линии
-    can.setStrokeColorRGB(199 / 255, 65 / 255, 84 / 255)  # Приведем RGB к диапазону [0, 1]
+    can.setStrokeColorRGB(199 / 255, 65 / 255, 84 / 255)
     can.setLineWidth(5)
 
     # Устанавливаем цвет заливки для круга
-    can.setFillColorRGB(199 / 255, 65 / 255, 84 / 255)  # Приведем RGB к диапазону [0, 1]
+    can.setFillColorRGB(199 / 255, 65 / 255, 84 / 255)
 
     # Координаты точек
     soulman_x, soulman_y = 179.528, height - 424.016
@@ -718,136 +715,250 @@ def create_pdf(filename):
     # Отступы
     axial_hei = 15 # Высота холма вертикальных линий
     axial_wid = 40 # Ширина пика холма вертикальных линий
-    diagSmall_hei = 10 # Высота холма вертикальных линий
-    diagSmall_wid = 30 # Ширина пика холма вертикальных линий
+    diagSmall_hei = 10 # Высота холма малых диагональных линий
+    diagSmall_wid = 30 # Ширина пика холма малых диагональных линий
+    diagBig_hei = 30 # Высота холма больших диагональных линий
+    diagBig_wid = 100 # Ширина пика холма больших диагональных линий
     
+    # Душа-человек -> Виртуоз
+    def soulman_to_virtuoso():
+        can.line(soulman_x, soulman_y, ((soulman_x + virtuoso_x) / 2) - axial_wid, ((soulman_y + virtuoso_y) / 2) + axial_hei)
+        can.circle(((soulman_x + virtuoso_x) / 2) - axial_wid, ((soulman_y + virtuoso_y) / 2) + axial_hei, 2.5, stroke=0, fill=1)
+        can.line(((soulman_x + virtuoso_x) / 2) - axial_wid, ((soulman_y + virtuoso_y) / 2) + axial_hei, ((soulman_x + virtuoso_x) / 2) + axial_wid, ((soulman_y + virtuoso_y) / 2) + axial_hei)
+        can.circle(((soulman_x + virtuoso_x) / 2) + axial_wid, ((soulman_y + virtuoso_y) / 2) + axial_hei, 2.5, stroke=0, fill=1)
+        can.line(((soulman_x + virtuoso_x) / 2) + axial_wid, ((soulman_y + virtuoso_y) / 2) + axial_hei, virtuoso_x, virtuoso_y)
 
-
-# Горизонталь-вертикаль
-
-    # ДЧ -> В
-    can.line(soulman_x, soulman_y, ((soulman_x + virtuoso_x) / 2) - axial_wid, ((soulman_y + virtuoso_y) / 2) + axial_hei)
-    can.circle(((soulman_x + virtuoso_x) / 2) - axial_wid, ((soulman_y + virtuoso_y) / 2) + axial_hei, 2.5, stroke=0, fill=1)
-    can.line(((soulman_x + virtuoso_x) / 2) - axial_wid, ((soulman_y + virtuoso_y) / 2) + axial_hei, ((soulman_x + virtuoso_x) / 2) + axial_wid, ((soulman_y + virtuoso_y) / 2) + axial_hei)
-    can.circle(((soulman_x + virtuoso_x) / 2) + axial_wid, ((soulman_y + virtuoso_y) / 2) + axial_hei, 2.5, stroke=0, fill=1)
-    can.line(((soulman_x + virtuoso_x) / 2) + axial_wid, ((soulman_y + virtuoso_y) / 2) + axial_hei, virtuoso_x, virtuoso_y)
-
-    # В -> ДЧ
-    can.line(virtuoso_x, virtuoso_y, ((soulman_x + virtuoso_x) / 2) + axial_wid, ((soulman_y + virtuoso_y) / 2) - axial_hei)
-    can.circle(((soulman_x + virtuoso_x) / 2) + axial_wid, ((soulman_y + virtuoso_y) / 2) - axial_hei, 2.5, stroke=0, fill=1)
-    can.line(((soulman_x + virtuoso_x) / 2) + axial_wid, ((soulman_y + virtuoso_y) / 2) - axial_hei, ((soulman_x + virtuoso_x) / 2) - axial_wid, ((soulman_y + virtuoso_y) / 2) - axial_hei)
-    can.circle(((soulman_x + virtuoso_x) / 2) - axial_wid, ((soulman_y + virtuoso_y) / 2) - axial_hei, 2.5, stroke=0, fill=1)
-    can.line(((soulman_x + virtuoso_x) / 2) - axial_wid, ((soulman_y + virtuoso_y) / 2) - axial_hei, soulman_x, soulman_y)
+    # Виртуоз -> Душа-человек
+    def virtuoso_to_soulman():
+        can.line(virtuoso_x, virtuoso_y, ((soulman_x + virtuoso_x) / 2) + axial_wid, ((soulman_y + virtuoso_y) / 2) - axial_hei)
+        can.circle(((soulman_x + virtuoso_x) / 2) + axial_wid, ((soulman_y + virtuoso_y) / 2) - axial_hei, 2.5, stroke=0, fill=1)
+        can.line(((soulman_x + virtuoso_x) / 2) + axial_wid, ((soulman_y + virtuoso_y) / 2) - axial_hei, ((soulman_x + virtuoso_x) / 2) - axial_wid, ((soulman_y + virtuoso_y) / 2) - axial_hei)
+        can.circle(((soulman_x + virtuoso_x) / 2) - axial_wid, ((soulman_y + virtuoso_y) / 2) - axial_hei, 2.5, stroke=0, fill=1)
+        can.line(((soulman_x + virtuoso_x) / 2) - axial_wid, ((soulman_y + virtuoso_y) / 2) - axial_hei, soulman_x, soulman_y)
     
-    # Р -> Б
-    can.line(resident_x, resident_y, ((resident_x + berserker_x) / 2) - axial_wid, ((resident_y + berserker_y) / 2) + axial_hei)
-    can.circle(((resident_x + berserker_x) / 2) - axial_wid, ((resident_y + berserker_y) / 2) + axial_hei, 2.5, stroke=0, fill=1)
-    can.line(((resident_x + berserker_x) / 2) - axial_wid, ((resident_y + berserker_y) / 2) + axial_hei, ((resident_x + berserker_x) / 2) + axial_wid, ((resident_y + berserker_y) / 2) + axial_hei)
-    can.circle(((resident_x + berserker_x) / 2) + axial_wid, ((resident_y + berserker_y) / 2) + axial_hei, 2.5, stroke=0, fill=1)
-    can.line(((resident_x + berserker_x) / 2) + axial_wid, ((resident_y + berserker_y) / 2) + axial_hei, berserker_x, berserker_y)
+    # Резидент -> Берсерк
+    def resident_to_berserker():
+        can.line(resident_x, resident_y, ((resident_x + berserker_x) / 2) - axial_wid, ((resident_y + berserker_y) / 2) + axial_hei)
+        can.circle(((resident_x + berserker_x) / 2) - axial_wid, ((resident_y + berserker_y) / 2) + axial_hei, 2.5, stroke=0, fill=1)
+        can.line(((resident_x + berserker_x) / 2) - axial_wid, ((resident_y + berserker_y) / 2) + axial_hei, ((resident_x + berserker_x) / 2) + axial_wid, ((resident_y + berserker_y) / 2) + axial_hei)
+        can.circle(((resident_x + berserker_x) / 2) + axial_wid, ((resident_y + berserker_y) / 2) + axial_hei, 2.5, stroke=0, fill=1)
+        can.line(((resident_x + berserker_x) / 2) + axial_wid, ((resident_y + berserker_y) / 2) + axial_hei, berserker_x, berserker_y)
 
-    # Б -> Р
-    can.line(berserker_x, berserker_y, ((resident_x + berserker_x) / 2) + axial_wid, ((resident_y + berserker_y) / 2) - axial_hei)
-    can.circle(((resident_x + berserker_x) / 2) + axial_wid, ((resident_y + berserker_y) / 2) - axial_hei, 2.5, stroke=0, fill=1)
-    can.line(((resident_x + berserker_x) / 2) + axial_wid, ((resident_y + berserker_y) / 2) - axial_hei, ((resident_x + berserker_x) / 2) - axial_wid, ((resident_y + berserker_y) / 2) - axial_hei)
-    can.circle(((resident_x + berserker_x) / 2) - axial_wid, ((resident_y + berserker_y) / 2) - axial_hei, 2.5, stroke=0, fill=1)
-    can.line(((resident_x + berserker_x) / 2) - axial_wid, ((resident_y + berserker_y) / 2) - axial_hei, resident_x, resident_y)
+    # Берсерк -> Резидент
+    def berserker_to_resident():
+        can.line(berserker_x, berserker_y, ((resident_x + berserker_x) / 2) + axial_wid, ((resident_y + berserker_y) / 2) - axial_hei)
+        can.circle(((resident_x + berserker_x) / 2) + axial_wid, ((resident_y + berserker_y) / 2) - axial_hei, 2.5, stroke=0, fill=1)
+        can.line(((resident_x + berserker_x) / 2) + axial_wid, ((resident_y + berserker_y) / 2) - axial_hei, ((resident_x + berserker_x) / 2) - axial_wid, ((resident_y + berserker_y) / 2) - axial_hei)
+        can.circle(((resident_x + berserker_x) / 2) - axial_wid, ((resident_y + berserker_y) / 2) - axial_hei, 2.5, stroke=0, fill=1)
+        can.line(((resident_x + berserker_x) / 2) - axial_wid, ((resident_y + berserker_y) / 2) - axial_hei, resident_x, resident_y)
 
-    # ДЧ -> Р
-    can.line(soulman_x, soulman_y, ((soulman_x + resident_x) / 2) - axial_hei, ((soulman_y + resident_y) / 2) + axial_wid)
-    can.circle(((soulman_x + resident_x) / 2) - axial_hei, ((soulman_y + resident_y) / 2) + axial_wid, 2.5, stroke=0, fill=1)
-    can.line(((soulman_x + resident_x) / 2) - axial_hei, ((soulman_y + resident_y) / 2) + axial_wid, ((soulman_x + resident_x) / 2) - axial_hei, ((soulman_y + resident_y) / 2) - axial_wid)
-    can.circle(((soulman_x + resident_x) / 2) - axial_hei, ((soulman_y + resident_y) / 2) - axial_wid, 2.5, stroke=0, fill=1)
-    can.line(((soulman_x + resident_x) / 2) - axial_hei, ((soulman_y + resident_y) / 2) - axial_wid, resident_x, resident_y)
+    # Душа-человек -> Резидент
+    def soulman_to_resident():
+        can.line(soulman_x, soulman_y, ((soulman_x + resident_x) / 2) - axial_hei, ((soulman_y + resident_y) / 2) + axial_wid)
+        can.circle(((soulman_x + resident_x) / 2) - axial_hei, ((soulman_y + resident_y) / 2) + axial_wid, 2.5, stroke=0, fill=1)
+        can.line(((soulman_x + resident_x) / 2) - axial_hei, ((soulman_y + resident_y) / 2) + axial_wid, ((soulman_x + resident_x) / 2) - axial_hei, ((soulman_y + resident_y) / 2) - axial_wid)
+        can.circle(((soulman_x + resident_x) / 2) - axial_hei, ((soulman_y + resident_y) / 2) - axial_wid, 2.5, stroke=0, fill=1)
+        can.line(((soulman_x + resident_x) / 2) - axial_hei, ((soulman_y + resident_y) / 2) - axial_wid, resident_x, resident_y)
 
-    # Р -> ДЧ
-    can.line(resident_x, resident_y, ((soulman_x + resident_x) / 2) + axial_hei, ((soulman_y + resident_y) / 2) - axial_wid)
-    can.circle(((soulman_x + resident_x) / 2) + axial_hei, ((soulman_y + resident_y) / 2) - axial_wid, 2.5, stroke=0, fill=1)
-    can.line(((soulman_x + resident_x) / 2) + axial_hei, ((soulman_y + resident_y) / 2) - axial_wid, ((soulman_x + resident_x) / 2) + axial_hei, ((soulman_y + resident_y) / 2) + axial_wid)
-    can.circle(((soulman_x + resident_x) / 2) + axial_hei, ((soulman_y + resident_y) / 2) + axial_wid, 2.5, stroke=0, fill=1)
-    can.line(((soulman_x + resident_x) / 2) + axial_hei, ((soulman_y + resident_y) / 2) + axial_wid, soulman_x, soulman_y)
+    # Резидент -> Душа-человек
+    def resident_to_soulman():
+        can.line(resident_x, resident_y, ((soulman_x + resident_x) / 2) + axial_hei, ((soulman_y + resident_y) / 2) - axial_wid)
+        can.circle(((soulman_x + resident_x) / 2) + axial_hei, ((soulman_y + resident_y) / 2) - axial_wid, 2.5, stroke=0, fill=1)
+        can.line(((soulman_x + resident_x) / 2) + axial_hei, ((soulman_y + resident_y) / 2) - axial_wid, ((soulman_x + resident_x) / 2) + axial_hei, ((soulman_y + resident_y) / 2) + axial_wid)
+        can.circle(((soulman_x + resident_x) / 2) + axial_hei, ((soulman_y + resident_y) / 2) + axial_wid, 2.5, stroke=0, fill=1)
+        can.line(((soulman_x + resident_x) / 2) + axial_hei, ((soulman_y + resident_y) / 2) + axial_wid, soulman_x, soulman_y)
 
-    # В -> Б
-    can.line(virtuoso_x, virtuoso_y, ((virtuoso_x + berserker_x) / 2) - axial_hei, ((virtuoso_y + berserker_y) / 2) + axial_wid)
-    can.circle(((virtuoso_x + berserker_x) / 2) - axial_hei, ((virtuoso_y + berserker_y) / 2) + axial_wid, 2.5, stroke=0, fill=1)
-    can.line(((virtuoso_x + berserker_x) / 2) - axial_hei, ((virtuoso_y + berserker_y) / 2) + axial_wid, ((virtuoso_x + berserker_x) / 2) - axial_hei, ((virtuoso_y + berserker_y) / 2) - axial_wid)
-    can.circle(((virtuoso_x + berserker_x) / 2) - axial_hei, ((virtuoso_y + berserker_y) / 2) - axial_wid, 2.5, stroke=0, fill=1)
-    can.line(((virtuoso_x + berserker_x) / 2) - axial_hei, ((virtuoso_y + berserker_y) / 2) - axial_wid, berserker_x, berserker_y)
+    # Виртуоз -> Берсерк
+    def virtuoso_to_berserker():
+        can.line(virtuoso_x, virtuoso_y, ((virtuoso_x + berserker_x) / 2) - axial_hei, ((virtuoso_y + berserker_y) / 2) + axial_wid)
+        can.circle(((virtuoso_x + berserker_x) / 2) - axial_hei, ((virtuoso_y + berserker_y) / 2) + axial_wid, 2.5, stroke=0, fill=1)
+        can.line(((virtuoso_x + berserker_x) / 2) - axial_hei, ((virtuoso_y + berserker_y) / 2) + axial_wid, ((virtuoso_x + berserker_x) / 2) - axial_hei, ((virtuoso_y + berserker_y) / 2) - axial_wid)
+        can.circle(((virtuoso_x + berserker_x) / 2) - axial_hei, ((virtuoso_y + berserker_y) / 2) - axial_wid, 2.5, stroke=0, fill=1)
+        can.line(((virtuoso_x + berserker_x) / 2) - axial_hei, ((virtuoso_y + berserker_y) / 2) - axial_wid, berserker_x, berserker_y)
 
-    # Б -> В
-    can.line(berserker_x, berserker_y, ((virtuoso_x + berserker_x) / 2) + axial_hei, ((virtuoso_y + berserker_y) / 2) - axial_wid)
-    can.circle(((virtuoso_x + berserker_x) / 2) + axial_hei, ((virtuoso_y + berserker_y) / 2) - axial_wid, 2.5, stroke=0, fill=1)
-    can.line(((virtuoso_x + berserker_x) / 2) + axial_hei, ((virtuoso_y + berserker_y) / 2) - axial_wid, ((virtuoso_x + berserker_x) / 2) + axial_hei, ((virtuoso_y + berserker_y) / 2) + axial_wid)
-    can.circle(((virtuoso_x + berserker_x) / 2) + axial_hei, ((virtuoso_y + berserker_y) / 2) + axial_wid, 2.5, stroke=0, fill=1)
-    can.line(((virtuoso_x + berserker_x) / 2) + axial_hei, ((virtuoso_y + berserker_y) / 2) + axial_wid, virtuoso_x, virtuoso_y)
+    # Берсерк -> Виртуоз
+    def berserker_to_virtuoso():
+        can.line(berserker_x, berserker_y, ((virtuoso_x + berserker_x) / 2) + axial_hei, ((virtuoso_y + berserker_y) / 2) - axial_wid)
+        can.circle(((virtuoso_x + berserker_x) / 2) + axial_hei, ((virtuoso_y + berserker_y) / 2) - axial_wid, 2.5, stroke=0, fill=1)
+        can.line(((virtuoso_x + berserker_x) / 2) + axial_hei, ((virtuoso_y + berserker_y) / 2) - axial_wid, ((virtuoso_x + berserker_x) / 2) + axial_hei, ((virtuoso_y + berserker_y) / 2) + axial_wid)
+        can.circle(((virtuoso_x + berserker_x) / 2) + axial_hei, ((virtuoso_y + berserker_y) / 2) + axial_wid, 2.5, stroke=0, fill=1)
+        can.line(((virtuoso_x + berserker_x) / 2) + axial_hei, ((virtuoso_y + berserker_y) / 2) + axial_wid, virtuoso_x, virtuoso_y)
 
-
-# Диагональ малая
-
-    # ДЧ -> П
-    can.line(soulman_x, soulman_y, ((soulman_x + politician_x) / 2) - diagSmall_wid + diagSmall_hei, ((soulman_y + politician_y) / 2)  + diagSmall_wid)
-    can.circle(((soulman_x + politician_x) / 2) - diagSmall_wid + diagSmall_hei, ((soulman_y + politician_y) / 2)  + diagSmall_wid, 2.5, stroke=0, fill=1)
-    can.line(((soulman_x + politician_x) / 2) - diagSmall_wid + diagSmall_hei, ((soulman_y + politician_y) / 2)  + diagSmall_wid, ((soulman_x + politician_x) / 2) + diagSmall_wid, ((soulman_y + politician_y) / 2)  - diagSmall_wid + diagSmall_hei)
-    can.circle(((soulman_x + politician_x) / 2) + diagSmall_wid, ((soulman_y + politician_y) / 2)  - diagSmall_wid + diagSmall_hei, 2.5, stroke=0, fill=1)
-    can.line(((soulman_x + politician_x) / 2) + diagSmall_wid, ((soulman_y + politician_y) / 2)  - diagSmall_wid + diagSmall_hei, politician_x, politician_y)
+    # Душа-человек -> Политик
+    def soulman_to_politician():
+        can.line(soulman_x, soulman_y, ((soulman_x + politician_x) / 2) - diagSmall_wid + diagSmall_hei, ((soulman_y + politician_y) / 2)  + diagSmall_wid)
+        can.circle(((soulman_x + politician_x) / 2) - diagSmall_wid + diagSmall_hei, ((soulman_y + politician_y) / 2)  + diagSmall_wid, 2.5, stroke=0, fill=1)
+        can.line(((soulman_x + politician_x) / 2) - diagSmall_wid + diagSmall_hei, ((soulman_y + politician_y) / 2)  + diagSmall_wid, ((soulman_x + politician_x) / 2) + diagSmall_wid, ((soulman_y + politician_y) / 2)  - diagSmall_wid + diagSmall_hei)
+        can.circle(((soulman_x + politician_x) / 2) + diagSmall_wid, ((soulman_y + politician_y) / 2)  - diagSmall_wid + diagSmall_hei, 2.5, stroke=0, fill=1)
+        can.line(((soulman_x + politician_x) / 2) + diagSmall_wid, ((soulman_y + politician_y) / 2)  - diagSmall_wid + diagSmall_hei, politician_x, politician_y)
     
-    # П -> ДЧ
-    can.line(politician_x, politician_y, ((soulman_x + politician_x) / 2) + diagSmall_wid - diagSmall_hei, ((soulman_y + politician_y) / 2)  - diagSmall_wid)
-    can.circle( ((soulman_x + politician_x) / 2) + diagSmall_wid - diagSmall_hei, ((soulman_y + politician_y) / 2)  - diagSmall_wid, 2.5, stroke=0, fill=1)
-    can.line(((soulman_x + politician_x) / 2) + diagSmall_wid - diagSmall_hei, ((soulman_y + politician_y) / 2)  - diagSmall_wid, ((soulman_x + politician_x) / 2) - diagSmall_wid, ((soulman_y + politician_y) / 2)  + diagSmall_wid - diagSmall_hei)
-    can.circle(((soulman_x + politician_x) / 2) - diagSmall_wid, ((soulman_y + politician_y) / 2)  + diagSmall_wid - diagSmall_hei, 2.5, stroke=0, fill=1)
-    can.line(((soulman_x + politician_x) / 2) - diagSmall_wid, ((soulman_y + politician_y) / 2)  + diagSmall_wid - diagSmall_hei, soulman_x, soulman_y)
+    # Политик -> Душа-человек
+    def politician_to_soulman():
+        can.line(politician_x, politician_y, ((soulman_x + politician_x) / 2) + diagSmall_wid - diagSmall_hei, ((soulman_y + politician_y) / 2)  - diagSmall_wid)
+        can.circle( ((soulman_x + politician_x) / 2) + diagSmall_wid - diagSmall_hei, ((soulman_y + politician_y) / 2)  - diagSmall_wid, 2.5, stroke=0, fill=1)
+        can.line(((soulman_x + politician_x) / 2) + diagSmall_wid - diagSmall_hei, ((soulman_y + politician_y) / 2)  - diagSmall_wid, ((soulman_x + politician_x) / 2) - diagSmall_wid, ((soulman_y + politician_y) / 2)  + diagSmall_wid - diagSmall_hei)
+        can.circle(((soulman_x + politician_x) / 2) - diagSmall_wid, ((soulman_y + politician_y) / 2)  + diagSmall_wid - diagSmall_hei, 2.5, stroke=0, fill=1)
+        can.line(((soulman_x + politician_x) / 2) - diagSmall_wid, ((soulman_y + politician_y) / 2)  + diagSmall_wid - diagSmall_hei, soulman_x, soulman_y)
 
-    # П -> Б
-    can.line(politician_x, politician_y, ((politician_x + berserker_x) / 2) - diagSmall_wid + diagSmall_hei, ((politician_y + berserker_y) / 2)  + diagSmall_wid)
-    can.circle(((politician_x + berserker_x) / 2) - diagSmall_wid + diagSmall_hei, ((politician_y + berserker_y) / 2)  + diagSmall_wid, 2.5, stroke=0, fill=1)
-    can.line(((politician_x + berserker_x) / 2) - diagSmall_wid + diagSmall_hei, ((politician_y + berserker_y) / 2)  + diagSmall_wid, ((politician_x + berserker_x) / 2) + diagSmall_wid, ((politician_y + berserker_y) / 2)  - diagSmall_wid + diagSmall_hei)
-    can.circle(((politician_x + berserker_x) / 2) + diagSmall_wid, ((politician_y + berserker_y) / 2)  - diagSmall_wid + diagSmall_hei, 2.5, stroke=0, fill=1)
-    can.line(((politician_x + berserker_x) / 2) + diagSmall_wid, ((politician_y + berserker_y) / 2)  - diagSmall_wid + diagSmall_hei, berserker_x, berserker_y)
+    # Политик -> Берсерк
+    def politician_to_berserker():
+        can.line(politician_x, politician_y, ((politician_x + berserker_x) / 2) - diagSmall_wid + diagSmall_hei, ((politician_y + berserker_y) / 2)  + diagSmall_wid)
+        can.circle(((politician_x + berserker_x) / 2) - diagSmall_wid + diagSmall_hei, ((politician_y + berserker_y) / 2)  + diagSmall_wid, 2.5, stroke=0, fill=1)
+        can.line(((politician_x + berserker_x) / 2) - diagSmall_wid + diagSmall_hei, ((politician_y + berserker_y) / 2)  + diagSmall_wid, ((politician_x + berserker_x) / 2) + diagSmall_wid, ((politician_y + berserker_y) / 2)  - diagSmall_wid + diagSmall_hei)
+        can.circle(((politician_x + berserker_x) / 2) + diagSmall_wid, ((politician_y + berserker_y) / 2)  - diagSmall_wid + diagSmall_hei, 2.5, stroke=0, fill=1)
+        can.line(((politician_x + berserker_x) / 2) + diagSmall_wid, ((politician_y + berserker_y) / 2)  - diagSmall_wid + diagSmall_hei, berserker_x, berserker_y)
     
-    # Б -> П
-    can.line(berserker_x, berserker_y, ((politician_x + berserker_x) / 2) + diagSmall_wid - diagSmall_hei, ((politician_y + berserker_y) / 2)  - diagSmall_wid)
-    can.circle( ((politician_x + berserker_x) / 2) + diagSmall_wid - diagSmall_hei, ((politician_y + berserker_y) / 2)  - diagSmall_wid, 2.5, stroke=0, fill=1)
-    can.line(((politician_x + berserker_x) / 2) + diagSmall_wid - diagSmall_hei, ((politician_y + berserker_y) / 2)  - diagSmall_wid, ((politician_x + berserker_x) / 2) - diagSmall_wid, ((politician_y + berserker_y) / 2)  + diagSmall_wid - diagSmall_hei)
-    can.circle(((politician_x + berserker_x) / 2) - diagSmall_wid, ((politician_y + berserker_y) / 2)  + diagSmall_wid - diagSmall_hei, 2.5, stroke=0, fill=1)
-    can.line(((politician_x + berserker_x) / 2) - diagSmall_wid, ((politician_y + berserker_y) / 2)  + diagSmall_wid - diagSmall_hei, politician_x, politician_y)
+    # Берсерк -> Политик
+    def berserker_to_politician():
+        can.line(berserker_x, berserker_y, ((politician_x + berserker_x) / 2) + diagSmall_wid - diagSmall_hei, ((politician_y + berserker_y) / 2)  - diagSmall_wid)
+        can.circle( ((politician_x + berserker_x) / 2) + diagSmall_wid - diagSmall_hei, ((politician_y + berserker_y) / 2)  - diagSmall_wid, 2.5, stroke=0, fill=1)
+        can.line(((politician_x + berserker_x) / 2) + diagSmall_wid - diagSmall_hei, ((politician_y + berserker_y) / 2)  - diagSmall_wid, ((politician_x + berserker_x) / 2) - diagSmall_wid, ((politician_y + berserker_y) / 2)  + diagSmall_wid - diagSmall_hei)
+        can.circle(((politician_x + berserker_x) / 2) - diagSmall_wid, ((politician_y + berserker_y) / 2)  + diagSmall_wid - diagSmall_hei, 2.5, stroke=0, fill=1)
+        can.line(((politician_x + berserker_x) / 2) - diagSmall_wid, ((politician_y + berserker_y) / 2)  + diagSmall_wid - diagSmall_hei, politician_x, politician_y)
 
-    # Р -> П
-    can.line(resident_x, resident_y, ((resident_x + politician_x) / 2) - diagSmall_wid, ((resident_y + politician_y) / 2) - diagSmall_wid + diagSmall_hei)
-    can.circle(((resident_x + politician_x) / 2) - diagSmall_wid, ((resident_y + politician_y) / 2) - diagSmall_wid + diagSmall_hei, 2.5, stroke=0, fill=1)
-    can.line(((resident_x + politician_x) / 2) - diagSmall_wid, ((resident_y + politician_y) / 2) - diagSmall_wid + diagSmall_hei, ((resident_x + politician_x) / 2) + diagSmall_wid - diagSmall_hei, ((resident_y + politician_y) / 2)  + diagSmall_wid)
-    can.circle(((resident_x + politician_x) / 2) + diagSmall_wid - diagSmall_hei, ((resident_y + politician_y) / 2)  + diagSmall_wid, 2.5, stroke=0, fill=1)
-    can.line(((resident_x + politician_x) / 2) + diagSmall_wid - diagSmall_hei, ((resident_y + politician_y) / 2)  + diagSmall_wid, politician_x, politician_y)
+    # Резидент -> Политик
+    def resident_to_politician():
+        can.line(resident_x, resident_y, ((resident_x + politician_x) / 2) - diagSmall_wid, ((resident_y + politician_y) / 2) - diagSmall_wid + diagSmall_hei)
+        can.circle(((resident_x + politician_x) / 2) - diagSmall_wid, ((resident_y + politician_y) / 2) - diagSmall_wid + diagSmall_hei, 2.5, stroke=0, fill=1)
+        can.line(((resident_x + politician_x) / 2) - diagSmall_wid, ((resident_y + politician_y) / 2) - diagSmall_wid + diagSmall_hei, ((resident_x + politician_x) / 2) + diagSmall_wid - diagSmall_hei, ((resident_y + politician_y) / 2)  + diagSmall_wid)
+        can.circle(((resident_x + politician_x) / 2) + diagSmall_wid - diagSmall_hei, ((resident_y + politician_y) / 2)  + diagSmall_wid, 2.5, stroke=0, fill=1)
+        can.line(((resident_x + politician_x) / 2) + diagSmall_wid - diagSmall_hei, ((resident_y + politician_y) / 2)  + diagSmall_wid, politician_x, politician_y)
      
-    # П -> Р
-    can.line(politician_x, politician_y, ((resident_x + politician_x) / 2) + diagSmall_wid, ((resident_y + politician_y) / 2) + diagSmall_wid - diagSmall_hei)
-    can.circle(((resident_x + politician_x) / 2) + diagSmall_wid, ((resident_y + politician_y) / 2) + diagSmall_wid - diagSmall_hei, 2.5, stroke=0, fill=1)
-    can.line(((resident_x + politician_x) / 2) + diagSmall_wid, ((resident_y + politician_y) / 2) + diagSmall_wid - diagSmall_hei, ((resident_x + politician_x) / 2) - diagSmall_wid + diagSmall_hei, ((resident_y + politician_y) / 2) - diagSmall_wid)
-    can.circle(((resident_x + politician_x) / 2) - diagSmall_wid + diagSmall_hei, ((resident_y + politician_y) / 2) - diagSmall_wid, 2.5, stroke=0, fill=1)
-    can.line(((resident_x + politician_x) / 2) - diagSmall_wid + diagSmall_hei, ((resident_y + politician_y) / 2) - diagSmall_wid, resident_x, resident_y)
+    # Политик -> Резидент
+    def politician_to_resident():
+        can.line(politician_x, politician_y, ((resident_x + politician_x) / 2) + diagSmall_wid, ((resident_y + politician_y) / 2) + diagSmall_wid - diagSmall_hei)
+        can.circle(((resident_x + politician_x) / 2) + diagSmall_wid, ((resident_y + politician_y) / 2) + diagSmall_wid - diagSmall_hei, 2.5, stroke=0, fill=1)
+        can.line(((resident_x + politician_x) / 2) + diagSmall_wid, ((resident_y + politician_y) / 2) + diagSmall_wid - diagSmall_hei, ((resident_x + politician_x) / 2) - diagSmall_wid + diagSmall_hei, ((resident_y + politician_y) / 2) - diagSmall_wid)
+        can.circle(((resident_x + politician_x) / 2) - diagSmall_wid + diagSmall_hei, ((resident_y + politician_y) / 2) - diagSmall_wid, 2.5, stroke=0, fill=1)
+        can.line(((resident_x + politician_x) / 2) - diagSmall_wid + diagSmall_hei, ((resident_y + politician_y) / 2) - diagSmall_wid, resident_x, resident_y)
      
-    # П -> В
-    can.line(politician_x, politician_y, ((virtuoso_x + politician_x) / 2) - diagSmall_wid, ((virtuoso_y + politician_y) / 2) - diagSmall_wid + diagSmall_hei)
-    can.circle(((virtuoso_x + politician_x) / 2) - diagSmall_wid, ((virtuoso_y + politician_y) / 2) - diagSmall_wid + diagSmall_hei, 2.5, stroke=0, fill=1)
-    can.line(((virtuoso_x + politician_x) / 2) - diagSmall_wid, ((virtuoso_y + politician_y) / 2) - diagSmall_wid + diagSmall_hei, ((virtuoso_x + politician_x) / 2) + diagSmall_wid - diagSmall_hei, ((virtuoso_y + politician_y) / 2)  + diagSmall_wid)
-    can.circle(((virtuoso_x + politician_x) / 2) + diagSmall_wid - diagSmall_hei, ((virtuoso_y + politician_y) / 2)  + diagSmall_wid, 2.5, stroke=0, fill=1)
-    can.line(((virtuoso_x + politician_x) / 2) + diagSmall_wid - diagSmall_hei, ((virtuoso_y + politician_y) / 2)  + diagSmall_wid, virtuoso_x, virtuoso_y)
+    # Политик -> Виртуоз
+    def politician_to_virtuoso():
+        can.line(politician_x, politician_y, ((virtuoso_x + politician_x) / 2) - diagSmall_wid, ((virtuoso_y + politician_y) / 2) - diagSmall_wid + diagSmall_hei)
+        can.circle(((virtuoso_x + politician_x) / 2) - diagSmall_wid, ((virtuoso_y + politician_y) / 2) - diagSmall_wid + diagSmall_hei, 2.5, stroke=0, fill=1)
+        can.line(((virtuoso_x + politician_x) / 2) - diagSmall_wid, ((virtuoso_y + politician_y) / 2) - diagSmall_wid + diagSmall_hei, ((virtuoso_x + politician_x) / 2) + diagSmall_wid - diagSmall_hei, ((virtuoso_y + politician_y) / 2)  + diagSmall_wid)
+        can.circle(((virtuoso_x + politician_x) / 2) + diagSmall_wid - diagSmall_hei, ((virtuoso_y + politician_y) / 2)  + diagSmall_wid, 2.5, stroke=0, fill=1)
+        can.line(((virtuoso_x + politician_x) / 2) + diagSmall_wid - diagSmall_hei, ((virtuoso_y + politician_y) / 2)  + diagSmall_wid, virtuoso_x, virtuoso_y)
      
-    # В -> П
-    can.line(virtuoso_x, virtuoso_y, ((virtuoso_x + politician_x) / 2) + diagSmall_wid, ((virtuoso_y + politician_y) / 2) + diagSmall_wid - diagSmall_hei)
-    can.circle(((virtuoso_x + politician_x) / 2) + diagSmall_wid, ((virtuoso_y + politician_y) / 2) + diagSmall_wid - diagSmall_hei, 2.5, stroke=0, fill=1)
-    can.line(((virtuoso_x + politician_x) / 2) - diagSmall_wid + diagSmall_hei, ((virtuoso_y + politician_y) / 2) - diagSmall_wid, ((virtuoso_x + politician_x) / 2) + diagSmall_wid, ((virtuoso_y + politician_y) / 2) + diagSmall_wid - diagSmall_hei)
-    can.circle(((virtuoso_x + politician_x) / 2) - diagSmall_wid + diagSmall_hei, ((virtuoso_y + politician_y) / 2) - diagSmall_wid, 2.5, stroke=0, fill=1)
-    can.line(((virtuoso_x + politician_x) / 2) - diagSmall_wid + diagSmall_hei, ((virtuoso_y + politician_y) / 2) - diagSmall_wid, politician_x, politician_y)
-     
-     
+    # Виртуоз -> Политик
+    def virtuoso_to_politician():
+        can.line(virtuoso_x, virtuoso_y, ((virtuoso_x + politician_x) / 2) + diagSmall_wid, ((virtuoso_y + politician_y) / 2) + diagSmall_wid - diagSmall_hei)
+        can.circle(((virtuoso_x + politician_x) / 2) + diagSmall_wid, ((virtuoso_y + politician_y) / 2) + diagSmall_wid - diagSmall_hei, 2.5, stroke=0, fill=1)
+        can.line(((virtuoso_x + politician_x) / 2) - diagSmall_wid + diagSmall_hei, ((virtuoso_y + politician_y) / 2) - diagSmall_wid, ((virtuoso_x + politician_x) / 2) + diagSmall_wid, ((virtuoso_y + politician_y) / 2) + diagSmall_wid - diagSmall_hei)
+        can.circle(((virtuoso_x + politician_x) / 2) - diagSmall_wid + diagSmall_hei, ((virtuoso_y + politician_y) / 2) - diagSmall_wid, 2.5, stroke=0, fill=1)
+        can.line(((virtuoso_x + politician_x) / 2) - diagSmall_wid + diagSmall_hei, ((virtuoso_y + politician_y) / 2) - diagSmall_wid, politician_x, politician_y)
 
+    # Душа-человек -> Берсерк
+    def soulman_to_berserker():
+        can.line(soulman_x, soulman_y, ((soulman_x + berserker_x) / 2) - diagBig_wid + diagBig_hei, ((soulman_y + berserker_y) / 2)  + diagBig_wid)
+        can.circle(((soulman_x + berserker_x) / 2) - diagBig_wid + diagBig_hei, ((soulman_y + berserker_y) / 2)  + diagBig_wid, 2.5, stroke=0, fill=1)
+        can.line(((soulman_x + berserker_x) / 2) - diagBig_wid + diagBig_hei, ((soulman_y + berserker_y) / 2)  + diagBig_wid, ((soulman_x + berserker_x) / 2) + diagBig_wid, ((soulman_y + berserker_y) / 2)  - diagBig_wid + diagBig_hei)
+        can.circle(((soulman_x + berserker_x) / 2) + diagBig_wid, ((soulman_y + berserker_y) / 2)  - diagBig_wid + diagBig_hei, 2.5, stroke=0, fill=1)
+        can.line(((soulman_x + berserker_x) / 2) + diagBig_wid, ((soulman_y + berserker_y) / 2)  - diagBig_wid + diagBig_hei, berserker_x, berserker_y)
+     
+    # Берсерк -> Душа-человек
+    def berserker_to_soulman():
+        can.line(berserker_x, berserker_y, ((soulman_x + berserker_x) / 2) + diagBig_wid - diagBig_hei, ((soulman_y + berserker_y) / 2)  - diagBig_wid)
+        can.circle( ((soulman_x + berserker_x) / 2) + diagBig_wid - diagBig_hei, ((soulman_y + berserker_y) / 2)  - diagBig_wid, 2.5, stroke=0, fill=1)
+        can.line(((soulman_x + berserker_x) / 2) + diagBig_wid - diagBig_hei, ((soulman_y + berserker_y) / 2)  - diagBig_wid, ((soulman_x + berserker_x) / 2) - diagBig_wid, ((soulman_y + berserker_y) / 2)  + diagBig_wid - diagBig_hei)
+        can.circle(((soulman_x + berserker_x) / 2) - diagBig_wid, ((soulman_y + berserker_y) / 2)  + diagBig_wid - diagBig_hei, 2.5, stroke=0, fill=1)
+        can.line(((soulman_x + berserker_x) / 2) - diagBig_wid, ((soulman_y + berserker_y) / 2)  + diagBig_wid - diagBig_hei, soulman_x, soulman_y)
+
+    # Резидент -> Виртуоз
+    def resident_to_virtuoso():
+        can.line(resident_x, resident_y, ((virtuoso_x + resident_x) / 2) - diagBig_wid, ((virtuoso_y + resident_y) / 2) - diagBig_wid + diagBig_hei)
+        can.circle(((virtuoso_x + resident_x) / 2) - diagBig_wid, ((virtuoso_y + resident_y) / 2) - diagBig_wid + diagBig_hei, 2.5, stroke=0, fill=1)
+        can.line(((virtuoso_x + resident_x) / 2) - diagBig_wid, ((virtuoso_y + resident_y) / 2) - diagBig_wid + diagBig_hei, ((virtuoso_x + resident_x) / 2) + diagBig_wid - diagBig_hei, ((virtuoso_y + resident_y) / 2)  + diagBig_wid)
+        can.circle(((virtuoso_x + resident_x) / 2) + diagBig_wid - diagBig_hei, ((virtuoso_y + resident_y) / 2)  + diagBig_wid, 2.5, stroke=0, fill=1)
+        can.line(((virtuoso_x + resident_x) / 2) + diagBig_wid - diagBig_hei, ((virtuoso_y + resident_y) / 2)  + diagBig_wid, virtuoso_x, virtuoso_y)
+     
+    # Виртуоз -> Резидент
+    def virtuoso_to_resident():
+        can.line(virtuoso_x, virtuoso_y, ((virtuoso_x + resident_x) / 2) + diagBig_wid, ((virtuoso_y + resident_y) / 2) + diagBig_wid - diagBig_hei)
+        can.circle(((virtuoso_x + resident_x) / 2) + diagBig_wid, ((virtuoso_y + resident_y) / 2) + diagBig_wid - diagBig_hei, 2.5, stroke=0, fill=1)
+        can.line(((virtuoso_x + resident_x) / 2) - diagBig_wid + diagBig_hei, ((virtuoso_y + resident_y) / 2) - diagBig_wid, ((virtuoso_x + resident_x) / 2) + diagBig_wid, ((virtuoso_y + resident_y) / 2) + diagBig_wid - diagBig_hei)
+        can.circle(((virtuoso_x + resident_x) / 2) - diagBig_wid + diagBig_hei, ((virtuoso_y + resident_y) / 2) - diagBig_wid, 2.5, stroke=0, fill=1)
+        can.line(((virtuoso_x + resident_x) / 2) - diagBig_wid + diagBig_hei, ((virtuoso_y + resident_y) / 2) - diagBig_wid, resident_x, resident_y)
+
+    # Сортировка переменных из второго блока
+    def sort_variables_2(resAdaptation_2, resCompromise_2, resThreat_2, resCooperation_2, resAvoidance_2):
+        # Собираем переменные в словарь
+        variables = {
+            'soulman': resAdaptation_2,
+            'politician': resCompromise_2,
+            'berserker': resThreat_2,
+            'virtuoso': resCooperation_2,
+            'resident': resAvoidance_2
+        }
+        
+        # Сортируем ключи по значениям в порядке убывания
+        sorted_keys_2 = sorted(variables, key=variables.get, reverse=True)
+        
+        return sorted_keys_2
+
+    # Пример вызова функции
+    sorted_result = sort_variables_2(resAdaptation_2, resCompromise_2, resThreat_2, resCooperation_2, resAvoidance_2)
+
+    # Проверяем переходы между значениями
+    transitions = [
+        (sorted_result[0], sorted_result[1]),
+        (sorted_result[1], sorted_result[2]),
+        (sorted_result[2], sorted_result[3]),
+        (sorted_result[3], sorted_result[4]),
+    ]
+
+    # Цикл для перебора пар значений
+    for pair in transitions:
+        first, second = pair  # Разделяем пару на переменные
+        # В зависимости от значений переменных вызываем разные функции
+        if first == 'soulman' and second == 'virtuoso':
+            soulman_to_virtuoso()
+        if first == 'virtuoso' and second == 'soulman':
+            virtuoso_to_soulman()
+        if first == 'resident' and second == 'berserker':
+            resident_to_berserker()
+        if first == 'berserker' and second == 'resident':
+            berserker_to_resident()
+        if first == 'soulman' and second == 'resident':
+            soulman_to_resident()
+        if first == 'resident' and second == 'soulman':
+            resident_to_soulman()
+        if first == 'virtuoso' and second == 'berserker':
+            virtuoso_to_berserker()
+        if first == 'berserker' and second == 'virtuoso':
+            berserker_to_virtuoso()
+        if first == 'soulman' and second == 'politician':
+            soulman_to_politician()
+        if first == 'politician' and second == 'soulman':
+            politician_to_soulman()
+        if first == 'politician' and second == 'berserker':
+            politician_to_berserker()
+        if first == 'berserker' and second == 'politician':
+            berserker_to_politician()
+        if first == 'resident' and second == 'politician':
+            resident_to_politician()
+        if first == 'politician' and second == 'resident':
+            politician_to_resident()
+        if first == 'politician' and second == 'virtuoso':
+            politician_to_virtuoso()
+        if first == 'virtuoso' and second == 'politician':
+            virtuoso_to_politician()
+        if first == 'soulman' and second == 'berserker':
+            soulman_to_berserker()
+        if first == 'berserker' and second == 'soulman':
+            berserker_to_soulman()
+        if first == 'resident' and second == 'virtuoso':
+            resident_to_virtuoso()
+        if first == 'virtuoso' and second == 'resident':
+            virtuoso_to_resident()
+            
 
 
 
     # Сохраняем документ
     can.save()
     print(f"PDF-файл успешно создан: {filename}")
+
 
 # Указываем путь к рабочему столу и создаем PDF-файл
 desktop_path = os.path.expanduser("~/Desktop")
