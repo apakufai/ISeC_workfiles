@@ -470,23 +470,19 @@ def create_pdf(filename):
         start_y_left = height - 785.197
         end_y_left = height - 484.996
         width_left = 141.732
-
         # Определяем высоту графика, которую мы будем использовать
         fullHeight_left = start_y_left - end_y_left
-
         # Определяем значения для каждой части графика
         values_left = [
-            {"name": "Эмоции", "color": (133/255, 85/255, 85/255), "value": 14},
-            {"name": "Логика", "color": (118/255, 102/255, 171/255), "value": 84},
-            {"name": "Угроза", "color": (138/255, 171/255, 78/255), "value": 54},
-            {"name": "Торги", "color": (200/255, 65/255, 85/255), "value": 63},
-            {"name": "Компромисс", "color": (90/255, 127/255, 174/255), "value": 33},
-            {"name": "Приспособление", "color": (235/255, 188/255, 109/255), "value": 33},
+            {"name": "Эмоции", "color": (133/255, 85/255, 85/255), "value": 5},
+            {"name": "Логика", "color": (118/255, 102/255, 171/255), "value": 10},
+            {"name": "Угроза", "color": (138/255, 171/255, 78/255), "value": 8},
+            {"name": "Торги", "color": (200/255, 65/255, 85/255), "value": 13},
+            {"name": "Компромисс", "color": (90/255, 127/255, 174/255), "value": 10},
+            {"name": "Приспособление", "color": (235/255, 188/255, 109/255), "value": 4},
         ]
-
         # Начальная позиция по Y для рисования в цикле for каждой части графика
         current_y_left = start_y_left
-
         # Рисуем график
         for part_left in values_left:
             if part_left["value"] > 0:  # Проверяем, что значение больше 0
@@ -498,15 +494,14 @@ def create_pdf(filename):
                 current_y_left -= height_left
 
     # Ваш профиль
+
         # Устанавливаем начальные и конечные координаты
         start_x_right = 453.543
         start_y_right = height - 785.197
         end_y_right = height - 484.996
         width_right = 141.732
-
         # Определяем высоту графика, которую мы будем использовать
         fullHeight_right = start_y_right - end_y_right
-
         # Определяем значения для каждой части графика
         values_right = [
             {"name": "Эмоции", "color": (133/255, 85/255, 85/255), "value": resEmotionsArgument_1},
@@ -516,10 +511,8 @@ def create_pdf(filename):
             {"name": "Компромисс", "color": (90/255, 127/255, 174/255), "value": resCompromise_1},
             {"name": "Приспособление", "color": (235/255, 188/255, 109/255), "value": resAdaptation_1},
         ]
-
         # Начальная позиция по Y для рисования в цикле for каждой части графика
         current_y_right = start_y_right
-
         # Рисуем график
         for part_right in values_right:
             if part_right["value"] > 0:  # Проверяем, что значение больше 0
