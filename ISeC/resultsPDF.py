@@ -1477,13 +1477,57 @@ def create_pdf(filename):
         return
     can.drawImage(image_path_13, 0, 0, width=width, height=height)
 
+    can.showPage()  # Завершение тринадцатой страницы
+
+
+
+    # СТРАНИЦА 14
+    image_path_14 = os.path.join(os.path.dirname(os.path.abspath(__file__)), "pagesPDF", "page_14.png")
+    if not os.path.exists(image_path_14):
+        print(f"Изображение {image_path_14} не найдено.")
+        return
+    can.drawImage(image_path_14, 0, 0, width=width, height=height)
+
+    can.showPage()  # Завершение четырнадцатой страницы
+
+
+
+    # СТРАНИЦА 15
+    image_path_15 = os.path.join(os.path.dirname(os.path.abspath(__file__)), "pagesPDF", "page_15.png")
+    if not os.path.exists(image_path_15):
+        print(f"Изображение {image_path_15} не найдено.")
+        return
+    can.drawImage(image_path_15, 0, 0, width=width, height=height)
+
+    can.showPage()  # Завершение пятнадцатой страницы
+
+
+
+    # СТРАНИЦА 16
+    image_path_16 = os.path.join(os.path.dirname(os.path.abspath(__file__)), "pagesPDF", "page_16.png")
+    if not os.path.exists(image_path_16):
+        print(f"Изображение {image_path_16} не найдено.")
+        return
+    can.drawImage(image_path_16, 0, 0, width=width, height=height)
+
     if resLogicArgument_6 is not None:
         rangeResultHorizontal(resLogicArgument_6, 63.27, 532, 458.646, 30)
 
     if resEmotionsArgument_6 is not None:
         rangeResultHorizontal(resEmotionsArgument_6, 63.27, 532, 762.315, 30)
 
-    can.showPage()  # Завершение тринадцатой страницы
+    can.showPage()  # Завершение шестнадцатой страницы
+
+
+
+    # СТРАНИЦА 17
+    image_path_17 = os.path.join(os.path.dirname(os.path.abspath(__file__)), "pagesPDF", "page_17.png")
+    if not os.path.exists(image_path_17):
+        print(f"Изображение {image_path_17} не найдено.")
+        return
+    can.drawImage(image_path_17, 0, 0, width=width, height=height)
+
+    can.showPage()  # Завершение пятнадцатой страницы
 
 
 
