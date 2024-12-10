@@ -3,6 +3,7 @@ from reportlab.lib.pagesizes import A4
 from reportlab.pdfgen import canvas
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
+import math
 import os
 import re
 
@@ -583,7 +584,12 @@ def create_pdf(filename):
     diagSmall_wid = 30 # Ширина пика холма малых диагональных линий
     diagBig_hei = 30 # Высота холма больших диагональных линий
     diagBig_wid = 100 # Ширина пика холма больших диагональных линий
+
+    # Параметры оконечника стрелки
+    arrow_length = 30  # Длина "крыльев" стрелки
+    arrow_angle = math.radians(15)  # Угол в радианах
     
+
     # Душа-человек -> Виртуоз
     def soulman_to_virtuoso():
         can.line(soulman_x, soulman_y, ((soulman_x + virtuoso_x) / 2) - axial_wid, ((soulman_y + virtuoso_y) / 2) + axial_hei)
@@ -591,6 +597,32 @@ def create_pdf(filename):
         can.line(((soulman_x + virtuoso_x) / 2) - axial_wid, ((soulman_y + virtuoso_y) / 2) + axial_hei, ((soulman_x + virtuoso_x) / 2) + axial_wid, ((soulman_y + virtuoso_y) / 2) + axial_hei)
         can.circle(((soulman_x + virtuoso_x) / 2) + axial_wid, ((soulman_y + virtuoso_y) / 2) + axial_hei, 2.5, stroke=0, fill=1)
         can.line(((soulman_x + virtuoso_x) / 2) + axial_wid, ((soulman_y + virtuoso_y) / 2) + axial_hei, virtuoso_x, virtuoso_y)
+        # Координаты конца третьей линии
+        line_end_x = ((soulman_x + virtuoso_x) / 2) + axial_wid
+        line_end_y = ((soulman_y + virtuoso_y) / 2) + axial_hei
+        can.line(line_end_x, line_end_y, virtuoso_x, virtuoso_y)
+        # Вычисление направления линии
+        dx = virtuoso_x - line_end_x
+        dy = virtuoso_y - line_end_y
+        line_length = math.hypot(dx, dy)
+        # Нормализация векторов
+        if line_length != 0:
+            dx /= line_length
+            dy /= line_length
+        # Вычисление координат оконечника
+        arrow_tip_x = virtuoso_x
+        arrow_tip_y = virtuoso_y
+        left_wing_x = arrow_tip_x - arrow_length * (dx * math.cos(arrow_angle) + dy * math.sin(arrow_angle))
+        left_wing_y = arrow_tip_y - arrow_length * (dy * math.cos(arrow_angle) - dx * math.sin(arrow_angle))
+        right_wing_x = arrow_tip_x - arrow_length * (dx * math.cos(-arrow_angle) + dy * math.sin(-arrow_angle))
+        right_wing_y = arrow_tip_y - arrow_length * (dy * math.cos(-arrow_angle) - dx * math.sin(-arrow_angle))
+        # Рисуем оконечник стрелки
+        can.line(virtuoso_x, virtuoso_y, left_wing_x, left_wing_y)
+        can.circle(left_wing_x, left_wing_y, 2.5, stroke=0, fill=1)
+        can.line(virtuoso_x, virtuoso_y, right_wing_x, right_wing_y)
+        can.circle(right_wing_x, right_wing_y, 2.5, stroke=0, fill=1)
+        can.line(left_wing_x, left_wing_y, right_wing_x, right_wing_y)
+
 
     # Виртуоз -> Душа-человек
     def virtuoso_to_soulman():
@@ -598,15 +630,65 @@ def create_pdf(filename):
         can.circle(((soulman_x + virtuoso_x) / 2) + axial_wid, ((soulman_y + virtuoso_y) / 2) - axial_hei, 2.5, stroke=0, fill=1)
         can.line(((soulman_x + virtuoso_x) / 2) + axial_wid, ((soulman_y + virtuoso_y) / 2) - axial_hei, ((soulman_x + virtuoso_x) / 2) - axial_wid, ((soulman_y + virtuoso_y) / 2) - axial_hei)
         can.circle(((soulman_x + virtuoso_x) / 2) - axial_wid, ((soulman_y + virtuoso_y) / 2) - axial_hei, 2.5, stroke=0, fill=1)
-        can.line(((soulman_x + virtuoso_x) / 2) - axial_wid, ((soulman_y + virtuoso_y) / 2) - axial_hei, soulman_x, soulman_y)
+        # Координаты конца третьей линии
+        line_end_x = ((soulman_x + virtuoso_x) / 2) - axial_wid
+        line_end_y = ((soulman_y + virtuoso_y) / 2) - axial_hei
+        can.line(line_end_x, line_end_y, soulman_x, soulman_y)
+        # Вычисление направления линии
+        dx = soulman_x - line_end_x
+        dy = soulman_y - line_end_y
+        line_length = math.hypot(dx, dy)
+        # Нормализация векторов
+        if line_length != 0:
+            dx /= line_length
+            dy /= line_length
+        # Вычисление координат оконечника
+        arrow_tip_x = soulman_x
+        arrow_tip_y = soulman_y
+        left_wing_x = arrow_tip_x - arrow_length * (dx * math.cos(arrow_angle) + dy * math.sin(arrow_angle))
+        left_wing_y = arrow_tip_y - arrow_length * (dy * math.cos(arrow_angle) - dx * math.sin(arrow_angle))
+        right_wing_x = arrow_tip_x - arrow_length * (dx * math.cos(-arrow_angle) + dy * math.sin(-arrow_angle))
+        right_wing_y = arrow_tip_y - arrow_length * (dy * math.cos(-arrow_angle) - dx * math.sin(-arrow_angle))
+        # Рисуем оконечник стрелки
+        can.line(soulman_x, soulman_y, left_wing_x, left_wing_y)
+        can.circle(left_wing_x, left_wing_y, 2.5, stroke=0, fill=1)
+        can.line(soulman_x, soulman_y, right_wing_x, right_wing_y)
+        can.circle(right_wing_x, right_wing_y, 2.5, stroke=0, fill=1)
+        can.line(left_wing_x, left_wing_y, right_wing_x, right_wing_y)
     
+
     # Резидент -> Берсерк
     def resident_to_berserker():
         can.line(resident_x, resident_y, ((resident_x + berserker_x) / 2) - axial_wid, ((resident_y + berserker_y) / 2) + axial_hei)
         can.circle(((resident_x + berserker_x) / 2) - axial_wid, ((resident_y + berserker_y) / 2) + axial_hei, 2.5, stroke=0, fill=1)
         can.line(((resident_x + berserker_x) / 2) - axial_wid, ((resident_y + berserker_y) / 2) + axial_hei, ((resident_x + berserker_x) / 2) + axial_wid, ((resident_y + berserker_y) / 2) + axial_hei)
         can.circle(((resident_x + berserker_x) / 2) + axial_wid, ((resident_y + berserker_y) / 2) + axial_hei, 2.5, stroke=0, fill=1)
-        can.line(((resident_x + berserker_x) / 2) + axial_wid, ((resident_y + berserker_y) / 2) + axial_hei, berserker_x, berserker_y)
+        # Координаты конца третьей линии
+        line_end_x = ((resident_x + berserker_x) / 2) + axial_wid
+        line_end_y = ((resident_y + berserker_y) / 2) + axial_hei
+        can.line(line_end_x, line_end_y, berserker_x, berserker_y)
+        # Вычисление направления линии
+        dx = berserker_x - line_end_x
+        dy = berserker_y - line_end_y
+        line_length = math.hypot(dx, dy)
+        # Нормализация векторов
+        if line_length != 0:
+            dx /= line_length
+            dy /= line_length
+        # Вычисление координат оконечника
+        arrow_tip_x = berserker_x
+        arrow_tip_y = berserker_y
+        left_wing_x = arrow_tip_x - arrow_length * (dx * math.cos(arrow_angle) + dy * math.sin(arrow_angle))
+        left_wing_y = arrow_tip_y - arrow_length * (dy * math.cos(arrow_angle) - dx * math.sin(arrow_angle))
+        right_wing_x = arrow_tip_x - arrow_length * (dx * math.cos(-arrow_angle) + dy * math.sin(-arrow_angle))
+        right_wing_y = arrow_tip_y - arrow_length * (dy * math.cos(-arrow_angle) - dx * math.sin(-arrow_angle))
+        # Рисуем оконечник стрелки
+        can.line(berserker_x, berserker_y, left_wing_x, left_wing_y)
+        can.circle(left_wing_x, left_wing_y, 2.5, stroke=0, fill=1)
+        can.line(berserker_x, berserker_y, right_wing_x, right_wing_y)
+        can.circle(right_wing_x, right_wing_y, 2.5, stroke=0, fill=1)
+        can.line(left_wing_x, left_wing_y, right_wing_x, right_wing_y)
+
 
     # Берсерк -> Резидент
     def berserker_to_resident():
@@ -614,7 +696,32 @@ def create_pdf(filename):
         can.circle(((resident_x + berserker_x) / 2) + axial_wid, ((resident_y + berserker_y) / 2) - axial_hei, 2.5, stroke=0, fill=1)
         can.line(((resident_x + berserker_x) / 2) + axial_wid, ((resident_y + berserker_y) / 2) - axial_hei, ((resident_x + berserker_x) / 2) - axial_wid, ((resident_y + berserker_y) / 2) - axial_hei)
         can.circle(((resident_x + berserker_x) / 2) - axial_wid, ((resident_y + berserker_y) / 2) - axial_hei, 2.5, stroke=0, fill=1)
-        can.line(((resident_x + berserker_x) / 2) - axial_wid, ((resident_y + berserker_y) / 2) - axial_hei, resident_x, resident_y)
+        # Координаты конца третьей линии
+        line_end_x = ((resident_x + berserker_x) / 2) - axial_wid
+        line_end_y = ((resident_y + berserker_y) / 2) - axial_hei
+        can.line(line_end_x, line_end_y, resident_x, resident_y)
+        # Вычисление направления линии
+        dx = resident_x - line_end_x
+        dy = resident_y - line_end_y
+        line_length = math.hypot(dx, dy)
+        # Нормализация векторов
+        if line_length != 0:
+            dx /= line_length
+            dy /= line_length
+        # Вычисление координат оконечника
+        arrow_tip_x = resident_x
+        arrow_tip_y = resident_y
+        left_wing_x = arrow_tip_x - arrow_length * (dx * math.cos(arrow_angle) + dy * math.sin(arrow_angle))
+        left_wing_y = arrow_tip_y - arrow_length * (dy * math.cos(arrow_angle) - dx * math.sin(arrow_angle))
+        right_wing_x = arrow_tip_x - arrow_length * (dx * math.cos(-arrow_angle) + dy * math.sin(-arrow_angle))
+        right_wing_y = arrow_tip_y - arrow_length * (dy * math.cos(-arrow_angle) - dx * math.sin(-arrow_angle))
+        # Рисуем оконечник стрелки
+        can.line(resident_x, resident_y, left_wing_x, left_wing_y)
+        can.circle(left_wing_x, left_wing_y, 2.5, stroke=0, fill=1)
+        can.line(resident_x, resident_y, right_wing_x, right_wing_y)
+        can.circle(right_wing_x, right_wing_y, 2.5, stroke=0, fill=1)
+        can.line(left_wing_x, left_wing_y, right_wing_x, right_wing_y)
+
 
     # Душа-человек -> Резидент
     def soulman_to_resident():
@@ -622,7 +729,32 @@ def create_pdf(filename):
         can.circle(((soulman_x + resident_x) / 2) - axial_hei, ((soulman_y + resident_y) / 2) + axial_wid, 2.5, stroke=0, fill=1)
         can.line(((soulman_x + resident_x) / 2) - axial_hei, ((soulman_y + resident_y) / 2) + axial_wid, ((soulman_x + resident_x) / 2) - axial_hei, ((soulman_y + resident_y) / 2) - axial_wid)
         can.circle(((soulman_x + resident_x) / 2) - axial_hei, ((soulman_y + resident_y) / 2) - axial_wid, 2.5, stroke=0, fill=1)
-        can.line(((soulman_x + resident_x) / 2) - axial_hei, ((soulman_y + resident_y) / 2) - axial_wid, resident_x, resident_y)
+        # Координаты конца третьей линии
+        line_end_x = ((soulman_x + resident_x) / 2) - axial_hei
+        line_end_y = ((soulman_y + resident_y) / 2) - axial_wid
+        can.line(line_end_x, line_end_y, resident_x, resident_y)
+        # Вычисление направления линии
+        dx = resident_x - line_end_x
+        dy = resident_y - line_end_y
+        line_length = math.hypot(dx, dy)
+        # Нормализация векторов
+        if line_length != 0:
+            dx /= line_length
+            dy /= line_length
+        # Вычисление координат оконечника
+        arrow_tip_x = resident_x
+        arrow_tip_y = resident_y
+        left_wing_x = arrow_tip_x - arrow_length * (dx * math.cos(arrow_angle) + dy * math.sin(arrow_angle))
+        left_wing_y = arrow_tip_y - arrow_length * (dy * math.cos(arrow_angle) - dx * math.sin(arrow_angle))
+        right_wing_x = arrow_tip_x - arrow_length * (dx * math.cos(-arrow_angle) + dy * math.sin(-arrow_angle))
+        right_wing_y = arrow_tip_y - arrow_length * (dy * math.cos(-arrow_angle) - dx * math.sin(-arrow_angle))
+        # Рисуем оконечник стрелки
+        can.line(resident_x, resident_y, left_wing_x, left_wing_y)
+        can.circle(left_wing_x, left_wing_y, 2.5, stroke=0, fill=1)
+        can.line(resident_x, resident_y, right_wing_x, right_wing_y)
+        can.circle(right_wing_x, right_wing_y, 2.5, stroke=0, fill=1)
+        can.line(left_wing_x, left_wing_y, right_wing_x, right_wing_y)
+
 
     # Резидент -> Душа-человек
     def resident_to_soulman():
@@ -630,7 +762,32 @@ def create_pdf(filename):
         can.circle(((soulman_x + resident_x) / 2) + axial_hei, ((soulman_y + resident_y) / 2) - axial_wid, 2.5, stroke=0, fill=1)
         can.line(((soulman_x + resident_x) / 2) + axial_hei, ((soulman_y + resident_y) / 2) - axial_wid, ((soulman_x + resident_x) / 2) + axial_hei, ((soulman_y + resident_y) / 2) + axial_wid)
         can.circle(((soulman_x + resident_x) / 2) + axial_hei, ((soulman_y + resident_y) / 2) + axial_wid, 2.5, stroke=0, fill=1)
-        can.line(((soulman_x + resident_x) / 2) + axial_hei, ((soulman_y + resident_y) / 2) + axial_wid, soulman_x, soulman_y)
+        # Координаты конца третьей линии
+        line_end_x = ((soulman_x + resident_x) / 2) + axial_hei
+        line_end_y = ((soulman_y + resident_y) / 2) + axial_wid
+        can.line(line_end_x, line_end_y, soulman_x, soulman_y)
+        # Вычисление направления линии
+        dx = soulman_x - line_end_x
+        dy = soulman_y - line_end_y
+        line_length = math.hypot(dx, dy)
+        # Нормализация векторов
+        if line_length != 0:
+            dx /= line_length
+            dy /= line_length
+        # Вычисление координат оконечника
+        arrow_tip_x = soulman_x
+        arrow_tip_y = soulman_y
+        left_wing_x = arrow_tip_x - arrow_length * (dx * math.cos(arrow_angle) + dy * math.sin(arrow_angle))
+        left_wing_y = arrow_tip_y - arrow_length * (dy * math.cos(arrow_angle) - dx * math.sin(arrow_angle))
+        right_wing_x = arrow_tip_x - arrow_length * (dx * math.cos(-arrow_angle) + dy * math.sin(-arrow_angle))
+        right_wing_y = arrow_tip_y - arrow_length * (dy * math.cos(-arrow_angle) - dx * math.sin(-arrow_angle))
+        # Рисуем оконечник стрелки
+        can.line(soulman_x, soulman_y, left_wing_x, left_wing_y)
+        can.circle(left_wing_x, left_wing_y, 2.5, stroke=0, fill=1)
+        can.line(soulman_x, soulman_y, right_wing_x, right_wing_y)
+        can.circle(right_wing_x, right_wing_y, 2.5, stroke=0, fill=1)
+        can.line(left_wing_x, left_wing_y, right_wing_x, right_wing_y)
+
 
     # Виртуоз -> Берсерк
     def virtuoso_to_berserker():
@@ -638,7 +795,32 @@ def create_pdf(filename):
         can.circle(((virtuoso_x + berserker_x) / 2) - axial_hei, ((virtuoso_y + berserker_y) / 2) + axial_wid, 2.5, stroke=0, fill=1)
         can.line(((virtuoso_x + berserker_x) / 2) - axial_hei, ((virtuoso_y + berserker_y) / 2) + axial_wid, ((virtuoso_x + berserker_x) / 2) - axial_hei, ((virtuoso_y + berserker_y) / 2) - axial_wid)
         can.circle(((virtuoso_x + berserker_x) / 2) - axial_hei, ((virtuoso_y + berserker_y) / 2) - axial_wid, 2.5, stroke=0, fill=1)
-        can.line(((virtuoso_x + berserker_x) / 2) - axial_hei, ((virtuoso_y + berserker_y) / 2) - axial_wid, berserker_x, berserker_y)
+        # Координаты конца третьей линии
+        line_end_x = ((virtuoso_x + berserker_x) / 2) - axial_hei
+        line_end_y = ((virtuoso_y + berserker_y) / 2) - axial_wid
+        can.line(line_end_x, line_end_y, berserker_x, berserker_y)
+        # Вычисление направления линии
+        dx = berserker_x - line_end_x
+        dy = berserker_y - line_end_y
+        line_length = math.hypot(dx, dy)
+        # Нормализация векторов
+        if line_length != 0:
+            dx /= line_length
+            dy /= line_length
+        # Вычисление координат оконечника
+        arrow_tip_x = berserker_x
+        arrow_tip_y = berserker_y
+        left_wing_x = arrow_tip_x - arrow_length * (dx * math.cos(arrow_angle) + dy * math.sin(arrow_angle))
+        left_wing_y = arrow_tip_y - arrow_length * (dy * math.cos(arrow_angle) - dx * math.sin(arrow_angle))
+        right_wing_x = arrow_tip_x - arrow_length * (dx * math.cos(-arrow_angle) + dy * math.sin(-arrow_angle))
+        right_wing_y = arrow_tip_y - arrow_length * (dy * math.cos(-arrow_angle) - dx * math.sin(-arrow_angle))
+        # Рисуем оконечник стрелки
+        can.line(berserker_x, berserker_y, left_wing_x, left_wing_y)
+        can.circle(left_wing_x, left_wing_y, 2.5, stroke=0, fill=1)
+        can.line(berserker_x, berserker_y, right_wing_x, right_wing_y)
+        can.circle(right_wing_x, right_wing_y, 2.5, stroke=0, fill=1)
+        can.line(left_wing_x, left_wing_y, right_wing_x, right_wing_y)
+
 
     # Берсерк -> Виртуоз
     def berserker_to_virtuoso():
@@ -646,103 +828,427 @@ def create_pdf(filename):
         can.circle(((virtuoso_x + berserker_x) / 2) + axial_hei, ((virtuoso_y + berserker_y) / 2) - axial_wid, 2.5, stroke=0, fill=1)
         can.line(((virtuoso_x + berserker_x) / 2) + axial_hei, ((virtuoso_y + berserker_y) / 2) - axial_wid, ((virtuoso_x + berserker_x) / 2) + axial_hei, ((virtuoso_y + berserker_y) / 2) + axial_wid)
         can.circle(((virtuoso_x + berserker_x) / 2) + axial_hei, ((virtuoso_y + berserker_y) / 2) + axial_wid, 2.5, stroke=0, fill=1)
-        can.line(((virtuoso_x + berserker_x) / 2) + axial_hei, ((virtuoso_y + berserker_y) / 2) + axial_wid, virtuoso_x, virtuoso_y)
+        # Координаты конца третьей линии
+        line_end_x = ((virtuoso_x + berserker_x) / 2) + axial_hei
+        line_end_y = ((virtuoso_y + berserker_y) / 2) + axial_wid
+        can.line(line_end_x, line_end_y, virtuoso_x, virtuoso_y)
+        # Вычисление направления линии
+        dx = virtuoso_x - line_end_x
+        dy = virtuoso_y - line_end_y
+        line_length = math.hypot(dx, dy)
+        # Нормализация векторов
+        if line_length != 0:
+            dx /= line_length
+            dy /= line_length
+        # Вычисление координат оконечника
+        arrow_tip_x = virtuoso_x
+        arrow_tip_y = virtuoso_y
+        left_wing_x = arrow_tip_x - arrow_length * (dx * math.cos(arrow_angle) + dy * math.sin(arrow_angle))
+        left_wing_y = arrow_tip_y - arrow_length * (dy * math.cos(arrow_angle) - dx * math.sin(arrow_angle))
+        right_wing_x = arrow_tip_x - arrow_length * (dx * math.cos(-arrow_angle) + dy * math.sin(-arrow_angle))
+        right_wing_y = arrow_tip_y - arrow_length * (dy * math.cos(-arrow_angle) - dx * math.sin(-arrow_angle))
+        # Рисуем оконечник стрелки
+        can.line(virtuoso_x, virtuoso_y, left_wing_x, left_wing_y)
+        can.circle(left_wing_x, left_wing_y, 2.5, stroke=0, fill=1)
+        can.line(virtuoso_x, virtuoso_y, right_wing_x, right_wing_y)
+        can.circle(right_wing_x, right_wing_y, 2.5, stroke=0, fill=1)
+        can.line(left_wing_x, left_wing_y, right_wing_x, right_wing_y)
+
 
     # Душа-человек -> Политик
     def soulman_to_politician():
-        can.line(soulman_x, soulman_y, ((soulman_x + politician_x) / 2) - diagSmall_wid + diagSmall_hei, ((soulman_y + politician_y) / 2)  + diagSmall_wid)
-        can.circle(((soulman_x + politician_x) / 2) - diagSmall_wid + diagSmall_hei, ((soulman_y + politician_y) / 2)  + diagSmall_wid, 2.5, stroke=0, fill=1)
-        can.line(((soulman_x + politician_x) / 2) - diagSmall_wid + diagSmall_hei, ((soulman_y + politician_y) / 2)  + diagSmall_wid, ((soulman_x + politician_x) / 2) + diagSmall_wid, ((soulman_y + politician_y) / 2)  - diagSmall_wid + diagSmall_hei)
-        can.circle(((soulman_x + politician_x) / 2) + diagSmall_wid, ((soulman_y + politician_y) / 2)  - diagSmall_wid + diagSmall_hei, 2.5, stroke=0, fill=1)
-        can.line(((soulman_x + politician_x) / 2) + diagSmall_wid, ((soulman_y + politician_y) / 2)  - diagSmall_wid + diagSmall_hei, politician_x, politician_y)
-    
+        can.line(soulman_x, soulman_y, ((soulman_x + politician_x) / 2) - diagSmall_wid + diagSmall_hei, ((soulman_y + politician_y) / 2) + diagSmall_wid)
+        can.circle(((soulman_x + politician_x) / 2) - diagSmall_wid + diagSmall_hei, ((soulman_y + politician_y) / 2) + diagSmall_wid, 2.5, stroke=0, fill=1)
+        can.line(((soulman_x + politician_x) / 2) - diagSmall_wid + diagSmall_hei, ((soulman_y + politician_y) / 2) + diagSmall_wid, ((soulman_x + politician_x) / 2) + diagSmall_wid, ((soulman_y + politician_y) / 2) - diagSmall_wid + diagSmall_hei)
+        can.circle(((soulman_x + politician_x) / 2) + diagSmall_wid, ((soulman_y + politician_y) / 2) - diagSmall_wid + diagSmall_hei, 2.5, stroke=0, fill=1)
+        # Координаты конца третьей линии
+        line_end_x = ((soulman_x + politician_x) / 2) + diagSmall_wid
+        line_end_y = ((soulman_y + politician_y) / 2) - diagSmall_wid + diagSmall_hei
+        can.line(line_end_x, line_end_y, politician_x, politician_y)
+        # Вычисление направления линии
+        dx = politician_x - line_end_x
+        dy = politician_y - line_end_y
+        line_length = math.hypot(dx, dy)
+        # Нормализация векторов
+        if line_length != 0:
+            dx /= line_length
+            dy /= line_length
+        # Вычисление координат оконечника
+        arrow_tip_x = politician_x
+        arrow_tip_y = politician_y
+        left_wing_x = arrow_tip_x - arrow_length * (dx * math.cos(arrow_angle) + dy * math.sin(arrow_angle))
+        left_wing_y = arrow_tip_y - arrow_length * (dy * math.cos(arrow_angle) - dx * math.sin(arrow_angle))
+        right_wing_x = arrow_tip_x - arrow_length * (dx * math.cos(-arrow_angle) + dy * math.sin(-arrow_angle))
+        right_wing_y = arrow_tip_y - arrow_length * (dy * math.cos(-arrow_angle) - dx * math.sin(-arrow_angle))
+        # Рисуем оконечник стрелки
+        can.line(politician_x, politician_y, left_wing_x, left_wing_y)
+        can.circle(left_wing_x, left_wing_y, 2.5, stroke=0, fill=1)
+        can.line(politician_x, politician_y, right_wing_x, right_wing_y)
+        can.circle(right_wing_x, right_wing_y, 2.5, stroke=0, fill=1)
+        can.line(left_wing_x, left_wing_y, right_wing_x, right_wing_y)
+
+
     # Политик -> Душа-человек
     def politician_to_soulman():
-        can.line(politician_x, politician_y, ((soulman_x + politician_x) / 2) + diagSmall_wid - diagSmall_hei, ((soulman_y + politician_y) / 2)  - diagSmall_wid)
-        can.circle( ((soulman_x + politician_x) / 2) + diagSmall_wid - diagSmall_hei, ((soulman_y + politician_y) / 2)  - diagSmall_wid, 2.5, stroke=0, fill=1)
-        can.line(((soulman_x + politician_x) / 2) + diagSmall_wid - diagSmall_hei, ((soulman_y + politician_y) / 2)  - diagSmall_wid, ((soulman_x + politician_x) / 2) - diagSmall_wid, ((soulman_y + politician_y) / 2)  + diagSmall_wid - diagSmall_hei)
-        can.circle(((soulman_x + politician_x) / 2) - diagSmall_wid, ((soulman_y + politician_y) / 2)  + diagSmall_wid - diagSmall_hei, 2.5, stroke=0, fill=1)
-        can.line(((soulman_x + politician_x) / 2) - diagSmall_wid, ((soulman_y + politician_y) / 2)  + diagSmall_wid - diagSmall_hei, soulman_x, soulman_y)
+        can.line(politician_x, politician_y, ((soulman_x + politician_x) / 2) + diagSmall_wid - diagSmall_hei, ((soulman_y + politician_y) / 2) - diagSmall_wid)
+        can.circle(((soulman_x + politician_x) / 2) + diagSmall_wid - diagSmall_hei, ((soulman_y + politician_y) / 2) - diagSmall_wid, 2.5, stroke=0, fill=1)
+        can.line(((soulman_x + politician_x) / 2) + diagSmall_wid - diagSmall_hei, ((soulman_y + politician_y) / 2) - diagSmall_wid, ((soulman_x + politician_x) / 2) - diagSmall_wid, ((soulman_y + politician_y) / 2) + diagSmall_wid - diagSmall_hei)
+        can.circle(((soulman_x + politician_x) / 2) - diagSmall_wid, ((soulman_y + politician_y) / 2) + diagSmall_wid - diagSmall_hei, 2.5, stroke=0, fill=1)
+        # Координаты конца третьей линии
+        line_end_x = ((soulman_x + politician_x) / 2) - diagSmall_wid
+        line_end_y = ((soulman_y + politician_y) / 2) + diagSmall_wid - diagSmall_hei
+        can.line(line_end_x, line_end_y, soulman_x, soulman_y)
+        # Вычисление направления линии
+        dx = soulman_x - line_end_x
+        dy = soulman_y - line_end_y
+        line_length = math.hypot(dx, dy)
+        # Нормализация векторов
+        if line_length != 0:
+            dx /= line_length
+            dy /= line_length
+        # Вычисление координат оконечника
+        arrow_tip_x = soulman_x
+        arrow_tip_y = soulman_y
+        left_wing_x = arrow_tip_x - arrow_length * (dx * math.cos(arrow_angle) + dy * math.sin(arrow_angle))
+        left_wing_y = arrow_tip_y - arrow_length * (dy * math.cos(arrow_angle) - dx * math.sin(arrow_angle))
+        right_wing_x = arrow_tip_x - arrow_length * (dx * math.cos(-arrow_angle) + dy * math.sin(-arrow_angle))
+        right_wing_y = arrow_tip_y - arrow_length * (dy * math.cos(-arrow_angle) - dx * math.sin(-arrow_angle))
+        # Рисуем оконечник стрелки
+        can.line(soulman_x, soulman_y, left_wing_x, left_wing_y)
+        can.circle(left_wing_x, left_wing_y, 2.5, stroke=0, fill=1)
+        can.line(soulman_x, soulman_y, right_wing_x, right_wing_y)
+        can.circle(right_wing_x, right_wing_y, 2.5, stroke=0, fill=1)
+        can.line(left_wing_x, left_wing_y, right_wing_x, right_wing_y)
+
 
     # Политик -> Берсерк
     def politician_to_berserker():
-        can.line(politician_x, politician_y, ((politician_x + berserker_x) / 2) - diagSmall_wid + diagSmall_hei, ((politician_y + berserker_y) / 2)  + diagSmall_wid)
-        can.circle(((politician_x + berserker_x) / 2) - diagSmall_wid + diagSmall_hei, ((politician_y + berserker_y) / 2)  + diagSmall_wid, 2.5, stroke=0, fill=1)
-        can.line(((politician_x + berserker_x) / 2) - diagSmall_wid + diagSmall_hei, ((politician_y + berserker_y) / 2)  + diagSmall_wid, ((politician_x + berserker_x) / 2) + diagSmall_wid, ((politician_y + berserker_y) / 2)  - diagSmall_wid + diagSmall_hei)
-        can.circle(((politician_x + berserker_x) / 2) + diagSmall_wid, ((politician_y + berserker_y) / 2)  - diagSmall_wid + diagSmall_hei, 2.5, stroke=0, fill=1)
-        can.line(((politician_x + berserker_x) / 2) + diagSmall_wid, ((politician_y + berserker_y) / 2)  - diagSmall_wid + diagSmall_hei, berserker_x, berserker_y)
-    
+        can.line(politician_x, politician_y, ((politician_x + berserker_x) / 2) - diagSmall_wid + diagSmall_hei, ((politician_y + berserker_y) / 2) + diagSmall_wid)
+        can.circle(((politician_x + berserker_x) / 2) - diagSmall_wid + diagSmall_hei, ((politician_y + berserker_y) / 2) + diagSmall_wid, 2.5, stroke=0, fill=1)
+        can.line(((politician_x + berserker_x) / 2) - diagSmall_wid + diagSmall_hei, ((politician_y + berserker_y) / 2) + diagSmall_wid, ((politician_x + berserker_x) / 2) + diagSmall_wid, ((politician_y + berserker_y) / 2) - diagSmall_wid + diagSmall_hei)
+        can.circle(((politician_x + berserker_x) / 2) + diagSmall_wid, ((politician_y + berserker_y) / 2) - diagSmall_wid + diagSmall_hei, 2.5, stroke=0, fill=1)
+        # Координаты конца третьей линии
+        line_end_x = ((politician_x + berserker_x) / 2) + diagSmall_wid
+        line_end_y = ((politician_y + berserker_y) / 2) - diagSmall_wid + diagSmall_hei
+        can.line(line_end_x, line_end_y, berserker_x, berserker_y)
+        # Вычисление направления линии
+        dx = berserker_x - line_end_x
+        dy = berserker_y - line_end_y
+        line_length = math.hypot(dx, dy)
+        # Нормализация векторов
+        if line_length != 0:
+            dx /= line_length
+            dy /= line_length
+        # Вычисление координат оконечника
+        arrow_tip_x = berserker_x
+        arrow_tip_y = berserker_y
+        left_wing_x = arrow_tip_x - arrow_length * (dx * math.cos(arrow_angle) + dy * math.sin(arrow_angle))
+        left_wing_y = arrow_tip_y - arrow_length * (dy * math.cos(arrow_angle) - dx * math.sin(arrow_angle))
+        right_wing_x = arrow_tip_x - arrow_length * (dx * math.cos(-arrow_angle) + dy * math.sin(-arrow_angle))
+        right_wing_y = arrow_tip_y - arrow_length * (dy * math.cos(-arrow_angle) - dx * math.sin(-arrow_angle))
+        # Рисуем оконечник стрелки
+        can.line(berserker_x, berserker_y, left_wing_x, left_wing_y)
+        can.circle(left_wing_x, left_wing_y, 2.5, stroke=0, fill=1)
+        can.line(berserker_x, berserker_y, right_wing_x, right_wing_y)
+        can.circle(right_wing_x, right_wing_y, 2.5, stroke=0, fill=1)
+        can.line(left_wing_x, left_wing_y, right_wing_x, right_wing_y)
+
+
     # Берсерк -> Политик
     def berserker_to_politician():
-        can.line(berserker_x, berserker_y, ((politician_x + berserker_x) / 2) + diagSmall_wid - diagSmall_hei, ((politician_y + berserker_y) / 2)  - diagSmall_wid)
-        can.circle( ((politician_x + berserker_x) / 2) + diagSmall_wid - diagSmall_hei, ((politician_y + berserker_y) / 2)  - diagSmall_wid, 2.5, stroke=0, fill=1)
-        can.line(((politician_x + berserker_x) / 2) + diagSmall_wid - diagSmall_hei, ((politician_y + berserker_y) / 2)  - diagSmall_wid, ((politician_x + berserker_x) / 2) - diagSmall_wid, ((politician_y + berserker_y) / 2)  + diagSmall_wid - diagSmall_hei)
-        can.circle(((politician_x + berserker_x) / 2) - diagSmall_wid, ((politician_y + berserker_y) / 2)  + diagSmall_wid - diagSmall_hei, 2.5, stroke=0, fill=1)
-        can.line(((politician_x + berserker_x) / 2) - diagSmall_wid, ((politician_y + berserker_y) / 2)  + diagSmall_wid - diagSmall_hei, politician_x, politician_y)
+        can.line(berserker_x, berserker_y, ((politician_x + berserker_x) / 2) + diagSmall_wid - diagSmall_hei, ((politician_y + berserker_y) / 2) - diagSmall_wid)
+        can.circle(((politician_x + berserker_x) / 2) + diagSmall_wid - diagSmall_hei, ((politician_y + berserker_y) / 2) - diagSmall_wid, 2.5, stroke=0, fill=1)
+        can.line(((politician_x + berserker_x) / 2) + diagSmall_wid - diagSmall_hei, ((politician_y + berserker_y) / 2) - diagSmall_wid, ((politician_x + berserker_x) / 2) - diagSmall_wid, ((politician_y + berserker_y) / 2) + diagSmall_wid - diagSmall_hei)
+        can.circle(((politician_x + berserker_x) / 2) - diagSmall_wid, ((politician_y + berserker_y) / 2) + diagSmall_wid - diagSmall_hei, 2.5, stroke=0, fill=1)
+        # Координаты конца третьей линии
+        line_end_x = ((politician_x + berserker_x) / 2) - diagSmall_wid
+        line_end_y = ((politician_y + berserker_y) / 2) + diagSmall_wid - diagSmall_hei
+        can.line(line_end_x, line_end_y, politician_x, politician_y)
+        # Вычисление направления линии
+        dx = politician_x - line_end_x
+        dy = politician_y - line_end_y
+        line_length = math.hypot(dx, dy)
+        # Нормализация векторов
+        if line_length != 0:
+            dx /= line_length
+            dy /= line_length
+        # Вычисление координат оконечника
+        arrow_tip_x = politician_x
+        arrow_tip_y = politician_y
+        left_wing_x = arrow_tip_x - arrow_length * (dx * math.cos(arrow_angle) + dy * math.sin(arrow_angle))
+        left_wing_y = arrow_tip_y - arrow_length * (dy * math.cos(arrow_angle) - dx * math.sin(arrow_angle))
+        right_wing_x = arrow_tip_x - arrow_length * (dx * math.cos(-arrow_angle) + dy * math.sin(-arrow_angle))
+        right_wing_y = arrow_tip_y - arrow_length * (dy * math.cos(-arrow_angle) - dx * math.sin(-arrow_angle))
+        # Рисуем оконечник стрелки
+        can.line(politician_x, politician_y, left_wing_x, left_wing_y)
+        can.circle(left_wing_x, left_wing_y, 2.5, stroke=0, fill=1)
+        can.line(politician_x, politician_y, right_wing_x, right_wing_y)
+        can.circle(right_wing_x, right_wing_y, 2.5, stroke=0, fill=1)
+        can.line(left_wing_x, left_wing_y, right_wing_x, right_wing_y)
+
 
     # Резидент -> Политик
     def resident_to_politician():
         can.line(resident_x, resident_y, ((resident_x + politician_x) / 2) - diagSmall_wid, ((resident_y + politician_y) / 2) - diagSmall_wid + diagSmall_hei)
         can.circle(((resident_x + politician_x) / 2) - diagSmall_wid, ((resident_y + politician_y) / 2) - diagSmall_wid + diagSmall_hei, 2.5, stroke=0, fill=1)
-        can.line(((resident_x + politician_x) / 2) - diagSmall_wid, ((resident_y + politician_y) / 2) - diagSmall_wid + diagSmall_hei, ((resident_x + politician_x) / 2) + diagSmall_wid - diagSmall_hei, ((resident_y + politician_y) / 2)  + diagSmall_wid)
-        can.circle(((resident_x + politician_x) / 2) + diagSmall_wid - diagSmall_hei, ((resident_y + politician_y) / 2)  + diagSmall_wid, 2.5, stroke=0, fill=1)
-        can.line(((resident_x + politician_x) / 2) + diagSmall_wid - diagSmall_hei, ((resident_y + politician_y) / 2)  + diagSmall_wid, politician_x, politician_y)
-     
+        can.line(((resident_x + politician_x) / 2) - diagSmall_wid, ((resident_y + politician_y) / 2) - diagSmall_wid + diagSmall_hei, ((resident_x + politician_x) / 2) + diagSmall_wid - diagSmall_hei, ((resident_y + politician_y) / 2) + diagSmall_wid)
+        can.circle(((resident_x + politician_x) / 2) + diagSmall_wid - diagSmall_hei, ((resident_y + politician_y) / 2) + diagSmall_wid, 2.5, stroke=0, fill=1)
+        # Координаты конца третьей линии
+        line_end_x = ((resident_x + politician_x) / 2) + diagSmall_wid - diagSmall_hei
+        line_end_y = ((resident_y + politician_y) / 2) + diagSmall_wid
+        can.line(line_end_x, line_end_y, politician_x, politician_y)
+        # Вычисление направления линии
+        dx = politician_x - line_end_x
+        dy = politician_y - line_end_y
+        line_length = math.hypot(dx, dy)
+        # Нормализация векторов
+        if line_length != 0:
+            dx /= line_length
+            dy /= line_length
+        # Вычисление координат оконечника
+        arrow_tip_x = politician_x
+        arrow_tip_y = politician_y
+        left_wing_x = arrow_tip_x - arrow_length * (dx * math.cos(arrow_angle) + dy * math.sin(arrow_angle))
+        left_wing_y = arrow_tip_y - arrow_length * (dy * math.cos(arrow_angle) - dx * math.sin(arrow_angle))
+        right_wing_x = arrow_tip_x - arrow_length * (dx * math.cos(-arrow_angle) + dy * math.sin(-arrow_angle))
+        right_wing_y = arrow_tip_y - arrow_length * (dy * math.cos(-arrow_angle) - dx * math.sin(-arrow_angle))
+        # Рисуем оконечник стрелки
+        can.line(politician_x, politician_y, left_wing_x, left_wing_y)
+        can.circle(left_wing_x, left_wing_y, 2.5, stroke=0, fill=1)
+        can.line(politician_x, politician_y, right_wing_x, right_wing_y)
+        can.circle(right_wing_x, right_wing_y, 2.5, stroke=0, fill=1)
+        can.line(left_wing_x, left_wing_y, right_wing_x, right_wing_y)
+
+
     # Политик -> Резидент
     def politician_to_resident():
         can.line(politician_x, politician_y, ((resident_x + politician_x) / 2) + diagSmall_wid, ((resident_y + politician_y) / 2) + diagSmall_wid - diagSmall_hei)
         can.circle(((resident_x + politician_x) / 2) + diagSmall_wid, ((resident_y + politician_y) / 2) + diagSmall_wid - diagSmall_hei, 2.5, stroke=0, fill=1)
         can.line(((resident_x + politician_x) / 2) + diagSmall_wid, ((resident_y + politician_y) / 2) + diagSmall_wid - diagSmall_hei, ((resident_x + politician_x) / 2) - diagSmall_wid + diagSmall_hei, ((resident_y + politician_y) / 2) - diagSmall_wid)
         can.circle(((resident_x + politician_x) / 2) - diagSmall_wid + diagSmall_hei, ((resident_y + politician_y) / 2) - diagSmall_wid, 2.5, stroke=0, fill=1)
-        can.line(((resident_x + politician_x) / 2) - diagSmall_wid + diagSmall_hei, ((resident_y + politician_y) / 2) - diagSmall_wid, resident_x, resident_y)
+        # Координаты конца третьей линии
+        line_end_x = ((resident_x + politician_x) / 2) - diagSmall_wid + diagSmall_hei
+        line_end_y = ((resident_y + politician_y) / 2) - diagSmall_wid
+        can.line(line_end_x, line_end_y, resident_x, resident_y)
+        # Вычисление направления линии
+        dx = resident_x - line_end_x
+        dy = resident_y - line_end_y
+        line_length = math.hypot(dx, dy)
+        # Нормализация векторов
+        if line_length != 0:
+            dx /= line_length
+            dy /= line_length
+        # Вычисление координат оконечника
+        arrow_tip_x = resident_x
+        arrow_tip_y = resident_y
+        left_wing_x = arrow_tip_x - arrow_length * (dx * math.cos(arrow_angle) + dy * math.sin(arrow_angle))
+        left_wing_y = arrow_tip_y - arrow_length * (dy * math.cos(arrow_angle) - dx * math.sin(arrow_angle))
+        right_wing_x = arrow_tip_x - arrow_length * (dx * math.cos(-arrow_angle) + dy * math.sin(-arrow_angle))
+        right_wing_y = arrow_tip_y - arrow_length * (dy * math.cos(-arrow_angle) - dx * math.sin(-arrow_angle))
+        # Рисуем оконечник стрелки
+        can.line(resident_x, resident_y, left_wing_x, left_wing_y)
+        can.circle(left_wing_x, left_wing_y, 2.5, stroke=0, fill=1)
+        can.line(resident_x, resident_y, right_wing_x, right_wing_y)
+        can.circle(right_wing_x, right_wing_y, 2.5, stroke=0, fill=1)
+        can.line(left_wing_x, left_wing_y, right_wing_x, right_wing_y)
+
      
     # Политик -> Виртуоз
     def politician_to_virtuoso():
         can.line(politician_x, politician_y, ((virtuoso_x + politician_x) / 2) - diagSmall_wid, ((virtuoso_y + politician_y) / 2) - diagSmall_wid + diagSmall_hei)
         can.circle(((virtuoso_x + politician_x) / 2) - diagSmall_wid, ((virtuoso_y + politician_y) / 2) - diagSmall_wid + diagSmall_hei, 2.5, stroke=0, fill=1)
-        can.line(((virtuoso_x + politician_x) / 2) - diagSmall_wid, ((virtuoso_y + politician_y) / 2) - diagSmall_wid + diagSmall_hei, ((virtuoso_x + politician_x) / 2) + diagSmall_wid - diagSmall_hei, ((virtuoso_y + politician_y) / 2)  + diagSmall_wid)
-        can.circle(((virtuoso_x + politician_x) / 2) + diagSmall_wid - diagSmall_hei, ((virtuoso_y + politician_y) / 2)  + diagSmall_wid, 2.5, stroke=0, fill=1)
-        can.line(((virtuoso_x + politician_x) / 2) + diagSmall_wid - diagSmall_hei, ((virtuoso_y + politician_y) / 2)  + diagSmall_wid, virtuoso_x, virtuoso_y)
-     
+        can.line(((virtuoso_x + politician_x) / 2) - diagSmall_wid, ((virtuoso_y + politician_y) / 2) - diagSmall_wid + diagSmall_hei, ((virtuoso_x + politician_x) / 2) + diagSmall_wid - diagSmall_hei, ((virtuoso_y + politician_y) / 2) + diagSmall_wid)
+        can.circle(((virtuoso_x + politician_x) / 2) + diagSmall_wid - diagSmall_hei, ((virtuoso_y + politician_y) / 2) + diagSmall_wid, 2.5, stroke=0, fill=1)
+        # Координаты конца третьей линии
+        line_end_x = ((virtuoso_x + politician_x) / 2) + diagSmall_wid - diagSmall_hei
+        line_end_y = ((virtuoso_y + politician_y) / 2) + diagSmall_wid
+        can.line(line_end_x, line_end_y, virtuoso_x, virtuoso_y)
+        # Вычисление направления линии
+        dx = virtuoso_x - line_end_x
+        dy = virtuoso_y - line_end_y
+        line_length = math.hypot(dx, dy)
+        # Нормализация векторов
+        if line_length != 0:
+            dx /= line_length
+            dy /= line_length
+        # Вычисление координат оконечника
+        arrow_tip_x = virtuoso_x
+        arrow_tip_y = virtuoso_y
+        left_wing_x = arrow_tip_x - arrow_length * (dx * math.cos(arrow_angle) + dy * math.sin(arrow_angle))
+        left_wing_y = arrow_tip_y - arrow_length * (dy * math.cos(arrow_angle) - dx * math.sin(arrow_angle))
+        right_wing_x = arrow_tip_x - arrow_length * (dx * math.cos(-arrow_angle) + dy * math.sin(-arrow_angle))
+        right_wing_y = arrow_tip_y - arrow_length * (dy * math.cos(-arrow_angle) - dx * math.sin(-arrow_angle))
+        # Рисуем оконечник стрелки
+        can.line(virtuoso_x, virtuoso_y, left_wing_x, left_wing_y)
+        can.circle(left_wing_x, left_wing_y, 2.5, stroke=0, fill=1)
+        can.line(virtuoso_x, virtuoso_y, right_wing_x, right_wing_y)
+        can.circle(right_wing_x, right_wing_y, 2.5, stroke=0, fill=1)
+        can.line(left_wing_x, left_wing_y, right_wing_x, right_wing_y)
+
+
     # Виртуоз -> Политик
     def virtuoso_to_politician():
         can.line(virtuoso_x, virtuoso_y, ((virtuoso_x + politician_x) / 2) + diagSmall_wid, ((virtuoso_y + politician_y) / 2) + diagSmall_wid - diagSmall_hei)
         can.circle(((virtuoso_x + politician_x) / 2) + diagSmall_wid, ((virtuoso_y + politician_y) / 2) + diagSmall_wid - diagSmall_hei, 2.5, stroke=0, fill=1)
         can.line(((virtuoso_x + politician_x) / 2) - diagSmall_wid + diagSmall_hei, ((virtuoso_y + politician_y) / 2) - diagSmall_wid, ((virtuoso_x + politician_x) / 2) + diagSmall_wid, ((virtuoso_y + politician_y) / 2) + diagSmall_wid - diagSmall_hei)
         can.circle(((virtuoso_x + politician_x) / 2) - diagSmall_wid + diagSmall_hei, ((virtuoso_y + politician_y) / 2) - diagSmall_wid, 2.5, stroke=0, fill=1)
-        can.line(((virtuoso_x + politician_x) / 2) - diagSmall_wid + diagSmall_hei, ((virtuoso_y + politician_y) / 2) - diagSmall_wid, politician_x, politician_y)
+        # Координаты конца третьей линии
+        line_end_x = ((virtuoso_x + politician_x) / 2) - diagSmall_wid + diagSmall_hei
+        line_end_y = ((virtuoso_y + politician_y) / 2) - diagSmall_wid
+        can.line(line_end_x, line_end_y, politician_x, politician_y)
+        # Вычисление направления линии
+        dx = politician_x - line_end_x
+        dy = politician_y - line_end_y
+        line_length = math.hypot(dx, dy)
+        # Нормализация векторов
+        if line_length != 0:
+            dx /= line_length
+            dy /= line_length
+        # Вычисление координат оконечника
+        arrow_tip_x = politician_x
+        arrow_tip_y = politician_y
+        left_wing_x = arrow_tip_x - arrow_length * (dx * math.cos(arrow_angle) + dy * math.sin(arrow_angle))
+        left_wing_y = arrow_tip_y - arrow_length * (dy * math.cos(arrow_angle) - dx * math.sin(arrow_angle))
+        right_wing_x = arrow_tip_x - arrow_length * (dx * math.cos(-arrow_angle) + dy * math.sin(-arrow_angle))
+        right_wing_y = arrow_tip_y - arrow_length * (dy * math.cos(-arrow_angle) - dx * math.sin(-arrow_angle))
+        # Рисуем оконечник стрелки
+        can.line(politician_x, politician_y, left_wing_x, left_wing_y)
+        can.circle(left_wing_x, left_wing_y, 2.5, stroke=0, fill=1)
+        can.line(politician_x, politician_y, right_wing_x, right_wing_y)
+        can.circle(right_wing_x, right_wing_y, 2.5, stroke=0, fill=1)
+        can.line(left_wing_x, left_wing_y, right_wing_x, right_wing_y)
+
 
     # Душа-человек -> Берсерк
     def soulman_to_berserker():
-        can.line(soulman_x, soulman_y, ((soulman_x + berserker_x) / 2) - diagBig_wid + diagBig_hei, ((soulman_y + berserker_y) / 2)  + diagBig_wid)
-        can.circle(((soulman_x + berserker_x) / 2) - diagBig_wid + diagBig_hei, ((soulman_y + berserker_y) / 2)  + diagBig_wid, 2.5, stroke=0, fill=1)
-        can.line(((soulman_x + berserker_x) / 2) - diagBig_wid + diagBig_hei, ((soulman_y + berserker_y) / 2)  + diagBig_wid, ((soulman_x + berserker_x) / 2) + diagBig_wid, ((soulman_y + berserker_y) / 2)  - diagBig_wid + diagBig_hei)
-        can.circle(((soulman_x + berserker_x) / 2) + diagBig_wid, ((soulman_y + berserker_y) / 2)  - diagBig_wid + diagBig_hei, 2.5, stroke=0, fill=1)
-        can.line(((soulman_x + berserker_x) / 2) + diagBig_wid, ((soulman_y + berserker_y) / 2)  - diagBig_wid + diagBig_hei, berserker_x, berserker_y)
+        can.line(soulman_x, soulman_y, ((soulman_x + berserker_x) / 2) - diagBig_wid + diagBig_hei, ((soulman_y + berserker_y) / 2) + diagBig_wid)
+        can.circle(((soulman_x + berserker_x) / 2) - diagBig_wid + diagBig_hei, ((soulman_y + berserker_y) / 2) + diagBig_wid, 2.5, stroke=0, fill=1)
+        can.line(((soulman_x + berserker_x) / 2) - diagBig_wid + diagBig_hei, ((soulman_y + berserker_y) / 2) + diagBig_wid, ((soulman_x + berserker_x) / 2) + diagBig_wid, ((soulman_y + berserker_y) / 2) - diagBig_wid + diagBig_hei)
+        can.circle(((soulman_x + berserker_x) / 2) + diagBig_wid, ((soulman_y + berserker_y) / 2) - diagBig_wid + diagBig_hei, 2.5, stroke=0, fill=1)
+        # Координаты конца третьей линии
+        line_end_x = ((soulman_x + berserker_x) / 2) + diagBig_wid
+        line_end_y = ((soulman_y + berserker_y) / 2) - diagBig_wid + diagBig_hei
+        can.line(line_end_x, line_end_y, berserker_x, berserker_y)
+        # Вычисление направления линии
+        dx = berserker_x - line_end_x
+        dy = berserker_y - line_end_y
+        line_length = math.hypot(dx, dy)
+        # Нормализация векторов
+        if line_length != 0:
+            dx /= line_length
+            dy /= line_length
+        # Вычисление координат оконечника
+        arrow_tip_x = berserker_x
+        arrow_tip_y = berserker_y
+        left_wing_x = arrow_tip_x - arrow_length * (dx * math.cos(arrow_angle) + dy * math.sin(arrow_angle))
+        left_wing_y = arrow_tip_y - arrow_length * (dy * math.cos(arrow_angle) - dx * math.sin(arrow_angle))
+        right_wing_x = arrow_tip_x - arrow_length * (dx * math.cos(-arrow_angle) + dy * math.sin(-arrow_angle))
+        right_wing_y = arrow_tip_y - arrow_length * (dy * math.cos(-arrow_angle) - dx * math.sin(-arrow_angle))
+        # Рисуем оконечник стрелки
+        can.line(berserker_x, berserker_y, left_wing_x, left_wing_y)
+        can.circle(left_wing_x, left_wing_y, 2.5, stroke=0, fill=1)
+        can.line(berserker_x, berserker_y, right_wing_x, right_wing_y)
+        can.circle(right_wing_x, right_wing_y, 2.5, stroke=0, fill=1)
+        can.line(left_wing_x, left_wing_y, right_wing_x, right_wing_y)
      
+
     # Берсерк -> Душа-человек
     def berserker_to_soulman():
-        can.line(berserker_x, berserker_y, ((soulman_x + berserker_x) / 2) + diagBig_wid - diagBig_hei, ((soulman_y + berserker_y) / 2)  - diagBig_wid)
-        can.circle( ((soulman_x + berserker_x) / 2) + diagBig_wid - diagBig_hei, ((soulman_y + berserker_y) / 2)  - diagBig_wid, 2.5, stroke=0, fill=1)
-        can.line(((soulman_x + berserker_x) / 2) + diagBig_wid - diagBig_hei, ((soulman_y + berserker_y) / 2)  - diagBig_wid, ((soulman_x + berserker_x) / 2) - diagBig_wid, ((soulman_y + berserker_y) / 2)  + diagBig_wid - diagBig_hei)
-        can.circle(((soulman_x + berserker_x) / 2) - diagBig_wid, ((soulman_y + berserker_y) / 2)  + diagBig_wid - diagBig_hei, 2.5, stroke=0, fill=1)
-        can.line(((soulman_x + berserker_x) / 2) - diagBig_wid, ((soulman_y + berserker_y) / 2)  + diagBig_wid - diagBig_hei, soulman_x, soulman_y)
+        can.line(berserker_x, berserker_y, ((soulman_x + berserker_x) / 2) + diagBig_wid - diagBig_hei, ((soulman_y + berserker_y) / 2) - diagBig_wid)
+        can.circle(((soulman_x + berserker_x) / 2) + diagBig_wid - diagBig_hei, ((soulman_y + berserker_y) / 2) - diagBig_wid, 2.5, stroke=0, fill=1)
+        can.line(((soulman_x + berserker_x) / 2) + diagBig_wid - diagBig_hei, ((soulman_y + berserker_y) / 2) - diagBig_wid, ((soulman_x + berserker_x) / 2) - diagBig_wid, ((soulman_y + berserker_y) / 2) + diagBig_wid - diagBig_hei)
+        can.circle(((soulman_x + berserker_x) / 2) - diagBig_wid, ((soulman_y + berserker_y) / 2) + diagBig_wid - diagBig_hei, 2.5, stroke=0, fill=1)
+        # Координаты конца третьей линии
+        line_end_x = ((soulman_x + berserker_x) / 2) - diagBig_wid
+        line_end_y = ((soulman_y + berserker_y) / 2) + diagBig_wid - diagBig_hei
+        can.line(line_end_x, line_end_y, soulman_x, soulman_y)
+        # Вычисление направления линии
+        dx = soulman_x - line_end_x
+        dy = soulman_y - line_end_y
+        line_length = math.hypot(dx, dy)
+        # Нормализация векторов
+        if line_length != 0:
+            dx /= line_length
+            dy /= line_length
+        # Вычисление координат оконечника
+        arrow_tip_x = soulman_x
+        arrow_tip_y = soulman_y
+        left_wing_x = arrow_tip_x - arrow_length * (dx * math.cos(arrow_angle) + dy * math.sin(arrow_angle))
+        left_wing_y = arrow_tip_y - arrow_length * (dy * math.cos(arrow_angle) - dx * math.sin(arrow_angle))
+        right_wing_x = arrow_tip_x - arrow_length * (dx * math.cos(-arrow_angle) + dy * math.sin(-arrow_angle))
+        right_wing_y = arrow_tip_y - arrow_length * (dy * math.cos(-arrow_angle) - dx * math.sin(-arrow_angle))
+        # Рисуем оконечник стрелки
+        can.line(soulman_x, soulman_y, left_wing_x, left_wing_y)
+        can.circle(left_wing_x, left_wing_y, 2.5, stroke=0, fill=1)
+        can.line(soulman_x, soulman_y, right_wing_x, right_wing_y)
+        can.circle(right_wing_x, right_wing_y, 2.5, stroke=0, fill=1)
+        can.line(left_wing_x, left_wing_y, right_wing_x, right_wing_y)
+
 
     # Резидент -> Виртуоз
     def resident_to_virtuoso():
         can.line(resident_x, resident_y, ((virtuoso_x + resident_x) / 2) - diagBig_wid, ((virtuoso_y + resident_y) / 2) - diagBig_wid + diagBig_hei)
         can.circle(((virtuoso_x + resident_x) / 2) - diagBig_wid, ((virtuoso_y + resident_y) / 2) - diagBig_wid + diagBig_hei, 2.5, stroke=0, fill=1)
-        can.line(((virtuoso_x + resident_x) / 2) - diagBig_wid, ((virtuoso_y + resident_y) / 2) - diagBig_wid + diagBig_hei, ((virtuoso_x + resident_x) / 2) + diagBig_wid - diagBig_hei, ((virtuoso_y + resident_y) / 2)  + diagBig_wid)
-        can.circle(((virtuoso_x + resident_x) / 2) + diagBig_wid - diagBig_hei, ((virtuoso_y + resident_y) / 2)  + diagBig_wid, 2.5, stroke=0, fill=1)
-        can.line(((virtuoso_x + resident_x) / 2) + diagBig_wid - diagBig_hei, ((virtuoso_y + resident_y) / 2)  + diagBig_wid, virtuoso_x, virtuoso_y)
+        can.line(((virtuoso_x + resident_x) / 2) - diagBig_wid, ((virtuoso_y + resident_y) / 2) - diagBig_wid + diagBig_hei, ((virtuoso_x + resident_x) / 2) + diagBig_wid - diagBig_hei, ((virtuoso_y + resident_y) / 2) + diagBig_wid)
+        can.circle(((virtuoso_x + resident_x) / 2) + diagBig_wid - diagBig_hei, ((virtuoso_y + resident_y) / 2) + diagBig_wid, 2.5, stroke=0, fill=1)
+        # Координаты конца третьей линии
+        line_end_x = ((virtuoso_x + resident_x) / 2) + diagBig_wid - diagBig_hei
+        line_end_y = ((virtuoso_y + resident_y) / 2) + diagBig_wid
+        can.line(line_end_x, line_end_y, virtuoso_x, virtuoso_y)
+        # Вычисление направления линии
+        dx = virtuoso_x - line_end_x
+        dy = virtuoso_y - line_end_y
+        line_length = math.hypot(dx, dy)
+        # Нормализация векторов
+        if line_length != 0:
+            dx /= line_length
+            dy /= line_length
+        # Вычисление координат оконечника
+        arrow_tip_x = virtuoso_x
+        arrow_tip_y = virtuoso_y
+        left_wing_x = arrow_tip_x - arrow_length * (dx * math.cos(arrow_angle) + dy * math.sin(arrow_angle))
+        left_wing_y = arrow_tip_y - arrow_length * (dy * math.cos(arrow_angle) - dx * math.sin(arrow_angle))
+        right_wing_x = arrow_tip_x - arrow_length * (dx * math.cos(-arrow_angle) + dy * math.sin(-arrow_angle))
+        right_wing_y = arrow_tip_y - arrow_length * (dy * math.cos(-arrow_angle) - dx * math.sin(-arrow_angle))
+        # Рисуем оконечник стрелки
+        can.line(virtuoso_x, virtuoso_y, left_wing_x, left_wing_y)
+        can.circle(left_wing_x, left_wing_y, 2.5, stroke=0, fill=1)
+        can.line(virtuoso_x, virtuoso_y, right_wing_x, right_wing_y)
+        can.circle(right_wing_x, right_wing_y, 2.5, stroke=0, fill=1)
+        can.line(left_wing_x, left_wing_y, right_wing_x, right_wing_y)
      
+
     # Виртуоз -> Резидент
     def virtuoso_to_resident():
         can.line(virtuoso_x, virtuoso_y, ((virtuoso_x + resident_x) / 2) + diagBig_wid, ((virtuoso_y + resident_y) / 2) + diagBig_wid - diagBig_hei)
         can.circle(((virtuoso_x + resident_x) / 2) + diagBig_wid, ((virtuoso_y + resident_y) / 2) + diagBig_wid - diagBig_hei, 2.5, stroke=0, fill=1)
         can.line(((virtuoso_x + resident_x) / 2) - diagBig_wid + diagBig_hei, ((virtuoso_y + resident_y) / 2) - diagBig_wid, ((virtuoso_x + resident_x) / 2) + diagBig_wid, ((virtuoso_y + resident_y) / 2) + diagBig_wid - diagBig_hei)
         can.circle(((virtuoso_x + resident_x) / 2) - diagBig_wid + diagBig_hei, ((virtuoso_y + resident_y) / 2) - diagBig_wid, 2.5, stroke=0, fill=1)
-        can.line(((virtuoso_x + resident_x) / 2) - diagBig_wid + diagBig_hei, ((virtuoso_y + resident_y) / 2) - diagBig_wid, resident_x, resident_y)
+        # Координаты конца третьей линии
+        line_end_x = ((virtuoso_x + resident_x) / 2) - diagBig_wid + diagBig_hei
+        line_end_y = ((virtuoso_y + resident_y) / 2) - diagBig_wid
+        can.line(line_end_x, line_end_y, resident_x, resident_y)
+        # Вычисление направления линии
+        dx = resident_x - line_end_x
+        dy = resident_y - line_end_y
+        line_length = math.hypot(dx, dy)
+        # Нормализация векторов
+        if line_length != 0:
+            dx /= line_length
+            dy /= line_length
+        # Вычисление координат оконечника
+        arrow_tip_x = resident_x
+        arrow_tip_y = resident_y
+        left_wing_x = arrow_tip_x - arrow_length * (dx * math.cos(arrow_angle) + dy * math.sin(arrow_angle))
+        left_wing_y = arrow_tip_y - arrow_length * (dy * math.cos(arrow_angle) - dx * math.sin(arrow_angle))
+        right_wing_x = arrow_tip_x - arrow_length * (dx * math.cos(-arrow_angle) + dy * math.sin(-arrow_angle))
+        right_wing_y = arrow_tip_y - arrow_length * (dy * math.cos(-arrow_angle) - dx * math.sin(-arrow_angle))
+        # Рисуем оконечник стрелки
+        can.line(resident_x, resident_y, left_wing_x, left_wing_y)
+        can.circle(left_wing_x, left_wing_y, 2.5, stroke=0, fill=1)
+        can.line(resident_x, resident_y, right_wing_x, right_wing_y)
+        can.circle(right_wing_x, right_wing_y, 2.5, stroke=0, fill=1)
+        can.line(left_wing_x, left_wing_y, right_wing_x, right_wing_y)
 
     # Сортировка переменных из второго блока
     def sort_variables_2(resAdaptation_2, resCompromise_2, resThreat_2, resCooperation_2, resAvoidance_2):
@@ -757,7 +1263,6 @@ def create_pdf(filename):
         
         # Сортируем ключи по значениям в порядке убывания
         sorted_keys_2 = sorted(variables, key=variables.get, reverse=True)
-        
         return sorted_keys_2, variables
 
     # Пример вызова функции
