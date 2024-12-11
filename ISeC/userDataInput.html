@@ -100,33 +100,24 @@
 				</label>
 			</div>
 
-			<span class="descr_dataInput_text">Ваша дата рождения</span>
-			<input type="date" class="inp_date" id="user_birthdate" required>
-			<script>
-				const dateInput = document.getElementById('user_birthdate');
-				dateInput.addEventListener('input', function () {
-					// Проверяем, заполнено ли поле
-					if (dateInput.value) {
-						// Изменяем цвет текста, если значение не пустое
-						dateInput.style.color = '#5b7ead';
-					} else {
-						// Возвращаем цвет по умолчанию, если поле пустое
-						dateInput.style.color = '#7F7F7F';
-					}
-				});
-			</script>
-
-			<span class="descr_dataInput_text">Ваша компания</span>
-			<input type="text" class="inp_text" id="user_company" required placeholder="Компания">
+			<div class="inp_birthyear">
+			<span class="descr_dataInput_text_birthyear">Ваш год рождения</span>
+			<div class="dataInputBirthyearSpace"></div>
+			<input type="text" class="inp_year" id="user_birthyear" placeholder="1900">
+			</div>
 
 			<span class="descr_dataInput_text">Ваша категория</span>
 			<select class="inp_dropdown" id="user_category" required>
 				<option value="Выберите категорию" disabled selected hidden>Выберите категорию</option>
 				<option value="-">-</option>
-				<option value="Стр 1">Стр 1</option>
-				<option value="Стр 2">Стр 2</option>
-				<option value="Стр 3">Стр 3</option>
-				<option value="Стр 4">Стр 4</option>
+				<option value="specialist">Специалист</option>
+				<option value="teamLeader">Руководитель группы / отдела</option>
+				<option value="departmentLeader">Руководитель департамента</option>
+				<option value="topManager">Топ-менеджер</option>
+				<option value="director">Директор</option>
+				<option value="smallBusinessOwner">Соственник малого бизнеса</option>
+				<option value="mediumBusinessOwner">Собственник среднего бизнеса</option>
+				<option value="other">другое</option>
 			</select>
 			<script>
 				const selectedElement = document.getElementById('user_category');
@@ -136,7 +127,7 @@
 						selectedElement.style.color = '#5b7ead';
 					} else {
 						// Возвращаем цвет текста к исходному, если выбран "Выберите категорию"
-						selectedElement.style.color = 'black'; // Цвет по умолчанию
+						selectedElement.style.color = '#7F7F7F'; // Цвет по умолчанию
 					}
 				});
 			</script>
@@ -164,8 +155,7 @@
 					const inputSurname = document.getElementById('user_surname'); // Поле ввода фамилии
 					const radioSexMale = document.getElementById('user_sex_male'); // Кнопка выбора пола (Муж)
 					const radioSexFemale = document.getElementById('user_sex_female'); // Кнопка выбора пола (Жен)
-					const inputBirthdate = document.getElementById('user_birthdate'); // Поле ввода даты рождения
-					const inputCompany = document.getElementById('user_company'); // Поле ввода компании
+					const inputBirthyear = document.getElementById('user_birthyear'); // Поле ввода даты рождения
 					const inputCategory = document.getElementById('user_category'); // Поле выбора категории
 					const inputEmail = document.getElementById('user_email'); // Поле ввода эл.почты
 					const radioConfirmation = document.getElementById('user_confirmation'); // Кнопка подтверждения обработки данных (Муж)
@@ -228,28 +218,16 @@
 						}
 
 						// Проверка даты рождения
-						const birthdateValue = inputBirthdate.value;
-						const birthdateYear = new Date(birthdateValue).getFullYear(); // Получаем год из введенной даты
-						// Проверяка на пустоту поля и валидация введённого года
-						if (!inputBirthdate.value || birthdateYear < 1920) {
-							inputBirthdate.style.border = "5px solid #e29fa9";
+						const birthyearValue = inputBirthyear.value.trim(); // Получаем год из введённой даты
+						const birthyearLocal = new Date().getFullYear(); // Получаем настоящий год
+						// Проверка на пустоту поля и валидация введённого года
+						if (!/^\d{4}$/.test(birthyearValue) || 
+							Number(birthyearValue) < 1900 || 
+							Number(birthyearValue) > birthyearLocal) {
+							inputBirthyear.style.border = '5px solid #e29fa9';
 							errorCounter += 1; // Увеличиваем счётчик ошибок, если ввод неверен
 						} else {
-							inputBirthdate.style.border = "5px solid #ffffff";
-						}
-
-						// Проверка компании
-						const companyValue = inputCompany.value.trim();
-						// Если поле пустое; Если поле содержит небуквенные символы; Если поле не содержит буквы
-						if (!companyValue || companyValue != companyValue.replace(/[^a-zA-Zа-яА-ЯёЁ0-9 "'«»-]/g, '') || !/[a-zA-Zа-яА-ЯёЁ]/.test(companyValue)) {
-							inputCompany.style.border = '5px solid #e29fa9';
-							errorCounter += 1; // Увеличиваем счётчик ошибок, если ввод неверен
-							const inputHandlerCompany = document.getElementById('user_company');
-							inputHandlerCompany.value = inputCompany.value.trim();
-						} else {
-							inputCompany.style.border = '5px solid #ffffff';
-							const inputHandlerCompany = document.getElementById('user_company');
-							inputHandlerCompany.value = inputCompany.value.trim();
+							inputBirthyear.style.border = '5px solid #ffffff';
 						}
 
 						// Проверка категории
@@ -324,8 +302,7 @@
 								const userSexMale = document.getElementById('user_sex_male').checked; // Состояние кнопки пола (муж)
 								const userSexFemale = document.getElementById('user_sex_female').checked; // Состояние кнопки пола (жен)
 								const userSex = userSexMale ? 'Мужской' : userSexFemale ? 'Женский' : 'Не указан'; // Тернарный оператор, отображающий выбранный пол
-								const userBirthdate = document.getElementById('user_birthdate').value; // Дата рождения
-								const userCompany = document.getElementById('user_company').value; // Компания
+								const userBirthyear = document.getElementById('user_birthyear').value; // Дата рождения
 								const userCategory = document.getElementById('user_category').value; // Категория
 								const userEmail = document.getElementById('user_email').value; // Эл.почта
 								const userId = generateRandomID(8); // Сгенерированный id. В скобках задаётся его длина
@@ -334,8 +311,7 @@
 								// alert(`Имя: ${userName}\n` +
 								// `Фамилия: ${userSurname}\n` +
 								// `Пол: ${userSex}\n` +
-								// `Дата рождения: ${userBirthdate}\n` +
-								// `Компания: ${userCompany}\n` +
+								// `Дата рождения: ${userBirthyear}\n` +
 								// `Категория: ${userCategory}\n` +
 								// `Email: ${userEmail}\n` +
 								// `Id: ${userId}\n`);
@@ -344,8 +320,7 @@
 								sessionStorage.setItem("userName", userName); // Имя
 								sessionStorage.setItem("userSurname", userSurname); // Фамилия
 								sessionStorage.setItem("userSex", userSex); // Пол
-								sessionStorage.setItem("userBirthdate", userBirthdate); // Дата рождения
-								sessionStorage.setItem("userCompany", userCompany); // Компания
+								sessionStorage.setItem("userBirthyear", userBirthyear); // Дата рождения
 								sessionStorage.setItem("userCategory", userCategory); // Категория
 								sessionStorage.setItem("userEmail", userEmail); // Эл.почта
 								sessionStorage.setItem("userId", userId); // Id

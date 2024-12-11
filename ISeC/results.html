@@ -43,8 +43,7 @@
             let resName = "Абдурахмангаджи"; // Имя
             let resSurname = "Вольфшлегельштайнхаузенбергедорф"; // Фамилия
             let resSex = "П"; // Пол
-            let resBirthdate = "00.00.0000"; // Дата рождения
-            let resCompany = "Коминефтеэнергомонтажавтоматика"; // Компания
+            let resBirthyear = "1900"; // Дата рождения
             let resCategory = "Телефонограммовещатель"; // Категория
             let resEmail = "Mamina-Alek_jr.@tr-ili.ax.com"; // Эл.почта
             let resId = "N36ufF8"; // Id
@@ -84,8 +83,7 @@
             resName = sessionStorage.getItem("userName"); // Имя
             resSurname = sessionStorage.getItem("userSurname"); // Фамилия
             resSex = sessionStorage.getItem("userSex"); // Пол
-            resBirthdate = sessionStorage.getItem("userBirthdate"); // Дата рождения
-            resCompany = sessionStorage.getItem("userCompany"); // Компания
+            resBirthyear = sessionStorage.getItem("userBirthyear"); // Дата рождения
             resCategory = sessionStorage.getItem("userCategory"); // Категория
             resEmail = sessionStorage.getItem("userEmail"); // Эл.почта
             resId = sessionStorage.getItem("userId"); // Id
@@ -175,8 +173,7 @@
             <p id="strName" class="end_test_text">&emsp;Имя<br></p>
             <p id="strSurname" class="end_test_text">&emsp;Фамилия<br></p>
             <p id="strSex" class="end_test_text">&emsp;Пол<br></p>
-            <p id="strBirthdate" class="end_test_text">&emsp;Дата рождения<br></p>
-            <p id="strCompany" class="end_test_text">&emsp;Компания<br></p>
+            <p id="strBirthyear" class="end_test_text">&emsp;Год рождения<br></p>
             <p id="strCategory" class="end_test_text">&emsp;Категория<br></p>
             <p id="strEmail" class="end_test_text">&emsp;Эл.почта<br></p>
             <p id="strId" class="end_test_text">&emsp;Id<br></p>
@@ -215,8 +212,7 @@
             document.getElementById("strName").innerText = "Имя: " + resName;
             document.getElementById("strSurname").innerText = "Фамилия: " + resSurname;
             document.getElementById("strSex").innerText = "Пол: " + resSex;
-            document.getElementById("strBirthdate").innerText = "Дата рождения: " + resBirthdate.split('-').reverse().join('.'); // Дата рождения, переведённая из формата гггг-мм-дд в формат дд.мм.гггг
-            document.getElementById("strCompany").innerText = "Компания: " + resCompany;
+            document.getElementById("strBirthyear").innerText = "Год рождения: " + resBirthyear;
             document.getElementById("strCategory").innerText = "Категория: " + resCategory;
             document.getElementById("strEmail").innerText = "Эл.почта: " + resEmail;
             document.getElementById("strId").innerText = "Id: " + resId;

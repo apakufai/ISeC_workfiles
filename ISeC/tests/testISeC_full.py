@@ -27,8 +27,7 @@ try:
     inputName = browser.find_element(By.ID, 'user_name') # ИМЯ
     inputSurname = browser.find_element(By.ID, 'user_surname') # ФАМИЛИЯ
     inputSexFemale = browser.find_element(By.ID, 'user_sex_female') # ПОЛ
-    inputBirthdate = browser.find_element(By.ID, 'user_birthdate') # ДАТА РОЖДЕНИЯ
-    inputCompany = browser.find_element(By.ID, 'user_company') # ПОЛ
+    inputBirthyear = browser.find_element(By.ID, 'user_birthyear') # ДАТА РОЖДЕНИЯ
     inputCategory = Select(browser.find_element(By.ID, 'user_category')) # КАТЕГОРИЯ
     inputEmail = browser.find_element(By.ID, 'user_email') # ЭЛ.ПОЧТА
     inputAgreement = browser.find_element(By.ID, 'user_confirmation') # СОГЛАСИЕ НА ОБРАБОТКУ ДАННЫХ
@@ -40,9 +39,7 @@ try:
     time.sleep(0.1)
     inputSexFemale.click()
     time.sleep(0.1)
-    inputBirthdate.send_keys("01022000")
-    time.sleep(0.1)
-    inputCompany.send_keys("ООО «Компания '\"Агрохим-cuprum\" и сыновья'»")
+    inputBirthyear.send_keys("1900")
     time.sleep(0.1)
     inputCategory.select_by_value("-")
     time.sleep(0.1)

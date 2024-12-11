@@ -439,6 +439,15 @@ p,
    font-weight: lighter;
 }
 
+.descr_dataInput_text_birthyear {
+   margin: auto 0;
+   font-family: "Bahnschrift", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+   font-size: 16pt;
+   animation: animBlocks_text 1s ease;
+   font-weight: lighter;
+
+}
+
 /* Текст с вводом данных пользователя (мелкий шрифт) */
 .sexText {
    margin-left: 5px;
@@ -500,7 +509,19 @@ p,
 
 /* Расстояние между кнопками выбора пола в окне ввода данных пользователя */
 .dataInputSexSpace {
-   width: 150px;
+   width: 100px;
+}
+
+/* Расстояние между кнопками выбора пола в окне ввода данных пользователя */
+.inp_birthyear {
+   margin-top: 30px;
+   display: flex;
+   flex-direction: row;
+}
+
+/* Расстояние между строкой и полем ввода года рождения в окне ввода данных пользователя */
+.dataInputBirthyearSpace {
+   width: 20px;
 }
 
 /* Расположение блока соглашения на обработку введённых данных*/
@@ -671,7 +692,7 @@ p,
 }
 
 /* Поля ввода даты на странице данных пользователя */
-.inp_date {
+.inp_year {
    justify-content: end;
    display: flex;
    border: 5px solid #ffffff;
@@ -680,13 +701,19 @@ p,
    font-size: 16pt;
    font-family: "Bahnschrift", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
    font-weight: lighter;
-   color: #7F7F7F;
+   color: #5b7ead;
    animation: animBlocks_text 1s ease;
    animation-duration: 1s;
    height: 50px;
-   width: 250px;
+   width: 150px;
    padding: 10px;
    outline: none;
+   text-align: center;
+}
+
+.inp_year::placeholder {
+   color: #7F7F7F;
+   font-weight: lighter;
 }
 
 /* Выпадающее меню на странице данных пользователя */
