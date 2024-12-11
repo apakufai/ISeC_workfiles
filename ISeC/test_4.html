@@ -1683,228 +1683,281 @@
                                 let manipulationInstallation = 0; // Установка на манипуляцию
                                 let negotiationsInstallation = 0; // Установка на деловые переговоры
 
+                                // Инициализация счётчиков
+                                let strengthInstallationCount = 0; // Установка на силу (счёт)
+                                let manipulationInstallationCount = 0; // Установка на манипуляцию (счёт)
+                                let negotiationsInstallationCount = 0; // Установка на деловые переговоры (счёт)
+
                                 // Результаты вопроса 1
                                 if (document.getElementById('4_1_1').checked) {
                                     understandingOfStyles += 1; // Инкремент "Понимание стилей"
                                     negotiationsInstallation += 1; // Инкремент одной из трёх "установок"
+                                    negotiationsInstallationCount += 1; // счёт
                                 }
                                 if (document.getElementById('4_1_2').checked) {
                                     understandingOfStyles += 0; // Инкремент "Понимание стилей"
                                     strengthInstallation += 1; // Инкремент одной из трёх "установок"
+                                    strengthInstallationCount += 1; // счёт
                                 }
                                 if (document.getElementById('4_1_3').checked) {
                                     understandingOfStyles += 2; // Инкремент "Понимание стилей"
                                     manipulationInstallation += 1; // Инкремент одной из трёх "установок"
+                                    manipulationInstallationCount += 1; // счёт
                                 }
 
                                 // Результаты вопроса 2
                                 if (document.getElementById('4_2_1').checked) {
                                     understandingOfStyles += 1;
                                     negotiationsInstallation += 1;
+                                    negotiationsInstallationCount += 1;
                                 }
                                 if (document.getElementById('4_2_2').checked) {
                                     understandingOfStyles += 2;
                                     manipulationInstallation += 1;
+                                    manipulationInstallationCount += 1;
                                 }
                                 if (document.getElementById('4_2_3').checked) {
                                     understandingOfStyles += 0;
                                     strengthInstallation += 1;
+                                    strengthInstallationCount += 1;
                                 }
 
                                 // Результаты вопроса 3
                                 if (document.getElementById('4_3_1').checked) {
                                     understandingOfStyles += 0;
                                     negotiationsInstallation += 1;
+                                    negotiationsInstallationCount += 1;
                                 }
                                 if (document.getElementById('4_3_2').checked) {
                                     understandingOfStyles += 2;
                                     manipulationInstallation += 1;
+                                    manipulationInstallationCount += 1;
                                 }
                                 if (document.getElementById('4_3_3').checked) {
                                     understandingOfStyles += 1;
                                     strengthInstallation += 1;
+                                    strengthInstallationCount += 1;
                                 }
 
                                 // Результаты вопроса 4
                                 if (document.getElementById('4_4_1').checked) {
                                     understandingOfStyles += 0;
                                     strengthInstallation += 1;
+                                    strengthInstallationCount += 1;
                                 }
                                 if (document.getElementById('4_4_2').checked) {
                                     understandingOfStyles += 1;
                                     manipulationInstallation += 1;
+                                    manipulationInstallationCount += 1;
                                 }
                                 if (document.getElementById('4_4_3').checked) {
                                     understandingOfStyles += 2;
                                     negotiationsInstallation += 1;
+                                    negotiationsInstallationCount += 1;
                                 }
 
                                 // Результаты вопроса 5
                                 if (document.getElementById('4_5_1').checked) {
                                     understandingOfStyles += 1;
                                     negotiationsInstallation += 1;
+                                    negotiationsInstallationCount += 1;
                                 }
                                 if (document.getElementById('4_5_2').checked) {
                                     understandingOfStyles += 2;
                                     manipulationInstallation += 1;
+                                    manipulationInstallationCount += 1;
                                 }
                                 if (document.getElementById('4_5_3').checked) {
                                     understandingOfStyles += 0;
                                     strengthInstallation += 1;
+                                    strengthInstallationCount += 1;
                                 }
 
                                 // Результаты вопроса 6
                                 if (document.getElementById('4_6_1').checked) {
                                     understandingOfStyles += 1;
                                     strengthInstallation += 1;
+                                    strengthInstallationCount += 1;
                                 }
                                 if (document.getElementById('4_6_2').checked) {
                                     understandingOfStyles += 0;
                                     manipulationInstallation += 1;
+                                    manipulationInstallationCount += 1;
                                 }
                                 if (document.getElementById('4_6_3').checked) {
                                     understandingOfStyles += 2;
                                     negotiationsInstallation += 1;
+                                    negotiationsInstallationCount += 1;
                                 }
 
                                 // Результаты вопроса 7
                                 if (document.getElementById('4_7_1').checked) {
                                     understandingOfStyles += 2;
                                     negotiationsInstallation += 1;
+                                    negotiationsInstallationCount += 1;
                                 }
                                 if (document.getElementById('4_7_2').checked) {
                                     understandingOfStyles += 1;
                                     manipulationInstallation += 1;
+                                    manipulationInstallationCount += 1;
                                 }
                                 if (document.getElementById('4_7_3').checked) {
                                     understandingOfStyles += 0;
                                     strengthInstallation += 1;
+                                    strengthInstallationCount += 1;
                                 }
 
                                 // Результаты вопроса 8
                                 if (document.getElementById('4_8_1').checked) {
                                     understandingOfStyles += 1;
                                     manipulationInstallation += 1;
+                                    manipulationInstallationCount += 1;
                                 }
                                 if (document.getElementById('4_8_2').checked) {
                                     understandingOfStyles += 2;
                                     negotiationsInstallation += 1;
+                                    negotiationsInstallationCount += 1;
                                 }
                                 if (document.getElementById('4_8_3').checked) {
                                     understandingOfStyles += 0;
                                     strengthInstallation += 1;
+                                    strengthInstallationCount += 1;
                                 }
 
                                 // Результаты вопроса 9
                                 if (document.getElementById('4_9_1').checked) {
                                     understandingOfStyles += 0;
                                     strengthInstallation += 1;
+                                    strengthInstallationCount += 1;
                                 }
                                 if (document.getElementById('4_9_2').checked) {
                                     understandingOfStyles += 2;
                                     manipulationInstallation += 1;
+                                    manipulationInstallationCount += 1;
                                 }
                                 if (document.getElementById('4_9_3').checked) {
                                     understandingOfStyles += 1;
                                     negotiationsInstallation += 1;
+                                    negotiationsInstallationCount += 1;
                                 }
 
                                 // Результаты вопроса 10
                                 if (document.getElementById('4_10_1').checked) {
                                     understandingOfStyles += 1;
                                     strengthInstallation += 1;
+                                    strengthInstallationCount += 1;
                                 }
                                 if (document.getElementById('4_10_2').checked) {
                                     understandingOfStyles += 2;
                                     negotiationsInstallation += 1;
+                                    negotiationsInstallationCount += 1;
                                 }
                                 if (document.getElementById('4_10_3').checked) {
                                     understandingOfStyles += 0;
                                     manipulationInstallation += 1;
+                                    manipulationInstallationCount += 1;
                                 }
 
                                 // Результаты вопроса 11
                                 if (document.getElementById('4_11_1').checked) {
                                     understandingOfStyles += 1;
                                     strengthInstallation += 1;
+                                    strengthInstallationCount += 1;
                                 }
                                 if (document.getElementById('4_11_2').checked) {
                                     understandingOfStyles += 2;
                                     manipulationInstallation += 1;
+                                    manipulationInstallationCount += 1;
                                 }
                                 if (document.getElementById('4_11_3').checked) {
                                     understandingOfStyles += 0;
                                     negotiationsInstallation += 1;
+                                    negotiationsInstallationCount += 1;
                                 }
 
                                 // Результаты вопроса 12
                                 if (document.getElementById('4_12_1').checked) {
                                     understandingOfStyles += 2;
                                     negotiationsInstallation += 1;
+                                    negotiationsInstallationCount += 1;
                                 }
                                 if (document.getElementById('4_12_2').checked) {
                                     understandingOfStyles += 1;
                                     manipulationInstallation += 1;
+                                    manipulationInstallationCount += 1;
                                 }
                                 if (document.getElementById('4_12_3').checked) {
                                     understandingOfStyles += 0;
                                     strengthInstallation += 1;
+                                    strengthInstallationCount += 1;
                                 }
 
                                 // Результаты вопроса 13
                                 if (document.getElementById('4_13_1').checked) {
                                     understandingOfStyles += 2;
                                     negotiationsInstallation += 1;
+                                    negotiationsInstallationCount += 1;
                                 }
                                 if (document.getElementById('4_13_2').checked) {
                                     understandingOfStyles += 1;
                                     manipulationInstallation += 1;
+                                    manipulationInstallationCount += 1;
                                 }
                                 if (document.getElementById('4_13_3').checked) {
                                     understandingOfStyles += 0;
                                     strengthInstallation += 1;
+                                    strengthInstallationCount += 1;
                                 }
 
                                 // Результаты вопроса 14
                                 if (document.getElementById('4_14_1').checked) {
                                     understandingOfStyles += 1;
                                     negotiationsInstallation += 1;
+                                    negotiationsInstallationCount += 1;
                                 }
                                 if (document.getElementById('4_14_2').checked) {
                                     understandingOfStyles += 0;
                                     strengthInstallation += 1;
+                                    strengthInstallationCount += 1;
                                 }
                                 if (document.getElementById('4_14_3').checked) {
                                     understandingOfStyles += 2;
                                     manipulationInstallation += 1;
+                                    manipulationInstallationCount += 1;
                                 }
 
                                 // Результаты вопроса 15
                                 if (document.getElementById('4_15_1').checked) {
                                     understandingOfStyles += 2;
                                     manipulationInstallation += 1;
+                                    manipulationInstallationCount += 1;
                                 }
                                 if (document.getElementById('4_15_2').checked) {
                                     understandingOfStyles += 1;
                                     negotiationsInstallation += 1;
+                                    negotiationsInstallationCount += 1;
                                 }
                                 if (document.getElementById('4_15_3').checked) {
                                     understandingOfStyles += 0;
                                     strengthInstallation += 1;
+                                    strengthInstallationCount += 1;
                                 }
 
                                 // Результаты вопроса 16
                                 if (document.getElementById('4_16_1').checked) {
                                     understandingOfStyles += 2;
                                     strengthInstallation += 1;
+                                    strengthInstallationCount += 1;
                                 }
                                 if (document.getElementById('4_16_2').checked) {
                                     understandingOfStyles += 1;
                                     manipulationInstallation += 1;
+                                    manipulationInstallationCount += 1;
                                 }
                                 if (document.getElementById('4_16_3').checked) {
                                     understandingOfStyles += 0;
                                     negotiationsInstallation += 1;
+                                    negotiationsInstallationCount += 1;
                                 }
 
                                 // Вывод значения в alert (тест)
@@ -1918,6 +1971,10 @@
                                 sessionStorage.setItem("resStrengthInstallation_4", strengthInstallation); // Установка на силу
                                 sessionStorage.setItem("resManipulationInstallation_4", manipulationInstallation); // Установка на манипуляцию
                                 sessionStorage.setItem("resNegotiationsInstallation_4", negotiationsInstallation); // Установка на деловые переговоры
+
+                                sessionStorage.setItem("strengthInstallationCount_4", strengthInstallationCount); // Установка на силу (счёт)
+                                sessionStorage.setItem("manipulationInstallationCount_4", manipulationInstallationCount); // Установка на манипуляцию (счёт)
+                                sessionStorage.setItem("negotiationsInstallationCount_4", negotiationsInstallationCount); // Установка на деловые переговоры (счёт)
 
                                 // Переход на новую страницу после окончания анимации
                                 window.location.href = 'test_5.html';

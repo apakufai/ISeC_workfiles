@@ -1478,67 +1478,218 @@
                                 let emotionsArgument = 0; // Эмоции как аргумент
                                 let avoidance = 0; // Избегание
 
+                                // Инициализация счётчиков
+                                let adaptationCount = 0; // Приспособление (счёт)
+                                let biddingCount = 0; // Торги (счёт)
+                                let logicArgumentCount = 0; // Логика как аргумент (счёт)
+                                let emotionsArgumentCount = 0; // Эмоции как аргумент (счёт)
+                                let avoidanceCount = 0;// Избегание (счёт)
+
                                 // Результаты вопроса 1
-                                // Получаем значения из ползунков и инкрементируем их к общему значению
-                                avoidance += (parseInt(document.querySelector('#inp_count_5_1_1 input[type="range"]').value) - 1);
-                                bidding += (parseInt(document.querySelector('#inp_count_5_1_2 input[type="range"]').value) - 1);
-                                emotionsArgument += (parseInt(document.querySelector('#inp_count_5_1_3 input[type="range"]').value) - 1);
+                                // Получаем значения из ползунков
+                                avoidance_5_1 = (parseInt(document.querySelector('#inp_count_5_1_1 input[type="range"]').value) - 1);
+                                bidding_5_1 = (parseInt(document.querySelector('#inp_count_5_1_2 input[type="range"]').value) - 1);
+                                emotionsArgument_5_1 = (parseInt(document.querySelector('#inp_count_5_1_3 input[type="range"]').value) - 1);
+                                // Инкрементация к общему значению
+                                avoidance += avoidance_5_1;
+                                bidding += bidding_5_1;
+                                emotionsArgument += emotionsArgument_5_1;
+                                // Подсчёт выбора (если есть логика для подсчета выбора, добавьте её)
+                                if (avoidance_5_1 === 3) avoidanceCount += 1;
+                                if (bidding_5_1 === 3) biddingCount += 1;
+                                if (emotionsArgument_5_1 === 3) emotionsArgumentCount += 1;
+                                if (avoidance_5_1 === 2) avoidanceCount += 0.5;
+                                if (bidding_5_1 === 2) biddingCount += 0.5;
+                                if (emotionsArgument_5_1 === 2) emotionsArgumentCount += 0.5;
 
                                 // Результаты вопроса 2
-                                emotionsArgument += (parseInt(document.querySelector('#inp_count_5_2_1 input[type="range"]').value) - 1);
-                                bidding += (parseInt(document.querySelector('#inp_count_5_2_2 input[type="range"]').value) - 1);
-                                adaptation += (parseInt(document.querySelector('#inp_count_5_2_3 input[type="range"]').value) - 1);
+                                // Получаем значения из ползунков
+                                emotionsArgument_5_2 = (parseInt(document.querySelector('#inp_count_5_2_1 input[type="range"]').value) - 1);
+                                bidding_5_2 = (parseInt(document.querySelector('#inp_count_5_2_2 input[type="range"]').value) - 1);
+                                adaptation_5_2 = (parseInt(document.querySelector('#inp_count_5_2_3 input[type="range"]').value) - 1);
+                                // Инкрементация к общему значению
+                                emotionsArgument += emotionsArgument_5_2;
+                                bidding += bidding_5_2;
+                                adaptation += adaptation_5_2;
+                                // Подсчёт выбора
+                                if (emotionsArgument_5_2 === 3) emotionsArgumentCount += 1;
+                                if (bidding_5_2 === 3) biddingCount += 1;
+                                if (adaptation_5_2 === 3) adaptationCount += 1;
+                                if (emotionsArgument_5_2 === 2) emotionsArgumentCount += 0.5;
+                                if (bidding_5_2 === 2) biddingCount += 0.5;
+                                if (adaptation_5_2 === 2) adaptationCount += 0.5;
 
                                 // Результаты вопроса 3
-                                logicArgument += (parseInt(document.querySelector('#inp_count_5_3_1 input[type="range"]').value) - 1);
-                                bidding += (parseInt(document.querySelector('#inp_count_5_3_2 input[type="range"]').value) - 1);
-                                adaptation += (parseInt(document.querySelector('#inp_count_5_3_3 input[type="range"]').value) - 1);
+                                // Получаем значения из ползунков
+                                logicArgument_5_3 = (parseInt(document.querySelector('#inp_count_5_3_1 input[type="range"]').value) - 1);
+                                bidding_5_3 = (parseInt(document.querySelector('#inp_count_5_3_2 input[type="range"]').value) - 1);
+                                adaptation_5_3 = (parseInt(document.querySelector('#inp_count_5_3_3 input[type="range"]').value) - 1);
+                                // Инкрементация к общему значению
+                                logicArgument += logicArgument_5_3;
+                                bidding += bidding_5_3;
+                                adaptation += adaptation_5_3;
+                                // Подсчёт выбора
+                                if (logicArgument_5_3 === 3) logicArgumentCount += 1;
+                                if (bidding_5_3 === 3) biddingCount += 1;
+                                if (adaptation_5_3 === 3) adaptationCount += 1;
+                                if (logicArgument_5_3 === 2) logicArgumentCount += 0.5;
+                                if (bidding_5_3 === 2) biddingCount += 0.5;
+                                if (adaptation_5_3 === 2) adaptationCount += 0.5;
 
                                 // Результаты вопроса 4
-                                avoidance += (parseInt(document.querySelector('#inp_count_5_4_1 input[type="range"]').value) - 1);
-                                adaptation += (parseInt(document.querySelector('#inp_count_5_4_2 input[type="range"]').value) - 1);
-                                emotionsArgument += (parseInt(document.querySelector('#inp_count_5_4_3 input[type="range"]').value) - 1);
+                                // Получаем значения из ползунков
+                                avoidance_5_4 = (parseInt(document.querySelector('#inp_count_5_4_1 input[type="range"]').value) - 1);
+                                adaptation_5_4 = (parseInt(document.querySelector('#inp_count_5_4_2 input[type="range"]').value) - 1);
+                                emotionsArgument_5_4 = (parseInt(document.querySelector('#inp_count_5_4_3 input[type="range"]').value) - 1);
+                                // Инкрементация к общему значению
+                                avoidance += avoidance_5_4;
+                                adaptation += adaptation_5_4;
+                                emotionsArgument += emotionsArgument_5_4;
+                                // Подсчёт выбора
+                                if (avoidance_5_4 === 3) avoidanceCount += 1;
+                                if (adaptation_5_4 === 3) adaptationCount += 1;
+                                if (emotionsArgument_5_4 === 3) emotionsArgumentCount += 1;
+                                if (avoidance_5_4 === 2) avoidanceCount += 0.5;
+                                if (adaptation_5_4 === 2) adaptationCount += 0.5;
+                                if (emotionsArgument_5_4 === 2) emotionsArgumentCount += 0.5;
 
                                 // Результаты вопроса 5
-                                bidding += (parseInt(document.querySelector('#inp_count_5_5_1 input[type="range"]').value) - 1);
-                                logicArgument += (parseInt(document.querySelector('#inp_count_5_5_2 input[type="range"]').value) - 1);
-                                emotionsArgument += (parseInt(document.querySelector('#inp_count_5_5_3 input[type="range"]').value) - 1);
+                                // Получаем значения из ползунков
+                                bidding_5_5 = (parseInt(document.querySelector('#inp_count_5_5_1 input[type="range"]').value) - 1);
+                                logicArgument_5_5 = (parseInt(document.querySelector('#inp_count_5_5_2 input[type="range"]').value) - 1);
+                                emotionsArgument_5_5 = (parseInt(document.querySelector('#inp_count_5_5_3 input[type="range"]').value) - 1);
+                                // Инкрементация к общему значению
+                                bidding += bidding_5_5;
+                                logicArgument += logicArgument_5_5;
+                                emotionsArgument += emotionsArgument_5_5;
+                                // Подсчёт выбора
+                                if (bidding_5_5 === 3) biddingCount += 1;
+                                if (logicArgument_5_5 === 3) logicArgumentCount += 1;
+                                if (emotionsArgument_5_5 === 3) emotionsArgumentCount += 1;
+                                if (bidding_5_5 === 2) biddingCount += 0.5;
+                                if (logicArgument_5_5 === 2) logicArgumentCount += 0.5;
+                                if (emotionsArgument_5_5 === 2) emotionsArgumentCount += 0.5;
 
                                 // Результаты вопроса 6
-                                bidding += (parseInt(document.querySelector('#inp_count_5_6_1 input[type="range"]').value) - 1);
-                                emotionsArgument += (parseInt(document.querySelector('#inp_count_5_6_2 input[type="range"]').value) - 1);
-                                logicArgument += (parseInt(document.querySelector('#inp_count_5_6_3 input[type="range"]').value) - 1);
+                                // Получаем значения из ползунков
+                                bidding_5_6 = (parseInt(document.querySelector('#inp_count_5_6_1 input[type="range"]').value) - 1);
+                                emotionsArgument_5_6 = (parseInt(document.querySelector('#inp_count_5_6_2 input[type="range"]').value) - 1);
+                                logicArgument_5_6 = (parseInt(document.querySelector('#inp_count_5_6_3 input[type="range"]').value) - 1);
+                                // Инкрементация к общему значению
+                                bidding += bidding_5_6;
+                                emotionsArgument += emotionsArgument_5_6;
+                                logicArgument += logicArgument_5_6;
+                                // Подсчёт выбора
+                                if (bidding_5_6 === 3) biddingCount += 1;
+                                if (emotionsArgument_5_6 === 3) emotionsArgumentCount += 1;
+                                if (logicArgument_5_6 === 3) logicArgumentCount += 1;
+                                if (bidding_5_6 === 2) biddingCount += 0.5;
+                                if (emotionsArgument_5_6 === 2) emotionsArgumentCount += 0.5;
+                                if (logicArgument_5_6 === 2) logicArgumentCount += 0.5;
 
                                 // Результаты вопроса 7
-                                logicArgument += (parseInt(document.querySelector('#inp_count_5_7_1 input[type="range"]').value) - 1);
-                                emotionsArgument += (parseInt(document.querySelector('#inp_count_5_7_2 input[type="range"]').value) - 1);
-                                bidding += (parseInt(document.querySelector('#inp_count_5_7_3 input[type="range"]').value) - 1);
+                                // Получаем значения из ползунков
+                                logicArgument_5_7 = (parseInt(document.querySelector('#inp_count_5_7_1 input[type="range"]').value) - 1);
+                                emotionsArgument_5_7 = (parseInt(document.querySelector('#inp_count_5_7_2 input[type="range"]').value) - 1);
+                                bidding_5_7 = (parseInt(document.querySelector('#inp_count_5_7_3 input[type="range"]').value) - 1);
+                                // Инкрементация к общему значению
+                                logicArgument += logicArgument_5_7;
+                                emotionsArgument += emotionsArgument_5_7;
+                                bidding += bidding_5_7;
+                                // Подсчёт выбора
+                                if (logicArgument_5_7 === 3) logicArgumentCount += 1;
+                                if (emotionsArgument_5_7 === 3) emotionsArgumentCount += 1;
+                                if (bidding_5_7 === 3) biddingCount += 1;
+                                if (logicArgument_5_7 === 2) logicArgumentCount += 0.5;
+                                if (emotionsArgument_5_7 === 2) emotionsArgumentCount += 0.5;
+                                if (bidding_5_7 === 2) biddingCount += 0.5;
 
                                 // Результаты вопроса 8
-                                bidding += (parseInt(document.querySelector('#inp_count_5_8_1 input[type="range"]').value) - 1);
-                                emotionsArgument += (parseInt(document.querySelector('#inp_count_5_8_2 input[type="range"]').value) - 1);
-                                adaptation += (parseInt(document.querySelector('#inp_count_5_8_3 input[type="range"]').value) - 1);
+                                // Получаем значения из ползунков
+                                bidding_5_8 = (parseInt(document.querySelector('#inp_count_5_8_1 input[type="range"]').value) - 1);
+                                emotionsArgument_5_8 = (parseInt(document.querySelector('#inp_count_5_8_2 input[type="range"]').value) - 1);
+                                adaptation_5_8 = (parseInt(document.querySelector('#inp_count_5_8_3 input[type="range"]').value) - 1);
+                                // Инкрементация к общему значению
+                                bidding += bidding_5_8;
+                                emotionsArgument += emotionsArgument_5_8;
+                                adaptation += adaptation_5_8;
+                                // Подсчёт выбора
+                                if (bidding_5_8 === 3) biddingCount += 1;
+                                if (emotionsArgument_5_8 === 3) emotionsArgumentCount += 1;
+                                if (adaptation_5_8 === 3) adaptationCount += 1;
+                                if (bidding_5_8 === 2) biddingCount += 0.5;
+                                if (emotionsArgument_5_8 === 2) emotionsArgumentCount += 0.5;
+                                if (adaptation_5_8 === 2) adaptationCount += 0.5;
 
                                 // Результаты вопроса 9
-                                logicArgument += (parseInt(document.querySelector('#inp_count_5_9_1 input[type="range"]').value) - 1);
-                                emotionsArgument += (parseInt(document.querySelector('#inp_count_5_9_2 input[type="range"]').value) - 1);
-                                bidding += (parseInt(document.querySelector('#inp_count_5_9_3 input[type="range"]').value) - 1);
+                                // Получаем значения из ползунков
+                                logicArgument_5_9 = (parseInt(document.querySelector('#inp_count_5_9_1 input[type="range"]').value) - 1);
+                                emotionsArgument_5_9 = (parseInt(document.querySelector('#inp_count_5_9_2 input[type="range"]').value) - 1);
+                                bidding_5_9 = (parseInt(document.querySelector('#inp_count_5_9_3 input[type="range"]').value) - 1);
+                                // Инкрементация к общему значению
+                                logicArgument += logicArgument_5_9;
+                                emotionsArgument += emotionsArgument_5_9;
+                                bidding += bidding_5_9;
+                                // Подсчёт выбора
+                                if (logicArgument_5_9 === 3) logicArgumentCount += 1;
+                                if (emotionsArgument_5_9 === 3) emotionsArgumentCount += 1;
+                                if (bidding_5_9 === 3) biddingCount += 1;
+                                if (logicArgument_5_9 === 2) logicArgumentCount += 0.5;
+                                if (emotionsArgument_5_9 === 2) emotionsArgumentCount += 0.5;
+                                if (bidding_5_9 === 2) biddingCount += 0.5;
 
                                 // Результаты вопроса 10
-                                emotionsArgument += (parseInt(document.querySelector('#inp_count_5_10_1 input[type="range"]').value) - 1);
-                                logicArgument += (parseInt(document.querySelector('#inp_count_5_10_2 input[type="range"]').value) - 1);
-                                avoidance += (parseInt(document.querySelector('#inp_count_5_10_3 input[type="range"]').value) - 1);
+                                // Получаем значения из ползунков
+                                emotionsArgument_5_10 = (parseInt(document.querySelector('#inp_count_5_10_1 input[type="range"]').value) - 1);
+                                logicArgument_5_10 = (parseInt(document.querySelector('#inp_count_5_10_2 input[type="range"]').value) - 1);
+                                avoidance_5_10 = (parseInt(document.querySelector('#inp_count_5_10_3 input[type="range"]').value) - 1);
+                                // Инкрементация к общему значению
+                                emotionsArgument += emotionsArgument_5_10;
+                                logicArgument += logicArgument_5_10;
+                                avoidance += avoidance_5_10;
+                                // Подсчёт выбора
+                                if (emotionsArgument_5_10 === 3) emotionsArgumentCount += 1;
+                                if (logicArgument_5_10 === 3) logicArgumentCount += 1;
+                                if (avoidance_5_10 === 3) avoidanceCount += 1;
+                                if (emotionsArgument_5_10 === 2) emotionsArgumentCount += 0.5;
+                                if (logicArgument_5_10 === 2) logicArgumentCount += 0.5;
+                                if (avoidance_5_10 === 2) avoidanceCount += 0.5;
 
                                 // Результаты вопроса 11
-                                emotionsArgument += (parseInt(document.querySelector('#inp_count_5_11_1 input[type="range"]').value) - 1);
-                                logicArgument += (parseInt(document.querySelector('#inp_count_5_11_2 input[type="range"]').value) - 1);
-                                bidding += (parseInt(document.querySelector('#inp_count_5_11_3 input[type="range"]').value) - 1);
+                                // Получаем значения из ползунков
+                                emotionsArgument_5_11 = (parseInt(document.querySelector('#inp_count_5_11_1 input[type="range"]').value) - 1);
+                                logicArgument_5_11 = (parseInt(document.querySelector('#inp_count_5_11_2 input[type="range"]').value) - 1);
+                                bidding_5_11 = (parseInt(document.querySelector('#inp_count_5_11_3 input[type="range"]').value) - 1);
+                                // Инкрементация к общему значению
+                                emotionsArgument += emotionsArgument_5_11;
+                                logicArgument += logicArgument_5_11;
+                                bidding += bidding_5_11;
+                                // Подсчёт выбора
+                                if (emotionsArgument_5_11 === 3) emotionsArgumentCount += 1;
+                                if (logicArgument_5_11 === 3) logicArgumentCount += 1;
+                                if (bidding_5_11 === 3) biddingCount += 1;
+                                if (emotionsArgument_5_11 === 2) emotionsArgumentCount += 0.5;
+                                if (logicArgument_5_11 === 2) logicArgumentCount += 0.5;
+                                if (bidding_5_11 === 2) biddingCount += 0.5;
 
                                 // Результаты вопроса 12
-                                emotionsArgument += (parseInt(document.querySelector('#inp_count_5_12_1 input[type="range"]').value) - 1);
-                                avoidance += (parseInt(document.querySelector('#inp_count_5_12_2 input[type="range"]').value) - 1);
-                                logicArgument += (parseInt(document.querySelector('#inp_count_5_12_3 input[type="range"]').value) - 1);
+                                // Получаем значения из ползунков
+                                emotionsArgument_5_12 = (parseInt(document.querySelector('#inp_count_5_12_1 input[type="range"]').value) - 1);
+                                avoidance_5_12 = (parseInt(document.querySelector('#inp_count_5_12_2 input[type="range"]').value) - 1);
+                                logicArgument_5_12 = (parseInt(document.querySelector('#inp_count_5_12_3 input[type="range"]').value) - 1);
+                                // Инкрементация к общему значению
+                                emotionsArgument += emotionsArgument_5_12;
+                                avoidance += avoidance_5_12;
+                                logicArgument += logicArgument_5_12;
+                                // Подсчёт выбора
+                                if (emotionsArgument_5_12 === 3) emotionsArgumentCount += 1;
+                                if (avoidance_5_12 === 3) avoidanceCount += 1;
+                                if (logicArgument_5_12 === 3) logicArgumentCount += 1;
+                                if (emotionsArgument_5_12 === 2) emotionsArgumentCount += 0.5;
+                                if (avoidance_5_12 === 2) avoidanceCount += 0.5;
+                                if (logicArgument_5_12 === 2) logicArgumentCount += 0.5;
 
+                                
                                 // Вывод значения в alert (тест)
                                 // alert(`Приспособление: ${adaptation}\n` +
                                 //     `Торги: ${bidding}\n` +
@@ -1552,6 +1703,12 @@
                                 sessionStorage.setItem("resLogicArgument_5", logicArgument); // Логика как аргумент
                                 sessionStorage.setItem("resEmotionsArgument_5", emotionsArgument); // Эмоции как аргумент
                                 sessionStorage.setItem("resAvoidance_5", avoidance); // Избегание
+
+                                sessionStorage.setItem("adaptationCount_5", adaptationCount); // Приспособление (счёт)
+                                sessionStorage.setItem("biddingCount_5", biddingCount); // Торги (счёт)
+                                sessionStorage.setItem("logicArgumentCount_5", logicArgumentCount); // Логика как аргумент (счёт)
+                                sessionStorage.setItem("emotionsArgumentCount_5", emotionsArgumentCount); // Эмоции как аргумент (счёт)
+                                sessionStorage.setItem("avoidanceCount_5", avoidanceCount); // Избегание (счёт)
 
                                 // Переход на новую страницу после окончания анимации
                                 window.location.href = 'test_6.html';

@@ -7,6 +7,8 @@ import math
 import os
 import re
 
+
+
 # Регистрация шрифта Bahnschrift
 try:
     pdfmetrics.registerFont(TTFont('Bahnschrift', 'Bahnschrift.ttf'))
@@ -61,37 +63,6 @@ resManipulationInstallation = extract_value_from_html(html_file, 'resManipulatio
 resNegotiationsInstallation = extract_value_from_html(html_file, 'resNegotiationsInstallation', expected_type=int)
 resCooperation = extract_value_from_html(html_file, 'resCooperation', expected_type=int)
 resAvoidance = extract_value_from_html(html_file, 'resAvoidance', expected_type=int)
-
-resAdaptation_1 = extract_value_from_html(html_file, 'resAdaptation_1', expected_type=int)
-resCompromise_1 = extract_value_from_html(html_file, 'resCompromise_1', expected_type=int)
-resBidding_1 = extract_value_from_html(html_file, 'resBidding_1', expected_type=int)
-resThreat_1 = extract_value_from_html(html_file, 'resThreat_1', expected_type=int)
-resLogicArgument_1 = extract_value_from_html(html_file, 'resLogicArgument_1', expected_type=int)
-resEmotionsArgument_1 = extract_value_from_html(html_file, 'resEmotionsArgument_1', expected_type=int)
-
-resAdaptation_2 = extract_value_from_html(html_file, 'resAdaptation_2', expected_type=int)
-resCompromise_2 = extract_value_from_html(html_file, 'resCompromise_2', expected_type=int)
-resThreat_2 = extract_value_from_html(html_file, 'resThreat_2', expected_type=int)
-resCooperation_2 = extract_value_from_html(html_file, 'resCooperation_2', expected_type=int)
-resAvoidance_2 = extract_value_from_html(html_file, 'resAvoidance_2', expected_type=int)
-
-resAdaptation_3 = extract_value_from_html(html_file, 'resAdaptation_3', expected_type=int)
-resThreat_3 = extract_value_from_html(html_file, 'resThreat_3', expected_type=int)
-resCooperation_3 = extract_value_from_html(html_file, 'resCooperation_3', expected_type=int)
-
-resStrengthInstallation_4 = extract_value_from_html(html_file, 'resStrengthInstallation_4', expected_type=int)
-resManipulationInstallation_4 = extract_value_from_html(html_file, 'resManipulationInstallation_4', expected_type=int)
-resNegotiationsInstallation_4 = extract_value_from_html(html_file, 'resNegotiationsInstallation_4', expected_type=int)
-
-resAdaptation_5 = extract_value_from_html(html_file, 'resAdaptation_5', expected_type=int)
-resBidding_5 = extract_value_from_html(html_file, 'resBidding_5', expected_type=int)
-resLogicArgument_5 = extract_value_from_html(html_file, 'resLogicArgument_5', expected_type=int)
-resEmotionsArgument_5 = extract_value_from_html(html_file, 'resEmotionsArgument_5', expected_type=int)
-resAvoidance_5 = extract_value_from_html(html_file, 'resAvoidance_5', expected_type=int)
-
-resLogicArgument_6 = extract_value_from_html(html_file, 'resLogicArgument_6', expected_type=int)
-resEmotionsArgument_6 = extract_value_from_html(html_file, 'resEmotionsArgument_6', expected_type=int)
-
 
 
 # ПРОВЕРКИ!!!
@@ -346,7 +317,6 @@ def create_pdf(filename):
         return
     can.drawImage(image_path_1, 0, 0, width=width, height=height)
 
-    # Печать текста на PDF
     can.setFont("Bahnschrift", 14)  # Устанавливаем шрифт и размер
 
     if resId is not None:  # Проверяем, что resId не None и не пустая строка
@@ -466,63 +436,62 @@ def create_pdf(filename):
 
 
     # Идеальный профиль
-        # Устанавливаем начальные и конечные координаты
-        start_x_left = 141.732
-        start_y_left = height - 785.197
-        end_y_left = height - 484.996
-        width_left = 141.732
-        # Определяем высоту графика, которую мы будем использовать
-        fullHeight_left = start_y_left - end_y_left
-        # Определяем значения для каждой части графика
-        values_left = [
-            {"name": "Эмоции", "color": (133/255, 85/255, 85/255), "value": 5},
-            {"name": "Логика", "color": (118/255, 102/255, 171/255), "value": 10},
-            {"name": "Угроза", "color": (138/255, 171/255, 78/255), "value": 8},
-            {"name": "Торги", "color": (200/255, 65/255, 85/255), "value": 13},
-            {"name": "Компромисс", "color": (90/255, 127/255, 174/255), "value": 10},
-            {"name": "Приспособление", "color": (235/255, 188/255, 109/255), "value": 4},
-        ]
-        # Начальная позиция по Y для рисования в цикле for каждой части графика
-        current_y_left = start_y_left
-        # Рисуем график
-        for part_left in values_left:
-            if part_left["value"] > 0:  # Проверяем, что значение больше 0
-                # Рассчитываем высоту на основе значения
-                height_left = (fullHeight_left * part_left["value"]) / sum(part["value"] for part in values_left)
-                can.setStrokeColorRGB(*part_left["color"])
-                can.setLineWidth(width_left)
-                can.line(start_x_left, current_y_left, start_x_left, current_y_left - height_left)
-                current_y_left -= height_left
+    # Устанавливаем начальные и конечные координаты
+    start_x_left = 141.732
+    start_y_left = height - 785.197
+    end_y_left = height - 484.996
+    width_left = 141.732
+    # Определяем высоту графика, которую мы будем использовать
+    fullHeight_left = start_y_left - end_y_left
+    # Определяем значения для каждой части графика
+    values_left = [
+        {"name": "Эмоции", "color": (133/255, 85/255, 85/255), "value": 5},
+        {"name": "Логика", "color": (118/255, 102/255, 171/255), "value": 10},
+        {"name": "Угроза", "color": (138/255, 171/255, 78/255), "value": 8},
+        {"name": "Торги", "color": (200/255, 65/255, 85/255), "value": 13},
+        {"name": "Компромисс", "color": (90/255, 127/255, 174/255), "value": 10},
+        {"name": "Приспособление", "color": (235/255, 188/255, 109/255), "value": 4},
+    ]
+    # Начальная позиция по Y для рисования в цикле for каждой части графика
+    current_y_left = start_y_left
+    # Рисуем график
+    for part_left in values_left:
+        if part_left["value"] > 0:  # Проверяем, что значение больше 0
+            # Рассчитываем высоту на основе значения
+            height_left = (fullHeight_left * part_left["value"]) / sum(part["value"] for part in values_left)
+            can.setStrokeColorRGB(*part_left["color"])
+            can.setLineWidth(width_left)
+            can.line(start_x_left, current_y_left, start_x_left, current_y_left - height_left)
+            current_y_left -= height_left
 
     # Ваш профиль
-
-        # Устанавливаем начальные и конечные координаты
-        start_x_right = 453.543
-        start_y_right = height - 785.197
-        end_y_right = height - 484.996
-        width_right = 141.732
-        # Определяем высоту графика, которую мы будем использовать
-        fullHeight_right = start_y_right - end_y_right
-        # Определяем значения для каждой части графика
-        values_right = [
-            {"name": "Эмоции", "color": (133/255, 85/255, 85/255), "value": resEmotionsArgument_1},
-            {"name": "Логика", "color": (118/255, 102/255, 171/255), "value": resLogicArgument_1},
-            {"name": "Угроза", "color": (138/255, 171/255, 78/255), "value": resThreat_1},
-            {"name": "Торги", "color": (200/255, 65/255, 85/255), "value": resBidding_1},
-            {"name": "Компромисс", "color": (90/255, 127/255, 174/255), "value": resCompromise_1},
-            {"name": "Приспособление", "color": (235/255, 188/255, 109/255), "value": resAdaptation_1},
-        ]
-        # Начальная позиция по Y для рисования в цикле for каждой части графика
-        current_y_right = start_y_right
-        # Рисуем график
-        for part_right in values_right:
-            if part_right["value"] > 0:  # Проверяем, что значение больше 0
-                # Рассчитываем высоту на основе значения
-                height_right = (fullHeight_right * part_right["value"]) / sum(part["value"] for part in values_right)
-                can.setStrokeColorRGB(*part_right["color"])
-                can.setLineWidth(width_right)
-                can.line(start_x_right, current_y_right, start_x_right, current_y_right - height_right)
-                current_y_right -= height_right
+    # Устанавливаем начальные и конечные координаты
+    start_x_right = 453.543
+    start_y_right = height - 785.197
+    end_y_right = height - 484.996
+    width_right = 141.732
+    # Определяем высоту графика, которую мы будем использовать
+    fullHeight_right = start_y_right - end_y_right
+    # Определяем значения для каждой части графика
+    values_right = [
+        {"name": "Эмоции", "color": (133/255, 85/255, 85/255), "value": resEmotionsArgument_1},
+        {"name": "Логика", "color": (118/255, 102/255, 171/255), "value": resLogicArgument_1},
+        {"name": "Угроза", "color": (138/255, 171/255, 78/255), "value": resThreat_1},
+        {"name": "Торги", "color": (200/255, 65/255, 85/255), "value": resBidding_1},
+        {"name": "Компромисс", "color": (90/255, 127/255, 174/255), "value": resCompromise_1},
+        {"name": "Приспособление", "color": (235/255, 188/255, 109/255), "value": resAdaptation_1},
+    ]
+    # Начальная позиция по Y для рисования в цикле for каждой части графика
+    current_y_right = start_y_right
+    # Рисуем график
+    for part_right in values_right:
+        if part_right["value"] > 0:  # Проверяем, что значение больше 0
+            # Рассчитываем высоту на основе значения
+            height_right = (fullHeight_right * part_right["value"]) / sum(part["value"] for part in values_right)
+            can.setStrokeColorRGB(*part_right["color"])
+            can.setLineWidth(width_right)
+            can.line(start_x_right, current_y_right, start_x_right, current_y_right - height_right)
+            current_y_right -= height_right
 
     can.showPage()  # Завершение четвёртой страницы
 
@@ -535,7 +504,6 @@ def create_pdf(filename):
         return
     can.drawImage(image_path_5, 0, 0, width=width, height=height)
 
-    # Печать текста на PDF
     can.setFont("Bahnschrift", 14)  # Устанавливаем шрифт и размер
 
     if resAdaptation_2 is not None:  # Проверяем, что resAdaptation_2 не None
@@ -1332,7 +1300,6 @@ def create_pdf(filename):
         return
     can.drawImage(image_path_6, 0, 0, width=width, height=height)
 
-    # Печать текста на PDF
     can.setFont("Bahnschrift", 14)  # Устанавливаем шрифт и размер
 
     if resAdaptation_2 is not None:
@@ -1383,7 +1350,6 @@ def create_pdf(filename):
         return
     can.drawImage(image_path_9, 0, 0, width=width, height=height)
 
-    # Печать текста на PDF
     can.setFont("Bahnschrift", 14)  # Устанавливаем шрифт и размер
 
     # Вычленяем значения из sorted_result[0] и sorted_result[4] для подсчёта разницы между минимумом и максимумом
@@ -1476,6 +1442,44 @@ def create_pdf(filename):
         print(f"Изображение {image_path_13} не найдено.")
         return
     can.drawImage(image_path_13, 0, 0, width=width, height=height)
+
+    can.setFont("Bahnschrift", 14)  # Устанавливаем шрифт и размер
+
+    can.drawString(249.658, height - 254.288, str(resStrengthInstallation_4))  # Силовая модель
+    can.drawString(231.398, height - 287.888, str(resManipulationInstallation_4))  # Манипулятивная модель
+    can.drawString(250.429, height - 321.496, str(resNegotiationsInstallation_4))  # Деловая модель
+    understandingPercentage = resUnderstandingOfStyles_4 * 100 / 30
+    if (understandingPercentage).is_integer():
+        can.drawString(189.178, height - 355.088, f"{int(understandingPercentage)}%")  # Понимание стилей целое, выводим без десятичных
+    else:
+        can.drawString(189.178, height - 355.088, f"{(understandingPercentage) :.2f}%")  # Понимание стилей дробное, выводим с двумя знаками
+
+    # График
+    # Устанавливаем начальные и конечные координаты
+    start_x_tactics = 56.693
+    start_y_tactics = height - 412.522
+    end_x_tactics = 538.583
+    width_tactics = 44.184
+    # Определяем ширину графика, которую мы будем использовать
+    fullWidth_tactics = end_x_tactics - start_x_tactics
+    # Определяем значения для каждой части графика
+    values_tactics = [
+        {"name": "Силовая", "color": (200/255, 65/255, 85/255), "value": resStrengthInstallation_4},
+        {"name": "Манипулятивная", "color": (90/255, 127/255, 174/255), "value": resManipulationInstallation_4},
+        {"name": "Деловая", "color": (235/255, 188/255, 109/255), "value": resNegotiationsInstallation_4},
+    ]
+    # Начальная позиция по X для рисования в цикле for каждой части графика
+    current_x_tactics = start_x_tactics
+    # Рисуем график
+    for part_tactics in values_tactics:
+        if part_tactics["value"] > 0:  # Проверяем, что значение больше 0
+            # Рассчитываем ширину на основе значения
+            width_tactics_value = (fullWidth_tactics * part_tactics["value"]) / sum(part["value"] for part in values_tactics)
+            can.setStrokeColorRGB(*part_tactics["color"])
+            can.setLineWidth(width_tactics)
+            can.line(current_x_tactics, start_y_tactics, current_x_tactics + width_tactics_value, start_y_tactics)
+            current_x_tactics += width_tactics_value  # Увеличиваем текущую позицию по X
+
 
     can.showPage()  # Завершение тринадцатой страницы
 

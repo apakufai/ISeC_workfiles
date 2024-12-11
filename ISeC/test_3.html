@@ -1179,51 +1179,163 @@
                                 let threat = 0; // Угроза
                                 let cooperation = 0; // Сотрудничество
 
+                                // Инициализация счётчиков
+                                let adaptationCount = 0; // Приспособление
+                                let threatCount = 0; // Угроза
+                                let cooperationCount = 0; // Сотрудничество
+
                                 // Результаты вопроса 1
-                                // Получаем значения из ползунков и инкрементируем их к общему значению
-                                adaptation += (parseInt(document.querySelector('#inp_count_3_1_1 input[type="range"]').value) - 1);
-                                threat += (parseInt(document.querySelector('#inp_count_3_1_2 input[type="range"]').value) - 1);
-                                cooperation += (parseInt(document.querySelector('#inp_count_3_1_3 input[type="range"]').value) - 1);
+                                // Получаем значения из ползунков
+                                adaptation_3_1 = (parseInt(document.querySelector('#inp_count_3_1_1 input[type="range"]').value) - 1);
+                                threat_3_1 = (parseInt(document.querySelector('#inp_count_3_1_2 input[type="range"]').value) - 1);
+                                cooperation_3_1 = (parseInt(document.querySelector('#inp_count_3_1_3 input[type="range"]').value) - 1);
+                                // Инкрементация к общему значению
+                                adaptation += adaptation_3_1;
+                                threat += threat_3_1;
+                                cooperation += cooperation_3_1;
+                                // Подсчёт выбора
+                                if (adaptation_3_1 === 3) adaptationCount += 1;
+                                if (threat_3_1 === 3) threatCount += 1;
+                                if (cooperation_3_1 === 3) cooperationCount += 1;
+                                if (adaptation_3_1 === 2) adaptationCount += 0.5;
+                                if (threat_3_1 === 2) threatCount += 0.5;
+                                if (cooperation_3_1 === 2) cooperationCount += 0.5;
 
                                 // Результаты вопроса 2
-                                adaptation += (parseInt(document.querySelector('#inp_count_3_2_1 input[type="range"]').value) - 1);
-                                cooperation += (parseInt(document.querySelector('#inp_count_3_2_2 input[type="range"]').value) - 1);
-                                threat += (parseInt(document.querySelector('#inp_count_3_2_3 input[type="range"]').value) - 1);
+                                // Получаем значения из ползунков
+                                adaptation_3_2 = (parseInt(document.querySelector('#inp_count_3_2_1 input[type="range"]').value) - 1);
+                                cooperation_3_2 = (parseInt(document.querySelector('#inp_count_3_2_2 input[type="range"]').value) - 1);
+                                threat_3_2 = (parseInt(document.querySelector('#inp_count_3_2_3 input[type="range"]').value) - 1);
+                                // Инкрементация к общему значению
+                                adaptation += adaptation_3_2;
+                                cooperation += cooperation_3_2;
+                                threat += threat_3_2;
+                                // Подсчёт выбора
+                                if (adaptation_3_2 === 3) adaptationCount += 1;
+                                if (cooperation_3_2 === 3) cooperationCount += 1;
+                                if (threat_3_2 === 3) threatCount += 1;
+                                if (adaptation_3_2 === 2) adaptationCount += 0.5;
+                                if (cooperation_3_2 === 2) cooperationCount += 0.5;
+                                if (threat_3_2 === 2) threatCount += 0.5;
 
                                 // Результаты вопроса 3
-                                threat += (parseInt(document.querySelector('#inp_count_3_3_1 input[type="range"]').value) - 1);
-                                cooperation += (parseInt(document.querySelector('#inp_count_3_3_2 input[type="range"]').value) - 1);
-                                adaptation += (parseInt(document.querySelector('#inp_count_3_3_3 input[type="range"]').value) - 1);
-
+                                // Получаем значения из ползунков
+                                threat_3_3 = (parseInt(document.querySelector('#inp_count_3_3_1 input[type="range"]').value) - 1);
+                                cooperation_3_3 = (parseInt(document.querySelector('#inp_count_3_3_2 input[type="range"]').value) - 1);
+                                adaptation_3_3 = (parseInt(document.querySelector('#inp_count_3_3_3 input[type="range"]').value) - 1);
+                                // Инкрементация к общему значению
+                                adaptation += adaptation_3_3;
+                                cooperation += cooperation_3_3;
+                                threat += threat_3_3;
+                                // Подсчёт выбора
+                                if (adaptation_3_3 === 3) adaptationCount += 1;
+                                if (cooperation_3_3 === 3) cooperationCount += 1;
+                                if (threat_3_3 === 3) threatCount += 1;
+                                if (adaptation_3_3 === 2) adaptationCount += 0.5;
+                                if (cooperation_3_3 === 2) cooperationCount += 0.5;
+                                if (threat_3_3 === 2) threatCount += 0.5;
+                                
                                 // Результаты вопроса 4
-                                cooperation += (parseInt(document.querySelector('#inp_count_3_4_1 input[type="range"]').value) - 1);
-                                adaptation += (parseInt(document.querySelector('#inp_count_3_4_2 input[type="range"]').value) - 1);
-                                threat += (parseInt(document.querySelector('#inp_count_3_4_3 input[type="range"]').value) - 1);
+                                // Получаем значения из ползунков
+                                cooperation_3_4 = (parseInt(document.querySelector('#inp_count_3_4_1 input[type="range"]').value) - 1);
+                                adaptation_3_4 = (parseInt(document.querySelector('#inp_count_3_4_2 input[type="range"]').value) - 1);
+                                threat_3_4 = (parseInt(document.querySelector('#inp_count_3_4_3 input[type="range"]').value) - 1);
+                                // Инкрементация к общему значению
+                                cooperation += cooperation_3_4;
+                                adaptation += adaptation_3_4;
+                                threat += threat_3_4;
+                                // Подсчёт выбора
+                                if (cooperation_3_4 === 3) cooperationCount += 1;
+                                if (adaptation_3_4 === 3) adaptationCount += 1;
+                                if (threat_3_4 === 3) threatCount += 1;
+                                if (cooperation_3_4 === 2) cooperationCount += 0.5;
+                                if (adaptation_3_4 === 2) adaptationCount += 0.5;
+                                if (threat_3_4 === 2) threatCount += 0.5;
 
                                 // Результаты вопроса 5
-                                adaptation += (parseInt(document.querySelector('#inp_count_3_5_1 input[type="range"]').value) - 1);
-                                cooperation += (parseInt(document.querySelector('#inp_count_3_5_2 input[type="range"]').value) - 1);
-                                threat += (parseInt(document.querySelector('#inp_count_3_5_3 input[type="range"]').value) - 1);
+                                // Получаем значения из ползунков
+                                adaptation_3_5 = (parseInt(document.querySelector('#inp_count_3_5_1 input[type="range"]').value) - 1);
+                                cooperation_3_5 = (parseInt(document.querySelector('#inp_count_3_5_2 input[type="range"]').value) - 1);
+                                threat_3_5 = (parseInt(document.querySelector('#inp_count_3_5_3 input[type="range"]').value) - 1);
+                                // Инкрементация к общему значению
+                                adaptation += adaptation_3_5;
+                                cooperation += cooperation_3_5;
+                                threat += threat_3_5;
+                                // Подсчёт выбора
+                                if (adaptation_3_5 === 3) adaptationCount += 1;
+                                if (cooperation_3_5 === 3) cooperationCount += 1;
+                                if (threat_3_5 === 3) threatCount += 1;
+                                if (adaptation_3_5 === 2) adaptationCount += 0.5;
+                                if (cooperation_3_5 === 2) cooperationCount += 0.5;
+                                if (threat_3_5 === 2) threatCount += 0.5;
 
                                 // Результаты вопроса 6
-                                adaptation += (parseInt(document.querySelector('#inp_count_3_6_1 input[type="range"]').value) - 1);
-                                cooperation += (parseInt(document.querySelector('#inp_count_3_6_2 input[type="range"]').value) - 1);
-                                threat += (parseInt(document.querySelector('#inp_count_3_6_3 input[type="range"]').value) - 1);
+                                // Получаем значения из ползунков
+                                adaptation_3_6 = (parseInt(document.querySelector('#inp_count_3_6_1 input[type="range"]').value) - 1);
+                                cooperation_3_6 = (parseInt(document.querySelector('#inp_count_3_6_2 input[type="range"]').value) - 1);
+                                threat_3_6 = (parseInt(document.querySelector('#inp_count_3_6_3 input[type="range"]').value) - 1);
+                                // Инкрементация к общему значению
+                                adaptation += adaptation_3_6;
+                                cooperation += cooperation_3_6;
+                                threat += threat_3_6;
+                                // Подсчёт выбора
+                                if (adaptation_3_6 === 3) adaptationCount += 1;
+                                if (cooperation_3_6 === 3) cooperationCount += 1;
+                                if (threat_3_6 === 3) threatCount += 1;
+                                if (adaptation_3_6 === 2) adaptationCount += 0.5;
+                                if (cooperation_3_6 === 2) cooperationCount += 0.5;
+                                if (threat_3_6 === 2) threatCount += 0.5;
 
                                 // Результаты вопроса 7
-                                adaptation += (parseInt(document.querySelector('#inp_count_3_7_1 input[type="range"]').value) - 1);
-                                threat += (parseInt(document.querySelector('#inp_count_3_7_2 input[type="range"]').value) - 1);
-                                cooperation += (parseInt(document.querySelector('#inp_count_3_7_3 input[type="range"]').value) - 1);
+                                // Получаем значения из ползунков
+                                adaptation_3_7 = (parseInt(document.querySelector('#inp_count_3_7_1 input[type="range"]').value) - 1);
+                                threat_3_7 = (parseInt(document.querySelector('#inp_count_3_7_2 input[type="range"]').value) - 1);
+                                cooperation_3_7 = (parseInt(document.querySelector('#inp_count_3_7_3 input[type="range"]').value) - 1);
+                                // Инкрементация к общему значению
+                                adaptation += adaptation_3_7;
+                                threat += threat_3_7;
+                                cooperation += cooperation_3_7;
+                                // Подсчёт выбора
+                                if (adaptation_3_7 === 3) adaptationCount += 1;
+                                if (threat_3_7 === 3) threatCount += 1;
+                                if (cooperation_3_7 === 3) cooperationCount += 1;
+                                if (adaptation_3_7 === 2) adaptationCount += 0.5;
+                                if (threat_3_7 === 2) threatCount += 0.5;
+                                if (cooperation_3_7 === 2) cooperationCount += 0.5;
 
                                 // Результаты вопроса 8
-                                adaptation += (parseInt(document.querySelector('#inp_count_3_8_1 input[type="range"]').value) - 1);
-                                cooperation += (parseInt(document.querySelector('#inp_count_3_8_2 input[type="range"]').value) - 1);
-                                threat += (parseInt(document.querySelector('#inp_count_3_8_3 input[type="range"]').value) - 1);
+                                // Получаем значения из ползунков
+                                adaptation_3_8 = (parseInt(document.querySelector('#inp_count_3_8_1 input[type="range"]').value) - 1);
+                                cooperation_3_8 = (parseInt(document.querySelector('#inp_count_3_8_2 input[type="range"]').value) - 1);
+                                threat_3_8 = (parseInt(document.querySelector('#inp_count_3_8_3 input[type="range"]').value) - 1);
+                                // Инкрементация к общему значению
+                                adaptation += adaptation_3_8;
+                                cooperation += cooperation_3_8;
+                                threat += threat_3_8;
+                                // Подсчёт выбора
+                                if (adaptation_3_8 === 3) adaptationCount += 1;
+                                if (cooperation_3_8 === 3) cooperationCount += 1;
+                                if (threat_3_8 === 3) threatCount += 1;
+                                if (adaptation_3_8 === 2) adaptationCount += 0.5;
+                                if (cooperation_3_8 === 2) cooperationCount += 0.5;
+                                if (threat_3_8 === 2) threatCount += 0.5;
 
                                 // Результаты вопроса 9
-                                cooperation += (parseInt(document.querySelector('#inp_count_3_9_1 input[type="range"]').value) - 1);
-                                adaptation += (parseInt(document.querySelector('#inp_count_3_9_2 input[type="range"]').value) - 1);
-                                threat += (parseInt(document.querySelector('#inp_count_3_9_3 input[type="range"]').value) - 1);
+                                // Получаем значения из ползунков
+                                cooperation_3_9 = (parseInt(document.querySelector('#inp_count_3_9_1 input[type="range"]').value) - 1);
+                                adaptation_3_9 = (parseInt(document.querySelector('#inp_count_3_9_2 input[type="range"]').value) - 1);
+                                threat_3_9 = (parseInt(document.querySelector('#inp_count_3_9_3 input[type="range"]').value) - 1);
+                                // Инкрементация к общему значению
+                                cooperation += cooperation_3_9;
+                                adaptation += adaptation_3_9;
+                                threat += threat_3_9;
+                                // Подсчёт выбора
+                                if (cooperation_3_9 === 3) cooperationCount += 1;
+                                if (adaptation_3_9 === 3) adaptationCount += 1;
+                                if (threat_3_9 === 3) threatCount += 1;
+                                if (cooperation_3_9 === 2) cooperationCount += 0.5;
+                                if (adaptation_3_9 === 2) adaptationCount += 0.5;
+                                if (threat_3_9 === 2) threatCount += 0.5;
 
                                 // Вывод значения в alert (тест)
                                 // alert(`Приспособление: ${adaptation}\n` +
@@ -1234,6 +1346,10 @@
                                 sessionStorage.setItem("resAdaptation_3", adaptation); // Приспособление
                                 sessionStorage.setItem("resThreat_3", threat); // Угроза
                                 sessionStorage.setItem("resCooperation_3", cooperation); // Сотрудничество
+
+                                sessionStorage.setItem("adaptationCount_3", adaptationCount); // Приспособление (счёт)
+                                sessionStorage.setItem("threatCount_3", threatCount); // Угроза (счёт)
+                                sessionStorage.setItem("cooperationCount_3", cooperationCount); // Сотрудничество (счёт)
 
                                 // Переход на новую страницу после окончания анимации
                                 window.location.href = 'test_4.html';
