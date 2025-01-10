@@ -1,3 +1,7 @@
+- Проверить
+@app.route('/check_pdf', methods=['POST'])
+def check_pdf():
+
 - Выправить margin-top для окна на UDI.html
 
 - Добавить генерацию таблицы в БД, если её нет
