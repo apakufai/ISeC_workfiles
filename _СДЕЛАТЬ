@@ -1,5 +1,8 @@
-* JSON только передаёт на сервер пары ключа-значения.
-* Выделить адрес сервера после "fetch" из app.py - там хранятся все json-файлы
+- Сделать так, чтобы pass'ы и данные пользователя для обмена между клиентом и сервером добавлялись в БД, а не летели на сервер. Сделать для этих данных отдельную таблицу.
+
+- Переделать отправление данных на сервер (пр. из "userId : XXXXXXXX" в "userId_XXXXXXXX : XXXXXXXX").
+Также - со всеми остальными данными, которые не сохраняются в localStorrage.
+Также - со всеми pass'ами
 
 * Вот пример объекта, где значением является массив:
 const userActivities = {
@@ -7,31 +10,6 @@ const userActivities = {
     userId2: ["login", "purchase"],
     userId3: ["login", "view", "comment", "logout"]
 };
-
-Переделать отправление данных на сервер (пр. из "userId : XXXXXXXX" в "userId_XXXXXXXX : XXXXXXXX").
-Также - со всеми остальными данными, которые не сохраняются в localStorrage.
-Также - со всеми pass'ами
-
-Добавить POST, GET и DELETE (про GET спросить у нейры, использовать его для добычи данных для генерации):
-
-@app.route('/add', methods=['POST'])
-def add_key_value():
-    data = request.json
-    new_entry = KeyValue(key=data['key'], value=data['value'])
-    db.session.add(new_entry)
-    db.session.commit()
-    return jsonify({'message': 'Key-value pair added'}), 201
-
-@app.route('/delete/<string:key>', methods=['DELETE'])
-def delete_key_value(key):
-    entry = KeyValue.query.filter_by(key=key).first()
-    if entry:
-        db.session.delete(entry)
-        db.session.commit()
-        return jsonify({'message': 'Key-value pair deleted'}), 200
-    else:
-        return jsonify({'message': 'Key not found'}), 404
-
 
 
 Переделать таймер с 10 секунд на минуту
