@@ -1,4 +1,4 @@
-- Проверить
+- Проверить, нужен ли:
 @app.route('/check_pdf', methods=['POST'])
 def check_pdf():
 
