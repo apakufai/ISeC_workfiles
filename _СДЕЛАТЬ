@@ -1,3 +1,15 @@
+Пихать это не в localstorage, а на сервер:
+    "indexPass": True,
+    "UDIPass": True,
+    "test1Pass": True,
+    "test2Pass": True,
+    "test3Pass": True,
+    "test4Pass": True,
+    "test5Pass": True,
+    "test6Pass": True
+
+
+
 - Сделать функцию удаления кл-зн из сессии по истечении минуты
 
 - Проверить, нужен ли:
