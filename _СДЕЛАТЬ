@@ -1,6 +1,13 @@
 * JSON только передаёт на сервер пары ключа-значения.
 * Выделить адрес сервера после "fetch" из app.py - там хранятся все json-файлы
 
+* Вот пример объекта, где значением является массив:
+const userActivities = {
+    userId1: ["login", "view", "logout"],
+    userId2: ["login", "purchase"],
+    userId3: ["login", "view", "comment", "logout"]
+};
+
 Переделать отправление данных на сервер (пр. из "userId : XXXXXXXX" в "userId_XXXXXXXX : XXXXXXXX").
 Также - со всеми остальными данными, которые не сохраняются в localStorrage.
 Также - со всеми pass'ами
